@@ -189,16 +189,17 @@
     \node[below=0.15cm of data,color=good] {high};
     \node[below=0.15cm of ana,color=accent] {medium};
     \node[below=0.15cm of write,color=good] {high};
-    \node[below=0.15cm of rev,color=accent] {medium};
+    \node[below=0.15cm of rev,color=accent] {review gate};
   \end{tikzpicture}
   \end{center}
   \vspace{0.2cm}
   \begin{center}
     \scriptsize
-    \tikz{\node[draw=muted,fill=white,rounded corners,inner sep=2pt]{%
+    \tikz{\node[draw=muted,fill=white,rounded corners,inner sep=2pt,align=center]{%
       \textcolor{muted}{\rule{0.6em}{0.6em}}~low trust \quad
       \textcolor{accent}{\rule{0.6em}{0.6em}}~medium trust \quad
-      \textcolor{good}{\rule{0.6em}{0.6em}}~high trust};}
+      \textcolor{good}{\rule{0.6em}{0.6em}}~high trust\\
+      \textcolor{accent!70!deepblue}{\rule{0.6em}{0.6em}}~human-review gate};}
   \end{center}
   \vspace{0.25cm}
   \midpoint{Agents are useful across the pipeline, but not equally trustworthy at every stage.}
