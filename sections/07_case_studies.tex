@@ -192,19 +192,27 @@
     \node[below=0.15cm of rev,color=accent] {medium};
   \end{tikzpicture}
   \end{center}
-  \vspace{0.3cm}
-  \begin{center}\small Colour = how trustworthy agents are at each phase today.\end{center}
-  \vspace{0.4cm}
+  \vspace{0.2cm}
+  \begin{center}
+    \scriptsize
+    \tikz{\node[draw=muted,fill=white,rounded corners,inner sep=2pt]{%
+      \textcolor{muted}{\rule{0.6em}{0.6em}}~low trust \quad
+      \textcolor{accent}{\rule{0.6em}{0.6em}}~medium trust \quad
+      \textcolor{good}{\rule{0.6em}{0.6em}}~high trust};}
+  \end{center}
+  \vspace{0.25cm}
   \midpoint{Agents are useful across the pipeline, but not equally trustworthy at every stage.}
 \end{frame}
 
 % -------- Slide 9: Bridge to Part 2 of the course --------
 \begin{frame}{What we will actually do in Session 2}
   \vspace{0.2cm}
-  \threebullets%
-    {Walk through \emph{my own} replication packages, with the agent live on screen.}%
-    {Show prompts that work and prompts that fail, with their cost.}%
-    {Compare manual vs agent timings on the same task, no marketing claims.}
-  \vspace{0.6cm}
-  \begin{center}\Large\color{deepblue}\bfseries Bring a research project you would like to test on.\end{center}
+  \begin{itemize}\setlength\itemsep{0.35em}
+    \item We will review some of my current projects to see what agents can and cannot do.
+    \item We will learn different lessons from different frictions: writing slides, building datasets, rewriting papers, and creating tables from data.
+    \item We will live-screen selected workflows: initial setup, requests, prompts, control checks, logs, and review.
+    \item If useful, we can also take a quick research idea from the room and test how far an agent can push it in a short session.
+  \end{itemize}
+  \vspace{0.45cm}
+  \begin{center}\Large\color{deepblue}\bfseries Session 2 is about judgement: what to delegate, what to inspect, and when to stop. \end{center}
 \end{frame}

@@ -102,16 +102,20 @@
 \begin{frame}{MCP vs API vs CLI}
   \vspace{0.1cm}
   \begin{center}
-  \begin{tabularx}{0.92\linewidth}{>{\bfseries\color{deepblue}}lX}
+  \begin{tabularx}{0.94\linewidth}{>{\bfseries\color{deepblue}}lXX}
   \toprule
-  API & A programmatic endpoint: \emph{your code} calls a service over HTTP.\\
-  CLI & A command-line tool: \emph{a human or an agent} runs commands.\\
-  MCP & The \emph{Model Context Protocol}: a standard way to expose tools, files, and data sources to agents so the agent can discover and call them \citep{anthropic_mcp_2024}.\\
+   & What it is & Token cost logic\\
+  \midrule
+  API & A programmatic endpoint: \emph{your code} calls a service over HTTP. & Usually lowest tool-loading overhead: your code decides what to send.\\
+  CLI & A command-line tool: \emph{a human or an agent} runs commands. & Medium overhead: command help, logs and outputs enter context when needed.\\
+  MCP & A standard way to expose tools, files and data sources to agents \citep{anthropic_mcp_2024}. & Higher upfront overhead: tool names, schemas and descriptions are loaded so the agent can choose among them.\\
   \bottomrule
   \end{tabularx}
   \end{center}
-  \vspace{0.4cm}
+  \vspace{0.25cm}
   \begin{center}\Large\color{accent}\bfseries MCP is the plumbing.\\CLI is the operation.\\API is the integration.\end{center}
+  \vspace{0.15cm}
+  \begin{center}\scriptsize\color{muted}Simple rule: the more tools you expose to the model, the more context you spend before the task even starts.\end{center}
 \end{frame}
 
 % -------- Slide 6: Subagents --------

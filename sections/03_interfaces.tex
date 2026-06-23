@@ -1,5 +1,5 @@
 % =============================================================
-% Block 3 -- Four interface families (8 slides)
+% Block 3 -- Four interface families (9 slides)
 % =============================================================
 
 \sectionframe{Part 3 -- Four interface families}
@@ -10,13 +10,13 @@
   \begin{tikzpicture}[every node/.style={align=center,font=\small}]
     \node[draw=deepblue,fill=softblue,rounded corners,very thick,
           minimum width=4.4cm,minimum height=2.0cm,text width=4.1cm]
-          (chat){\textbf{1. Chat / app}\\\scriptsize ChatGPT, Claude, Gemini, Grok\\\scriptsize talk, think, write};
+          (chat){\textbf{1. Chat / app}\\\scriptsize ChatGPT, Claude, Gemini, Grok\\\scriptsize talk, think, write, act};
     \node[draw=accent,fill=softorange,rounded corners,very thick,
           minimum width=4.4cm,minimum height=2.0cm,text width=4.1cm,right=0.6cm of chat]
           (res){\textbf{2. Research / browser}\\\scriptsize Perplexity, Elicit, NotebookLM\\\scriptsize find, triage, summarise};
     \node[draw=deepblue,fill=softgreen,rounded corners,very thick,
           minimum width=4.4cm,minimum height=2.0cm,text width=4.1cm,below=0.5cm of chat]
-          (ide){\textbf{3. IDE agent}\\\scriptsize Cursor, Copilot, Windsurf\\\scriptsize code, refactor, test};
+          (ide){\textbf{3. IDE agent}\\\scriptsize Cursor, Copilot, Windsurf, Antigravity, Codex\\\scriptsize code, refactor, test};
     \node[draw=accent,fill=softpurple,rounded corners,very thick,
           minimum width=4.4cm,minimum height=2.0cm,text width=4.1cm,below=0.5cm of res]
           (cli){\textbf{4. CLI / local}\\\scriptsize Claude Code, Codex CLI, Ollama\\\scriptsize automate, batch, integrate};
@@ -33,7 +33,7 @@
       \threebullets%
         {ChatGPT, Claude, Gemini, Grok and similar apps.}%
         {Best for thinking, writing, summarising, light analysis.}%
-        {Weakness: limited file control, hidden limits, reproducibility.}
+        {Weakness: limited file control, hidden limits, reproducibility, AI sloppiness.}
       \vspace{0.2cm}
       \textbf{Agentic versions exist}
       \begin{itemize}\setlength\itemsep{0.25em}
@@ -42,8 +42,30 @@
       \end{itemize}
     \column{0.46\textwidth}
       \includegraphics[width=\linewidth,height=0.62\textheight,keepaspectratio]{chatgpt}
-      \smallsource{ChatGPT Agent Mode screenshot via BKA Content (2024). Replace with an institutional capture before teaching.}
+      \smallsource{ChatGPT Agent Mode screenshot via BKA Content (2024). Replace with an institutional capture for distribution.}
   \end{columns}
+\end{frame}
+
+% -------- Slide 3: Desktop agent apps --------
+\begin{frame}{Desktop agent apps: the IDE boundary is blurring}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \textbf{Not only chat in a browser}
+      \begin{itemize}\setlength\itemsep{0.3em}
+        \item Cursor desktop app, Google Antigravity, Codex app/extension, Claude Code, and similar tools.
+        \item They can open folders, inspect files, run commands, edit code, and manage tasks.
+        \item The app becomes a control plane around the project, not just a place to ask questions.
+      \end{itemize}
+    \column{0.48\textwidth}
+      \textbf{What this means}
+      \begin{itemize}\setlength\itemsep{0.3em}
+        \item IDEs are not disappearing overnight, but their core functions are being absorbed by agent apps.
+        \item The old distinction ``chat app vs IDE'' is becoming weaker.
+        \item For researchers, the relevant question is: \emph{can I review what changed?}
+      \end{itemize}
+  \end{columns}
+  \vspace{0.4cm}
+  \midpoint{The interface is moving from editor-first to agent-first.}
 \end{frame}
 
 % -------- Slide 3: Research / browser assistants --------
@@ -83,12 +105,12 @@
   \midpoint{Good for finding; not enough for believing.}
 \end{frame}
 
-% -------- Slide 4: IDE agents --------
+% -------- Slide 5: IDE agents --------
 \begin{frame}{3. IDE agents}
   \begin{columns}[T,onlytextwidth]
     \column{0.48\textwidth}
       \threebullets%
-        {Cursor, GitHub Copilot Agent, Windsurf, JetBrains AI, VS Code Copilot Chat.}%
+        {Cursor, GitHub Copilot Agent, Windsurf, Antigravity, Codex inside competing IDEs, JetBrains AI, VS Code Copilot Chat.}%
         {Best when the object is a codebase.}%
         {Review happens through diffs, tests and file changes.}
       \vspace{0.2cm}
@@ -97,6 +119,7 @@
         \item Long Stata/R/Python pipelines benefit massively.
         \item Diffs are auditable: nothing changes silently.
         \item Tests force the agent to prove correctness.
+        \item New desktop agent apps increasingly do the same work outside a traditional IDE.
       \end{itemize}
     \column{0.48\textwidth}
       \begin{tikzpicture}[font=\ttfamily\scriptsize,every node/.style={align=left}]
@@ -117,7 +140,7 @@
   \end{columns}
 \end{frame}
 
-% -------- Slide 5: CLI agents --------
+% -------- Slide 6: CLI agents --------
 \begin{frame}{4. CLI agents (and local models)}
   \begin{columns}[T,onlytextwidth]
     \column{0.46\textwidth}
@@ -137,7 +160,7 @@
   \end{columns}
 \end{frame}
 
-% -------- Slide 6: When local vs cloud --------
+% -------- Slide 7: When local vs cloud --------
 \begin{frame}{When local is the right answer}
   \begin{columns}[T,onlytextwidth]
     \column{0.48\textwidth}
@@ -159,19 +182,19 @@
   \midpoint{For most research, cloud frontier + careful data hygiene wins.}
 \end{frame}
 
-% -------- Slide 7: Comparing ecosystems without religion --------
+% -------- Slide 8: Comparing ecosystems without religion --------
 \begin{frame}{Comparing the main ecosystems, without religion}
   \begin{center}
   \begin{tikzpicture}[every node/.style={align=left,font=\small}]
     \node[draw=deepblue,fill=softblue,rounded corners,very thick,
           minimum width=5.8cm,minimum height=2.4cm,text width=5.4cm,inner sep=0.25cm]
-          (openai) at (0,1.7) {\textbf{OpenAI}\\Generalist chat + Agent + Codex CLI\\\scriptsize \color{muted}watch: cost, limits, plan churn};
+          (openai) at (0,1.7) {\textbf{OpenAI}\\Generalist chat + Agent + Codex app/CLI\\\scriptsize \color{muted}watch: cost, limits, plan churn};
     \node[draw=accent,fill=softorange,rounded corners,very thick,
           minimum width=5.8cm,minimum height=2.4cm,text width=5.4cm,inner sep=0.25cm]
           (anthropic) at (6.4,1.7) {\textbf{Anthropic}\\Careful code (Claude Code), strong defaults\\\scriptsize \color{muted}watch: usage caps, restricted regions};
     \node[draw=deepblue,fill=softgreen,rounded corners,very thick,
           minimum width=5.8cm,minimum height=2.4cm,text width=5.4cm,inner sep=0.25cm]
-          (google) at (0,-1.5) {\textbf{Google}\\Long context + Search ecosystem + Gemini CLI\\\scriptsize \color{muted}watch: product churn, naming};
+          (google) at (0,-1.5) {\textbf{Google}\\Long context + Search + Antigravity + Gemini CLI\\\scriptsize \color{muted}watch: product churn, naming};
     \node[draw=accent,fill=softpurple,rounded corners,very thick,
           minimum width=5.8cm,minimum height=2.4cm,text width=5.4cm,inner sep=0.25cm]
           (cursor) at (6.4,-1.5) {\textbf{Cursor}\\IDE-native, multi-model, agent-first\\\scriptsize \color{muted}watch: subscription / usage split};
@@ -181,7 +204,7 @@
   \begin{center}\scriptsize\color{muted}Also: Grok / xAI; Perplexity / Elicit / NotebookLM for search; Llama / Qwen / Mistral for local.\end{center}
 \end{frame}
 
-% -------- Slide 8: Choose by task, not by brand --------
+% -------- Slide 9: Choose by task, not by brand --------
 \begin{frame}{Choose by task, not by brand}
   \vspace{0.2cm}
   \begin{center}
@@ -189,7 +212,7 @@
   \toprule
   Thinking, writing, light analysis & Chat app (any frontier).\\
   Source discovery, evidence triage & Research/browser assistant + chat for synthesis.\\
-  Coding, replication packages, table generation & IDE agent.\\
+  Coding, replication packages, table generation & IDE agent or desktop agent app.\\
   Batch jobs, scripted pipelines, server work & CLI agent.\\
   Sensitive data, full reproducibility & Local model where feasible; otherwise enterprise plan with no training.\\
   \bottomrule

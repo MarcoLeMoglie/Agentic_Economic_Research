@@ -24,7 +24,7 @@
   \end{columns}
   \vspace{0.5cm}
   \begin{center}\Large\color{accent}\bfseries For agents, ``unlimited'' rarely means uncontrolled.\end{center}
-  \smallsource{Pricing pages from OpenAI, Anthropic, Google, Cursor \citep{openai_pricing,anthropic_pricing,google_ai_plans,cursor_pricing}. Verify before teaching.}
+  \smallsource{Pricing pages from OpenAI, Anthropic, Google, Cursor \citep{openai_pricing,anthropic_pricing,google_ai_plans,cursor_pricing}.}
 \end{frame}
 
 % -------- Slide 2: Pricing logic chart --------
@@ -33,25 +33,28 @@
     \column{0.48\textwidth}
       \begin{tikzpicture}[every node/.style={align=center,font=\small}]
         \node[draw=deepblue,fill=softblue,rounded corners,very thick,
-              minimum width=2.6cm,minimum height=0.9cm]
-              (ctx){\textbf{Context size}\\\scriptsize tokens \emph{in}};
+              minimum width=4.8cm,minimum height=0.72cm,text width=4.5cm]
+              (ctx){\textbf{Context size}\\\scriptsize files, history, tool outputs};
         \node[draw=accent,fill=softorange,rounded corners,very thick,
-              minimum width=2.6cm,minimum height=0.9cm,right=0.5cm of ctx]
-              (calls){\textbf{Tool calls}\\\scriptsize \# of round-trips};
+              minimum width=4.8cm,minimum height=0.72cm,text width=4.5cm,
+              below=0.32cm of ctx]
+              (calls){\textbf{Tool calls}\\\scriptsize each call adds prompts and results};
         \node[draw=deepblue,fill=softgreen,rounded corners,very thick,
-              minimum width=2.6cm,minimum height=0.9cm,below=0.6cm of ctx]
-              (ret){\textbf{Retries}\\\scriptsize errors, self-checks};
+              minimum width=4.8cm,minimum height=0.72cm,text width=4.5cm,
+              below=0.32cm of calls]
+              (ret){\textbf{Retries}\\\scriptsize errors, self-checks, sub-agents};
         \node[draw=accent,fill=softpurple,rounded corners,very thick,
-              minimum width=2.6cm,minimum height=0.9cm,below=0.6cm of calls]
-              (mod){\textbf{Model tier}\\\scriptsize \$ per million tok.};
+              minimum width=4.8cm,minimum height=0.72cm,text width=4.5cm,
+              below=0.32cm of ret]
+              (mod){\textbf{Model tier}\\\scriptsize price per million tokens};
         \node[draw=dark,fill=white,line width=1pt,rounded corners,
-              minimum width=2.6cm,minimum height=0.9cm,
-              below=2cm of $(ctx)!0.5!(calls)$]
-              (cost){\textbf{\color{deepblue}\Large cost}};
-        \draw[->,thick,color=muted] (ctx.south)--(cost.north west);
-        \draw[->,thick,color=muted] (calls.south)--(cost.north east);
-        \draw[->,thick,color=muted] (ret.east)--(cost.west);
-        \draw[->,thick,color=muted] (mod.west)--(cost.east);
+              minimum width=4.8cm,minimum height=0.8cm,text width=4.5cm,
+              below=0.45cm of mod]
+              (cost){\textbf{\color{deepblue}Total cost per task}};
+        \draw[->,thick,color=muted] (ctx) -- (calls);
+        \draw[->,thick,color=muted] (calls) -- (ret);
+        \draw[->,thick,color=muted] (ret) -- (mod);
+        \draw[->,thick,color=muted] (mod) -- (cost);
       \end{tikzpicture}
     \column{0.48\textwidth}
       \fourbullets%
