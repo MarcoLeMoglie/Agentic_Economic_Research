@@ -1,2 +1,100 @@
-% Block 05_reliability (placeholder)
-% Will be populated block by block.
+% =============================================================
+% Block 5 -- Reliability and control (5 slides)
+% =============================================================
+
+\sectionframe{Part 5 -- Reliability and control}
+
+% -------- Slide 1: Hallucinations are not only fake citations --------
+\begin{frame}{Hallucinations are not only fake citations}
+  \vspace{0.2cm}
+  \begin{center}
+  \begin{tabularx}{0.92\linewidth}{>{\bfseries\color{deepblue}}lX}
+  \toprule
+  Citation hallucination & A plausible but nonexistent paper, dataset, or table.\\
+  Code hallucination & A function that runs, but implements the wrong logic.\\
+  Statistical hallucination & Correct syntax, wrong interpretation (e.g., wrong fixed effects, wrong cluster).\\
+  Workflow hallucination & Task marked complete without real verification (no test, no log, no diff).\\
+  \bottomrule
+  \end{tabularx}
+  \end{center}
+  \vspace{0.4cm}
+  \midpoint{In agents, the most dangerous hallucination is ``done''.}
+  \smallsource{Hallucination taxonomy adapted from Ji et al.\ \citeyearpar{ji_acm_2023}.}
+\end{frame}
+
+% -------- Slide 2: Automation bias and overtrust --------
+\begin{frame}{Automation bias and overtrust}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \threebullets%
+        {Humans systematically over-trust automated outputs \citep{skitka_1999_automation_bias}.}%
+        {The smoother and more confident the output, the stronger the bias.}%
+        {AI outputs are smoother and more confident than human drafts.}
+    \column{0.48\textwidth}
+      \textbf{What this looks like in practice}
+      \begin{itemize}\setlength\itemsep{0.3em}
+        \item Accepting a regression specification ``because the output table looks reasonable''.
+        \item Copy-pasting a literature summary without reading the cited papers.
+        \item Skipping unit tests because the agent ``already checked''.
+      \end{itemize}
+  \end{columns}
+  \vspace{0.4cm}
+  \midpoint{Polished prose is not validated reasoning.}
+\end{frame}
+
+% -------- Slide 3: Verification by design --------
+\begin{frame}{Verification by design}
+  \begin{center}
+  \begin{tikzpicture}[every node/.style={align=center,font=\small}]
+    \node[draw=deepblue,fill=softblue,rounded corners,very thick,
+          minimum width=3.2cm,minimum height=1.1cm,text width=3cm]
+          (test){\textbf{Tests}\\\scriptsize unit, smoke, golden};
+    \node[draw=accent,fill=softorange,rounded corners,very thick,
+          minimum width=3.2cm,minimum height=1.1cm,text width=3cm,right=0.7cm of test]
+          (diff){\textbf{Diffs}\\\scriptsize visible, reviewable};
+    \node[draw=deepblue,fill=softgreen,rounded corners,very thick,
+          minimum width=3.2cm,minimum height=1.1cm,text width=3cm,right=0.7cm of diff]
+          (logs){\textbf{Logs}\\\scriptsize commands, outputs};
+    \node[draw=accent,fill=softpurple,rounded corners,very thick,
+          minimum width=3.2cm,minimum height=1.1cm,text width=3cm,right=0.7cm of logs]
+          (rev){\textbf{Review}\\\scriptsize human or second agent};
+    \draw[->,thick,color=muted] (test)--(diff);
+    \draw[->,thick,color=muted] (diff)--(logs);
+    \draw[->,thick,color=muted] (logs)--(rev);
+  \end{tikzpicture}
+  \end{center}
+  \vspace{0.4cm}
+  \begin{center}\large\color{deepblue}\bfseries Verification cannot be an afterthought; it must be a slot in the workflow.\end{center}
+  \vspace{0.2cm}
+  \begin{center}\small\color{muted}For research code: at least one test per table, every change as a commit, every command in a log.\end{center}
+\end{frame}
+
+% -------- Slide 4: When NOT to use an agent --------
+\begin{frame}{When \emph{not} to use an agent}
+  \vspace{0.2cm}
+  \begin{center}
+  \begin{tabularx}{0.92\linewidth}{>{\bfseries\color{deepblue}}lX}
+  \toprule
+  Identification & The hardest, most causal-inference-specific step.\\
+  Confidential data & Where the privacy boundary is unclear.\\
+  Final claims & The exact wording of theorems, abstracts, conclusions.\\
+  Trust-critical artefacts & Replication packages submitted to a data editor.\\
+  Disagreements with coauthors & Resolve by talking, not by prompting.\\
+  \bottomrule
+  \end{tabularx}
+  \end{center}
+  \vspace{0.4cm}
+  \begin{center}\Large\color{accent}\bfseries Delegating these does not save time; it transfers risk.\end{center}
+\end{frame}
+
+% -------- Slide 5: The local alignment problem --------
+\begin{frame}{The local alignment problem}
+  \begin{center}\Large\bfseries\color{deepblue}The agent optimises for completing the task.\\You care about doing good research.\end{center}
+  \vspace{0.4cm}
+  \threebullets%
+    {Plausible code is not valid code.}%
+    {A complete table is not a correct table.}%
+    {A polished paragraph is not a justified claim.}
+  \vspace{0.5cm}
+  \midpoint{The alignment gap is not in 2030; it is in your next prompt.}
+\end{frame}
