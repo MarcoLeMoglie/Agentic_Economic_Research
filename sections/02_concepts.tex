@@ -1,2 +1,223 @@
-% Block 02_concepts (placeholder)
-% Will be populated block by block.
+% =============================================================
+% Block 2 -- Concepts and vocabulary (8 slides)
+% Agent definition, chatbot vs agent, loop, prompt vs task,
+% context/tokens, tools/permissions/sandbox, autonomy spectrum,
+% reliability vocab.
+% =============================================================
+
+\sectionframe[accent]{Part 2 -- Concepts and vocabulary}
+
+% -------- Slide 1: What is an agent? --------
+\begin{frame}{What is an agent?}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.46\textwidth}
+      \bigpoint{LLM + tools\\+ goal + loop}
+      \vspace{0.5cm}
+      \begin{center}\color{muted}\small An agent is not a smarter chatbot.\\It is a workflow with partial autonomy.\end{center}
+    \column{0.50\textwidth}
+      \begin{tikzpicture}[every node/.style={align=center,font=\small}]
+        \node[draw=deepblue,fill=softblue,rounded corners,very thick,
+              minimum width=2.4cm,minimum height=0.9cm]
+              (llm){\textbf{LLM}\\\scriptsize reasoning core};
+        \node[draw=accent,fill=softorange,rounded corners,very thick,
+              minimum width=2.4cm,minimum height=0.9cm,right=0.6cm of llm]
+              (tools){\textbf{Tools}\\\scriptsize browser, files, shell};
+        \node[draw=deepblue,fill=softgreen,rounded corners,very thick,
+              minimum width=2.4cm,minimum height=0.9cm,below=0.6cm of llm]
+              (goal){\textbf{Goal}\\\scriptsize the user's task};
+        \node[draw=accent,fill=softpurple,rounded corners,very thick,
+              minimum width=2.4cm,minimum height=0.9cm,below=0.6cm of tools]
+              (loop){\textbf{Loop}\\\scriptsize plan/act/check};
+        \draw[<->,thick,color=accent] (llm.east)--(tools.west);
+        \draw[<->,thick,color=accent] (goal.east)--(loop.west);
+        \draw[<->,thick,color=deepblue,dashed] (llm.south)--(goal.north);
+        \draw[<->,thick,color=deepblue,dashed] (tools.south)--(loop.north);
+      \end{tikzpicture}
+  \end{columns}
+\end{frame}
+
+% -------- Slide 2: Chatbot vs agent --------
+\begin{frame}{Chatbot vs agent}
+  \vspace{0.2cm}
+  \begin{center}
+  \begin{tabularx}{0.92\linewidth}{>{\bfseries\color{deepblue}}lXX}
+  \toprule
+   & Chatbot & Agent\\
+  \midrule
+  Main action & Responds & Plans and acts\\
+  Tools & Optional & Central\\
+  Files & Usually attached & Often browsed and edited\\
+  Failure mode & Wrong \emph{answer} & Wrong \emph{action}\\
+  Human role & Reader & Supervisor\\
+  Cost driver & Tokens read/written & Tokens \emph{plus} tool calls and retries\\
+  \bottomrule
+  \end{tabularx}
+  \end{center}
+  \vspace{0.4cm}
+  \midpoint{Different failure mode $\Rightarrow$ different control needs.}
+\end{frame}
+
+% -------- Slide 3: Agent loop with a real trace --------
+\begin{frame}{The agent loop, with a real trace}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.36\textwidth}
+      \begin{tikzpicture}[every node/.style={align=center,font=\scriptsize}]
+        \foreach \i/\ang/\txt in {0/90/Observe,1/18/Plan,2/-54/Act,3/-126/Verify,4/162/Iterate}{
+          \node[draw=deepblue,fill=softblue,rounded corners,very thick,
+                minimum width=1.9cm,minimum height=0.65cm] at (\ang:2.1) (n\i) {\txt};}
+        \draw[->,line width=1.2pt,color=accent] (n0) to[bend left=10] (n1);
+        \draw[->,line width=1.2pt,color=accent] (n1) to[bend left=10] (n2);
+        \draw[->,line width=1.2pt,color=accent] (n2) to[bend left=10] (n3);
+        \draw[->,line width=1.2pt,color=accent] (n3) to[bend left=10] (n4);
+        \draw[->,line width=1.2pt,color=accent] (n4) to[bend left=10] (n0);
+        \node[font=\bfseries\small,color=deepblue] at (0,0) {Task};
+      \end{tikzpicture}
+    \column{0.60\textwidth}
+      \scriptsize\ttfamily
+      \begin{tcolorbox}[colback=softgray,colframe=deepblue!40,
+                        arc=2pt,boxrule=0.4pt,top=2pt,bottom=2pt,left=4pt,right=4pt]
+      \textbf{Task}: ``Re-run Table 2, fix the missing standard errors.''\\[-0.1cm]\hrule\vspace{0.1cm}
+      \textbf{Observe}: read \texttt{do/02\_table2.do}, \texttt{tables/T2.tex}.\\
+      \textbf{Plan}: \texttt{reghdfe} call lacks \texttt{cluster(id\_firm)}.\\
+      \textbf{Act}: edit line 47, re-run \texttt{stata-mp -b do/02\_table2.do}.\\
+      \textbf{Verify}: log shows clustered SE; \texttt{T2.tex} regenerated, columns 1--3 unchanged within 1e-4.\\
+      \textbf{Iterate}: report diff to user; await approval.
+      \end{tcolorbox}
+  \end{columns}
+  \smallsource{Stylised trace from a real Stata project; commands and file names anonymised.}
+\end{frame}
+
+% -------- Slide 4: From prompt to task --------
+\begin{frame}{From prompt to task}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.46\textwidth}
+      \textbf{Prompt}\\[0.2cm]
+      ``Explain how to run this regression.''
+      \vspace{0.4cm}\\
+      \scriptsize\color{muted}One question, one answer. No state. No side effect.
+    \column{0.50\textwidth}
+      \textbf{Task}\\[0.2cm]
+      ``Inspect the scripts, re-run the model with clustered SE, regenerate the table, compare with the previous version, report what changed.''
+      \vspace{0.4cm}\\
+      \scriptsize\color{muted}A goal, a workflow, a verifiable artefact.
+  \end{columns}
+  \vspace{0.5cm}
+  \bigpoint{Agentic AI shifts\\the unit of delegation.}
+\end{frame}
+
+% -------- Slide 5: Context, tokens, memory --------
+\begin{frame}{Context, tokens, memory}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.50\textwidth}
+      \begin{tikzpicture}
+        \begin{axis}[
+            width=6.6cm,height=4.4cm,
+            xbar,bar width=0.30cm,
+            xmin=0,xmax=2200,
+            xtick={0,200,500,1000,2000},
+            xticklabels={0,200k,500k,1M,2M},
+            xticklabel style={font=\scriptsize,color=muted},
+            symbolic y coords={GPT-4 2023,Claude 3.5 2024,GPT-5 2025,Gemini 2.5 2026},
+            ytick=data,
+            yticklabel style={font=\scriptsize,color=dark},
+            xlabel={Context window (tokens, approx.)},
+            xlabel style={font=\scriptsize,color=muted},
+            xmajorgrids,grid style={dotted,gray!40},
+            axis lines*=left,
+            tick style={color=muted},
+            nodes near coords,
+            nodes near coords style={font=\scriptsize\bfseries,color=deepblue,/pgf/number format/.cd,fixed,precision=0},
+            point meta=explicit symbolic,
+          ]
+          \addplot[draw=deepblue,fill=deepblue!75]
+            coordinates {(8,GPT-4 2023)[8k] (200,Claude 3.5 2024)[200k]
+                         (400,GPT-5 2025)[400k] (2000,Gemini 2.5 2026)[2M]};
+        \end{axis}
+      \end{tikzpicture}
+    \column{0.46\textwidth}
+      \threebullets%
+        {\textbf{Context} = what the model can see right now (prompt + files + tool outputs).}%
+        {\textbf{Tokens} are the unit of measurement \emph{and} of cost.}%
+        {\textbf{Memory} extends context across sessions (project notes, vault, vector store).}
+      \vspace{0.2cm}
+      \begin{center}\small\color{accent}\bfseries More context is not the same as better reasoning.\end{center}
+  \end{columns}
+  \smallsource{Vendor documentation 2023--2026 (OpenAI, Anthropic, Google). Numbers are nominal context-window sizes; effective context can be smaller.}
+\end{frame}
+
+% -------- Slide 6: Tools, permissions, sandbox --------
+\begin{frame}{Tools, permissions, sandbox}
+  \begin{center}
+  \begin{tikzpicture}[every node/.style={align=center,font=\small}]
+    \node[draw=deepblue,fill=softgreen,rounded corners,very thick,
+          minimum width=3.2cm,minimum height=1.0cm,text width=3cm]
+          (read){\textbf{read only}\\\scriptsize browse, summarise};
+    \node[draw=deepblue,fill=softblue,rounded corners,very thick,
+          minimum width=3.2cm,minimum height=1.0cm,text width=3cm,right=0.6cm of read]
+          (edit){\textbf{edit workspace}\\\scriptsize change files};
+    \node[draw=accent,fill=softorange,rounded corners,very thick,
+          minimum width=3.2cm,minimum height=1.0cm,text width=3cm,right=0.6cm of edit]
+          (run){\textbf{run commands}\\\scriptsize shell, scripts};
+    \node[draw=accent,fill=softpurple,rounded corners,very thick,
+          minimum width=3.2cm,minimum height=1.0cm,text width=3cm,right=0.6cm of run]
+          (net){\textbf{network / API}\\\scriptsize external calls};
+    \draw[->,thick,color=muted] (read)--(edit);
+    \draw[->,thick,color=muted] (edit)--(run);
+    \draw[->,thick,color=muted] (run)--(net);
+  \end{tikzpicture}
+  \end{center}
+  \vspace{0.4cm}
+  \begin{itemize}\setlength\itemsep{0.3em}
+    \item \textbf{Tool} = something the model can call: browser, shell, files, database, an MCP server.
+    \item \textbf{Permission} = the boundary between suggestion and action.
+    \item \textbf{Sandbox} = a controlled environment where mistakes are reversible.
+  \end{itemize}
+  \midpoint{Permissions are the practical meaning of control.}
+\end{frame}
+
+% -------- Slide 7: Autonomy spectrum --------
+\begin{frame}{The autonomy spectrum}
+  \begin{center}
+  \begin{tikzpicture}[every node/.style={align=center,font=\small}]
+    \node[draw=deepblue,fill=softgreen,rounded corners,very thick,
+          minimum width=2.7cm,minimum height=1.1cm,text width=2.5cm]
+          (sug){\textbf{Suggest}\\\scriptsize human types it};
+    \node[draw=deepblue,fill=softblue,rounded corners,very thick,
+          minimum width=2.7cm,minimum height=1.1cm,text width=2.5cm,right=0.6cm of sug]
+          (rev){\textbf{Review}\\\scriptsize human accepts diff};
+    \node[draw=accent,fill=softorange,rounded corners,very thick,
+          minimum width=2.7cm,minimum height=1.1cm,text width=2.5cm,right=0.6cm of rev]
+          (exe){\textbf{Execute}\\\scriptsize agent acts in scope};
+    \node[draw=accent,fill=softpurple,rounded corners,very thick,
+          minimum width=2.7cm,minimum height=1.1cm,text width=2.5cm,right=0.6cm of exe]
+          (orc){\textbf{Orchestrate}\\\scriptsize agent runs other agents};
+    \draw[->,line width=1.4pt,color=accent] (sug)--(rev);
+    \draw[->,line width=1.4pt,color=accent] (rev)--(exe);
+    \draw[->,line width=1.4pt,color=accent] (exe)--(orc);
+    \node[anchor=north,below=0.35cm of sug,color=muted,font=\scriptsize] {low risk};
+    \node[anchor=north,below=0.35cm of orc,color=muted,font=\scriptsize] {high risk};
+  \end{tikzpicture}
+  \end{center}
+  \vspace{0.5cm}
+  \begin{center}\large\color{deepblue}\bfseries Pick the lowest level that gets the job done.\end{center}
+  \vspace{0.2cm}
+  \begin{center}\small\color{muted}For research, ``review'' and ``execute'' cover almost everything; ``orchestrate'' is for power users.\end{center}
+\end{frame}
+
+% -------- Slide 8: Reliability vocabulary --------
+\begin{frame}{Reliability vocabulary you will keep hearing}
+  \vspace{0.2cm}
+  \begin{center}
+  \begin{tabularx}{0.92\linewidth}{>{\bfseries\color{deepblue}}lX}
+  \toprule
+  Hallucination & A confident output that does not correspond to reality (a citation, a number, a function).\\
+  Drift & The model's outputs change over time as providers update underlying weights or settings.\\
+  Automation bias & The human tendency to trust automated outputs more than they deserve \citep{skitka_1999_automation_bias}.\\
+  Reward hacking & The agent finds a shortcut that satisfies the metric but defeats the goal.\\
+  Sycophancy & The model agrees with the user even when the user is wrong.\\
+  \bottomrule
+  \end{tabularx}
+  \end{center}
+  \vspace{0.4cm}
+  \midpoint{These are research-process risks, not just AI quirks.}
+\end{frame}
