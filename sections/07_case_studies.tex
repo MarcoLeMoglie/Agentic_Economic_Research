@@ -1,2 +1,210 @@
-% Block 07_case_studies (placeholder)
-% Will be populated block by block.
+% =============================================================
+% Block 7 -- Case studies teaser (9 slides)
+% Intro + 5 mini-cases + bridge + what humans must keep + recap
+% =============================================================
+
+\sectionframe{Part 7 -- Case studies teaser}
+
+% -------- Slide 1: Intro --------
+\begin{frame}{What you will see in detail next session}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.50\textwidth}
+      \textbf{Five recurring economics workflows where agents help.}
+      \begin{itemize}\setlength\itemsep{0.3em}
+        \item Literature review.
+        \item Data and codebook documentation.
+        \item Stata / R / Python debugging.
+        \item Econometric tables and robustness.
+        \item Referee reports, grants, teaching.
+      \end{itemize}
+    \column{0.48\textwidth}
+      \textbf{Today: a tour.}
+      \begin{itemize}\setlength\itemsep{0.3em}
+        \item One slide per case, with a real example and a concrete agent task.
+        \item Next session: a full walk-through with my own code, data, and screen.
+      \end{itemize}
+      \vspace{0.3cm}
+      \begin{center}\small\color{accent}\bfseries Same workflow phases (Plan -- Implement -- Test -- Review -- Document) across all cases.\end{center}
+  \end{columns}
+\end{frame}
+
+% -------- Slide 2: Case 1 -- Literature review --------
+\begin{frame}{Case 1 -- Literature review}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.50\textwidth}
+      \textbf{Agent helps with}
+      \begin{itemize}\setlength\itemsep{0.3em}
+        \item Search-string design and inclusion rules.
+        \item Per-paper summaries and comparison tables.
+        \item Citation checking (does this paper exist? does it say this?).
+      \end{itemize}
+      \vspace{0.2cm}
+      \textbf{Human keeps}
+      \begin{itemize}\setlength\itemsep{0.3em}
+        \item What counts as ``relevant''.
+        \item How the literature shapes the research design.
+      \end{itemize}
+    \column{0.46\textwidth}
+      \textbf{Concrete example}\\[0.15cm]
+      \scriptsize
+      Build a comparison table on text-as-data in macro, anchored to Hansen, McMahon, Prat \citeyearpar{hansen_qje_2018}: agent extracts methods, data, identification, sample period for 30 papers from Elicit + Semantic Scholar.\\[0.2cm]
+      \textbf{Why it works.} The unit of delegation is small, verifiable, and the human still owns the inclusion criteria \citep{korinek_jel_2023}.
+  \end{columns}
+\end{frame}
+
+% -------- Slide 3: Case 2 -- Data documentation --------
+\begin{frame}{Case 2 -- Data and codebook documentation}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \textbf{The agent turns messy data work into explicit documentation.}
+      \begin{itemize}\setlength\itemsep{0.3em}
+        \item Build a codebook from raw variable names and do-files.
+        \item Detect undocumented transformations.
+        \item Write a replication \texttt{README} aligned with AEA data-editor expectations \citep{vilhuber_hdsr_2020}.
+      \end{itemize}
+    \column{0.48\textwidth}
+      \textbf{Concrete example}\\[0.15cm]
+      \scriptsize
+      Stata project with 22 do-files and 7 datasets. Agent runs each do-file, tracks the lineage of every variable across files, and produces:
+      \begin{itemize}\setlength\itemsep{0.2em}
+        \item \texttt{codebook.md} (one section per dataset);
+        \item \texttt{lineage.svg} (graph of file $\rightarrow$ dataset $\rightarrow$ dataset);
+        \item \texttt{README.md} (one-command rebuild).
+      \end{itemize}
+      \vspace{0.1cm}
+      \textbf{Pitfall.} The agent will document what it \emph{sees}; if a transformation is in a missing do-file, it disappears silently.
+  \end{columns}
+\end{frame}
+
+% -------- Slide 4: Case 3 -- Stata / R / Python debugging --------
+\begin{frame}{Case 3 -- Stata / R / Python debugging}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.50\textwidth}
+      \textbf{Good agent task}\\[0.15cm]
+      \scriptsize
+      ``Find the minimal failing example that reproduces this error and propose a patch.''
+    \column{0.46\textwidth}
+      \textbf{Bad agent task}\\[0.15cm]
+      \scriptsize
+      ``Fix my project.''
+  \end{columns}
+  \vspace{0.4cm}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \textbf{What works in practice}
+      \begin{itemize}\setlength\itemsep{0.25em}
+        \item Use an IDE agent on the repo, not a chat app.
+        \item Ask for a \emph{plan} before any \texttt{edit}.
+        \item Demand a regression test added with the fix.
+      \end{itemize}
+    \column{0.48\textwidth}
+      \textbf{Stata example via \texttt{mcp-stata}}
+      \begin{itemize}\setlength\itemsep{0.25em}
+        \item Agent calls Stata over MCP, runs the broken do-file, captures the log, isolates the offending line, and proposes a patch with a unit-style test on the affected variable.
+      \end{itemize}
+  \end{columns}
+  \vspace{0.3cm}
+  \midpoint{Narrow the problem before you give autonomy.}
+\end{frame}
+
+% -------- Slide 5: Case 4 -- Econometric tables and robustness --------
+\begin{frame}{Case 4 -- Econometric tables and robustness}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \textbf{Where agents really help}
+      \begin{itemize}\setlength\itemsep{0.3em}
+        \item Table-export code and consistent column ordering.
+        \item Specification curves: many models, one figure.
+        \item ``Which coefficients moved across robustness checks?''.
+      \end{itemize}
+    \column{0.48\textwidth}
+      \textbf{Where they must \emph{not} be in charge}
+      \begin{itemize}\setlength\itemsep{0.3em}
+        \item Picking the preferred specification.
+        \item Choosing controls to obtain a desired sign.
+        \item Outsourcing identification.
+      \end{itemize}
+  \end{columns}
+  \vspace{0.4cm}
+  \midpoint{Inspect logs, sample sizes, and dropped observations every time.}
+\end{frame}
+
+% -------- Slide 6: Case 5 -- Referee, grants, teaching --------
+\begin{frame}{Case 5 -- Referee reports, grants, teaching}
+  \vspace{0.2cm}
+  \begin{center}
+  \begin{tabularx}{0.92\linewidth}{>{\bfseries\color{deepblue}}lX}
+  \toprule
+  Referee report & Organise comments, detect internal contradictions, draft tone-neutral phrasing. \emph{Never delegate the verdict.}\\
+  Grant proposal & Work packages, risk tables, timelines, lay summaries; consistency checks across sections.\\
+  Teaching & Slides, exercises, rubrics, translations, ``minimum viable example'' for a method.\\
+  \bottomrule
+  \end{tabularx}
+  \end{center}
+  \vspace{0.4cm}
+  \begin{center}\small\color{muted}\itshape This very deck was assembled with an agentic workflow under explicit human review.\end{center}
+\end{frame}
+
+% -------- Slide 7: What humans must keep --------
+\begin{frame}{What humans must keep}
+  \vspace{0.2cm}
+  \begin{center}
+  \begin{tabularx}{0.92\linewidth}{>{\bfseries\color{deepblue}}lX}
+  \toprule
+  Theory & What is the economic mechanism?\\
+  Identification & What variation identifies the effect?\\
+  Measurement & What does the variable really capture?\\
+  Interpretation & What can and cannot be claimed?\\
+  Responsibility & Who signs the paper?\\
+  \bottomrule
+  \end{tabularx}
+  \end{center}
+  \vspace{0.4cm}
+  \midpoint{No agent should ever own these.}
+\end{frame}
+
+% -------- Slide 8: Workflow map (where agents fit) --------
+\begin{frame}{Where agents fit across the pipeline}
+  \begin{center}
+  \begin{tikzpicture}[every node/.style={align=center,font=\scriptsize}]
+    \node[draw=deepblue,fill=softblue,rounded corners,very thick,
+          minimum width=2.2cm,minimum height=0.85cm] (idea){Ideation};
+    \node[draw=deepblue,fill=softblue,rounded corners,very thick,
+          minimum width=2.2cm,minimum height=0.85cm,right=0.35cm of idea] (lit){Lit\\review};
+    \node[draw=deepblue,fill=softgreen,rounded corners,very thick,
+          minimum width=2.2cm,minimum height=0.85cm,right=0.35cm of lit] (data){Data \&\\code};
+    \node[draw=accent,fill=softorange,rounded corners,very thick,
+          minimum width=2.2cm,minimum height=0.85cm,right=0.35cm of data] (ana){Analysis};
+    \node[draw=accent,fill=softorange,rounded corners,very thick,
+          minimum width=2.2cm,minimum height=0.85cm,right=0.35cm of ana] (write){Writing};
+    \node[draw=accent,fill=softpurple,rounded corners,very thick,
+          minimum width=2.2cm,minimum height=0.85cm,right=0.35cm of write] (rev){Review};
+    \draw[->,thick,color=muted] (idea)--(lit);
+    \draw[->,thick,color=muted] (lit)--(data);
+    \draw[->,thick,color=muted] (data)--(ana);
+    \draw[->,thick,color=muted] (ana)--(write);
+    \draw[->,thick,color=muted] (write)--(rev);
+    \node[below=0.15cm of idea,color=muted] {low};
+    \node[below=0.15cm of lit,color=accent] {medium};
+    \node[below=0.15cm of data,color=good] {high};
+    \node[below=0.15cm of ana,color=accent] {medium};
+    \node[below=0.15cm of write,color=good] {high};
+    \node[below=0.15cm of rev,color=accent] {medium};
+  \end{tikzpicture}
+  \end{center}
+  \vspace{0.3cm}
+  \begin{center}\small Colour = how trustworthy agents are at each phase today.\end{center}
+  \vspace{0.4cm}
+  \midpoint{Agents are useful across the pipeline, but not equally trustworthy at every stage.}
+\end{frame}
+
+% -------- Slide 9: Bridge to Part 2 of the course --------
+\begin{frame}{What we will actually do in Session 2}
+  \vspace{0.2cm}
+  \threebullets%
+    {Walk through \emph{my own} replication packages, with the agent live on screen.}%
+    {Show prompts that work and prompts that fail, with their cost.}%
+    {Compare manual vs agent timings on the same task, no marketing claims.}
+  \vspace{0.6cm}
+  \begin{center}\Large\color{deepblue}\bfseries Bring a research project you would like to test on.\end{center}
+\end{frame}
