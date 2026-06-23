@@ -57,15 +57,12 @@
         \item The app becomes a control plane around the project, not just a place to ask questions.
       \end{itemize}
     \column{0.48\textwidth}
-      \textbf{What this means}
-      \begin{itemize}\setlength\itemsep{0.3em}
-        \item IDEs are not disappearing overnight, but their core functions are being absorbed by agent apps.
-        \item The old distinction ``chat app vs IDE'' is becoming weaker.
-        \item For researchers, the relevant question is: \emph{can I review what changed?}
-      \end{itemize}
+      \includegraphics[width=\linewidth,height=0.58\textheight,keepaspectratio]{codex_app}
+      \smallsource{Codex desktop app screenshot captured by Marco Le Moglie, 23 June 2026.}
   \end{columns}
-  \vspace{0.4cm}
-  \midpoint{The interface is moving from editor-first to agent-first.}
+  \vspace{0.25cm}
+  \begin{center}\large\bfseries\color{deepblue}The interface is moving from editor-first to agent-first.\\[-0.05cm]
+  \small\color{muted}For researchers, the relevant question is: \emph{can I review what changed?}\end{center}
 \end{frame}
 
 % -------- Slide 3: Research / browser assistants --------
@@ -85,21 +82,8 @@
         \item Source discovery, evidence extraction, paper triage, background memos.
       \end{itemize}
     \column{0.46\textwidth}
-      \begin{tikzpicture}[font=\scriptsize,every node/.style={align=left}]
-        \node[draw=deepblue,fill=white,rounded corners,
-              minimum width=6.0cm,minimum height=3.6cm,
-              text width=5.7cm,anchor=north west,inner sep=0.25cm]
-              (panel) at (0,0) {%
-          \textbf{\color{deepblue}Perplexity} \hfill \textcolor{muted}{[query]}\\[0.1cm]
-          \textit{What is the elasticity of taxable income?}\\[0.15cm]
-          \rule{\linewidth}{0.3pt}\\[0.05cm]
-          \textbf{Answer.} Saez et al. (2012, JEL) review estimates in the range 0.12--0.40 for the US\ldots\\[0.1cm]
-          \textbf{Sources.}\\
-          $\bullet$ Saez, Slemrod, Giertz (2012, JEL).\\
-          $\bullet$ Chetty (2009, AEJ:EP).\\
-          $\bullet$ Kleven \& Schultz (2014, AEJ:EP).};
-      \end{tikzpicture}\\[0.15cm]
-      \smallsource{Stylised mock-up of a research-assistant answer with citations.}
+      \includegraphics[width=\linewidth,height=0.60\textheight,keepaspectratio]{notebooklm}
+      \smallsource{NotebookLM screenshot captured by Marco Le Moglie, 23 June 2026.}
   \end{columns}
   \vspace{0.1cm}
   \midpoint{Good for finding; not enough for believing.}
@@ -122,21 +106,8 @@
         \item New desktop agent apps increasingly do the same work outside a traditional IDE.
       \end{itemize}
     \column{0.48\textwidth}
-      \begin{tikzpicture}[font=\ttfamily\scriptsize,every node/.style={align=left}]
-        \node[draw,rounded corners=4pt,fill=dark,text=green!50!white,
-              minimum width=5.6cm,minimum height=4.0cm,
-              text width=5.3cm,anchor=north west,inner sep=0.25cm]
-              {%
-          \textcolor{accent}{$\sim$ project/}\\
-          \quad data/\\
-          \quad do/\\
-          \quad tables/\\[0.15cm]
-          \textcolor{white}{\bfseries Agent}\\
-          changed 4 files\\
-          tests: 2 passed, 1 failed\\
-          new outputs: T2.tex, T3.tex\\[0.15cm]
-          \textcolor{accent}{\bfseries [Review diff?]} y/n};
-      \end{tikzpicture}
+      \includegraphics[width=\linewidth,height=0.60\textheight,keepaspectratio]{antigravity_ide}
+      \smallsource{Antigravity IDE screenshot captured by Marco Le Moglie, 23 June 2026.}
   \end{columns}
 \end{frame}
 
