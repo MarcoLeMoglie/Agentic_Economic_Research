@@ -1,0 +1,133 @@
+% =============================================================
+% Agentic AI for Economic Research -- Beamer custom theme
+% Compiler: pdflatex (no fontspec)
+% Marco Le Moglie, Catholic University of the Sacred Heart, 2026
+% =============================================================
+
+\documentclass[aspectratio=169,10pt]{beamer}
+
+% ---------- Encoding and language ----------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+% ---------- Modern sans-serif fonts (pdflatex-compatible) ----------
+\usepackage[default,scale=0.95]{sourcesanspro}
+\usepackage[scaled=0.85]{sourcecodepro}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{microtype}
+
+% ---------- Graphics and colour ----------
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,calc,shapes.geometric,fit,backgrounds,shadows.blur}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+
+\graphicspath{{assets/}{assets/real/}{assets/charts/}{assets/icons/}{assets/legacy/}}
+
+\hypersetup{colorlinks=true,linkcolor=deepblue,urlcolor=accent,citecolor=deepblue}
+
+% ---------- Palette ----------
+\definecolor{deepblue}{HTML}{163A59}
+\definecolor{accent}{HTML}{D97706}
+\definecolor{softblue}{HTML}{EAF3FF}
+\definecolor{softorange}{HTML}{FFF4E6}
+\definecolor{softgreen}{HTML}{EAF8EF}
+\definecolor{softpurple}{HTML}{F2ECFA}
+\definecolor{softgray}{HTML}{F3F4F6}
+\definecolor{dark}{HTML}{111827}
+\definecolor{muted}{HTML}{4B5563}
+\definecolor{good}{HTML}{166534}
+\definecolor{bad}{HTML}{B91C1C}
+
+% ---------- Beamer base look (custom theme, no metropolis) ----------
+\useinnertheme{rectangles}
+\useoutertheme{default}
+\setbeamersize{text margin left=1.2em,text margin right=1.2em}
+
+\setbeamercolor{normal text}{fg=dark,bg=white}
+\setbeamercolor{structure}{fg=deepblue}
+\setbeamercolor{alerted text}{fg=accent}
+
+% Frametitle: a thin coloured bar with title in deep blue, no background block
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamercolor{frametitle}{fg=deepblue,bg=white}
+\setbeamertemplate{frametitle}{%
+  \vspace{0.4em}%
+  \begin{minipage}[t]{\dimexpr\paperwidth-2.4em\relax}%
+    \raggedright\insertframetitle\par
+    \vspace{-0.25em}%
+    {\color{accent}\rule{2.6em}{1.4pt}}%
+  \end{minipage}%
+  \vspace{0.1em}%
+}
+
+% Footline: discrete page number and short course tag
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=.6\paperwidth,ht=2.2ex,dp=1ex,leftskip=1em]{footline}%
+      \usebeamerfont{author in head/foot}\color{muted}\scriptsize Agentic AI for Economic Research\,\textbar\,Marco Le Moglie\,\textbar\,Cattolica%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.2ex,dp=1ex,rightskip=1em,leftskip=1em]{footline}%
+      \usebeamerfont{author in head/foot}\hfill\color{muted}\scriptsize\insertframenumber\,/\,\inserttotalframenumber%
+    \end{beamercolorbox}%
+  }%
+}
+
+% Items
+\setbeamertemplate{itemize item}{\color{accent}\faChevronRight}
+\setbeamertemplate{itemize subitem}{\color{deepblue}\faCircle}
+\setbeamercolor{itemize item}{fg=accent}
+\setbeamercolor{itemize subitem}{fg=deepblue}
+
+% ---------- Custom commands ----------
+\newcommand{\smallsource}[1]{\vfill{\scriptsize\color{muted}\itshape Source: #1\par}}
+\newcommand{\srcfoot}[1]{{\scriptsize\color{muted}\itshape #1}}
+\newcommand{\bigpoint}[1]{\begin{center}\Huge\bfseries\color{deepblue}#1\end{center}}
+\newcommand{\midpoint}[1]{\begin{center}\Large\bfseries\color{deepblue}#1\end{center}}
+\newcommand{\alertbox}[1]{%
+  \begin{tcolorbox}[colback=softorange,colframe=accent,arc=2pt,boxrule=0.6pt]%
+    #1%
+  \end{tcolorbox}%
+}
+
+% Two-/three-bullet shortcuts
+\newcommand{\twobullets}[2]{\begin{itemize}\setlength\itemsep{0.4em}\item #1\item #2\end{itemize}}
+\newcommand{\threebullets}[3]{\begin{itemize}\setlength\itemsep{0.4em}\item #1\item #2\item #3\end{itemize}}
+\newcommand{\fourbullets}[4]{\begin{itemize}\setlength\itemsep{0.35em}\item #1\item #2\item #3\item #4\end{itemize}}
+
+% Section divider (full-bleed coloured frame)
+\newcommand{\sectionframe}[2][deepblue]{%
+\begin{frame}[plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[#1] (current page.south west) rectangle (current page.north east);
+    \node[anchor=south west,inner sep=1.3cm,text=white,align=left,text width=0.85\paperwidth] at (current page.south west){\fontsize{30}{36}\selectfont\bfseries #2};
+    \node[anchor=north east,inner sep=1.0cm,text=accent] at (current page.north east){\rule{4cm}{2pt}};
+  \end{tikzpicture}
+\end{frame}}
+
+% Image-only frame with optional caption
+\newcommand{\imageonly}[3][0.86]{%
+\begin{frame}{#2}
+  \begin{center}
+    \includegraphics[width=#1\linewidth,height=0.7\textheight,keepaspectratio]{#3}
+  \end{center}
+\end{frame}}
+
+% Title-as-question variant
+\newcommand{\question}[1]{\begin{center}\LARGE\bfseries\color{deepblue}#1\end{center}}
+
+% ---------- Document metadata ----------
+\title{Agentic AI for Economic Research}
+\subtitle{Concepts, tools, workflows and responsible use}
+\author{Marco Le Moglie\\\small Catholic University of the Sacred Heart}
+\institute{Agentic Economic Research}
+\date{\today}
