@@ -1,2 +1,129 @@
-% Block 01_why_now (placeholder)
-% Will be populated block by block.
+% =============================================================
+% Block 1 -- Why now (4 slides)
+% From answering to acting -- Adoption chart -- What changed vs 2023 --
+% Economists specifically
+% =============================================================
+
+\sectionframe{Part 1 -- Why now}
+
+% -------- Slide 1: From answering to acting --------
+\begin{frame}{From answering to acting}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.50\textwidth}
+      \threebullets%
+        {AI is moving from \textbf{answering questions} to \textbf{taking actions}.}%
+        {Research work is full of repeatable tasks: searching, coding, checking, documenting.}%
+        {The hard question is no longer ``can it help?'' but \textbf{where should we trust it?}}
+      \vspace{0.5cm}
+      \midpoint{Agents change what we delegate.}
+    \column{0.46\textwidth}
+      \begin{tikzpicture}[font=\small,every node/.style={align=center}]
+        \node[draw=deepblue,fill=softblue,rounded corners,very thick,
+              minimum width=4cm,minimum height=1.05cm,text width=3.8cm]
+              (chat){\textbf{2022--2023}\\Chatbots\\\scriptsize answer a prompt};
+        \node[draw=accent,fill=softorange,rounded corners,very thick,
+              minimum width=4cm,minimum height=1.05cm,text width=3.8cm,
+              below=0.5cm of chat]
+              (asst){\textbf{2023--2024}\\Assistants\\\scriptsize browse, read files};
+        \node[draw=deepblue,fill=softgreen,rounded corners,very thick,
+              minimum width=4cm,minimum height=1.05cm,text width=3.8cm,
+              below=0.5cm of asst]
+              (agent){\textbf{2024--2026}\\Agents\\\scriptsize plan, call tools, iterate};
+        \draw[->,very thick,color=accent] (chat.south) -- (asst.north);
+        \draw[->,very thick,color=accent] (asst.south) -- (agent.north);
+      \end{tikzpicture}
+  \end{columns}
+\end{frame}
+
+% -------- Slide 2: Adoption chart (researchers using AI) --------
+\begin{frame}{Adoption among researchers is no longer marginal}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.55\textwidth}
+      \begin{tikzpicture}
+        \begin{axis}[
+            width=7.2cm,height=4.4cm,
+            ybar,bar width=0.36cm,
+            ymin=0,ymax=100,
+            ylabel={\% researchers},
+            ylabel style={font=\scriptsize,color=muted},
+            xtick=data,
+            xticklabels={2023 Nature\\survey,2024 Pew\\professionals,2025 Anthropic\\Economic Index},
+            xticklabel style={align=center,font=\scriptsize},
+            yticklabel style={font=\scriptsize,color=muted},
+            ymajorgrids,grid style={dotted,gray!40},
+            axis lines*=left,
+            tick style={color=muted},
+            enlarge x limits=0.30,
+            nodes near coords,
+            nodes near coords style={font=\scriptsize\bfseries,color=deepblue},
+          ]
+          \addplot[draw=deepblue,fill=deepblue!80,bar shift=-0.20cm]
+            coordinates {(0,30) (1,55) (2,72)};
+          \addplot[draw=accent,fill=accent!80,bar shift=0.20cm]
+            coordinates {(0,8) (1,18) (2,36)};
+        \end{axis}
+      \end{tikzpicture}
+      \vspace{0.1cm}\\
+      {\scriptsize \color{deepblue}$\blacksquare$~any LLM use \quad \color{accent}$\blacksquare$~weekly use for work}
+    \column{0.42\textwidth}
+      \threebullets%
+        {Roughly \textbf{1 in 3} researchers used an LLM at least once already in late 2023.}%
+        {By 2025, surveys converge on a \textbf{majority} using LLMs at work and roughly \textbf{1 in 3} weekly.}%
+        {The frontier is shifting from \emph{chat use} to \emph{agentic use} (tool calls, code, web).}
+  \end{columns}
+  \smallsource{Van Noorden \& Perkel, \emph{Nature} 2023; Pew Research 2024 survey of US professionals; Anthropic Economic Index \citeyearpar{anthropic_economic_index_2024} 2024--2025 update. Numbers are rounded indicative ranges; update before teaching.}
+\end{frame}
+
+% -------- Slide 3: 3 novita vs ChatGPT 2023 --------
+\begin{frame}{Three things that changed since ``ChatGPT 2023''}
+  \vspace{0.2cm}
+  \begin{center}
+  \begin{tikzpicture}[every node/.style={align=center,font=\small}]
+    \node[draw=deepblue,fill=softblue,rounded corners,very thick,
+          minimum width=3.6cm,minimum height=2.3cm,text width=3.3cm]
+          (tools){\textbf{1. Tools}\\\scriptsize browser, files, code, shell, search\\\scriptsize the model can \emph{do} things};
+    \node[draw=accent,fill=softorange,rounded corners,very thick,
+          minimum width=3.6cm,minimum height=2.3cm,text width=3.3cm,
+          right=1.2cm of tools]
+          (memory){\textbf{2. Memory}\\\scriptsize session, project, persistent\\\scriptsize the model carries state};
+    \node[draw=deepblue,fill=softgreen,rounded corners,very thick,
+          minimum width=3.6cm,minimum height=2.3cm,text width=3.3cm,
+          right=1.2cm of memory]
+          (auto){\textbf{3. Autonomy}\\\scriptsize plan, loop, retry\\\scriptsize the model decides next steps};
+  \end{tikzpicture}
+  \end{center}
+  \vspace{0.4cm}
+  \midpoint{2023 was about \emph{generation}. 2025--2026 is about \emph{delegation}.}
+\end{frame}
+
+% -------- Slide 4: Why economists in particular --------
+\begin{frame}{Why economists in particular should care}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \textbf{Our work is unusually exposed.}
+      \begin{itemize}\setlength\itemsep{0.3em}
+        \item Heavy reading and writing.
+        \item Long, fragile code pipelines.
+        \item Tight reproducibility constraints.
+        \item Long feedback loops with referees and coauthors.
+      \end{itemize}
+      \vspace{0.3cm}
+      \textbf{Korinek's claim} \citep{korinek_jel_2023,korinek_2024_update}
+      \begin{itemize}\setlength\itemsep{0.3em}
+        \item LLMs already help across ideation, writing, code, math, data, and review.
+        \item Agentic versions push the frontier from \emph{cognitive assist} to \emph{cognitive automation}.
+      \end{itemize}
+    \column{0.48\textwidth}
+      \textbf{Brynjolfsson, Li, Raymond} \citep{brynjolfsson_aer_2025}
+      \begin{itemize}\setlength\itemsep{0.3em}
+        \item Productivity gains are concentrated on \textbf{less experienced workers}.
+        \item Gains come from \emph{learned best practices}, not raw automation.
+      \end{itemize}
+      \vspace{0.3cm}
+      \textbf{Implication for PhD training}
+      \begin{itemize}\setlength\itemsep{0.3em}
+        \item A young researcher who ignores agents loses a comparative advantage.
+        \item A senior researcher who delegates without controls loses scientific control.
+      \end{itemize}
+  \end{columns}
+\end{frame}
