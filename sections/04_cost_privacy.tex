@@ -1,2 +1,174 @@
-% Block 04_cost_privacy (placeholder)
-% Will be populated block by block.
+% =============================================================
+% Block 4 -- Cost, privacy, governance (7 slides)
+% =============================================================
+
+\sectionframe[accent]{Part 4 -- Cost, privacy, governance}
+
+% -------- Slide 1: Subscription vs API --------
+\begin{frame}{Subscription vs API}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \textbf{Subscription (consumer / Pro / Team)}
+      \begin{itemize}\setlength\itemsep{0.3em}
+        \item Flat monthly price.
+        \item Limits are often soft, dynamic, hard to compare.
+        \item ``Unlimited'' is rarely uncontrolled: throttling, queueing, capability gating.
+      \end{itemize}
+    \column{0.48\textwidth}
+      \textbf{API / metered usage}
+      \begin{itemize}\setlength\itemsep{0.3em}
+        \item Cost is measurable per token or call.
+        \item Easier to budget, easier to overspend.
+        \item Required for IDE/CLI agents that call many tools.
+      \end{itemize}
+  \end{columns}
+  \vspace{0.5cm}
+  \begin{center}\Large\color{accent}\bfseries For agents, ``unlimited'' rarely means uncontrolled.\end{center}
+  \smallsource{Pricing pages from OpenAI, Anthropic, Google, Cursor \citep{openai_pricing,anthropic_pricing,google_ai_plans,cursor_pricing}. Verify before teaching.}
+\end{frame}
+
+% -------- Slide 2: Pricing logic chart --------
+\begin{frame}{The four levers that drive your bill}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \begin{tikzpicture}[every node/.style={align=center,font=\small}]
+        \node[draw=deepblue,fill=softblue,rounded corners,very thick,
+              minimum width=2.6cm,minimum height=0.9cm]
+              (ctx){\textbf{Context size}\\\scriptsize tokens \emph{in}};
+        \node[draw=accent,fill=softorange,rounded corners,very thick,
+              minimum width=2.6cm,minimum height=0.9cm,right=0.5cm of ctx]
+              (calls){\textbf{Tool calls}\\\scriptsize \# of round-trips};
+        \node[draw=deepblue,fill=softgreen,rounded corners,very thick,
+              minimum width=2.6cm,minimum height=0.9cm,below=0.6cm of ctx]
+              (ret){\textbf{Retries}\\\scriptsize errors, self-checks};
+        \node[draw=accent,fill=softpurple,rounded corners,very thick,
+              minimum width=2.6cm,minimum height=0.9cm,below=0.6cm of calls]
+              (mod){\textbf{Model tier}\\\scriptsize \$ per million tok.};
+        \node[draw=dark,fill=white,line width=1pt,rounded corners,
+              minimum width=2.6cm,minimum height=0.9cm,
+              below=2cm of $(ctx)!0.5!(calls)$]
+              (cost){\textbf{\color{deepblue}\Large cost}};
+        \draw[->,thick,color=muted] (ctx.south)--(cost.north west);
+        \draw[->,thick,color=muted] (calls.south)--(cost.north east);
+        \draw[->,thick,color=muted] (ret.east)--(cost.west);
+        \draw[->,thick,color=muted] (mod.west)--(cost.east);
+      \end{tikzpicture}
+    \column{0.48\textwidth}
+      \fourbullets%
+        {\textbf{Context} grows with files, browsing, history.}%
+        {\textbf{Tool calls} multiply with autonomy.}%
+        {\textbf{Retries} are silent: errors, validation, sub-agents.}%
+        {\textbf{Model tier} can differ 10$\times$--50$\times$ in price per token.}
+      \vspace{0.3cm}
+      \begin{center}\small\color{accent}\bfseries A chat session ignores three of these. An agent uses all four.\end{center}
+  \end{columns}
+\end{frame}
+
+% -------- Slide 3: Cost spike case --------
+\begin{frame}{What a real cost spike looks like}
+  \vspace{0.2cm}
+  \begin{center}
+  \begin{tabularx}{0.94\linewidth}{>{\bfseries\color{deepblue}}lXl}
+  \toprule
+  Workload & Description & Tokens (approx.)\\
+  \midrule
+  Chat question & ``Explain heteroskedasticity in two lines.'' & $\sim 0.5$k\\
+  Long reading & ``Summarise this 30-page PDF.'' & $\sim 25$k\\
+  IDE one-shot edit & ``Fix this regression call.'' & $\sim 8$k\\
+  IDE agent task & ``Re-run all tables and verify.'' & $\sim 80$--$200$k\\
+  Multi-agent research run & ``Replicate Section 4 end-to-end.'' & $\sim 500$k--$2$M\\
+  \bottomrule
+  \end{tabularx}
+  \end{center}
+  \vspace{0.4cm}
+  \midpoint{Same UI. Two orders of magnitude difference in cost.}
+  \smallsource{Indicative ranges, measured on internal Stata/Python pipelines in 2025--2026. Your mileage will vary.}
+\end{frame}
+
+% -------- Slide 4: Does it train on my data? --------
+\begin{frame}{Does it train on my data?}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.50\textwidth}
+      \textbf{The honest answer:}\\[0.2cm]
+      It depends on the \emph{provider}, \emph{plan}, \emph{workspace} and \emph{settings}.
+      \vspace{0.4cm}
+      \begin{itemize}\setlength\itemsep{0.3em}
+        \item Consumer plans: often \textbf{default to training} unless you opt out.
+        \item Business/Enterprise plans: usually \textbf{do not train} on your data by default.
+        \item API: usually no training, but check retention policy.
+      \end{itemize}
+    \column{0.46\textwidth}
+      \textbf{What to verify}
+      \begin{itemize}\setlength\itemsep{0.3em}
+        \item Account type (personal vs business).
+        \item Workspace data-use settings.
+        \item Region and applicable law (GDPR, US sectoral).
+        \item Tool-specific data flow (browsers, retrieval, sub-agents).
+      \end{itemize}
+      \vspace{0.2cm}
+      \begin{center}\small\color{accent}\bfseries Settings change. Verify, do not assume.\end{center}
+  \end{columns}
+  \smallsource{See provider documentation: \citet{openai_pricing,anthropic_pricing,google_ai_plans,cursor_pricing}.}
+\end{frame}
+
+% -------- Slide 5: Data risk in economics research --------
+\begin{frame}{Data risk in economics research}
+  \vspace{0.2cm}
+  \begin{center}
+  \begin{tabularx}{0.92\linewidth}{>{\bfseries\color{deepblue}}lX}
+  \toprule
+  High risk & Microdata, administrative data, embargoed data, confidential referee reports, unpublished IRB-restricted material.\\
+  Medium risk & Unpublished drafts, grant ideas, coauthors' working notes, identifiable interview transcripts.\\
+  Lower risk & Public documentation, synthetic examples, teaching material, published papers.\\
+  \bottomrule
+  \end{tabularx}
+  \end{center}
+  \vspace{0.4cm}
+  \begin{center}\Large\color{accent}\bfseries When in doubt: anonymise, abstract, or use a sandbox.\end{center}
+  \smallsource{General data-classification heuristic; defer to your institution's data-protection officer in case of doubt.}
+\end{frame}
+
+% -------- Slide 6: Institutional and IRB considerations --------
+\begin{frame}{Institutional and IRB considerations}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \textbf{Things to clarify with your institution}
+      \begin{itemize}\setlength\itemsep{0.3em}
+        \item Approved vendors and data-processing agreements.
+        \item Whether AI processing of human-subjects data is covered by existing IRB protocols.
+        \item Storage, retention, and right-to-erasure obligations.
+      \end{itemize}
+    \column{0.48\textwidth}
+      \textbf{Things to clarify in journals}
+      \begin{itemize}\setlength\itemsep{0.3em}
+        \item Disclosure requirements for AI use.
+        \item Reproducibility expectations: AEA Data Editor and similar.
+        \item Authorship: an agent is not an author.
+      \end{itemize}
+  \end{columns}
+  \vspace{0.5cm}
+  \midpoint{The rules are still moving. Document what you did.}
+  \smallsource{See Vilhuber \citeyearpar{vilhuber_hdsr_2020} on reproducibility norms; consult AEA Data Editor guidance for the latest disclosure standards.}
+\end{frame}
+
+% -------- Slide 7: Practical safeguards --------
+\begin{frame}{Practical safeguards that actually work}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \textbf{Budget and pace}
+      \begin{itemize}\setlength\itemsep{0.3em}
+        \item Set an explicit monthly budget per project.
+        \item Ask the agent for a plan \emph{before} execution.
+        \item Use a cheaper model for scanning, frontier for the hard step.
+      \end{itemize}
+    \column{0.48\textwidth}
+      \textbf{Containment}
+      \begin{itemize}\setlength\itemsep{0.3em}
+        \item Sandbox: run agents inside a constrained folder/VM.
+        \item Read-only mode for first passes.
+        \item Kill switch: easy to interrupt; nothing irreversible without confirmation.
+      \end{itemize}
+  \end{columns}
+  \vspace{0.4cm}
+  \midpoint{Safety is mostly process design, not magic settings.}
+\end{frame}
