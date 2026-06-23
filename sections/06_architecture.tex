@@ -1,2 +1,205 @@
-% Block 06_architecture (placeholder)
-% Will be populated block by block.
+% =============================================================
+% Block 6 -- Agentic architecture (8 slides)
+% Rules / memory stack / Obsidian KB vs RAG / MCP vs API vs CLI /
+% subagents / skills-hooks / orchestration / Plan-Implement loop
+% =============================================================
+
+\sectionframe[accent]{Part 6 -- Agentic architecture}
+
+% -------- Slide 1: Rules and Markdown files --------
+\begin{frame}{Rules and Markdown files: prompts that stay}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.42\textwidth}
+      \bigpoint{Rules are prompts\\that stay.}
+    \column{0.54\textwidth}
+      \threebullets%
+        {Project style and conventions (naming, structure, citation format).}%
+        {What the agent must \emph{not} do (don't push to main, don't touch \texttt{raw/}, don't change identification).}%
+        {How to verify ``done'' (tests, logs, diff, peer review).}
+      \vspace{0.3cm}
+      \begin{center}\ttfamily\small \texttt{AGENTS.md} \,\textbar\, \texttt{CLAUDE.md} \,\textbar\, \texttt{CURSOR.md}\\\texttt{GEMINI.md} \,\textbar\, project instructions\end{center}
+  \end{columns}
+\end{frame}
+
+% -------- Slide 2: Memory stack --------
+\begin{frame}{Memory has layers}
+  \vspace{0.2cm}
+  \begin{center}
+  \begin{tikzpicture}[every node/.style={align=center,font=\small}]
+    \node[draw=deepblue,fill=softblue,rounded corners,very thick,
+          minimum width=3.4cm,minimum height=1.05cm,text width=3.1cm]
+          (sess){\textbf{Session}\\\scriptsize current chat / window};
+    \node[draw=accent,fill=softorange,rounded corners,very thick,
+          minimum width=3.4cm,minimum height=1.05cm,text width=3.1cm,right=0.6cm of sess]
+          (proj){\textbf{Project}\\\scriptsize repo files, notes, rules};
+    \node[draw=deepblue,fill=softgreen,rounded corners,very thick,
+          minimum width=3.4cm,minimum height=1.05cm,text width=3.1cm,right=0.6cm of proj]
+          (pers){\textbf{Persistent}\\\scriptsize across sessions};
+    \node[draw=accent,fill=softpurple,rounded corners,very thick,
+          minimum width=3.4cm,minimum height=1.05cm,text width=3.1cm,right=0.6cm of pers]
+          (graph){\textbf{Graph}\\\scriptsize code/notes graph};
+    \draw[->,thick,color=muted] (sess)--(proj);
+    \draw[->,thick,color=muted] (proj)--(pers);
+    \draw[->,thick,color=muted] (pers)--(graph);
+  \end{tikzpicture}
+  \end{center}
+  \vspace{0.4cm}
+  \begin{center}\small Each layer answers a different question:\\
+  \textbf{What did we just say?} \textbar{}~\textbf{What is this project?} \textbar{}~\textbf{What did I decide before?} \textbar{}~\textbf{How is everything connected?}\end{center}
+  \vspace{0.3cm}
+  \begin{center}\small\color{accent}\bfseries In a research workflow, the project layer is the most under-used.\end{center}
+\end{frame}
+
+% -------- Slide 3: Obsidian-style KB vs RAG (the key slide) --------
+\begin{frame}{Knowledge base or RAG?}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \textbf{RAG -- Retrieval Augmented Generation \citep{lewis_neurips_2020}}
+      \begin{itemize}\setlength\itemsep{0.25em}
+        \item Chunk text $\rightarrow$ embed $\rightarrow$ store in a vector DB.
+        \item At query time: retrieve the top-$k$ chunks, inject into the prompt.
+        \item \textbf{Pros}: scales to huge corpora; automatic.
+        \item \textbf{Cons}: opaque chunking, embedding drift, vendor lock-in, hard to audit \emph{why} a chunk was returned.
+      \end{itemize}
+    \column{0.48\textwidth}
+      \textbf{Knowledge base -- Obsidian-style vault \citep{obsidian_docs}}
+      \begin{itemize}\setlength\itemsep{0.25em}
+        \item Curated Markdown files with explicit \textbf{bi-directional links}.
+        \item Both human and agent read the \emph{same} files.
+        \item \textbf{Pros}: explicit provenance, real graph, local-first, plain text forever, hand-curable, git-versioned.
+        \item \textbf{Cons}: requires discipline; does not scale to millions of files.
+      \end{itemize}
+  \end{columns}
+  \vspace{0.3cm}
+  \begin{center}\large\color{deepblue}\bfseries For research, traceability matters more than automation.\end{center}
+\end{frame}
+
+% -------- Slide 4: Why an Obsidian-style KB is often better --------
+\begin{frame}{Why a curated KB often beats pure RAG (for research)}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.50\textwidth}
+      \fourbullets%
+        {\textbf{Provenance}: a claim points to a file path and a backlink, not to a hidden vector ID.}%
+        {\textbf{Hand-curable}: a wrong fact is fixed by editing one line; no re-embedding pipeline.}%
+        {\textbf{Local-first}: sensitive notes never leave the laptop.}%
+        {\textbf{Forever-readable}: Markdown survives any provider change.}
+    \column{0.46\textwidth}
+      \begin{tcolorbox}[colback=softblue,colframe=deepblue,arc=2pt,boxrule=0.5pt]
+        \small \textbf{The combination that works}\\[0.15cm]
+        \scriptsize
+        $\bullet$\ Markdown vault as the spine (decisions, briefs, logs).\\
+        $\bullet$\ Persistent memory CLI (e.g., MEMANTO) for cross-session facts.\\
+        $\bullet$\ Session capture (e.g., Hivemind hooks) for what just happened.\\
+        $\bullet$\ Code/observation graph (e.g., CodeGraph, Cavemem) for ``how is it connected''.\\
+        $\bullet$\ Optional RAG on top of the vault for huge PDFs.
+      \end{tcolorbox}
+  \end{columns}
+  \vspace{0.3cm}
+  \midpoint{Best of both worlds: a KB you control + RAG as an amplifier.}
+\end{frame}
+
+% -------- Slide 5: MCP vs API vs CLI --------
+\begin{frame}{MCP vs API vs CLI}
+  \vspace{0.1cm}
+  \begin{center}
+  \begin{tabularx}{0.92\linewidth}{>{\bfseries\color{deepblue}}lX}
+  \toprule
+  API & A programmatic endpoint: \emph{your code} calls a service over HTTP.\\
+  CLI & A command-line tool: \emph{a human or an agent} runs commands.\\
+  MCP & The \emph{Model Context Protocol}: a standard way to expose tools, files, and data sources to agents so the agent can discover and call them \citep{anthropic_mcp_2024}.\\
+  \bottomrule
+  \end{tabularx}
+  \end{center}
+  \vspace{0.4cm}
+  \begin{center}\Large\color{accent}\bfseries MCP is the plumbing.\\CLI is the operation.\\API is the integration.\end{center}
+\end{frame}
+
+% -------- Slide 6: Subagents --------
+\begin{frame}{Sub-agents: specialised workers}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.50\textwidth}
+      \threebullets%
+        {A main agent delegates a sub-task to a smaller, specialised agent.}%
+        {Useful for: independent review, parallel exploration, scope isolation.}%
+        {Dangerous when sub-agents amplify each other's mistakes (echo chamber).}
+      \vspace{0.3cm}
+      \textbf{Concrete examples in research}
+      \begin{itemize}\setlength\itemsep{0.25em}
+        \item ``Bugbot'' style: review the diff before commit.
+        \item Stata sub-agent: run a regression and report only the table.
+        \item Lit-review sub-agent: pull and triage candidate papers.
+      \end{itemize}
+    \column{0.46\textwidth}
+      \begin{tikzpicture}[every node/.style={align=center,font=\scriptsize}]
+        \node[draw=deepblue,fill=softblue,rounded corners,very thick,
+              minimum width=2.6cm,minimum height=0.9cm,text width=2.4cm]
+              (main){\textbf{Main agent}\\\scriptsize orchestrator};
+        \node[draw=accent,fill=softorange,rounded corners,very thick,
+              minimum width=2.2cm,minimum height=0.7cm,below left=0.7cm and -0.1cm of main]
+              (rev){\textbf{Reviewer}};
+        \node[draw=accent,fill=softgreen,rounded corners,very thick,
+              minimum width=2.2cm,minimum height=0.7cm,below=0.7cm of main]
+              (data){\textbf{Stata sub}};
+        \node[draw=accent,fill=softpurple,rounded corners,very thick,
+              minimum width=2.2cm,minimum height=0.7cm,below right=0.7cm and -0.1cm of main]
+              (lit){\textbf{Lit-review}};
+        \draw[->,thick,color=muted] (main)--(rev);
+        \draw[->,thick,color=muted] (main)--(data);
+        \draw[->,thick,color=muted] (main)--(lit);
+      \end{tikzpicture}
+  \end{columns}
+\end{frame}
+
+% -------- Slide 7: Skills, hooks, loops --------
+\begin{frame}{Skills, hooks, loops}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.32\textwidth}
+      \textbf{Skills}\\[0.15cm]
+      Reusable procedures: ``how we make a figure'', ``how we check tables'', ``how we write a referee response''.
+    \column{0.32\textwidth}
+      \textbf{Hooks}\\[0.15cm]
+      Automatic checks before or after an agent acts: lint, format, prose-check, test.
+    \column{0.32\textwidth}
+      \textbf{Loops}\\[0.15cm]
+      Recurring tasks: weekly literature scan, monthly replication check, post-revision audit.
+  \end{columns}
+  \vspace{0.6cm}
+  \begin{center}\Large\color{deepblue}\bfseries Best use: turn tacit lab habits\\into explicit, reusable workflows.\end{center}
+\end{frame}
+
+% -------- Slide 8: Orchestration patterns + workflow --------
+\begin{frame}{Orchestration patterns and the canonical loop}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.42\textwidth}
+      \textbf{Three common patterns}
+      \begin{itemize}\setlength\itemsep{0.3em}
+        \item \textbf{Pipeline} -- one agent, sequential phases.
+        \item \textbf{Debate} -- two agents propose, a third arbitrates.
+        \item \textbf{Parallel} -- many sub-agents on independent slices.
+      \end{itemize}
+    \column{0.54\textwidth}
+      \textbf{Canonical agent loop for a research task}
+      \vspace{0.15cm}
+      \begin{center}
+      \begin{tikzpicture}[every node/.style={align=center,font=\scriptsize}]
+        \node[draw=deepblue,fill=softblue,rounded corners,very thick,
+              minimum width=1.9cm,minimum height=0.7cm] (p){Plan};
+        \node[draw=deepblue,fill=softblue,rounded corners,very thick,
+              minimum width=1.9cm,minimum height=0.7cm,right=0.35cm of p] (i){Implement};
+        \node[draw=deepblue,fill=softblue,rounded corners,very thick,
+              minimum width=1.9cm,minimum height=0.7cm,right=0.35cm of i] (t){Test};
+        \node[draw=accent,fill=softorange,rounded corners,very thick,
+              minimum width=1.9cm,minimum height=0.7cm,below=0.5cm of t] (r){Review};
+        \node[draw=accent,fill=softorange,rounded corners,very thick,
+              minimum width=1.9cm,minimum height=0.7cm,left=0.35cm of r] (d){Document};
+        \draw[->,thick,color=muted] (p)--(i);
+        \draw[->,thick,color=muted] (i)--(t);
+        \draw[->,thick,color=muted] (t)--(r);
+        \draw[->,thick,color=muted] (r)--(d);
+        \draw[->,thick,color=muted,dashed] (d.west) to[bend left=30] (p.south);
+      \end{tikzpicture}
+      \end{center}
+      \vspace{0.15cm}
+      {\scriptsize\color{muted}\itshape Good prompts ask the agent to move through these phases explicitly.}
+  \end{columns}
+\end{frame}
