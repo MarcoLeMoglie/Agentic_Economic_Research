@@ -1,2 +1,200 @@
-% Block 03_interfaces (placeholder)
-% Will be populated block by block.
+% =============================================================
+% Block 3 -- Four interface families (8 slides)
+% =============================================================
+
+\sectionframe{Part 3 -- Four interface families}
+
+% -------- Slide 1: Map of the four families --------
+\begin{frame}{Where you actually meet agentic AI}
+  \begin{center}
+  \begin{tikzpicture}[every node/.style={align=center,font=\small}]
+    \node[draw=deepblue,fill=softblue,rounded corners,very thick,
+          minimum width=4.4cm,minimum height=2.0cm,text width=4.1cm]
+          (chat){\textbf{1. Chat / app}\\\scriptsize ChatGPT, Claude, Gemini, Grok\\\scriptsize talk, think, write};
+    \node[draw=accent,fill=softorange,rounded corners,very thick,
+          minimum width=4.4cm,minimum height=2.0cm,text width=4.1cm,right=0.6cm of chat]
+          (res){\textbf{2. Research / browser}\\\scriptsize Perplexity, Elicit, NotebookLM\\\scriptsize find, triage, summarise};
+    \node[draw=deepblue,fill=softgreen,rounded corners,very thick,
+          minimum width=4.4cm,minimum height=2.0cm,text width=4.1cm,below=0.5cm of chat]
+          (ide){\textbf{3. IDE agent}\\\scriptsize Cursor, Copilot, Windsurf\\\scriptsize code, refactor, test};
+    \node[draw=accent,fill=softpurple,rounded corners,very thick,
+          minimum width=4.4cm,minimum height=2.0cm,text width=4.1cm,below=0.5cm of res]
+          (cli){\textbf{4. CLI / local}\\\scriptsize Claude Code, Codex CLI, Ollama\\\scriptsize automate, batch, integrate};
+  \end{tikzpicture}
+  \end{center}
+  \vspace{0.3cm}
+  \midpoint{Choose the environment by task, not by brand.}
+\end{frame}
+
+% -------- Slide 2: Chat apps --------
+\begin{frame}{1. Chat / app environments}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.50\textwidth}
+      \threebullets%
+        {ChatGPT, Claude, Gemini, Grok and similar apps.}%
+        {Best for thinking, writing, summarising, light analysis.}%
+        {Weakness: limited file control, hidden limits, reproducibility.}
+      \vspace{0.2cm}
+      \textbf{Agentic versions exist}
+      \begin{itemize}\setlength\itemsep{0.25em}
+        \item ``Agent mode'', ``Operator'', browser tools, file connectors.
+        \item Same UI, but the model now \emph{acts}, not only \emph{answers}.
+      \end{itemize}
+    \column{0.46\textwidth}
+      \includegraphics[width=\linewidth,height=0.62\textheight,keepaspectratio]{chatgpt}
+      \smallsource{ChatGPT Agent Mode screenshot via BKA Content (2024). Replace with an institutional capture before teaching.}
+  \end{columns}
+\end{frame}
+
+% -------- Slide 3: Research / browser assistants --------
+\begin{frame}{2. Research and browser assistants}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.50\textwidth}
+      \textbf{Examples}
+      \begin{itemize}\setlength\itemsep{0.25em}
+        \item \textbf{Perplexity}: AI search with citations.
+        \item \textbf{Elicit}: literature search over OpenAlex / Semantic Scholar.
+        \item \textbf{NotebookLM}: ground answers in user-uploaded sources.
+        \item \textbf{Deep Research} modes inside major chat apps.
+      \end{itemize}
+      \vspace{0.2cm}
+      \textbf{Use}
+      \begin{itemize}\setlength\itemsep{0.25em}
+        \item Source discovery, evidence extraction, paper triage, background memos.
+      \end{itemize}
+    \column{0.46\textwidth}
+      \begin{tikzpicture}[font=\scriptsize,every node/.style={align=left}]
+        \node[draw=deepblue,fill=white,rounded corners,
+              minimum width=6.0cm,minimum height=3.6cm,
+              text width=5.7cm,anchor=north west,inner sep=0.25cm]
+              (panel) at (0,0) {%
+          \textbf{\color{deepblue}Perplexity} \hfill \textcolor{muted}{[query]}\\[0.1cm]
+          \textit{What is the elasticity of taxable income?}\\[0.15cm]
+          \rule{\linewidth}{0.3pt}\\[0.05cm]
+          \textbf{Answer.} Saez et al. (2012, JEL) review estimates in the range 0.12--0.40 for the US\ldots\\[0.1cm]
+          \textbf{Sources.}\\
+          $\bullet$ Saez, Slemrod, Giertz (2012, JEL).\\
+          $\bullet$ Chetty (2009, AEJ:EP).\\
+          $\bullet$ Kleven \& Schultz (2014, AEJ:EP).};
+      \end{tikzpicture}\\[0.15cm]
+      \smallsource{Stylised mock-up of a research-assistant answer with citations.}
+  \end{columns}
+  \vspace{0.1cm}
+  \midpoint{Good for finding; not enough for believing.}
+\end{frame}
+
+% -------- Slide 4: IDE agents --------
+\begin{frame}{3. IDE agents}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \threebullets%
+        {Cursor, GitHub Copilot Agent, Windsurf, JetBrains AI, VS Code Copilot Chat.}%
+        {Best when the object is a codebase.}%
+        {Review happens through diffs, tests and file changes.}
+      \vspace{0.2cm}
+      \textbf{Why economists care}
+      \begin{itemize}\setlength\itemsep{0.25em}
+        \item Long Stata/R/Python pipelines benefit massively.
+        \item Diffs are auditable: nothing changes silently.
+        \item Tests force the agent to prove correctness.
+      \end{itemize}
+    \column{0.48\textwidth}
+      \begin{tikzpicture}[font=\ttfamily\scriptsize,every node/.style={align=left}]
+        \node[draw,rounded corners=4pt,fill=dark,text=green!50!white,
+              minimum width=5.6cm,minimum height=4.0cm,
+              text width=5.3cm,anchor=north west,inner sep=0.25cm]
+              {%
+          \textcolor{accent}{$\sim$ project/}\\
+          \quad data/\\
+          \quad do/\\
+          \quad tables/\\[0.15cm]
+          \textcolor{white}{\bfseries Agent}\\
+          changed 4 files\\
+          tests: 2 passed, 1 failed\\
+          new outputs: T2.tex, T3.tex\\[0.15cm]
+          \textcolor{accent}{\bfseries [Review diff?]} y/n};
+      \end{tikzpicture}
+  \end{columns}
+\end{frame}
+
+% -------- Slide 5: CLI agents --------
+\begin{frame}{4. CLI agents (and local models)}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.46\textwidth}
+      \includegraphics[width=\linewidth,height=0.62\textheight,keepaspectratio]{claude}
+      \smallsource{Claude Code terminal screenshot via Tw93 article (2024). Replace with an institutional capture.}
+    \column{0.50\textwidth}
+      \threebullets%
+        {Claude Code, OpenAI Codex CLI, Gemini CLI, Aider.}%
+        {Powerful: they can inspect folders, run commands, manage processes.}%
+        {Riskier: a wrong command can change files or burn budget.}
+      \vspace{0.2cm}
+      \textbf{Local models}
+      \begin{itemize}\setlength\itemsep{0.25em}
+        \item Ollama, LM Studio, plus open-weight models (Llama, Qwen, Mistral).
+        \item Slower and weaker than frontier, but \emph{private}.
+      \end{itemize}
+  \end{columns}
+\end{frame}
+
+% -------- Slide 6: When local vs cloud --------
+\begin{frame}{When local is the right answer}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \textbf{Local pays off when}
+      \begin{itemize}\setlength\itemsep{0.3em}
+        \item Data cannot leave the institution.
+        \item Tasks are repetitive and the cost would explode in the cloud.
+        \item You need full reproducibility and version freezing.
+      \end{itemize}
+    \column{0.48\textwidth}
+      \textbf{Local hurts when}
+      \begin{itemize}\setlength\itemsep{0.3em}
+        \item Tasks need frontier reasoning.
+        \item Hardware is modest (laptop CPU only).
+        \item Multi-step agentic workflows: open models still lag.
+      \end{itemize}
+  \end{columns}
+  \vspace{0.5cm}
+  \midpoint{For most research, cloud frontier + careful data hygiene wins.}
+\end{frame}
+
+% -------- Slide 7: Comparing ecosystems without religion --------
+\begin{frame}{Comparing the main ecosystems, without religion}
+  \begin{center}
+  \begin{tikzpicture}[every node/.style={align=left,font=\small}]
+    \node[draw=deepblue,fill=softblue,rounded corners,very thick,
+          minimum width=5.8cm,minimum height=2.4cm,text width=5.4cm,inner sep=0.25cm]
+          (openai) at (0,1.7) {\textbf{OpenAI}\\Generalist chat + Agent + Codex CLI\\\scriptsize \color{muted}watch: cost, limits, plan churn};
+    \node[draw=accent,fill=softorange,rounded corners,very thick,
+          minimum width=5.8cm,minimum height=2.4cm,text width=5.4cm,inner sep=0.25cm]
+          (anthropic) at (6.4,1.7) {\textbf{Anthropic}\\Careful code (Claude Code), strong defaults\\\scriptsize \color{muted}watch: usage caps, restricted regions};
+    \node[draw=deepblue,fill=softgreen,rounded corners,very thick,
+          minimum width=5.8cm,minimum height=2.4cm,text width=5.4cm,inner sep=0.25cm]
+          (google) at (0,-1.5) {\textbf{Google}\\Long context + Search ecosystem + Gemini CLI\\\scriptsize \color{muted}watch: product churn, naming};
+    \node[draw=accent,fill=softpurple,rounded corners,very thick,
+          minimum width=5.8cm,minimum height=2.4cm,text width=5.4cm,inner sep=0.25cm]
+          (cursor) at (6.4,-1.5) {\textbf{Cursor}\\IDE-native, multi-model, agent-first\\\scriptsize \color{muted}watch: subscription / usage split};
+  \end{tikzpicture}
+  \end{center}
+  \vspace{0.1cm}
+  \begin{center}\scriptsize\color{muted}Also: Grok / xAI; Perplexity / Elicit / NotebookLM for search; Llama / Qwen / Mistral for local.\end{center}
+\end{frame}
+
+% -------- Slide 8: Choose by task, not by brand --------
+\begin{frame}{Choose by task, not by brand}
+  \vspace{0.2cm}
+  \begin{center}
+  \begin{tabularx}{0.92\linewidth}{>{\bfseries\color{deepblue}}lX}
+  \toprule
+  Thinking, writing, light analysis & Chat app (any frontier).\\
+  Source discovery, evidence triage & Research/browser assistant + chat for synthesis.\\
+  Coding, replication packages, table generation & IDE agent.\\
+  Batch jobs, scripted pipelines, server work & CLI agent.\\
+  Sensitive data, full reproducibility & Local model where feasible; otherwise enterprise plan with no training.\\
+  \bottomrule
+  \end{tabularx}
+  \end{center}
+  \vspace{0.5cm}
+  \midpoint{Most real workflows combine two or three of the above.}
+\end{frame}
