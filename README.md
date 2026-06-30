@@ -1,14 +1,27 @@
+![Agentic AI for Economic Research](assets/banner.png)
+
 # Agentic AI for Economic Research
 
-Beamer slide deck for the four-hour mini-course **Agentic AI for Economic
-Research** taught by Marco Le Moglie (Catholic University of the Sacred Heart).
-This deck covers hours 1-2 (concepts, vocabulary, interfaces, governance,
-architecture). Hours 3-4 (applied case studies from Marco's own research) live
-in a separate, forthcoming deck.
+**Four-hour mini-course** for PhD students and faculty in economics: agentic AI
+vocabulary, tool landscape, research workflows, and responsible use.
+
+**Instructor:** Marco Le Moglie · Catholic University of the Sacred Heart  
+**Format:** two sessions of two hours each  
+**This repository:** Session 1 deck (hours 1–2 — concepts, interfaces,
+governance, architecture). Session 2 (hours 3–4 — applied case studies from
+live research workflows) is planned as a separate deck.
+
+## What is inside
+
+- Beamer slide source (`main.tex` + `sections/00`–`08`)
+- Custom theme: deep blue `#163A59` + accent orange `#D97706`
+- Real screenshots, charts, and a BibTeX bibliography with sourced claims
+- Project notes in the Marco Brain vault:
+  `Desktop/Marco/Brain/Marco/02_AREAS/Teaching/AI_course/`
 
 ## Build
 
-LaTeX source compiles on Overleaf with **pdflatex**. Locally:
+Compile on **Overleaf** with **pdflatex** (recommended). Local build:
 
 ```bash
 pdflatex main.tex
@@ -21,30 +34,34 @@ pdflatex main.tex
 
 ```
 main.tex            entry point (\input each section)
-preamble.tex        custom Beamer theme (deep blue + accent orange)
-bibliography.bib    every cited source
+preamble.tex        custom Beamer theme
+bibliography.bib    cited sources
 sections/           one file per block (00..08)
 assets/
-  real/             real-world screenshots and product captures
-  charts/           data-backed charts produced for the deck
-  icons/            icon set used in the theme
-  legacy/           reference materials (v1 deck PDF, v1 sources, legacy PNGs)
+  banner.png        repository header image
+  real/             product screenshots
+  charts/           data-backed figures
+  icons/            theme icons
+  legacy/           v1 reference materials
 ```
 
 ## Workflow
 
-- Block-by-block writing with intermediate verification by Marco.
-- Quality gates per block: `tools/prose-check` (Slopless + Vale) and the
-  `bugbot` subagent.
-- One `feat(block-N): ...` commit per block, pushed to `main`.
-- Release with `git tag v1.0`.
+- Block-by-block writing with Marco's review between blocks.
+- Quality gates: `tools/prose-check` (Slopless + Vale) and the `bugbot`
+  subagent per block.
+- One `feat(block-N): ...` commit per block on `main`.
+- Release tags: `v1.0` (Session 1 baseline).
 
-## Brain integrations
+## Project memory
 
-Project notes and decisions live in the Marco Brain vault at
-`02_AREAS/Teaching/AI_course/`. Memory layer: `memanto`, `hivemind`, `cavemem`.
+Canonical project state lives in the **Marco Brain** Obsidian vault
+(`02_AREAS/Teaching/AI_course/`). Active memory layers: **memanto** (long-term
+decisions) and **hivemind** (session capture). Markdown in the vault is the
+source of truth for scope, decisions, and next actions.
 
 ## Licence
 
-All third-party screenshots are used under fair use for non-commercial
-teaching. Replace with institutional captures or live demos if needed.
+Third-party screenshots are used under fair use for non-commercial teaching.
+Replace with institutional captures or live demos before public distribution if
+required by your institution.
