@@ -16,7 +16,7 @@
           (res){\textbf{2. Research / browser}\\\scriptsize Perplexity, Elicit, NotebookLM\\\scriptsize find, triage, summarise};
     \node[draw=deepblue,fill=softgreen,rounded corners,very thick,
           minimum width=4.4cm,minimum height=2.0cm,text width=4.1cm,below=0.5cm of chat]
-          (ide){\textbf{3. IDE agent}\\\scriptsize Cursor, Copilot, Windsurf, Antigravity, Codex\\\scriptsize code, refactor, test};
+          (ide){\textbf{3. IDE agent}\\\scriptsize Cursor, Copilot, Antigravity, Codex\\\scriptsize code, refactor, test};
     \node[draw=accent,fill=softpurple,rounded corners,very thick,
           minimum width=4.4cm,minimum height=2.0cm,text width=4.1cm,below=0.5cm of res]
           (cli){\textbf{4. CLI / local}\\\scriptsize Claude Code, Codex CLI, Ollama\\\scriptsize automate, batch, integrate};
@@ -42,28 +42,9 @@
       \end{itemize}
     \column{0.46\textwidth}
       \includegraphics[width=\linewidth,height=0.62\textheight,keepaspectratio]{chatgpt}
-      \smallsource{ChatGPT Agent Mode screenshot via BKA Content (2024). Replace with an institutional capture for distribution.}
   \end{columns}
 \end{frame}
 
-% -------- Slide 3: Desktop agent apps --------
-\begin{frame}{Desktop agent apps: the IDE boundary is blurring}
-  \begin{columns}[T,onlytextwidth]
-    \column{0.48\textwidth}
-      \textbf{Not only chat in a browser}
-      \begin{itemize}\setlength\itemsep{0.3em}
-        \item Cursor desktop app, Google Antigravity, Codex app/extension, Claude Code, and similar tools.
-        \item They can open folders, inspect files, run commands, edit code, and manage tasks.
-        \item The app becomes a control plane around the project, not just a place to ask questions.
-      \end{itemize}
-    \column{0.48\textwidth}
-      \includegraphics[width=\linewidth,height=0.58\textheight,keepaspectratio]{codex_app}
-      \smallsource{Codex desktop app screenshot captured by Marco Le Moglie, 23 June 2026.}
-  \end{columns}
-  \vspace{0.25cm}
-  \begin{center}\large\bfseries\color{deepblue}The interface is moving from editor-first to agent-first.\\[-0.05cm]
-  \small\color{muted}For researchers, the relevant question is: \emph{can I review what changed?}\end{center}
-\end{frame}
 
 % -------- Slide 3: Research / browser assistants --------
 \begin{frame}{2. Research and browser assistants}
@@ -83,10 +64,8 @@
       \end{itemize}
     \column{0.46\textwidth}
       \includegraphics[width=\linewidth,height=0.60\textheight,keepaspectratio]{notebooklm}
-      \smallsource{NotebookLM screenshot captured by Marco Le Moglie, 23 June 2026.}
   \end{columns}
-  \vspace{0.1cm}
-  \midpoint{Good for finding; not enough for believing.}
+ 
 \end{frame}
 
 % -------- Slide 5: IDE agents --------
@@ -94,34 +73,45 @@
   \begin{columns}[T,onlytextwidth]
     \column{0.48\textwidth}
       \threebullets%
-        {Cursor, GitHub Copilot Agent, Windsurf, Antigravity, Codex inside competing IDEs, JetBrains AI, VS Code Copilot Chat.}%
+        {Cursor, GitHub Copilot Agent, Antigravity, Codex inside competing IDEs}%
         {Best when the object is a codebase.}%
         {Review happens through diffs, tests and file changes.}
-      \vspace{0.2cm}
-      \textbf{Why economists care}
-      \begin{itemize}\setlength\itemsep{0.25em}
-        \item Long Stata/R/Python pipelines benefit massively.
-        \item Diffs are auditable: nothing changes silently.
-        \item Tests force the agent to prove correctness.
-        \item New desktop agent apps increasingly do the same work outside a traditional IDE.
-      \end{itemize}
+    
+      
     \column{0.48\textwidth}
       \includegraphics[width=\linewidth,height=0.60\textheight,keepaspectratio]{antigravity_ide}
-      \smallsource{Antigravity IDE screenshot captured by Marco Le Moglie, 23 June 2026.}
   \end{columns}
 \end{frame}
+
+% -------- Slide 3: Desktop agent apps --------
+\begin{frame}{3.1 Desktop agent apps: the IDE boundary is blurring}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \textbf{Not only chat in a browser}
+      \begin{itemize}\setlength\itemsep{0.3em}
+        \item Cursor desktop app, Google Antigravity, Codex app/extension, Claude Code, and similar tools.
+        \item They can open folders, inspect files, run commands, edit code, and manage tasks.
+        \item The app becomes a control plane around the project, not just a place to ask questions.
+      \end{itemize}
+    \column{0.48\textwidth}
+      \includegraphics[width=\linewidth,height=0.58\textheight,keepaspectratio]{codex_app}
+      \smallsource{Codex desktop app screenshot captured by Marco Le Moglie, 23 June 2026.}
+  \end{columns}
+  \vspace{0.25cm}
+\begin{center}\large\bfseries\color{deepblue}For researchers, the relevant question is: \emph{can I review what changed?}\end{center}
+\end{frame}
+
 
 % -------- Slide 6: CLI agents --------
 \begin{frame}{4. CLI agents (and local models)}
   \begin{columns}[T,onlytextwidth]
     \column{0.46\textwidth}
       \includegraphics[width=\linewidth,height=0.62\textheight,keepaspectratio]{claude}
-      \smallsource{Claude Code terminal screenshot via Tw93 article (2024). Replace with an institutional capture.}
     \column{0.50\textwidth}
       \threebullets%
-        {Claude Code, OpenAI Codex CLI, Gemini CLI, Aider.}%
-        {Powerful: they can inspect folders, run commands, manage processes.}%
-        {Riskier: a wrong command can change files or burn budget.}
+        {Claude Code, OpenAI Codex CLI, Gemini CLI}%
+        {They can inspect folders, run commands, edit code, manage processes.}%
+        {They consume fewer tokens}
       \vspace{0.2cm}
       \textbf{Local models}
       \begin{itemize}\setlength\itemsep{0.25em}
@@ -182,7 +172,7 @@
   \begin{tabularx}{0.92\linewidth}{>{\bfseries\color{deepblue}}lX}
   \toprule
   Thinking, writing, light analysis & Chat app (any frontier).\\
-  Source discovery, evidence triage & Research/browser assistant + chat for synthesis.\\
+  Source discovery, evidence triage & Research assistant + chat for synthesis.\\
   Coding, replication packages, table generation & IDE agent or desktop agent app.\\
   Batch jobs, scripted pipelines, server work & CLI agent.\\
   Sensitive data, full reproducibility & Local model where feasible; otherwise enterprise plan with no training.\\
@@ -190,5 +180,5 @@
   \end{tabularx}
   \end{center}
   \vspace{0.5cm}
-  \midpoint{Most real workflows combine two or three of the above.}
+  \midpoint{Most real workflows combine two or three of the solutions above.}
 \end{frame}

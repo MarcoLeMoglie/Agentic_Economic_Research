@@ -6,7 +6,7 @@
 \sectionframe{Part 7 -- Case studies teaser}
 
 % -------- Slide 1: Intro --------
-\begin{frame}{What you will see in detail next session}
+\begin{frame}{What you will (probably) see in detail next session}
   \begin{columns}[T,onlytextwidth]
     \column{0.50\textwidth}
       \textbf{Five recurring economics workflows where agents help.}
@@ -184,29 +184,20 @@
     \draw[->,thick,color=muted] (data)--(ana);
     \draw[->,thick,color=muted] (ana)--(write);
     \draw[->,thick,color=muted] (write)--(rev);
-    \node[below=0.15cm of idea,color=muted] {low};
-    \node[below=0.15cm of lit,color=accent] {medium};
-    \node[below=0.15cm of data,color=good] {high};
-    \node[below=0.15cm of ana,color=accent] {medium};
-    \node[below=0.15cm of write,color=good] {high};
-    \node[below=0.15cm of rev,color=accent] {review gate};
+    \node[below=0.15cm of idea,color=black] {low fit\\ low/medium trust};
+    \node[below=0.15cm of lit,color=black] {medium fit \\ medium trust};
+    \node[below=0.15cm of data,color=black] {high fit \\ High trust};
+    \node[below=0.15cm of ana,color=black] {medium fit \\ medium trust};
+    \node[below=0.15cm of write,color=black] {high fit \\ medium trust};
+    \node[below=0.15cm of rev,color=black] {medium fit \\ medium trust};
   \end{tikzpicture}
-  \end{center}
-  \vspace{0.2cm}
-  \begin{center}
-    \scriptsize
-    \tikz{\node[draw=muted,fill=white,rounded corners,inner sep=2pt,align=center]{%
-      \textcolor{muted}{\rule{0.6em}{0.6em}}~low trust \quad
-      \textcolor{accent}{\rule{0.6em}{0.6em}}~medium trust \quad
-      \textcolor{good}{\rule{0.6em}{0.6em}}~high trust\\
-      \textcolor{accent!70!deepblue}{\rule{0.6em}{0.6em}}~human-review gate};}
-  \end{center}
+  \end{center}  
   \vspace{0.25cm}
   \midpoint{Agents are useful across the pipeline, but not equally trustworthy at every stage.}
 \end{frame}
 
 % -------- Slide 9: Bridge to Part 2 of the course --------
-\begin{frame}{What we will actually do in Session 2}
+\begin{frame}{What we will (probably) do in Session 2}
   \vspace{0.2cm}
   \begin{itemize}\setlength\itemsep{0.35em}
     \item We will review some of my current projects to see what agents can and cannot do.
@@ -215,5 +206,5 @@
     \item If useful, we can also take a quick research idea from the room and test how far an agent can push it in a short session.
   \end{itemize}
   \vspace{0.45cm}
-  \begin{center}\Large\color{deepblue}\bfseries Session 2 is about judgement: what to delegate, what to inspect, and when to stop. \end{center}
+  %\begin{center}\Large\color{deepblue}\bfseries Session 2 is about judgement: \\what to delegate, what to inspect, and when to stop. \end{center}
 \end{frame}

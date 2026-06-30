@@ -34,7 +34,7 @@
           (proj){\textbf{Project}\\\scriptsize repo files, notes, rules};
     \node[draw=deepblue,fill=softgreen,rounded corners,very thick,
           minimum width=3.4cm,minimum height=1.05cm,text width=3.1cm,right=0.6cm of proj]
-          (pers){\textbf{Persistent}\\\scriptsize across sessions};
+          (pers){\textbf{Persistency}\\\scriptsize across sessions};
     \node[draw=accent,fill=softpurple,rounded corners,very thick,
           minimum width=3.4cm,minimum height=1.05cm,text width=3.1cm,right=0.6cm of pers]
           (graph){\textbf{Graph}\\\scriptsize code/notes graph};
@@ -115,7 +115,7 @@
   \vspace{0.25cm}
   \begin{center}\Large\color{accent}\bfseries MCP is the plumbing.\\CLI is the operation.\\API is the integration.\end{center}
   \vspace{0.15cm}
-  \begin{center}\scriptsize\color{muted}Simple rule: the more tools you expose to the model, the more context you spend before the task even starts.\end{center}
+  \begin{center}\color{muted}Simple rule: the more tools you expose to the model, the more context you spend before the task even starts.\end{center}
 \end{frame}
 
 % -------- Slide 6: Subagents --------
@@ -158,17 +158,38 @@
 \begin{frame}{Skills, hooks, loops}
   \begin{columns}[T,onlytextwidth]
     \column{0.32\textwidth}
-      \textbf{Skills}\\[0.15cm]
-      Reusable procedures: ``how we make a figure'', ``how we check tables'', ``how we write a referee response''.
+      \textbf{Skills}\\[0.1cm]
+      {\small Reusable procedures: ``how we make a figure'', ``how we check tables'', ``how we write a referee response''.}
+      \vspace{0.12cm}
+      {\scriptsize
+      \begin{itemize}\setlength\itemsep{0.08em}\setlength\leftmargini{0.85em}
+        \item Turn Stata regression output into a paper-ready table.
+        \item Audit a dataset/codebook before the first merge.
+        \item Adapt a frozen draft to a new journal style.
+      \end{itemize}}
     \column{0.32\textwidth}
-      \textbf{Hooks}\\[0.15cm]
-      Automatic checks before or after an agent acts: lint, format, prose-check, test.
+      \textbf{Hooks}\\[0.1cm]
+      {\small Automatic checks before or after an agent acts: lint, format, prose-check, test.}
+      \vspace{0.12cm}
+      {\scriptsize
+      \begin{itemize}\setlength\itemsep{0.08em}\setlength\leftmargini{0.85em}
+        \item On session start: load rules, \texttt{AGENT\_MEMORY.md}, current state.
+        \item After \texttt{.tex} edits: prose-check + citation sanity pass.
+        \item Before commit: review diff; block secrets and raw confidential data.
+      \end{itemize}}
     \column{0.32\textwidth}
-      \textbf{Loops}\\[0.15cm]
-      Recurring tasks: weekly literature scan, monthly replication check, post-revision audit.
+      \textbf{Loops}\\[0.1cm]
+      {\small Recurring tasks: weekly literature scan, monthly replication check, post-revision audit.}
+      \vspace{0.12cm}
+      {\scriptsize
+      \begin{itemize}\setlength\itemsep{0.08em}\setlength\leftmargini{0.85em}
+        \item Weekly: scan new papers $\rightarrow$ triage $\rightarrow$ vault notes.
+        \item After each new spec: robustness block $\rightarrow$ appendix refresh.
+        \item Post-referee round: comment $\rightarrow$ rerun $\rightarrow$ update tables/figures.
+      \end{itemize}}
   \end{columns}
   \vspace{0.6cm}
-  \begin{center}\Large\color{deepblue}\bfseries Best use: turn tacit lab habits\\into explicit, reusable workflows.\end{center}
+  \begin{center}\large\color{deepblue}\bfseries Best use: turn tacit lab habits into explicit, reusable workflows.\end{center}
 \end{frame}
 
 % -------- Slide 8: Orchestration patterns + workflow --------
