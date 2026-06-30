@@ -31,7 +31,7 @@ _minted-*
 *.upa
 *.upb
 
-# pdflatex output kept for releases only; keep main.pdf out of git
+# pdflatex scratch output (release PDF is tracked)
 main.pdf
 
 # Editor / OS

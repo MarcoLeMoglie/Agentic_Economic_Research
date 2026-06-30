@@ -19,6 +19,10 @@ live research workflows) is planned as a separate deck.
 - Project notes in the Marco Brain vault:
   `Desktop/Marco/Brain/Marco/02_AREAS/Teaching/AI_course/`
 
+## Compiled deck
+
+Pre-built slide PDF (Session 1): [`Agentic_Economic_Research.pdf`](Agentic_Economic_Research.pdf) — regenerate with the build steps below.
+
 ## Build
 
 Compile on **Overleaf** with **pdflatex** (recommended). Local build:
