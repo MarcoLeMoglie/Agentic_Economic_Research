@@ -23,6 +23,14 @@ live research workflows) is planned as a separate deck.
 
 Pre-built slide PDF (Session 1): [`Agentic_Economic_Research.pdf`](Agentic_Economic_Research.pdf) — regenerate with the build steps below.
 
+## Session 1 recording
+
+Trimmed lecture capture (1 July 2026, hours 1–2): pre-lesson noise and closing chatter removed; English soft subtitles embedded.
+
+- **Video:** [`recordings/session1/session1_trimmed_softsubs.mp4`](recordings/session1/session1_trimmed_softsubs.mp4) (~2 h 8 min, H.264 720p)
+- Subtitles start with *“Thank you for coming…”*; false-start cue (*“Okay, let's start…”*) removed
+- Window: `11:20` → `2:19:40` in the original Teams recording
+
 ## Build
 
 Compile on **Overleaf** with **pdflatex** (recommended). Local build:
@@ -41,6 +49,8 @@ main.tex            entry point (\input each section)
 preamble.tex        custom Beamer theme
 bibliography.bib    cited sources
 sections/           one file per block (00..08)
+recordings/
+  session1/         Session 1 lecture video (trimmed, soft subtitles)
 assets/
   banner.png        repository header image
   real/             product screenshots
