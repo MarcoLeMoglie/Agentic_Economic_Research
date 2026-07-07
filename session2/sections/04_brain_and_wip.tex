@@ -53,3 +53,46 @@
   \vspace{0.15cm}
   \begin{center}\srcfoot{Live demos may fail --- that is part of the lesson.}\end{center}
 \end{frame}
+
+% -------- Part 3 detail: how the Brain is built --------
+\begin{frame}[t]{Part 3: how I built and wired the Brain}
+  \tiny
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \textbf{Build \& folder structure}
+      \begin{itemize}\setlength\itemsep{0.08em}
+        \item Obsidian vault = \textbf{Markdown source of truth} (not blind RAG).
+        \item \texttt{01\_GENERAL/} --- agent protocols, skills, integrations, scripts.
+        \item \texttt{02\_AREAS/} --- Teaching, Research, Other; one folder per project.
+        \item Per project: 8 canonical files + \texttt{wiki/} + \texttt{raw/chats/}.
+        \item Populate via \texttt{create\_project.py}, session closeout, LLM Wiki ingest.
+      \end{itemize}
+      \textbf{Integrations (support layers)}
+      \begin{itemize}\setlength\itemsep{0.06em}
+        \item \textbf{Anti-sloppiness} --- \texttt{prose-check} / Slopless on formal prose.
+        \item \textbf{Headroom} --- runtime context compression (tokens, long logs).
+        \item \textbf{Memanto} --- typed semantic recall; Markdown stays canonical.
+        \item \textbf{code-review-graph} --- impact-aware code review on active repos.
+        \item \textbf{Econoclast} --- adversarial referee on empirical papers.
+        \item \textbf{Style / taste} --- voice profile + archived examples (e.g.\ reports).
+      \end{itemize}
+    \column{0.48\textwidth}
+      \textbf{Protocols \& skills}
+      \begin{itemize}\setlength\itemsep{0.08em}
+        \item \textbf{LLM Wiki} --- promote stable notes into project \texttt{wiki/}.
+        \item \textbf{Caveman} --- terse agent mode; saves tokens, keeps substance.
+        \item \textbf{Karpathy skills} --- imported reusable procedures under \texttt{01\_GENERAL/skills/}.
+        \item Session protocol + Active Brain Reminder Rule.
+      \end{itemize}
+      \textbf{``Apri sessione brain''}
+      \begin{itemize}\setlength\itemsep{0.06em}
+        \item Read global + project memory (\texttt{INDEX}, \texttt{CURRENT\_STATE}, \ldots).
+        \item Inspect live files; summarize state + plan --- \emph{before} any edits.
+      \end{itemize}
+      \textbf{``Chiudi sessione brain''}
+      \begin{itemize}\setlength\itemsep{0.06em}
+        \item Update \texttt{CURRENT\_STATE}, \texttt{NEXT\_ACTIONS}, \texttt{DECISIONS}, \texttt{LOG}.
+        \item Promote durable facts to \texttt{AGENT\_MEMORY} / \texttt{wiki/}; optional Memanto sync.
+      \end{itemize}
+  \end{columns}
+\end{frame}
