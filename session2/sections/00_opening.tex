@@ -1,0 +1,147 @@
+% =============================================================
+% Session 2 -- Block 0: Opening and today's roadmap
+% Title -- What we see today (overview) -- Four parts in detail
+% =============================================================
+
+% -------- Slide 1: Title (full-bleed) --------
+\begin{frame}[plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[deepblue] (current page.south west) rectangle (current page.north east);
+    \fill[accent,opacity=0.85]
+      ($(current page.south east)+(-6,0)$) --
+      ($(current page.south east)+(0,0)$) --
+      ($(current page.south east)+(0,3.2)$) -- cycle;
+    \node[anchor=north west,inner sep=1.3cm,text=white,align=left,text width=0.86\paperwidth] at (current page.north west){%
+      {\fontsize{34}{40}\selectfont\bfseries Agentic AI for\\Economic Research}\\[0.35cm]
+      {\Large Session 2: live workflows, case studies, and lessons learned}\\[1.0cm]
+      {\large\bfseries Marco Le Moglie}\\[0.05cm]
+      {\normalsize Catholic University of the Sacred Heart}\\[0.5cm]
+      {\small Agentic Economic Research seminar\,\textbar\,Session 2}\\[0.05cm]
+      {\small Mini-course for PhD students and faculty\,\textbar\,hours 3--4}\\[0.12cm]
+      {\footnotesize\href{https://github.com/MarcoLeMoglie/Agentic_Economic_Research}{\textcolor{white}{Slides source on GitHub}}}};
+  \end{tikzpicture}
+\end{frame}
+
+% -------- Slide 2: What we see today (four-part overview) --------
+\begin{frame}{What we see today}
+  \vspace{0.15cm}
+  \begin{center}
+  \begin{tikzpicture}[
+    node distance=0.55cm and 0.5cm,
+    every node/.style={align=left,font=\small},
+    part/.style={draw=deepblue,fill=softblue,rounded corners,very thick,
+      minimum width=6.8cm,minimum height=1.05cm,text width=6.5cm,inner sep=6pt}
+  ]
+    \node[part] (p1) {\textbf{1. Agent interfaces}\quad\scriptsize live screens};
+    \node[part,below=of p1] (p2) {\textbf{2. Success stories}\quad\scriptsize projects at equilibrium};
+    \node[part,below=of p2] (p3) {\textbf{3. Second brain}\quad\scriptsize Obsidian vault \& memory};
+    \node[part,below=of p3] (p4) {\textbf{4. Work in progress}\quad\scriptsize live screens};
+    \node[anchor=west,right=0.9cm of p1,text width=5.8cm,font=\scriptsize,color=muted] (n1)
+      {Chat, desktop apps, IDE, CLI --- menus and options in real tools.};
+    \node[anchor=west,right=0.9cm of p2,text width=5.8cm,font=\scriptsize,color=muted] (n2)
+      {Selected projects where the agent workflow is clean and repeatable.};
+    \node[anchor=west,right=0.9cm of p3,text width=5.8cm,font=\scriptsize,color=muted] (n3)
+      {How it works; how I organise mine; how you might organise yours.};
+    \node[anchor=west,right=0.9cm of p4,text width=5.8cm,font=\scriptsize,color=muted] (n4)
+      {Bootstrap, supervision, errors --- all on real screens.};
+  \end{tikzpicture}
+  \end{center}
+ 
+\end{frame}
+
+% -------- Slide 3: Part 1 -- Interfaces (detail) --------
+\sectionframe[deepblue]{Part 1 -- Agent interfaces}
+
+\begin{frame}{Part 1: four interface families, live}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \textbf{Today we open the real tools}
+      \begin{itemize}\setlength\itemsep{0.45em}
+        \item \textbf{Chat window}
+        \item \textbf{Desktop agent apps} 
+        \item \textbf{IDE agents} 
+        \item \textbf{CLI in the terminal} 
+      \end{itemize}
+    \column{0.48\textwidth}
+      \alertbox{%
+        \textbf{Live demo goal}\\[0.2em]
+        Not a feature tour for its own sake: show \emph{where} autonomy lives in each interface --- and which menu choices matter for research.%
+      }
+    
+  \end{columns}
+\end{frame}
+
+% -------- Slide 4: Part 2 -- Success stories (overview) --------
+\sectionframe[deepblue]{Part 2 -- Success stories}
+
+\begin{frame}{Part 2: projects at equilibrium}
+  \small
+  \textbf{For each case: objective, current workflow, what we learned, problems hit.}
+  \vspace{0.35cm}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \begin{itemize}\setlength\itemsep{0.32em}
+        \item \textbf{YouTube channel} --- economics explainer pipeline.
+        \item \textbf{Newsletter} --- ASSIST Weekly harvest-to-send stack.
+        \item \textbf{Mafia culture} --- datasets, reports, documentation agents.
+      \end{itemize}
+    \column{0.48\textwidth}
+      \begin{itemize}\setlength\itemsep{0.32em}
+        \item \textbf{Paper review} --- referee-report skills and adversarial checks.
+        \item \textbf{Purge} --- journal-target skill adapted to a new outlet.
+      \end{itemize}
+  \end{columns}
+  \vspace{0.35cm}
+  \begin{center}{\color{deepblue}\bfseries Common thread: repeatable folder discipline + human gates.}\end{center}
+\end{frame}
+
+% -------- Slide 5: Part 3 -- Second brain --------
+\sectionframe[accent]{Part 3 -- Second brain}
+
+\begin{frame}{Part 3: memory and the Obsidian second brain}
+  \twobullets%
+    {Session 1 introduced \emph{why} a curated Markdown vault beats blind RAG for research traceability.}%
+    {Today: \textbf{how} it works in practice --- my vault layout}%
+  \vspace{0.5cm}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \textbf{We will show}
+      \begin{itemize}\setlength\itemsep{0.35em}
+        \item Folder organization: General Areas, projects, wiki vs.\ raw notes.
+        \item Brain bootstrap: opening and closing a session
+        \item Tools, plugins, protocols, skills
+      \end{itemize}
+    \column{0.48\textwidth}
+      \textbf{Takeaway for you}
+      \begin{itemize}\setlength\itemsep{0.35em}
+        \item Start small: one project folder, eight canonical files.
+        \item Write decisions in Markdown, not only in chat.
+        \item Treat the vault as the restart point every session.
+      \end{itemize}
+  \end{columns}
+\end{frame}
+
+% -------- Slide 6: Part 4 -- Work in progress --------
+\sectionframe[accent]{Part 4 -- Work in progress}
+
+\begin{frame}{Part 4: WIP --- setup, supervision, and fixes}
+  \small
+  \textbf{1.\ Project bootstrap}
+  \begin{itemize}\setlength\itemsep{0.28em}
+    \item My standard start: \textbf{Brain} $\rightarrow$ \textbf{GitHub} repo $\rightarrow$ \textbf{Overleaf} sync.
+    \item \textbf{Example:} \emph{Mafia migration} --- matched DiD pipeline, analysis plan, wiki, push to GitHub.
+  \end{itemize}
+  \vspace{0.25cm}
+  \textbf{2.\ When the machine needs a human gate}
+  \begin{itemize}\setlength\itemsep{0.28em}
+    \item \textbf{Purge} --- 1940 INE profession proxies: terrible embedded OCR; rebuilt with image re-OCR, column/row templates, census caps; I spot-checked flagged cells.
+    \item Pattern: agent proposes fix $\rightarrow$ I verify against source $\rightarrow$ we lock the auditable pipeline.
+  \end{itemize}
+  \vspace{0.25cm}
+  \textbf{3.\ Interactive contrast}
+  \begin{itemize}\setlength\itemsep{0.28em}
+    \item Build the same table with \textbf{plain ChatGPT} vs.\ a \textbf{Codex coding agent} on real project files.
+  \end{itemize}
+  \vspace{0.15cm}
+  \begin{center}\srcfoot{Live demos may fail --- that is part of the lesson.}\end{center}
+\end{frame}

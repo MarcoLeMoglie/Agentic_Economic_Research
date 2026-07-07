@@ -1,0 +1,134 @@
+% =============================================================
+% Session 2 -- Block 2 (detail): Success stories — one slide per project
+% =============================================================
+
+% -------- Success story: YouTube channel --------
+\begin{frame}{Success story: \emph{Cosa fanno gli Economisti}}
+  \footnotesize
+  \textbf{Live links:}
+  \href{https://www.youtube.com/@cosafannoglieconomisti26}{YouTube}
+  \,\textbar\,
+  \href{https://www.instagram.com/cosafannoglieconomisti}{Instagram}
+  \,\textbar\,
+  \href{https://www.facebook.com/cosafannoglieconomisti}{Facebook}
+  \vspace{0.15cm}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \textbf{Objective}
+      \begin{itemize}\setlength\itemsep{0.2em}
+        \item Turn economics papers into short explainer videos for a general audience.
+        \item Automate production, SEO, YouTube programming, and cross-posting (FB/IG).
+      \end{itemize}
+      \vspace{0.15cm}
+      \textbf{Current state \& workflow}
+      \begin{itemize}\setlength\itemsep{0.2em}
+        \item End-to-end: paper $\rightarrow$ cover $\rightarrow$ NotebookLM video $\rightarrow$ cleanup $\rightarrow$ multilingual upload $\rightarrow$ Buffer social.
+        \item \textbf{Codex chat} = control plane; runner \texttt{./workflow} + scripts in \texttt{Execution/}.
+        \item Three layers: \emph{Directives} (SOP) $\rightarrow$ orchestration $\rightarrow$ deterministic execution.
+        \item Lanes: Enea (production), Romolo (YouTube/SEO), Marcello (social), Mercurio (backup), Ulisse (scouting).
+      \end{itemize}
+    \column{0.48\textwidth}
+      \textbf{What I learned}
+      \begin{itemize}\setlength\itemsep{0.2em}
+        \item \textbf{Connectors}: MCP (NotebookLM), APIs (YouTube, Buffer), CLI (\texttt{nlm}, \texttt{./workflow}).
+        \item \textbf{Structured rules} + \textbf{multi-agent} workflows; truth in \texttt{video\_tracking.json}.
+        \item \textbf{Token control}: targeted git push, recover partial uploads, no blind re-runs.
+        \item \textbf{YouTube SEO}: titles, playlists, competitor comments, monthly report.
+        \item \textbf{Tool drift}: Antigravity/Codex upgrades broke rules, MCP paths, terminal defaults --- re-audit SOPs after each version jump.
+      \end{itemize}
+      \vspace{0.1cm}
+      \textbf{Problems hit}
+      \begin{itemize}\setlength\itemsep{0.2em}
+        \item Buffer 404 until assets on GitHub; NotebookLM MCP vs.\ CLI cookie mismatch.
+        \item YouTube thumbnail $>$2\,MB after upload; Telegram retired $\rightarrow$ Codex-first.
+      \end{itemize}
+  \end{columns}
+\end{frame}
+
+% -------- Success story: ASSIST Weekly newsletter --------
+\begin{frame}[t]{Success story: \emph{ASSIST Weekly} (newsletter)}
+  \tiny
+  \textbf{Live link:} \href{https://www.assistweekly.org/}{assistweekly.org}
+  \vspace{0.08cm}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \textbf{Objective}
+      \begin{itemize}\setlength\itemsep{0.1em}
+        \item Weekly brief: datasets, tools/methods, working papers.
+        \item Stack: discover $\rightarrow$ QA $\rightarrow$ email $\rightarrow$ landing/signup.
+      \end{itemize}
+      \textbf{Current state}
+      \begin{itemize}\setlength\itemsep{0.1em}
+        \item \#13 sent 2026-07-06; \texttt{2026-07-13} shortlist ready.
+        \item Brevo campaigns; Cloudflare Pages/Worker; internal dashboard.
+      \end{itemize}
+      \textbf{Three automations}
+      \begin{itemize}\setlength\itemsep{0.08em}
+        \item \textbf{Wed} harvest $\rightarrow$ shortlist + dashboard
+        \item \textbf{Thu} render after \texttt{APPROVED.flag}
+        \item \textbf{Mon} Brevo send after \texttt{EMAIL\_APPROVED}
+      \end{itemize}
+      {\scriptsize\color{muted}Manual gates: dashboard review $\rightarrow$ flags.}
+    \column{0.48\textwidth}
+      \textbf{What I learned}
+      \begin{itemize}\setlength\itemsep{0.1em}
+        \item Brevo; Cloudflare deploy; editorial dashboard.
+        \item Scraping/APIs (GitHub, Dataverse, NBER, CEPR).
+        \item Brand/trademark; anti-slop frontend; LaunchAgents.
+      \end{itemize}
+      \textbf{Problems hit}
+      \begin{itemize}\setlength\itemsep{0.1em}
+        \item Source selection \& over-harvest filters.
+        \item Manual ratings train judgment between automations.
+      \end{itemize}
+  \end{columns}
+\end{frame}
+
+% -------- Success story: Mafia Culture / Neomelodic Corpus --------
+\begin{frame}[t]{Success story: \emph{Mafia Culture} (Neomelodic Corpus)}
+  \scriptsize
+  \textbf{Repo:} \href{https://github.com/MarcoLeMoglie/Mafia_culture}{github.com/MarcoLeMoglie/Mafia\_culture}
+  \vspace{0.06cm}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.56\textwidth}
+      \textbf{Objective}
+      \begin{itemize}\setlength\itemsep{0.08em}
+        \item Build a reproducible corpus of Italian neomelodic music (artists, tracks, lyrics) for cultural economics.
+      \end{itemize}
+      \textbf{Current state}
+      \begin{itemize}\setlength\itemsep{0.08em}
+        \item \textbf{190} artists; \textbf{32.5k} title-level tracks; \textbf{2.6k} high-confidence lyrics in reports.
+        \item Four LaTeX PDF reports (links $\rightarrow$); canonical layers in \texttt{analysis/}.
+      \end{itemize}
+      \textbf{Pilot corpus steps} (legacy pipeline)
+      \begin{itemize}\setlength\itemsep{0.06em}
+        \item Seed artists $\rightarrow$ metadata harvest $\rightarrow$ dedup export $\rightarrow$ Stata layers $\rightarrow$ standardized PDF reports.
+      \end{itemize}
+      \textbf{Spotify frontier} (vs.\ core artist seeds)
+      \begin{itemize}\setlength\itemsep{0.06em}
+        \item \texttt{seed-core} (190) $\rightarrow$ \texttt{discover-network} $\rightarrow$ \texttt{sync-mirror} $\rightarrow$ LRCLib lyrics $\rightarrow$ Jaccard export.
+        \item Goal: full discographies + audio features beyond the original artist list.
+      \end{itemize}
+      \textbf{What I learned}
+      \begin{itemize}\setlength\itemsep{0.06em}
+        \item \textbf{Machine generates, human verifies}: sample construction + exploratory QA loops.
+        \item \textbf{Standardized LaTeX reports} as control documents; branch + commit at each dataset decision.
+        \item \textbf{Cold-start replication package} when a layer is ``ready''.
+      \end{itemize}
+    \column{0.42\textwidth}
+      \centering
+      \includegraphics[width=\linewidth,height=0.34\textheight,keepaspectratio]{mafia-culture/wc_tracks_malavita.png}\\[0.08cm]
+      {\scriptsize\color{muted}Tracks report --- malavita word cloud}\\[0.12cm]
+      \textbf{Report PDFs}\\[0.06cm]
+      \href{assets/mafia-culture/reports/corpus.pdf}{Corpus}\,\textbar\,
+      \href{assets/mafia-culture/reports/artists.pdf}{Artists}\,\textbar\,
+      \href{assets/mafia-culture/reports/tracks.pdf}{Tracks}\,\textbar\,
+      \href{assets/mafia-culture/reports/lyrics.pdf}{Lyrics}
+      \vspace{0.1cm}
+      \textbf{Problems hit}
+      \begin{itemize}\setlength\itemsep{0.06em}
+        \item Layer drift (raw vs.\ canonical vs.\ compatibility surfaces).
+        \item Spotify API limits, album dedup, partial lyrics coverage ($\sim$20--40\%).
+      \end{itemize}
+  \end{columns}
+\end{frame}

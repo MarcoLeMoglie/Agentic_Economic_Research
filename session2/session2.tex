@@ -1,0 +1,26 @@
+% =============================================================
+% Session 2 — entry point (hours 3–4)
+% Overleaf: Main document -> session2/session2.tex
+% Output: session2.pdf
+% =============================================================
+
+\input{preamble.tex}
+
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=.6\paperwidth,ht=2.2ex,dp=1ex,leftskip=1em]{footline}%
+      \usebeamerfont{author in head/foot}\color{muted}\scriptsize Agentic AI for Economic Research\,\textbar\,Session 2\,\textbar\,Marco Le Moglie\,\textbar\,Cattolica%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.2ex,dp=1ex,rightskip=1em,leftskip=1em]{footline}%
+      \usebeamerfont{author in head/foot}\hfill\color{muted}\scriptsize\insertframenumber\,/\,\inserttotalframenumber%
+    \end{beamercolorbox}%
+  }%
+}
+
+\begin{document}
+
+\input{session2/sections/00_opening.tex}
+\input{session2/sections/03_success_stories.tex}
+
+\end{document}

@@ -31,8 +31,20 @@ _minted-*
 *.upa
 *.upb
 
-# pdflatex scratch output (release PDF is tracked)
+# pdflatex scratch at repo root (use session folders for release PDFs)
 main.pdf
+main.aux
+main.log
+main.nav
+main.out
+main.snm
+main.toc
+
+# Dropbox conflict copies
+*Copia in conflitto*
+
+# Local screenshots (not in deck)
+assets/Screenshot*.png
 
 # Editor / OS
 .DS_Store

@@ -1,21 +1,17 @@
 % =============================================================
-% Agentic AI for Economic Research -- Main entry point
-% Compile with pdflatex on Overleaf.
-% Build order: pdflatex -> bibtex (if used) -> pdflatex -> pdflatex
+% Overleaf default entry (repo root) — required by Overleaf.
+% All slide content lives in session1/ and session2/.
+%
+% SET SESSION (line 9): 1 = Session 1 | 2 = Session 2
+% Then Recompile → main.pdf
+%
+% Alternative: Main document → session1/session1.tex or session2/session2.tex
+%              → session1.pdf or session2.pdf in each folder.
 % =============================================================
+\newcommand{\CompileSession}{1}
 
-\input{preamble.tex}
-
-\begin{document}
-
-\input{sections/00_opening.tex}
-\input{sections/01_why_now.tex}
-\input{sections/02_concepts.tex}
-\input{sections/03_interfaces.tex}
-\input{sections/04_cost_privacy.tex}
-\input{sections/05_reliability.tex}
-\input{sections/06_architecture.tex}
-\input{sections/07_case_studies.tex}
-\input{sections/08_closing.tex}
-
-\end{document}
+\ifnum\CompileSession=2
+  \input{session2/session2.tex}
+\else
+  \input{session1/session1.tex}
+\fi

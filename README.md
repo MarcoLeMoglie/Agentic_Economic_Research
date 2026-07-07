@@ -2,80 +2,79 @@
 
 # Agentic AI for Economic Research
 
-**Four-hour mini-course** for PhD students and faculty in economics: agentic AI
-vocabulary, tool landscape, research workflows, and responsible use.
+**Four-hour mini-course** for PhD students and faculty in economics.
 
-**Instructor:** Marco Le Moglie · Catholic University of the Sacred Heart  
-**Format:** two sessions of two hours each  
-**This repository:** Session 1 deck (hours 1–2 — concepts, interfaces,
-governance, architecture). Session 2 (hours 3–4 — applied case studies from
-live research workflows) is planned as a separate deck.
+**Instructor:** Marco Le Moglie · Catholic University of the Sacred Heart
 
-## What is inside
+## Overleaf
 
-- Beamer slide source (`main.tex` + `sections/00`–`08`)
-- Custom theme: deep blue `#163A59` + accent orange `#D97706`
-- Real screenshots, charts, and a BibTeX bibliography with sourced claims
-- Project notes in the Marco Brain vault:
-  `Desktop/Marco/Brain/Marco/02_AREAS/Teaching/AI_course/`
+Overleaf compiles **`main.tex`** at repo root by default. Set the session on line 11:
 
-## Compiled deck
+```latex
+\newcommand{\CompileSession}{1}   % Session 1 (hours 1–2)
+\newcommand{\CompileSession}{2}   % Session 2 (hours 3–4)
+```
 
-Pre-built slide PDF (Session 1): [`Agentic_Economic_Research.pdf`](Agentic_Economic_Research.pdf) — regenerate with the build steps below.
+**Recompile** → `main.pdf`
 
-## Session 1 recording
+| Method | Main document | PDF output |
+|--------|---------------|------------|
+| Default (switch in `main.tex`) | `main.tex` | `main.pdf` |
+| Session 1 direct | `session1/session1.tex` | `session1/session1.pdf` |
+| Session 2 direct | `session2/session2.tex` | `session2/session2.pdf` |
 
-Trimmed lecture capture (1 July 2026, hours 1–2): pre-lesson noise and closing chatter removed; English soft subtitles embedded.
+`main.tex` is a thin Overleaf stub; all slide content lives under `session1/` and `session2/`.
 
-- **Video:** [`recordings/session1/session1_trimmed_softsubs.mp4`](recordings/session1/session1_trimmed_softsubs.mp4) (~2 h 8 min, H.264 720p)
-- Subtitles start with *“Thank you for coming…”*; false-start cue (*“Okay, let's start…”*) removed
-- Window: `11:20` → `2:19:40` in the original Teams recording
+## Repository layout
 
-## Build
+```
+Agentic_Economic_Research/
+├── main.tex                 # Overleaf stub (session switch)
+├── preamble.tex             # shared Beamer theme
+├── bibliography.bib
+├── assets/
+│   ├── banner.png
+│   ├── real/                # interface screenshots (Session 1)
+│   └── mafia-culture/       # Session 2 success-story assets
+├── recordings/session1/     # lecture video (unchanged across deck commits)
+├── session1/
+│   ├── session1.tex
+│   ├── sections/00–08
+│   ├── session1.pdf         # compiled Session 1 deck
+│   └── OVERLEAF.md
+└── session2/
+    ├── session2.tex
+    ├── BASELINE.md          # frozen restart point (2026-07-07)
+    ├── sections/
+    ├── reports/             # mafia-culture PDFs for slide hyperlinks
+    ├── session2.pdf         # compiled Session 2 deck
+    └── OVERLEAF.md
+```
 
-Compile on **Overleaf** with **pdflatex** (recommended). Local build:
+## Session baselines
+
+| Session | Baseline | PDF |
+|---------|----------|-----|
+| 1 | Git `a7f8590` lineage → `session1/` | [`session1/session1.pdf`](session1/session1.pdf) |
+| 2 | **Frozen 2026-07-07** → `session2/BASELINE.md` | [`session2/session2.pdf`](session2/session2.pdf) |
+
+Session 2 slides: Marco edits are canonical. Agents must not rewrite `.tex` files without explicit instruction.
+
+## Local build
 
 ```bash
-pdflatex main.tex
-bibtex main
-pdflatex main.tex
-pdflatex main.tex
+# Session 1 (+ bib)
+pdflatex -output-directory=session1 session1/session1.tex
+bibtex session1/session1
+pdflatex -output-directory=session1 session1/session1.tex
+pdflatex -output-directory=session1 session1/session1.tex
+
+# Session 2
+pdflatex -output-directory=session2 session2/session2.tex
 ```
 
-## Layout
+Docker: `texlive/texlive:latest` if local TeX is too old.
 
-```
-main.tex            entry point (\input each section)
-preamble.tex        custom Beamer theme
-bibliography.bib    cited sources
-sections/           one file per block (00..08)
-recordings/
-  session1/         Session 1 lecture video (trimmed, soft subtitles)
-assets/
-  banner.png        repository header image
-  real/             product screenshots
-  charts/           data-backed figures
-  icons/            theme icons
-  legacy/           v1 reference materials
-```
+## Recording (Session 1)
 
-## Workflow
-
-- Block-by-block writing with Marco's review between blocks.
-- Quality gates: `tools/prose-check` (Slopless + Vale) and the `bugbot`
-  subagent per block.
-- One `feat(block-N): ...` commit per block on `main`.
-- Release tags: `v1.0` (Session 1 baseline).
-
-## Project memory
-
-Canonical project state lives in the **Marco Brain** Obsidian vault
-(`02_AREAS/Teaching/AI_course/`). Active memory layers: **memanto** (long-term
-decisions) and **hivemind** (session capture). Markdown in the vault is the
-source of truth for scope, decisions, and next actions.
-
-## Licence
-
-Third-party screenshots are used under fair use for non-commercial teaching.
-Replace with institutional captures or live demos before public distribution if
-required by your institution.
+[`recordings/session1/session1_trimmed_softsubs.mp4`](recordings/session1/session1_trimmed_softsubs.mp4) — not modified by slide/deck commits.
