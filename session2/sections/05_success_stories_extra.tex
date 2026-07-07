@@ -1,0 +1,61 @@
+% =============================================================
+% Session 2 -- Success stories (extra slides) — append only
+% =============================================================
+
+% -------- Success story: Paper peer review (/referaggio skill) --------
+\begin{frame}[t]{Success story: paper peer review --- skill \texttt{/referaggio}}
+  \footnotesize
+  \textbf{Objective:} turn an annotated manuscript into a constructive English referee report in Marco's voice, with adversarial checks and style archive.
+  \vspace{0.2cm}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \textbf{Skill \texttt{/referaggio} --- main steps}
+      \begin{enumerate}\setlength\itemsep{0.18em}
+        \item \textbf{Intake} --- Marco uploads annotated PDF to \texttt{reviews/}.
+        \item \textbf{Scaffold} --- folder \texttt{\{MS-ID\}-\{JOURNAL\}/} + checklist.
+        \item \textbf{Comments} --- extract, expand, organize; drop nonsense \emph{with reason}.
+        \item \textbf{Econoclast} --- adversarial pass; \alert{manual PDF verify} each finding.
+        \item \textbf{Plan} --- \texttt{proposed\_points.md}; \alert{STOP: Marco approves}.
+        \item \textbf{Draft} --- \texttt{referee\_report.tex/md/pdf} (conciliatory tone).
+        \item \textbf{Anti-slop} --- \texttt{prose-check} on draft.
+        \item \textbf{Archive} --- style example; \alert{STOP: final Marco approval}.
+      \end{enumerate}
+    \column{0.48\textwidth}
+      \alertbox{%
+        \textbf{Human gates (non-negotiable)}\\[0.15em]
+        \scriptsize
+        Wait for PDF upload (step 1). Clarify ambiguous comments (step 3). Approve integrated plan before drafting (step 5). Approve final report before archive (step 8). Econoclast supplements --- does not replace Marco's judgment.%
+      }
+      \vspace{0.25cm}
+      {\small\color{muted}Stack: Brain \texttt{referee-reports/}, Dropbox \texttt{reviews/}, Econoclast, \texttt{tools/prose-check}, Style examples.}
+  \end{columns}
+\end{frame}
+
+% -------- Success story: Purge --- journal-style-paper-rewrite skill --------
+\begin{frame}[t]{Success story: \emph{Purge} --- skill \texttt{journal-style-paper-rewrite}}
+  \footnotesize
+  \textbf{Objective:} adapt a frozen paper (e.g.\ JOP $\rightarrow$ Demography) --- new framing and prose, \emph{same} empirical package.
+  \vspace{0.15cm}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \textbf{Skill workflow --- main parts}
+      \begin{enumerate}\setlength\itemsep{0.16em}
+        \item \textbf{Lock source} --- read memory; \alert{do not edit frozen paper}.
+        \item \textbf{Preserve empirics} --- no new regressions/tables unless Marco reopens.
+        \item \textbf{Design prompt} --- \alert{ask Marco if missing} (journal, framing, tone).
+        \item \textbf{Target-journal plan} --- title/abstract, intro, results rhetoric.
+        \item \textbf{Anti-slop} --- prose-check on new version.
+        \item \textbf{Two outputs} --- \texttt{AA\_paper\_<journal>.tex} + matching report.
+        \item \textbf{Color logic} --- mark only text actually changed vs.\ source.
+        \item \textbf{Compile \& verify} --- source untouched; report matches new version.
+      \end{enumerate}
+    \column{0.48\textwidth}
+      \alertbox{%
+        \textbf{Human gates}\\[0.15em]
+        \scriptsize
+        Frozen canonical paper stays read-only. Journal-design prompt required before any rewrite. Marco approves framing; agents do not improvise empirical reopening. Color only real edits --- not decoration.%
+      }
+      \vspace{0.2cm}
+      {\small\color{muted}Example: \texttt{AA\_paper\_JOP.tex} frozen $\rightarrow$ \texttt{AA\_paper\_Demography\_full.tex} + \texttt{AA\_report\_Demography\_full.tex}.}
+  \end{columns}
+\end{frame}
