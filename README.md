@@ -8,11 +8,10 @@
 
 ## Overleaf
 
-Overleaf compiles **`main.tex`** at repo root by default. Set the session on line 11:
+Overleaf compiles **`main.tex`** at repo root by default. Set the session on line 11 (single line — change the number only):
 
 ```latex
-\newcommand{\CompileSession}{1}   % Session 1 (hours 1–2)
-\newcommand{\CompileSession}{2}   % Session 2 (hours 3–4)
+\newcommand{\CompileSession}{2}  % 1 = Session 1 | 2 = Session 2
 ```
 
 **Recompile** → `main.pdf`
