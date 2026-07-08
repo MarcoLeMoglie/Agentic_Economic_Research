@@ -57,8 +57,6 @@ Agentic_Economic_Research/
 | 1 | Git `a7f8590` lineage → `session1/` | [`session1/session1.pdf`](session1/session1.pdf) |
 | 2 | **Frozen 2026-07-07** → `session2/BASELINE.md` | [`session2/session2.pdf`](session2/session2.pdf) |
 
-Session 2 slides: Marco edits are canonical. Agents must not rewrite `.tex` files without explicit instruction.
-
 ## Local build
 
 ```bash
