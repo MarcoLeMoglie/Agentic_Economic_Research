@@ -1,9 +1,9 @@
 # Session 2 deck — frozen baseline
 
-**Frozen (final):** 2026-07-07 — Marco completed deck. Do not edit without explicit request.
+**Frozen (final):** 2026-07-08 — Marco manual edits. Do not edit without explicit request.
 
-This snapshot is the canonical restart point for all future Session 2 slide edits.
-Agents: read files on disk; change only what Marco explicitly requests.
+Canonical restart point for Session 2 slide work.
+Agents: read disk; change only what Marco explicitly names.
 
 ## Entry points
 
@@ -19,11 +19,12 @@ Agents: read files on disk; change only what Marco explicitly requests.
 - `sections/05_success_stories_extra.tex` — referaggio, Purge
 - `sections/04_brain_and_wip.tex` — second brain detail + WIP
 
-## Compiled PDF
-
-Tracked on GitHub: `session2/session2.pdf` (with `session1/session1.pdf` for Session 1).
-
 ## Assets
 
-- `assets/mafia-culture/` — word cloud + report PDF copies
-- `session2/reports/` — PDFs for clickable links from compiled deck
+- `assets/mafia-culture/` — word cloud (+ report PDFs under `reports/` if linked from slides)
+- `session2/reports/` — **removed 2026-07-08** (duplicate PDFs; links dropped)
+- `assets/legacy/` — **removed 2026-07-08**
+
+## Notes
+
+- Recompile on Overleaf after pull; local Docker compile may fail on Dropbox cloud-only PNGs.
