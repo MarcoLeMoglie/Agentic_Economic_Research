@@ -21,7 +21,8 @@ Agents: read disk; change only what Marco explicitly names.
 
 ## Assets
 
-- `assets/mafia-culture/` — word cloud (+ report PDFs under `reports/` if linked from slides)
+- `assets/mafia-culture/` — word cloud only (`wc_tracks_malavita.png`)
+- `assets/mafia-culture/reports/` — **removed 2026-07-08**
 - `session2/reports/` — **removed 2026-07-08** (duplicate PDFs; links dropped)
 - `assets/legacy/` — **removed 2026-07-08**
 
