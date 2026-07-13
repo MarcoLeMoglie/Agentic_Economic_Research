@@ -1,0 +1,7585 @@
+WEBVTT
+
+1
+00:00:07.444 --> 00:00:13.385
+Thank you for coming.
+I hope that this course will be helpful
+
+2
+00:00:13.385 --> 00:00:18.848
+for many of you,
+especially because many of you is still
+
+3
+00:00:18.848 --> 00:00:24.310
+asking for, I mean,
+suggestion about how to use this new
+
+4
+00:00:24.310 --> 00:00:25.364
+technology.
+
+5
+00:00:26.244 --> 00:00:34.399
+for the research workflow.
+And this is indeed the aim of this course,
+
+6
+00:00:34.399 --> 00:00:40.573
+try to provide you with some necessary,
+I would say,
+
+7
+00:00:40.573 --> 00:00:44.884
+idea about how to use it in your own.
+
+8
+00:00:45.284 --> 00:00:50.723
+Research workflow. At the moment,
+I don't know if you received the slides,
+
+9
+00:00:50.723 --> 00:00:55.800
+but once you receive the slides,
+if you click on this slide source on
+
+10
+00:00:55.800 --> 00:00:59.427
+GitHub,
+you get directly on the GitHub repository
+
+11
+00:00:59.427 --> 00:01:03.198
+of this course,
+where there are the slide of today,
+
+12
+00:01:03.198 --> 00:01:05.084
+but also I gonna post the.
+
+13
+00:01:07.924 --> 00:01:12.408
+recording of today and the slide for the
+next class. Okay,
+
+14
+00:01:12.408 --> 00:01:16.816
+so just go there and download everything.
+You can use it,
+
+15
+00:01:16.816 --> 00:01:22.592
+everything for your own necessary.
+So if you have to teach this stuff or to
+
+16
+00:01:22.592 --> 00:01:24.644
+somebody else, you can just
+
+17
+00:01:25.124 --> 00:01:30.887
+take the tech file on the repository,
+modify and use it. Okay.
+
+18
+00:01:30.887 --> 00:01:36.925
+So probably I have not to say who I am
+since many of you know me.
+
+19
+00:01:36.925 --> 00:01:41.865
+I'm an applied economist.
+I'm not a computer science.
+
+20
+00:01:41.865 --> 00:01:44.244
+So essentially I will not.
+
+21
+00:01:44.404 --> 00:01:49.996
+provide you with the technical stuff
+behind these new tools and methods.
+
+22
+00:01:49.996 --> 00:01:55.512
+I'm just provide you with some example,
+especially in the next session,
+
+23
+00:01:55.512 --> 00:01:59.343
+about how to use it in your daily
+workflow, okay,
+
+24
+00:01:59.343 --> 00:02:02.484
+in different step of your daily workflow.
+
+25
+00:02:04.324 --> 00:02:11.433
+Why this course exists? As I said before,
+essentially in order to avoid to having
+
+26
+00:02:11.433 --> 00:02:16.115
+people keeping asking for a question
+about this tool,
+
+27
+00:02:16.115 --> 00:02:22.964
+try to provide you a general overview of
+these tools. What this course is not,
+
+28
+00:02:23.284 --> 00:02:27.356
+Well, essentially,
+this is not a coding course.
+
+29
+00:02:27.356 --> 00:02:32.192
+This is not a comparison between a large
+language model,
+
+30
+00:02:32.192 --> 00:02:38.132
+neither a discussion about the usefulness
+of artificial intelligence,
+
+31
+00:02:38.132 --> 00:02:45.004
+the way which this will steal our job.
+What is actually is just a practical map.
+
+32
+00:02:45.084 --> 00:02:54.629
+for using an agent in economics research
+without any kind of losing control about
+
+33
+00:02:54.629 --> 00:02:56.724
+what you do. Okay.
+
+34
+00:02:58.644 --> 00:03:02.206
+So today,
+we're going to discuss some vocabulary.
+
+35
+00:03:02.206 --> 00:03:05.982
+What is an agent?
+We're going to look at the type of
+
+36
+00:03:05.982 --> 00:03:10.755
+interfaces that you can use in order to
+use agents. In particular,
+
+37
+00:03:10.755 --> 00:03:15.030
+I will stress a lot the issue of control
+of what agents do.
+
+38
+00:03:15.030 --> 00:03:20.230
+We're going to discuss how agentic
+architecture typically is structured.
+
+39
+00:03:20.230 --> 00:03:22.724
+So we're going to talk about rules.
+
+40
+00:03:23.404 --> 00:03:28.485
+connector, MCP, memories,
+and so on and so forth. And lastly,
+
+41
+00:03:28.485 --> 00:03:34.876
+we're going to see very briefly some
+example of using these new tools in your
+
+42
+00:03:34.876 --> 00:03:39.793
+research flow that we're going to discuss
+better in detail.
+
+43
+00:03:39.793 --> 00:03:41.924
+So with the live streaming
+
+44
+00:03:44.404 --> 00:03:49.672
+with live streaming in the next session.
+Here, I mean, the next session,
+
+45
+00:03:49.672 --> 00:03:55.156
+I provide you with a list of tentative
+things that I would like to show you
+
+46
+00:03:55.156 --> 00:03:59.342
+directly using the agents.
+Probably I will add something,
+
+47
+00:03:59.342 --> 00:04:02.084
+I will drop something else. I'm not...
+
+48
+00:04:02.244 --> 00:04:05.884
+done,
+I've not done the roadmap of our next
+
+49
+00:04:05.884 --> 00:04:10.433
+session yet.
+So this probably will change with respect
+
+50
+00:04:10.433 --> 00:04:16.803
+to what we will do actually in the next
+session. So this is a practical map,
+
+51
+00:04:16.803 --> 00:04:22.345
+it's not a technical manual.
+I just suggest you to go on internet,
+
+52
+00:04:22.345 --> 00:04:26.564
+which is full of resources,
+especially on YouTube,
+
+53
+00:04:26.684 --> 00:04:30.808
+to start to play with agents.
+The idea of this course,
+
+54
+00:04:30.808 --> 00:04:36.881
+they try to provide you with a framework
+that avoid you the two extreme of these
+
+55
+00:04:36.881 --> 00:04:41.755
+resources on internet,
+which are the alarmistic, as I call them,
+
+56
+00:04:41.755 --> 00:04:47.604
+resources in which they essentially talk
+mostly about how these were going to
+
+57
+00:04:48.404 --> 00:04:52.724
+still your job,
+but also there are a lot of resources
+
+58
+00:04:52.724 --> 00:04:59.124
+which are try to sell you something in
+particular course about the use of agent
+
+59
+00:04:59.124 --> 00:05:05.124
+EI. Okay, so I try to give you some,
+an overview that help you to navigate
+
+60
+00:05:05.124 --> 00:05:07.044
+among these sources, but
+
+61
+00:05:07.324 --> 00:05:14.831
+What I've learned is something that you
+can easily learn by yourself by going on
+
+62
+00:05:14.831 --> 00:05:21.226
+YouTube and just digit agentic EI,
+Codecode, Codex and whatever. OK,
+
+63
+00:05:21.226 --> 00:05:26.324
+and you find a lot of resources online
+for practicing.
+
+64
+00:05:28.604 --> 00:05:33.165
+So why now?
+Why we are talking about this stuff today?
+
+65
+00:05:33.165 --> 00:05:37.146
+Well,
+essentially because this world is running
+
+66
+00:05:37.146 --> 00:05:43.532
+very fast. We are moving from Chatbot,
+which was essentially the ChatGPT and
+
+67
+00:05:43.532 --> 00:05:46.684
+similar that you probably already use,
+
+68
+00:05:47.804 --> 00:05:52.625
+in which essentially you just ask
+question, okay, you prompt question,
+
+69
+00:05:52.625 --> 00:05:56.496
+you receive answer to assistant,
+which was another step,
+
+70
+00:05:56.496 --> 00:06:02.335
+a first step undertaken in the last years,
+up to the current situation of this world,
+
+71
+00:06:02.335 --> 00:06:06.681
+of this agenda world,
+in which essentially we have not just the
+
+72
+00:06:06.681 --> 00:06:07.564
+chat bot, but
+
+73
+00:06:07.924 --> 00:06:14.557
+proper work bot that help you to do
+things. Okay, so plan things to do,
+
+74
+00:06:14.557 --> 00:06:19.347
+call tools, and reiterate this action.
+Essentially,
+
+75
+00:06:19.347 --> 00:06:26.901
+this means that while before we had just
+to control the correctness of the answer
+
+76
+00:06:26.901 --> 00:06:29.204
+provided by the chat bot,
+
+77
+00:06:29.604 --> 00:06:33.071
+Now,
+the dimension of control and delegation
+
+78
+00:06:33.071 --> 00:06:36.847
+that you are giving to this agent is much
+wider,
+
+79
+00:06:36.847 --> 00:06:40.391
+and so there are much more things to
+control.
+
+80
+00:06:40.391 --> 00:06:46.324
+Something that I want to add since the
+beginning is the fact that, I mean...
+
+81
+00:06:48.044 --> 00:06:52.716
+Clearly here,
+the control sphere is widening A lot.
+
+82
+00:06:52.716 --> 00:06:58.286
+Okay, a lot. But still,
+this is much less time consuming than
+
+83
+00:06:58.286 --> 00:07:04.126
+doing things by your own.
+Because the control sphere was present
+
+84
+00:07:04.126 --> 00:07:05.204
+also in your
+
+85
+00:07:06.404 --> 00:07:12.349
+common workflow. Okay.
+But then you had also to do all the part
+
+86
+00:07:12.349 --> 00:07:18.665
+before the control. So coding,
+finding the data, cleaning the data,
+
+87
+00:07:18.665 --> 00:07:23.124
+analyzing the data,
+all this stuff in some way.
+
+88
+00:07:24.644 --> 00:07:30.287
+consume time, a lot of time,
+is not 100% sure that what you did by
+
+89
+00:07:30.287 --> 00:07:35.929
+your own was right. And so in some way,
+probably you strive a lot,
+
+90
+00:07:35.929 --> 00:07:41.825
+you put a lot of effort for something
+that at the end was also wrong.
+
+91
+00:07:41.825 --> 00:07:46.204
+Now instead,
+what you have to do is essentially let
+
+92
+00:07:46.804 --> 00:07:53.544
+The agent cook and control a lot what is
+cooked. Okay? Clearly, it takes times,
+
+93
+00:07:53.544 --> 00:07:58.431
+much times than before,
+just because the amount of files,
+
+94
+00:07:58.431 --> 00:08:02.644
+the amount of artifact that the agent
+create are.
+
+95
+00:08:03.764 --> 00:08:11.024
+an order greater than at least one order
+greater than the one that you produced by
+
+96
+00:08:11.024 --> 00:08:14.961
+your own. Also,
+because once you write code,
+
+97
+00:08:14.961 --> 00:08:20.384
+probably you already know where control
+where not. But again,
+
+98
+00:08:20.384 --> 00:08:22.484
+still the time saving is
+
+99
+00:08:22.804 --> 00:08:26.404
+Very big, OK,
+so you just have to control a lot.
+
+100
+00:08:29.124 --> 00:08:33.841
+So why now? Well,
+essentially because not just this world
+
+101
+00:08:33.841 --> 00:08:38.395
+is running fast,
+but also the adoption of this world is
+
+102
+00:08:38.395 --> 00:08:43.355
+running fast. While in 2023,
+according to the Nature Survey,
+
+103
+00:08:43.355 --> 00:08:48.804
+one out of three of individuals in the
+research use, have used the
+
+104
+00:08:49.044 --> 00:08:53.701
+a chatbot, while just 8% use it weekly.
+Nowadays,
+
+105
+00:08:53.701 --> 00:09:00.967
+almost all researchers use chatbot,
+and one out of three use it weekly. Okay,
+
+106
+00:09:00.967 --> 00:09:08.046
+this is just regarding chatbot. Okay,
+we are not talking about Argent World
+
+107
+00:09:08.046 --> 00:09:08.884
+here, but
+
+108
+00:09:09.284 --> 00:09:14.107
+Just by looking at this,
+you can see that the adoption is even
+
+109
+00:09:14.107 --> 00:09:17.782
+faster probably than how this world is
+running.
+
+110
+00:09:17.782 --> 00:09:22.606
+So you really need to know what is
+happening. Okay. Otherwise,
+
+111
+00:09:22.606 --> 00:09:28.654
+you lose the competitive advantage or
+rather, this is especially true for PhD,
+
+112
+00:09:28.654 --> 00:09:28.884
+but
+
+113
+00:09:29.164 --> 00:09:32.608
+For faculty,
+if you start to use it without knowing
+
+114
+00:09:32.608 --> 00:09:36.384
+how to use it,
+you can really lose scientific control of
+
+115
+00:09:36.384 --> 00:09:37.444
+what you do, OK?
+
+116
+00:09:39.764 --> 00:09:46.083
+So what is the difference with respect to
+ChatGPT in 2022-23? Well,
+
+117
+00:09:46.083 --> 00:09:52.867
+essentially now your AI can call tools,
+can use tools, could be browser,
+
+118
+00:09:52.867 --> 00:09:58.164
+use your home files,
+your home application, your laptop.
+
+119
+00:09:58.644 --> 00:10:04.644
+coding, use your shell,
+your terminal to do things. It has memory.
+
+120
+00:10:04.644 --> 00:10:09.033
+That's something that ChatGPT completely
+missed.
+
+121
+00:10:09.033 --> 00:10:12.973
+You didn't have memory across
+conversation,
+
+122
+00:10:12.973 --> 00:10:18.884
+even within the same account. OK,
+now you can have it. OK, and so
+
+123
+00:10:19.084 --> 00:10:24.714
+Essentially, UEI remember what you did,
+and essentially this is helping you a lot
+
+124
+00:10:24.714 --> 00:10:28.627
+in avoiding to prompting each time what
+you really need,
+
+125
+00:10:28.627 --> 00:10:34.188
+especially for the most repeatable task
+that actually are the ones in which this
+
+126
+00:10:34.188 --> 00:10:37.964
+kind of tool are very useful. Okay,
+and then autonomy.
+
+127
+00:10:38.884 --> 00:10:45.718
+So essentially with respect to ChatGPT,
+now the agent help you to lay down a plan
+
+128
+00:10:45.718 --> 00:10:50.886
+for what need to be done and then discuss
+this plan with you,
+
+129
+00:10:50.886 --> 00:10:56.720
+approving this plan and let them
+autonomously implement the plan. OK,
+
+130
+00:10:56.720 --> 00:10:58.804
+eventually finding error.
+
+131
+00:10:58.884 --> 00:11:02.164
+by themselves and correcting those errors.
+
+132
+00:11:05.844 --> 00:11:11.499
+Why we are very exposed as economists to
+this world? Well,
+
+133
+00:11:11.499 --> 00:11:17.728
+essentially because most of our tasks are
+very repetitive. Okay,
+
+134
+00:11:17.728 --> 00:11:25.204
+many of our tasks include long writing,
+long reading, that can be in some way
+
+135
+00:11:25.324 --> 00:11:29.808
+is shortened by the use of this tool.
+We code a lot,
+
+136
+00:11:29.808 --> 00:11:35.308
+at least for applied economies.
+We code a lot. Most of the time,
+
+137
+00:11:35.308 --> 00:11:41.231
+the coding pipeline are very fragile.
+Reproducibility is not so high,
+
+138
+00:11:41.231 --> 00:11:45.292
+especially when you are still in the,
+you know,
+
+139
+00:11:45.292 --> 00:11:48.084
+working paper stage of your work.
+
+140
+00:11:49.004 --> 00:11:52.795
+While instead, for example,
+at the end of the chain,
+
+141
+00:11:52.795 --> 00:11:57.302
+you are required nowadays,
+a strong degree of reproducibility.
+
+142
+00:11:57.302 --> 00:12:01.309
+I don't know how many of you have
+submitted or, I mean,
+
+143
+00:12:01.309 --> 00:12:06.745
+got some acceptance recently and the
+policy in terms of reproduction by the
+
+144
+00:12:06.745 --> 00:12:07.604
+top journal.
+
+145
+00:12:07.804 --> 00:12:12.241
+are very strict nowadays.
+Most of the time in the last my
+
+146
+00:12:12.241 --> 00:12:18.131
+experience with the last acceptance with
+the economic journal was like three
+
+147
+00:12:18.131 --> 00:12:21.726
+months of working on reproduction stuff.
+Okay,
+
+148
+00:12:21.726 --> 00:12:27.004
+with back and forward with the data
+editor because something was not
+
+149
+00:12:27.084 --> 00:12:33.618
+perfectly reproducible on all machines.
+They want a very detailed read me in
+
+150
+00:12:33.618 --> 00:12:38.539
+order to know where the data come from,
+from the scratch,
+
+151
+00:12:38.539 --> 00:12:45.667
+from the raw data up to the cleaned ones,
+and so on and so forth. So at the moment,
+
+152
+00:12:45.667 --> 00:12:47.364
+this kind of process
+
+153
+00:12:47.804 --> 00:12:53.096
+is very fragile in the middle. Okay.
+And what happens is typically is that you
+
+154
+00:12:53.096 --> 00:12:58.053
+spend a lot of time at the end of the
+chain in order to make this fragile
+
+155
+00:12:58.053 --> 00:13:03.479
+process more robust in order to submit
+this to the data ID of the journal. Okay.
+
+156
+00:13:03.479 --> 00:13:07.364
+And this tool could help a lot in this
+kind of procedure.
+
+157
+00:13:07.564 --> 00:13:12.316
+since the beginning. Okay,
+so maintaining ordered everything since
+
+158
+00:13:12.316 --> 00:13:14.444
+the beginning of your project.
+
+159
+00:13:16.084 --> 00:13:16.964
+Um...
+
+160
+00:13:17.844 --> 00:13:21.889
+I mean, these are two papers,
+probably you have read.
+
+161
+00:13:21.889 --> 00:13:26.982
+The one is on the journal economic
+perspective, another in the QJE,
+
+162
+00:13:26.982 --> 00:13:32.225
+in which essentially they try to
+understand and analyze how these new
+
+163
+00:13:32.225 --> 00:13:36.644
+tools are already used within the
+economic profession. The
+
+164
+00:13:37.484 --> 00:13:44.627
+The Cottini paper essentially assess the
+fact that this kind of tool are already
+
+165
+00:13:44.627 --> 00:13:51.769
+well established within the profession.
+Many of the economists in top department
+
+166
+00:13:51.769 --> 00:13:56.884
+use them in different stage of the
+research workflow from
+
+167
+00:13:57.364 --> 00:14:01.854
+the idea up to the review of the
+manuscript.
+
+168
+00:14:01.854 --> 00:14:09.538
+We are moving fastly from cognitive
+assistance of this tool toward cognitive
+
+169
+00:14:09.538 --> 00:14:16.324
+automation of this research workflow,
+which most of these tasks are
+
+170
+00:14:16.364 --> 00:14:23.114
+in some way automated and done
+autonomously by the machine and then
+
+171
+00:14:23.114 --> 00:14:29.765
+controlled by the human.
+Most of this productivity gain regard the
+
+172
+00:14:29.765 --> 00:14:35.324
+lower level of the productivity
+distribution within the
+
+173
+00:14:36.004 --> 00:14:39.208
+The field,
+so the ones who probably most are
+
+174
+00:14:39.208 --> 00:14:42.696
+affected,
+positively affected by the use of this
+
+175
+00:14:42.696 --> 00:14:43.764
+tool are those.
+
+176
+00:14:45.044 --> 00:14:48.230
+coming from not top department,
+I would say,
+
+177
+00:14:48.230 --> 00:14:53.399
+just because this kind of tool
+essentially erase any kind of competitive
+
+178
+00:14:53.399 --> 00:14:58.638
+advantage that top department could
+provide to their faculty or their PhD
+
+179
+00:14:58.638 --> 00:15:03.524
+student in terms of coding,
+from tier course and so on and so forth.
+
+180
+00:15:05.604 --> 00:15:11.825
+But this gain come not by just automatize
+everything, okay?
+
+181
+00:15:11.825 --> 00:15:18.461
+But you have to learn the way in which
+you can apply this tool.
+
+182
+00:15:18.461 --> 00:15:24.164
+And so a workflow that should be stable,
+reproducible,
+
+183
+00:15:24.244 --> 00:15:27.284
+And robust, OK.
+
+184
+00:15:28.484 --> 00:15:34.726
+As I said before,
+the implication for PhD and faculty is
+
+185
+00:15:34.726 --> 00:15:41.736
+straightforward. For PhD,
+you lose competitive advantage if you
+
+186
+00:15:41.736 --> 00:15:48.964
+have it. But I think that,
+especially talking to our PhD student,
+
+187
+00:15:49.204 --> 00:15:55.213
+This is a way that help you to catch up
+with PhD students from top departments.
+
+188
+00:15:55.213 --> 00:15:59.570
+Because really,
+this allows you to test the idea to write
+
+189
+00:15:59.570 --> 00:16:02.951
+papers that probably before you couldn't
+do,
+
+190
+00:16:02.951 --> 00:16:08.284
+just because you missed the skill for
+doing that. Python, for example.
+
+191
+00:16:08.404 --> 00:16:12.446
+Or rather, even simpler,
+the way in which you write.
+
+192
+00:16:12.446 --> 00:16:18.089
+Because clearly, I mean, you listen to me,
+no? My English is not perfect.
+
+193
+00:16:18.089 --> 00:16:22.894
+So I write even roast than this. OK,
+now I can write my paper.
+
+194
+00:16:22.894 --> 00:16:28.004
+I can draft my paper at the level of top
+90 in English department.
+
+195
+00:16:28.564 --> 00:16:32.123
+So this is already something that helps A
+lot. Okay,
+
+196
+00:16:32.123 --> 00:16:37.026
+help you to catch up with the top
+department that have several competent
+
+197
+00:16:37.026 --> 00:16:40.250
+advantages apart from the quality of
+faculties,
+
+198
+00:16:40.250 --> 00:16:45.421
+but also in terms of time of the years
+that they have to develop an idea and
+
+199
+00:16:45.421 --> 00:16:50.324
+their paper and the quality of the paper
+once they reach the job market.
+
+200
+00:16:50.484 --> 00:16:55.244
+Okay, so these help you a lot,
+this kind of tool. So don't...
+
+201
+00:16:57.204 --> 00:17:02.538
+I mean, don't put a stigma on this.
+Don't think that you can do better than
+
+202
+00:17:02.538 --> 00:17:07.731
+the machine because this is not true at
+all. You can control the machine,
+
+203
+00:17:07.731 --> 00:17:13.416
+but probably machine will do better than
+you. And so take advantage of this. OK,
+
+204
+00:17:13.416 --> 00:17:16.644
+don't reject this ideologically,
+I would say.
+
+205
+00:17:17.444 --> 00:17:21.590
+as many people are doing in in the field,
+I would say,
+
+206
+00:17:21.590 --> 00:17:27.545
+especially those who before had this kind
+of competitive advantage in terms of
+
+207
+00:17:27.545 --> 00:17:31.690
+coding, in terms of resources,
+and so on and so forth.
+
+208
+00:17:31.690 --> 00:17:36.364
+This is another advantage, for example.
+Here you have an army
+
+209
+00:17:36.564 --> 00:17:41.567
+of your personal research assistant for
+free. Okay,
+
+210
+00:17:41.567 --> 00:17:46.858
+so something completely for free,
+$20 per month. Okay,
+
+211
+00:17:46.858 --> 00:17:54.458
+so you can really speed up your work,
+even if you have fewer years to complete
+
+212
+00:17:54.458 --> 00:17:55.324
+your PhD.
+
+213
+00:17:55.524 --> 00:17:59.204
+You can really speed up stuff with the
+with these tools, OK?
+
+214
+00:18:00.404 --> 00:18:06.585
+While instead for senior researcher,
+clearly this course is useful because
+
+215
+00:18:06.585 --> 00:18:11.282
+help in some way to navigate better what
+has to control,
+
+216
+00:18:11.282 --> 00:18:16.804
+what has to be controlled at once they
+use this kind of new tools.
+
+217
+00:18:18.884 --> 00:18:22.454
+So,
+let's start with some very basic concept
+
+218
+00:18:22.454 --> 00:18:27.848
+vocabulary. What is an agent? OK,
+before I talk about the work bot,
+
+219
+00:18:27.848 --> 00:18:31.735
+actually an agent is not a smarter chat
+bot. OK,
+
+220
+00:18:31.735 --> 00:18:37.764
+it's a workflow in which the chat bot is
+a core part, but is a only a part.
+
+221
+00:18:38.164 --> 00:18:45.594
+embodied in an entire workflow in which
+we have the LLM a starting point,
+
+222
+00:18:45.594 --> 00:18:51.720
+which we ask to achieve and complete a
+task. And to do that,
+
+223
+00:18:51.720 --> 00:18:57.644
+the LLM essentially use tools, okay,
+in order to implement
+
+224
+00:18:57.684 --> 00:19:02.759
+Plan to achieve such goals that we put it
+put to them. OK,
+
+225
+00:19:02.759 --> 00:19:07.404
+so it's essentially a workflow with
+partial autonomy.
+
+226
+00:19:10.804 --> 00:19:16.791
+What differentiate a chatbot from an
+agent? Well, the action is different.
+
+227
+00:19:16.791 --> 00:19:22.698
+Chatbot just respond to your question,
+while instead the agent act. Okay.
+
+228
+00:19:22.698 --> 00:19:28.047
+The tools are optional for chatbot.
+It can be used or not. I mean,
+
+229
+00:19:28.047 --> 00:19:29.484
+it doesn't matter.
+
+230
+00:19:29.644 --> 00:19:33.672
+too much for the answer that you received
+from them,
+
+231
+00:19:33.672 --> 00:19:39.372
+while they are central for agents.
+This is the way in which they act using
+
+232
+00:19:39.372 --> 00:19:43.324
+tools, your own tools, cloud tools,
+whatever, okay?
+
+233
+00:19:44.524 --> 00:19:52.260
+Files, you usually upload file to chatbot,
+while instead the agent browse directly
+
+234
+00:19:52.260 --> 00:19:56.361
+files on your laptop, OK,
+or your computer.
+
+235
+00:19:56.361 --> 00:20:04.004
+You really don't need to be instructed
+where the file is, what the file is about.
+
+236
+00:20:04.364 --> 00:20:07.858
+Okay,
+the typical thing that I do when I start
+
+237
+00:20:07.858 --> 00:20:12.988
+a new project, once I open,
+I give access to a specific folder to my
+
+238
+00:20:12.988 --> 00:20:17.598
+agent is just, okay,
+now study the folder and understand what
+
+239
+00:20:17.598 --> 00:20:21.613
+I was doing.
+And it's simply by reading by itself the
+
+240
+00:20:21.613 --> 00:20:24.364
+folder, it knows even better than me.
+
+241
+00:20:24.404 --> 00:20:30.216
+what has been done up to that point. Okay.
+Failure. I mean, with chatbot,
+
+242
+00:20:30.216 --> 00:20:36.342
+the failure risk was pretty contained in
+the sense that at most you receive a
+
+243
+00:20:36.342 --> 00:20:40.112
+wrong answer.
+If you have the skill to spot the
+
+244
+00:20:40.112 --> 00:20:43.804
+wrongness of the answer,
+it's easy to correct.
+
+245
+00:20:44.284 --> 00:20:48.570
+Here is much more subtle. OK,
+this is the problem for with agent is
+
+246
+00:20:48.570 --> 00:20:52.604
+that they do the wrong action,
+which can be then categorized in
+
+247
+00:20:52.604 --> 00:20:57.709
+different kind of acting hallucination,
+and we're going to discuss them later in
+
+248
+00:20:57.709 --> 00:21:00.987
+this presentation.
+Human role completely different,
+
+249
+00:21:00.987 --> 00:21:03.004
+while for chatbot just a reader.
+
+250
+00:21:03.404 --> 00:21:06.284
+Here is a controller,
+a supervisor for Agent.
+
+251
+00:21:08.124 --> 00:21:13.135
+And also the cost,
+and this is probably the most important
+
+252
+00:21:13.135 --> 00:21:19.165
+things that differentiate the two.
+Chatbot almost don't consume token.
+
+253
+00:21:19.165 --> 00:21:23.242
+I mean,
+they are pretty much unlimited in their
+
+254
+00:21:23.242 --> 00:21:27.404
+usage,
+even with a higher level of intelligence.
+
+255
+00:21:28.124 --> 00:21:32.099
+With urgent nodes,
+they burn a lot of tokens. OK,
+
+256
+00:21:32.099 --> 00:21:38.142
+and so one thing that you really need to
+learn is how to make your workflow
+
+257
+00:21:38.142 --> 00:21:44.185
+efficient in a way that try to avoid to
+burn token as much as possible. OK,
+
+258
+00:21:44.185 --> 00:21:47.524
+are we going to see something about later?
+
+259
+00:21:48.404 --> 00:21:55.188
+and probably even better in the next
+session with concrete case studies. So,
+
+260
+00:21:55.188 --> 00:22:00.298
+let's see how typically an agent loop
+works. For example,
+
+261
+00:22:00.298 --> 00:22:06.818
+let's think about a very simple task,
+which is we run table 2 and fix the
+
+262
+00:22:06.818 --> 00:22:08.844
+missing standard error.
+
+263
+00:22:09.244 --> 00:22:12.851
+So once you provide the agent with the
+task,
+
+264
+00:22:12.851 --> 00:22:19.104
+the agent observe the context that you
+provide to him, or to it, I would say,
+
+265
+00:22:19.104 --> 00:22:24.475
+to him, understand the context,
+observe the context understanding,
+
+266
+00:22:24.475 --> 00:22:28.563
+understand it.
+Then it provides you with a plan of
+
+267
+00:22:28.563 --> 00:22:29.124
+action.
+
+268
+00:22:29.324 --> 00:22:34.502
+Okay,
+so probably going to suggest you to run a
+
+269
+00:22:34.502 --> 00:22:43.025
+regression to see where the standard
+error are missing. Once they are spotted,
+
+270
+00:22:43.025 --> 00:22:48.204
+essentially provide you with a possible
+fix for
+
+271
+00:22:48.924 --> 00:22:53.037
+for that missingness.
+Once you approve the plan,
+
+272
+00:22:53.037 --> 00:22:57.151
+it start to act. Okay,
+so you will run the code,
+
+273
+00:22:57.151 --> 00:23:03.447
+it will edit the code in the line in
+which it generate this missingness in
+
+274
+00:23:03.447 --> 00:23:09.324
+standard error, then rerun the new code,
+then recreate the new table,
+
+275
+00:23:09.724 --> 00:23:16.844
+And provide you with a new do file. OK,
+which is 02 table to point to dot do.
+
+276
+00:23:19.164 --> 00:23:19.724
+Then.
+
+277
+00:23:21.804 --> 00:23:29.227
+Now is the step which you get into this
+process. You have to verify what it did.
+
+278
+00:23:29.227 --> 00:23:35.184
+OK, how? Well, essentially, if you plan,
+if you did a good plan,
+
+279
+00:23:35.184 --> 00:23:41.324
+you also ask to your agent to provide
+some artifact that allow you
+
+280
+00:23:41.444 --> 00:23:48.863
+to check what it did in a very fast way.
+How? Well, essentially, for example,
+
+281
+00:23:48.863 --> 00:23:55.806
+generating a log file, for example,
+generating a report file in which it
+
+282
+00:23:55.806 --> 00:24:02.844
+clearly state what has been done,
+the line of code that has been changed.
+
+283
+00:24:03.044 --> 00:24:08.686
+which code has been changed.
+So you can easily go on your folder and
+
+284
+00:24:08.686 --> 00:24:13.511
+go on the new do file,
+see the specific line that has been
+
+285
+00:24:13.511 --> 00:24:20.135
+changed and control that the change is
+the right one. Okay. If this is not true,
+
+286
+00:24:20.135 --> 00:24:23.324
+just start again. Okay. Also this very.
+
+287
+00:24:23.484 --> 00:24:28.204
+Fication step could be done by the agent,
+actually something that time.
+
+288
+00:24:29.484 --> 00:24:36.774
+Recently start to do a lot because one,
+I mean one I would say drawback of Agent
+
+289
+00:24:36.774 --> 00:24:43.974
+is that they produce a lot of files. OK,
+they produce a lot of files and if you
+
+290
+00:24:43.974 --> 00:24:48.294
+don't order,
+if you don't make to be ordered a.
+
+291
+00:24:49.484 --> 00:24:54.742
+compulsory feature of your plan,
+this number of file explodes and start to
+
+292
+00:24:54.742 --> 00:25:00.421
+control and verify become very difficult
+because it change a lot the name of the
+
+293
+00:25:00.421 --> 00:25:05.750
+files, it start to create subfolders,
+you don't know where are the original
+
+294
+00:25:05.750 --> 00:25:08.204
+files and so on and so forth. Okay.
+
+295
+00:25:08.604 --> 00:25:11.905
+So in some way,
+especially for big project,
+
+296
+00:25:11.905 --> 00:25:15.506
+this could be cumbersome,
+the controlling step.
+
+297
+00:25:15.506 --> 00:25:19.482
+So what you can do is,
+or in some way in your rules,
+
+298
+00:25:19.482 --> 00:25:23.008
+and now we're going to discuss what rules
+are,
+
+299
+00:25:23.008 --> 00:25:27.284
+you put that you need to maintain order
+among the files.
+
+300
+00:25:27.364 --> 00:25:33.566
+in order to making the controlling step
+easier for the human. Or rather,
+
+301
+00:25:33.566 --> 00:25:40.362
+you can use other agent to check what the
+original agent did. And this is very,
+
+302
+00:25:40.362 --> 00:25:44.950
+very useful,
+especially if you want something that is
+
+303
+00:25:44.950 --> 00:25:46.564
+not just a yes man.
+
+304
+00:25:47.164 --> 00:25:50.480
+OK,
+because this is another typical problem
+
+305
+00:25:50.480 --> 00:25:55.077
+with the LLM in general,
+but also with agentic AI. They try,
+
+306
+00:25:55.077 --> 00:26:00.277
+they tend to tell you what you want to
+wear. OK, and so essentially,
+
+307
+00:26:00.277 --> 00:26:04.271
+if you ask to the same agent to review
+his own work,
+
+308
+00:26:04.271 --> 00:26:07.964
+probably he will not spot the error in
+the work.
+
+309
+00:26:09.164 --> 00:26:13.762
+Okay,
+so what I typically do is just switching
+
+310
+00:26:13.762 --> 00:26:21.491
+the model, I don't know, from GPT 5.
+5 to Claudio and ask to Claudio to review
+
+311
+00:26:21.491 --> 00:26:23.644
+what GPT 5.5 has done.
+
+312
+00:26:26.524 --> 00:26:27.124
+No, no.
+
+313
+00:26:28.444 --> 00:26:32.969
+You need token to do that.
+So we're going to discuss the problem of
+
+314
+00:26:32.969 --> 00:26:37.096
+token and plan later,
+but essentially if you want to start to
+
+315
+00:26:37.096 --> 00:26:41.821
+play around with this stuff,
+I suggest you to start with whatever kind
+
+316
+00:26:41.821 --> 00:26:43.884
+of agents, so Codex, Anthropic.
+
+317
+00:26:47.964 --> 00:26:48.524
+Mmh.
+
+318
+00:26:52.324 --> 00:26:52.924
+Mm-hmm.
+
+319
+00:27:05.084 --> 00:27:10.780
+Depend on how you extract them in the
+sense that the best practice here is try
+
+320
+00:27:10.780 --> 00:27:15.899
+to change the the agent, the model. So,
+for example, I use cursor now,
+
+321
+00:27:15.899 --> 00:27:21.595
+which allow you to use many different
+model, not just GPT, not just anthropic,
+
+322
+00:27:21.595 --> 00:27:22.604
+not just Gini.
+
+323
+00:27:22.964 --> 00:27:27.618
+you can use different ones.
+So what typically I do is essentially
+
+324
+00:27:27.618 --> 00:27:32.624
+doing something with Claudio and then
+reviewing it with another model.
+
+325
+00:27:32.624 --> 00:27:37.066
+But you can do the same in Claudio,
+just extracting sub-agent,
+
+326
+00:27:37.066 --> 00:27:41.367
+that in a parallel way,
+do the same kind of work of the main
+
+327
+00:27:41.367 --> 00:27:42.284
+orchestrator.
+
+328
+00:27:42.684 --> 00:27:45.700
+Okay,
+but typically the best practice of this
+
+329
+00:27:45.700 --> 00:27:51.076
+for having a really good review of what
+has been done is changing also the model.
+
+330
+00:27:51.076 --> 00:27:51.404
+Okay.
+
+331
+00:27:53.164 --> 00:27:58.951
+I will say, I will tell you this later,
+but you will not use just one model here.
+
+332
+00:27:58.951 --> 00:28:03.185
+I mean, for starting,
+you're going to start by playing with
+
+333
+00:28:03.185 --> 00:28:07.207
+Codex, Claudio,
+but once you get the experience on this,
+
+334
+00:28:07.207 --> 00:28:11.724
+trust on me that you're going to use a
+different kind of model.
+
+335
+00:28:11.964 --> 00:28:17.324
+together. For example, I use,
+I had a moment of time in my life in
+
+336
+00:28:17.324 --> 00:28:23.004
+which I use the big four all together,
+Gini, Corsor, Anthropic, Codex.
+
+337
+00:28:23.004 --> 00:28:29.644
+Simply because in some way I pay 20 EUR
+for one, I pay another 20 EUR for another,
+
+338
+00:28:29.644 --> 00:28:32.444
+I have something free from another.
+
+339
+00:28:32.604 --> 00:28:36.428
+And so, in some way,
+also to manage the tokens,
+
+340
+00:28:36.428 --> 00:28:42.563
+I used the fourth. Now, I move in,
+I move it to toward a more expensive plan
+
+341
+00:28:42.563 --> 00:28:47.821
+on cursor, and I'm using just one model,
+just one agent platform,
+
+342
+00:28:47.821 --> 00:28:52.044
+then I use different model within the
+same platform.
+
+343
+00:28:52.364 --> 00:28:56.788
+Okay.
+So you will not stay just with one model,
+
+344
+00:28:56.788 --> 00:29:03.886
+especially if you start to embody these
+tools in your research workflow very
+
+345
+00:29:03.886 --> 00:29:05.084
+deeply. Okay.
+
+346
+00:29:07.564 --> 00:29:12.887
+So essentially,
+before the unit of delegation was just
+
+347
+00:29:12.887 --> 00:29:19.274
+the answer to your prompt,
+now the unit of delegation is a set of
+
+348
+00:29:19.274 --> 00:29:26.630
+action that the agent take in order to
+achieve the goal that you ask him to
+
+349
+00:29:26.630 --> 00:29:27.404
+achieve.
+
+350
+00:29:27.724 --> 00:29:28.204
+Okay.
+
+351
+00:29:30.764 --> 00:29:37.033
+So what about context, token and memory,
+which are something very important with
+
+352
+00:29:37.033 --> 00:29:43.533
+Agentic AI. So what is the context? Well,
+the context essentially is everything the
+
+353
+00:29:43.533 --> 00:29:49.725
+model can see. So your chatting window,
+all the information that you threw into
+
+354
+00:29:49.725 --> 00:29:52.124
+the chat window is the context.
+
+355
+00:29:52.524 --> 00:29:53.164
+Okay.
+
+356
+00:29:54.684 --> 00:30:00.581
+You cannot throw into the window
+everything up to the infinite. Okay,
+
+357
+00:30:00.581 --> 00:30:07.151
+chat window and context are limited.
+With time, these limitation are growing,
+
+358
+00:30:07.151 --> 00:30:11.279
+I mean, are making wider and wider.
+For example,
+
+359
+00:30:11.279 --> 00:30:14.564
+the original chat GPT-4 had 8,000 token
+
+360
+00:30:14.764 --> 00:30:19.901
+context. Now,
+Gini has a 2 million token context.
+
+361
+00:30:19.901 --> 00:30:28.017
+The bigger is the size of the context,
+the more information you can throw into
+
+362
+00:30:28.017 --> 00:30:35.004
+this more information, more idea,
+more file you can give to the AI.
+
+363
+00:30:35.724 --> 00:30:42.292
+This does not mean then that bigger
+contexts are better than shorter contexts.
+
+364
+00:30:42.292 --> 00:30:48.694
+This does not mean that more information
+you provide to the AI batteries its
+
+365
+00:30:48.694 --> 00:30:54.514
+performance. Okay. Many times,
+many of you since I then I saw some of
+
+366
+00:30:54.514 --> 00:30:54.764
+you
+
+367
+00:30:54.924 --> 00:31:00.532
+Using this stuff,
+you throw a lot of or use of, I would say,
+
+368
+00:31:00.532 --> 00:31:07.244
+redundant information to the model to the
+to the to the AI, for example.
+
+369
+00:31:08.444 --> 00:31:13.964
+One thing that you, you, I mean,
+one thing that people typically do is...
+
+370
+00:31:15.884 --> 00:31:22.328
+Structuring the conversation,
+as if the respondent would be a human,
+
+371
+00:31:22.328 --> 00:31:28.772
+it is not a human. Don't say, "Ciao,
+how is doing?" No, do this. OK,
+
+372
+00:31:28.772 --> 00:31:35.964
+then another thing typically that people
+does, which consume a lot of token.
+
+373
+00:31:37.404 --> 00:31:42.876
+You give a prompt, it answer,
+then something is wrong and several
+
+374
+00:31:42.876 --> 00:31:46.524
+things are wrong.
+You start from the first,
+
+375
+00:31:46.524 --> 00:31:52.742
+you re-prompt the first mistake,
+then it contests and correct the mistake,
+
+376
+00:31:52.742 --> 00:31:55.644
+then you prompt the second mistake.
+
+377
+00:31:56.204 --> 00:31:59.647
+and so on and so forth.
+This consume a lot of token.
+
+378
+00:31:59.647 --> 00:32:03.870
+Never do something like this.
+When you receive the first answer,
+
+379
+00:32:03.870 --> 00:32:08.612
+just look at what has been done and
+collect all the mistakes in the same
+
+380
+00:32:08.612 --> 00:32:12.965
+prompt and give it all together.
+Because each time that you prompt
+
+381
+00:32:12.965 --> 00:32:15.564
+something to the agent, it needs to read
+
+382
+00:32:15.684 --> 00:32:20.384
+All the contest since the beginning,
+reading the since the beginning,
+
+383
+00:32:20.384 --> 00:32:21.324
+consume token.
+
+384
+00:32:22.404 --> 00:32:28.324
+So many people that who I talk with,
+they always complain about the fact,
+
+385
+00:32:28.324 --> 00:32:34.084
+but this lasts me just, I don't know,
+one day. I have this 20 EUR plan,
+
+386
+00:32:34.084 --> 00:32:39.364
+it lasts me two days. Yes,
+because you don't use it in the proper
+
+387
+00:32:39.364 --> 00:32:41.364
+way. This is the problem.
+
+388
+00:32:41.884 --> 00:32:49.278
+I had the 20 EUR plan for a while and I
+achieved to do stuff for the entire month
+
+389
+00:32:49.278 --> 00:32:53.787
+without getting out,
+without going in over usage.
+
+390
+00:32:53.787 --> 00:32:57.755
+So the way in which you modify the
+context,
+
+391
+00:32:57.755 --> 00:33:02.444
+the way in which you provide information
+to the AI,
+
+392
+00:33:04.364 --> 00:33:12.072
+is determinant for the way which you can
+use it and the quality of stuff that you
+
+393
+00:33:12.072 --> 00:33:17.148
+get from it. Okay.
+And this brings us directly to the
+
+394
+00:33:17.148 --> 00:33:23.164
+measure of consumption within this world,
+which are the tokens.
+
+395
+00:33:23.284 --> 00:33:27.667
+What are the tokens? Well,
+essentially the tokens are the,
+
+396
+00:33:27.667 --> 00:33:31.827
+but I think that most of you know how LLM
+works, right?
+
+397
+00:33:31.827 --> 00:33:37.324
+They essentially divide the prompt is
+small part, which are called token,
+
+398
+00:33:37.324 --> 00:33:41.484
+and essentially you read this big part,
+this big, yeah,
+
+399
+00:33:41.484 --> 00:33:43.564
+this small part in some way.
+
+400
+00:33:43.644 --> 00:33:49.572
+predicting what is the next token. Okay,
+so the more token they have to read,
+
+401
+00:33:49.572 --> 00:33:51.244
+the more they consume.
+
+402
+00:33:52.444 --> 00:33:53.084
+Okay.
+
+403
+00:33:54.204 --> 00:33:58.844
+And then there is memory,
+something that ChatGPT hasn't before.
+
+404
+00:33:59.964 --> 00:34:04.462
+hadn't before.
+Memory that can be essentially managed in
+
+405
+00:34:04.462 --> 00:34:08.724
+different way.
+We're going to look later on to common
+
+406
+00:34:08.724 --> 00:34:13.143
+type of memory,
+that is the rug and the knowledge base.
+
+407
+00:34:13.143 --> 00:34:18.194
+But essentially memory,
+what does is extending the context from
+
+408
+00:34:18.194 --> 00:34:20.404
+one conversation to another.
+
+409
+00:34:20.924 --> 00:34:25.827
+or from one agent to another agent,
+or from one project to another project,
+
+410
+00:34:25.827 --> 00:34:29.763
+or from one machine to another machine.
+What does this mean?
+
+411
+00:34:29.763 --> 00:34:34.537
+It means that you really don't need,
+every time you start a conversation,
+
+412
+00:34:34.537 --> 00:34:38.924
+to explain the agent what you want to do,
+because he already knows.
+
+413
+00:34:40.204 --> 00:34:40.764
+Okay.
+
+414
+00:34:42.044 --> 00:34:47.135
+Then I'm going to show you how to set,
+for example, a knowledge base.
+
+415
+00:34:47.135 --> 00:34:53.098
+Probably you have heard that if you surf
+on the internet, this second brain word,
+
+416
+00:34:53.098 --> 00:34:56.880
+you know, probably. Essentially,
+what does it mean?
+
+417
+00:34:56.880 --> 00:35:02.044
+Essentially means creating a set,
+an architecture of note in markdown,
+
+418
+00:35:02.364 --> 00:35:06.344
+that your agent read before starting
+anything.
+
+419
+00:35:06.344 --> 00:35:13.288
+And this essentially helps the agent to
+know where you are when you stop the last
+
+420
+00:35:13.288 --> 00:35:18.708
+session, what has been done,
+what are the errors that are being
+
+421
+00:35:18.708 --> 00:35:21.164
+encountered, how it's solved.
+
+422
+00:35:21.244 --> 00:35:24.648
+Those errors, and so on and so forth.
+Without that,
+
+423
+00:35:24.648 --> 00:35:27.724
+you explain it anything you already knows,
+OK?
+
+424
+00:35:29.964 --> 00:35:35.500
+No, skill is something different.
+Skills are something that you repeat.
+
+425
+00:35:35.500 --> 00:35:41.421
+I'm going to define them better later,
+but it's something that has been done
+
+426
+00:35:41.421 --> 00:35:46.342
+once, has been done good.
+You like the way which has been done,
+
+427
+00:35:46.342 --> 00:35:51.724
+and so you create something that can be
+easily repeated by the agent.
+
+428
+00:35:52.004 --> 00:35:56.209
+Simply by call it,
+so you don't have to prompt the skill
+
+429
+00:35:56.209 --> 00:35:59.529
+again.
+He already knows how to do that task,
+
+430
+00:35:59.529 --> 00:36:05.063
+because it's written in the skill,
+but you have not to exaggerate with the
+
+431
+00:36:05.063 --> 00:36:08.383
+use of skill,
+because skill consume context,
+
+432
+00:36:08.383 --> 00:36:11.924
+because if you have skill,
+he charges skill at.
+
+433
+00:36:12.044 --> 00:36:15.680
+teach session.
+Second brain or memory is different.
+
+434
+00:36:15.680 --> 00:36:21.274
+You have to ask it to read the brain and
+read the memory. And so you just read,
+
+435
+00:36:21.274 --> 00:36:25.260
+consuming token for reading,
+but then you already knows.
+
+436
+00:36:25.260 --> 00:36:30.924
+And probably the amount of token that you
+have consuming, consuming for reading.
+
+437
+00:36:31.084 --> 00:36:31.644
+Is a...
+
+438
+00:36:32.884 --> 00:36:38.364
+a way lower than the re-prompting
+everything since the from scratch. OK.
+
+439
+00:36:41.324 --> 00:36:44.460
+So then we have tool permission and
+sandbox.
+
+440
+00:36:44.460 --> 00:36:49.756
+Most of people is concerned about,
+but I have data that I don't want people
+
+441
+00:36:49.756 --> 00:36:53.449
+know about,
+that I don't want that model know about,
+
+442
+00:36:53.449 --> 00:36:56.724
+I don't want training the model about my
+data.
+
+443
+00:36:59.004 --> 00:37:05.228
+These are ********, okay,
+in the sense that our concern of people
+
+444
+00:37:05.228 --> 00:37:12.017
+who never try to use this stuff,
+because most of the model allow to opt
+
+445
+00:37:12.017 --> 00:37:18.524
+out the use of your data for training the
+model. You can establish a
+
+446
+00:37:19.564 --> 00:37:26.803
+very strong permission hierarchies for
+what can be done by the agent and what
+
+447
+00:37:26.803 --> 00:37:32.372
+cannot. You really don't need to use,
+for example, browser.
+
+448
+00:37:32.372 --> 00:37:39.983
+One possible source of leak of your data
+could be the fact that the agent connect
+
+449
+00:37:39.983 --> 00:37:43.324
+to the browser to go to on internet.
+
+450
+00:37:43.564 --> 00:37:46.685
+Okay,
+but this is not true at all because you
+
+451
+00:37:46.685 --> 00:37:51.164
+can use sandbox. What is sandbox?
+Sandbox is a sort of box, okay,
+
+452
+00:37:51.164 --> 00:37:55.167
+within the agent which is not your
+browser, your computer.
+
+453
+00:37:55.167 --> 00:38:00.325
+It is isolated from your computer.
+It's just used by the agent for going on
+
+454
+00:38:00.325 --> 00:38:02.564
+the internet. Indeed, many of the
+
+455
+00:38:03.404 --> 00:38:06.816
+action that you take in your browser,
+for example,
+
+456
+00:38:06.816 --> 00:38:10.764
+downloading stuff on the downloading
+folder and just pick,
+
+457
+00:38:10.764 --> 00:38:14.042
+then the file cannot be done within the
+sandbox,
+
+458
+00:38:14.042 --> 00:38:19.730
+just because you don't have access to the
+sandbox. Only the agent is in the sandbox.
+
+459
+00:38:19.730 --> 00:38:21.804
+So the possibility that some...
+
+460
+00:38:21.844 --> 00:38:27.901
+Somebody just getting to your laptop
+through the agent going on internet is
+
+461
+00:38:27.901 --> 00:38:32.204
+simply a no fact. OK,
+because they can use a sandbox.
+
+462
+00:38:33.404 --> 00:38:37.819
+Then you can also allow them to use the
+normal browser as I do.
+
+463
+00:38:37.819 --> 00:38:42.924
+And you can give them permission for all
+the file in your laptop as I do.
+
+464
+00:38:44.284 --> 00:38:47.762
+Otherwise,
+when you start a project on Agent,
+
+465
+00:38:47.762 --> 00:38:53.659
+you allow it to read just one folder.
+And for any kind of thing that you need
+
+466
+00:38:53.659 --> 00:38:58.574
+to do for achieving the task,
+you ask permission. I can do this,
+
+467
+00:38:58.574 --> 00:39:03.564
+you allow me to do this,
+and you click on I allow, I don't allow.
+
+468
+00:39:03.964 --> 00:39:09.641
+I can read this folder, allow, not allow.
+And this is done essentially for
+
+469
+00:39:09.641 --> 00:39:14.864
+everything if you set the option for
+asking for everything. Clearly,
+
+470
+00:39:14.864 --> 00:39:20.162
+what is the drawback of this?
+That you lose a bit of the advantage of
+
+471
+00:39:20.162 --> 00:39:23.644
+having an agent that do things
+automatically.
+
+472
+00:39:24.524 --> 00:39:29.208
+autonomously. Okay. And so for example,
+I opt out of this stuff.
+
+473
+00:39:29.208 --> 00:39:33.964
+I let the agent do and just ask me for
+the most important things.
+
+474
+00:39:35.044 --> 00:39:40.744
+Because otherwise it stop every while for
+asking permission. Okay, depend on you,
+
+475
+00:39:40.744 --> 00:39:45.958
+depend on how do you trust on it,
+how many sensible stuff you have in your
+
+476
+00:39:45.958 --> 00:39:48.044
+laptop, on your platform, yes.
+
+477
+00:39:53.724 --> 00:39:53.884
+Mm.
+
+478
+00:40:01.804 --> 00:40:05.891
+Yes,
+and there is this opting this option for
+
+479
+00:40:05.891 --> 00:40:10.421
+training.
+If you really don't want to your data to
+
+480
+00:40:10.421 --> 00:40:16.818
+be used for for training the model,
+you can go on the option opting out
+
+481
+00:40:16.284 --> 00:40:20.419
+Marco, sorry,
+can you repeat the questions because we
+
+482
+00:40:16.818 --> 00:40:17.884
+simply. Yes.
+
+483
+00:40:20.419 --> 00:40:21.644
+don't hear them?
+
+484
+00:40:21.964 --> 00:40:28.421
+He asked me if they are, I mean,
+according to my experience,
+
+485
+00:40:28.421 --> 00:40:36.782
+some of the option that need to be in
+some way opted out or opted out for sure
+
+486
+00:40:36.782 --> 00:40:42.604
+once you use this stuff.
+And I suggest just to opt out
+
+487
+00:40:42.644 --> 00:40:47.308
+for the option regarding in using your
+data for training.
+
+488
+00:40:47.308 --> 00:40:52.456
+That could be useful in the sense that
+otherwise, I don't know,
+
+489
+00:40:52.456 --> 00:40:56.718
+you have some idea for grant or something
+like this.
+
+490
+00:40:56.718 --> 00:41:02.750
+If you if the model use it to train
+somebody else in the other part of the
+
+491
+00:41:02.750 --> 00:41:05.404
+world asking a specific question.
+
+492
+00:41:05.884 --> 00:41:12.000
+could in principle receive an answer with
+connect with your idea. Okay,
+
+493
+00:41:12.000 --> 00:41:18.371
+so in some way, this is the risk,
+the main risk with respect to using your
+
+494
+00:41:18.371 --> 00:41:21.004
+stuff for training. But I mean,
+
+495
+00:41:23.324 --> 00:41:27.164
+I don't know how much this is likely to
+happen.
+
+496
+00:41:36.204 --> 00:41:42.068
+No, because I mean, at the beginning,
+the review stage was a bit,
+
+497
+00:41:42.068 --> 00:41:46.155
+was not so strong as such nowadays.
+Nowadays,
+
+498
+00:41:46.155 --> 00:41:51.486
+everything that is changed by the agent,
+you can review it,
+
+499
+00:41:51.486 --> 00:41:56.284
+you can just going back in time if you
+don't like it.
+
+500
+00:41:57.324 --> 00:42:02.363
+As I said before,
+I let the agent going everywhere in my
+
+501
+00:42:02.363 --> 00:42:08.022
+laptop. The only, I think,
+the only thing that I do in order to
+
+502
+00:42:08.022 --> 00:42:12.619
+avoid to be stolen from my bank account
+is putting,
+
+503
+00:42:12.619 --> 00:42:17.924
+I was usual to save my password of
+everything in the notes.
+
+504
+00:42:18.204 --> 00:42:24.556
+the block notes in my Mac.
+Now I just move all the password in a
+
+505
+00:42:24.556 --> 00:42:31.789
+specific app that make them reachable by
+the agent without my permission.
+
+506
+00:42:31.789 --> 00:42:37.164
+Is the only thing that I did.
+For the rest, I just let
+
+507
+00:42:37.884 --> 00:42:42.785
+it going everywhere in my laptop.
+Also because this is the only manner to
+
+508
+00:42:42.785 --> 00:42:46.560
+exploit as much as possible the
+advantages of this tool.
+
+509
+00:42:46.560 --> 00:42:51.593
+Because otherwise you have to still stay
+in front of your laptop and giving
+
+510
+00:42:51.593 --> 00:42:54.044
+permission for everything which is...
+
+511
+00:42:56.204 --> 00:42:59.771
+Also,
+because most of the time you really don't
+
+512
+00:42:59.771 --> 00:43:04.749
+know what he's doing. OK,
+he's changed a Python code in the folder
+
+513
+00:43:04.749 --> 00:43:08.911
+of the, I don't know, I don't know Python,
+so I cannot,
+
+514
+00:43:08.911 --> 00:43:14.558
+I don't have neither the either the
+ability to see if he is doing something
+
+515
+00:43:14.558 --> 00:43:15.524
+wrong or not.
+
+516
+00:43:16.044 --> 00:43:21.244
+So it's better to see the last,
+the final result and judging that.
+
+517
+00:43:22.324 --> 00:43:22.924
+Directly.
+
+518
+00:43:24.124 --> 00:43:24.924
+Other question?
+
+519
+00:43:31.804 --> 00:43:35.004
+You go on the menu,
+there is an option for permission.
+
+520
+00:43:45.644 --> 00:43:49.004
+No, no, just, just the option,
+just the option.
+
+521
+00:43:52.044 --> 00:43:56.924
+Then clearly, I mean, if you want,
+you can also set this in your rules.
+
+522
+00:43:56.924 --> 00:43:59.973
+We're going to discuss what rules are
+there,
+
+523
+00:43:59.973 --> 00:44:05.666
+but you can write explicitly in the rules
+that you have to always check this before
+
+524
+00:44:05.666 --> 00:44:10.004
+changing. I don't know, in Overleaf,
+you do a specific mock-up.
+
+525
+00:44:10.124 --> 00:44:14.967
+what you do on local and then once I
+check it,
+
+526
+00:44:14.967 --> 00:44:21.253
+you can move it to overleaf in order to
+avoid, I don't know,
+
+527
+00:44:21.253 --> 00:44:29.084
+changing in the version of your paper
+that you send to, I don't know. Okay.
+
+528
+00:44:32.524 --> 00:44:35.672
+So,
+these are four layers of the autonomy
+
+529
+00:44:35.672 --> 00:44:41.444
+spectrum that the agent has. Okay.
+Suggest, this is typical also of chatbot.
+
+530
+00:44:41.444 --> 00:44:46.766
+Essentially, you ask a question,
+you do brainstorming with your agent,
+
+531
+00:44:46.766 --> 00:44:51.564
+he suggests you something,
+you refine what is suggested with...
+
+532
+00:44:51.684 --> 00:44:58.233
+respect to what you know and so on and so
+forth. Almost 0 autonomy here. OK.
+
+533
+00:44:58.233 --> 00:45:00.444
+Then there is your review.
+
+534
+00:45:01.724 --> 00:45:06.687
+So,
+if you want your agent to do something
+
+535
+00:45:06.687 --> 00:45:13.498
+and changing something, changing code,
+changing file, you,
+
+536
+00:45:13.498 --> 00:45:17.884
+you want to you make it making it out.
+
+537
+00:45:19.804 --> 00:45:23.963
+autonomously,
+you need also to set some kind of
+
+538
+00:45:23.963 --> 00:45:29.854
+document that allow you to review what
+has been done. In principle,
+
+539
+00:45:29.854 --> 00:45:36.005
+this is not necessary because all kind of
+platform, all kind of agent,
+
+540
+00:45:36.005 --> 00:45:40.684
+once they change something,
+they provide you with the
+
+541
+00:45:41.324 --> 00:45:47.750
+previous code and the new code just in
+the same file with a button for allowing
+
+542
+00:45:47.750 --> 00:45:52.088
+or not to change.
+And so you can just go on the code,
+
+543
+00:45:52.088 --> 00:45:56.828
+see what has been changed with respect to
+what was before.
+
+544
+00:45:56.828 --> 00:46:00.764
+And if you are good with that,
+you just approve.
+
+545
+00:46:01.004 --> 00:46:01.564
+Okay.
+
+546
+00:46:03.484 --> 00:46:08.723
+Then there is the execution. Here,
+the control is much more tougher. Here,
+
+547
+00:46:08.723 --> 00:46:14.031
+you need to instruct the agent for
+creating some sort of file for reviewing
+
+548
+00:46:14.031 --> 00:46:18.711
+stuff. So report or what has been done,
+the tele report, log file,
+
+549
+00:46:18.711 --> 00:46:22.972
+and so on and so forth.
+And then there is the orchestration.
+
+550
+00:46:22.972 --> 00:46:26.604
+This is probably the highest level of
+risk in terms
+
+551
+00:46:27.244 --> 00:46:34.237
+of autonomy in which essentially you have
+an agent, an orchestrator, a main agent,
+
+552
+00:46:34.237 --> 00:46:40.050
+with which you establish a plan,
+and then this orchestrator called a
+
+553
+00:46:40.050 --> 00:46:44.684
+sub-agent to implement the plan in an
+independent way.
+
+554
+00:46:45.804 --> 00:46:47.084
+Or also.
+
+555
+00:46:48.924 --> 00:46:50.524
+consequentially. Okay.
+
+556
+00:46:53.164 --> 00:46:58.901
+Here, and it's much more difficult to,
+much more difficult, can be done clearly,
+
+557
+00:46:58.901 --> 00:47:03.930
+but it's much more cumbersome,
+the control part of what has been done.
+
+558
+00:47:03.930 --> 00:47:04.284
+Okay.
+
+559
+00:47:07.644 --> 00:47:13.030
+So these are, I mean,
+I would say a set of typical problem with
+
+560
+00:47:13.030 --> 00:47:18.248
+agents. Hallucination,
+and then this can be different type of
+
+561
+00:47:18.248 --> 00:47:23.044
+hallucination.
+We're going to discuss them better later.
+
+562
+00:47:23.044 --> 00:47:27.084
+The drift,
+drift is due to change in the model.
+
+563
+00:47:27.284 --> 00:47:31.953
+by the company.
+And this is something that happens A lot.
+
+564
+00:47:31.953 --> 00:47:36.139
+For example,
+I start to use Gini for some advantage
+
+565
+00:47:36.139 --> 00:47:41.291
+with respect to the other,
+especially for managing this YouTube
+
+566
+00:47:41.291 --> 00:47:46.684
+channel that I created. Then suddenly,
+Google changed the pricing.
+
+567
+00:47:47.004 --> 00:47:50.835
+policy.
+And so Gini start to be much more
+
+568
+00:47:50.835 --> 00:47:58.223
+expensive. And also with the updating,
+there were several bugs that I had to fix
+
+569
+00:47:58.223 --> 00:48:01.324
+by my own. Okay, and this happens.
+
+570
+00:48:02.204 --> 00:48:07.399
+This is typically happens,
+especially with the lowest level of
+
+571
+00:48:07.399 --> 00:48:12.264
+proprietary model.
+It's much more difficult to happen with
+
+572
+00:48:12.264 --> 00:48:18.284
+Claudio, for example, with ChatGPT,
+but it happens also with them. Okay.
+
+573
+00:48:19.484 --> 00:48:24.364
+For example, a bug was that it stopped to.
+..
+
+574
+00:48:26.884 --> 00:48:31.705
+wait for my approval of the plan.
+It just provide me with the plan and I
+
+575
+00:48:31.705 --> 00:48:36.261
+start without approval. Okay.
+And so I had to go on internet looking
+
+576
+00:48:36.261 --> 00:48:40.554
+within the forum about this problem.
+Somebody fixed the problem.
+
+577
+00:48:40.554 --> 00:48:44.318
+And so I just tell to the agent, okay,
+go to this forum,
+
+578
+00:48:44.318 --> 00:48:47.884
+read the solution to this problem and how
+to fix you.
+
+579
+00:48:48.204 --> 00:48:52.506
+and it fixes itself,
+which is something that is much more
+
+580
+00:48:52.506 --> 00:48:58.515
+easier than the older world, I would say,
+in which you have to put your hands on
+
+581
+00:48:58.515 --> 00:49:02.298
+the mud, I would say,
+in order to fix the problem.
+
+582
+00:49:02.298 --> 00:49:04.524
+Then there is automation bias.
+
+583
+00:49:06.284 --> 00:49:12.008
+This is something that probably you're
+going to experience at least once on your
+
+584
+00:49:12.008 --> 00:49:18.015
+life with the agent in the sense that the
+agent provides you with the final outcome.
+
+585
+00:49:18.015 --> 00:49:23.456
+Many times this outcome is really good,
+at least the appearance of this app,
+
+586
+00:49:23.456 --> 00:49:27.484
+the way in which is framing this outcome
+is really good.
+
+587
+00:49:28.044 --> 00:49:33.000
+So, for example, in draft,
+it writes quietly good. OK,
+
+588
+00:49:33.000 --> 00:49:40.569
+but a good process is not a good outcome.
+OK, and the same is also true for tables.
+
+589
+00:49:40.569 --> 00:49:44.444
+OK,
+so I extract the agent to download the
+
+590
+00:49:44.444 --> 00:49:50.482
+data, run the regression,
+and create a table and provide me at the
+
+591
+00:49:50.482 --> 00:49:52.284
+end with this table.
+
+592
+00:49:52.604 --> 00:49:56.342
+with all coefficient,
+all the standard error,
+
+593
+00:49:56.342 --> 00:50:01.624
+everything is good. Okay,
+so the classical bias that you have is
+
+594
+00:50:01.624 --> 00:50:05.444
+okay. I approve. It seems good.
+It seems good.
+
+595
+00:50:05.444 --> 00:50:09.426
+For sure it's good also the content.
+Not at all.
+
+596
+00:50:09.426 --> 00:50:13.164
+So you have to start back again going to
+see.
+
+597
+00:50:13.724 --> 00:50:19.290
+The data, if they are good,
+then you have to check the code that they
+
+598
+00:50:19.290 --> 00:50:25.493
+run, it see if seeing if, for example,
+it put the right fixed effect or right
+
+599
+00:50:25.493 --> 00:50:30.026
+cluster level,
+and then see how this essentially reflect
+
+600
+00:50:30.026 --> 00:50:33.684
+in the table that the agent is providing
+you.
+
+601
+00:50:34.204 --> 00:50:34.764
+Okay.
+
+602
+00:50:36.524 --> 00:50:40.894
+The eye sloppiness.
+This is something also quietly important,
+
+603
+00:50:40.894 --> 00:50:45.334
+especially for writing.
+They are very sloppy in the sense that
+
+604
+00:50:45.334 --> 00:50:48.577
+they,
+if you look at the text made by the AI,
+
+605
+00:50:48.577 --> 00:50:53.863
+at the first glance, they look very good.
+But then when you start to read,
+
+606
+00:50:53.863 --> 00:50:55.484
+especially if you know,
+
+607
+00:50:56.124 --> 00:51:01.010
+the content, okay,
+that you ask for right to be written,
+
+608
+00:51:01.010 --> 00:51:06.067
+you realize that is not so good. I mean,
+the form is good,
+
+609
+00:51:06.067 --> 00:51:09.838
+but the content is not good.
+Then nowadays,
+
+610
+00:51:09.838 --> 00:51:14.724
+there are tools that allow you to reduce
+at the minimum.
+
+611
+00:51:14.804 --> 00:51:20.015
+this AI sloppiness.
+These are tools that your agent could
+
+612
+00:51:20.015 --> 00:51:26.665
+charge once you start a new session of
+writing, for example. For example,
+
+613
+00:51:26.665 --> 00:51:33.404
+once he write the text at the end of
+writing, essentially review the text.
+
+614
+00:51:33.964 --> 00:51:40.308
+try to eliminate all the classical EI
+marker. For example, the double line,
+
+615
+00:51:40.308 --> 00:51:44.566
+for example,
+the connector at the beginning of the
+
+616
+00:51:44.566 --> 00:51:48.990
+sentences, which are typical of EI. OK.
+Essentially,
+
+617
+00:51:48.990 --> 00:51:53.164
+try to go much deeply into the content
+instead to
+
+618
+00:51:53.404 --> 00:51:56.840
+remain superficial,
+and so on and so forth.
+
+619
+00:51:56.840 --> 00:52:02.932
+There are several tools that allow you to
+reduce as much as possible these EI
+
+620
+00:52:02.932 --> 00:52:06.369
+slopeness.
+Then there is the reward taking,
+
+621
+00:52:06.369 --> 00:52:12.617
+that is the agent find a solution which
+in some way satisfy the metric that you
+
+622
+00:52:12.617 --> 00:52:13.164
+want to
+
+623
+00:52:14.924 --> 00:52:19.313
+to estimate, for example,
+but then defeat the goal.
+
+624
+00:52:19.313 --> 00:52:26.319
+You cannot in some way achieve the goal
+that you impose to the agent. And finally,
+
+625
+00:52:26.319 --> 00:52:32.227
+probably this is the worst one.
+And as like as the automation bias is
+
+626
+00:52:32.227 --> 00:52:34.844
+something which is such subtle,
+
+627
+00:52:35.204 --> 00:52:36.844
+That is difficult to spot.
+
+628
+00:52:38.924 --> 00:52:42.753
+This encompassy,
+the eye tell you what you want to hear.
+
+629
+00:52:42.753 --> 00:52:46.918
+So the typical thing that people do is,
+OK, this is my paper.
+
+630
+00:52:46.918 --> 00:52:49.941
+I want to submit this paper to this
+journal.
+
+631
+00:52:49.941 --> 00:52:55.248
+Could you please do a review as could you
+please act as a review tool and do a
+
+632
+00:52:55.248 --> 00:52:58.204
+review of this paper before the
+submission?
+
+633
+00:52:58.764 --> 00:53:03.381
+So what the agent does is essentially a
+several point,
+
+634
+00:53:03.381 --> 00:53:08.921
+as like a review would have done,
+and then you start to tell him,
+
+635
+00:53:08.921 --> 00:53:15.385
+this point doesn't seem to me really
+important because I do this, I do this.
+
+636
+00:53:15.385 --> 00:53:17.484
+Then the EI will not act.
+
+637
+00:53:17.564 --> 00:53:21.371
+like a reviewer which will send you back
+another RAR,
+
+638
+00:53:21.371 --> 00:53:26.447
+secondary RAR telling you didn't convince
+to miss me too much with this
+
+639
+00:53:26.447 --> 00:53:30.536
+argumentation.
+I think that there is still a problem. No,
+
+640
+00:53:30.536 --> 00:53:35.471
+the AI what we'll do is essentially, oh,
+you are right, this comment,
+
+641
+00:53:35.471 --> 00:53:38.644
+this argument completely address my
+comment.
+
+642
+00:53:39.484 --> 00:53:45.910
+It's something that happens A lot. Okay.
+So you have to be a lot aware of this
+
+643
+00:53:45.910 --> 00:53:51.522
+also because this is not a bias of AI per
+se. This is a bias of you.
+
+644
+00:53:51.522 --> 00:53:56.484
+Is that your cognitive bias,
+as like as the automation bias.
+
+645
+00:53:56.484 --> 00:53:58.924
+Is your bias, not the AI bias.
+
+646
+00:53:59.084 --> 00:53:59.724
+Okay.
+
+647
+00:54:02.604 --> 00:54:06.080
+Okay,
+let's move to the interfaces for using
+
+648
+00:54:06.080 --> 00:54:10.869
+Agent. Essentially,
+we have 4 categories of interfaces at the
+
+649
+00:54:10.869 --> 00:54:16.198
+moment. They overlap A lot.
+You can use any of them interchangeably,
+
+650
+00:54:16.198 --> 00:54:20.524
+I would say. The most easy, I would say,
+gate for using
+
+651
+00:54:20.884 --> 00:54:28.124
+The agent is using your chat window,
+the chat GPT windows, if you go.
+
+652
+00:54:29.484 --> 00:54:35.497
+On the on this stuff here,
+you have a different way for using the
+
+653
+00:54:35.497 --> 00:54:39.324
+ChatGPT in Dip search mode, in agent mode.
+
+654
+00:54:40.524 --> 00:54:44.494
+Okay,
+the agent mode is essentially doing the
+
+655
+00:54:44.494 --> 00:54:48.463
+same thing that an agent will do your
+laptop.
+
+656
+00:54:48.463 --> 00:54:52.260
+The only difference is that it is on
+cloud.
+
+657
+00:54:52.260 --> 00:54:58.560
+So unless you give them access
+specifically to a specific folder of your
+
+658
+00:54:58.560 --> 00:54:59.164
+laptop,
+
+659
+00:54:59.564 --> 00:55:05.074
+it cannot do that. Okay. The second,
+I mean, this is, I would say,
+
+660
+00:55:05.074 --> 00:55:10.421
+an intermediate layer that is very useful
+for research workflow,
+
+661
+00:55:10.421 --> 00:55:14.204
+but probably is used people outside
+research.
+
+662
+00:55:15.884 --> 00:55:19.960
+Don't exploit too much,
+which is the research browser.
+
+663
+00:55:19.960 --> 00:55:26.260
+There are specific AI made for literature
+review. Okay, I use a lot it, for example,
+
+664
+00:55:26.260 --> 00:55:29.595
+because always in the idea of saving
+tokens,
+
+665
+00:55:29.595 --> 00:55:35.524
+I don't do everything with the agent
+because I let the agent doing their stuff.
+
+666
+00:55:35.964 --> 00:55:40.269
+So, for example, brainstorming,
+I don't do brainstorming with the agent.
+
+667
+00:55:40.269 --> 00:55:42.864
+I go to ChatGPT,
+I brainstorm with ChatGPT,
+
+668
+00:55:42.864 --> 00:55:45.989
+which is almost free,
+also with the highest level of
+
+669
+00:55:45.989 --> 00:55:48.879
+intelligence.
+Once the brainstorm has been done,
+
+670
+00:55:48.879 --> 00:55:53.656
+I ask to ChatGPT to create a prompt to
+give to the agent to implement a specific
+
+671
+00:55:53.656 --> 00:55:55.484
+plan. The same is true with the
+
+672
+00:55:55.804 --> 00:56:00.680
+Literal review, for example,
+I don't use the agent for doing literal
+
+673
+00:56:00.680 --> 00:56:02.164
+review, just useless.
+
+674
+00:56:04.404 --> 00:56:08.565
+consumption of token.
+I go to notebook LM of Google. OK,
+
+675
+00:56:08.565 --> 00:56:13.528
+and ask it to find me all the literature
+in economics, top journal,
+
+676
+00:56:13.528 --> 00:56:19.003
+top field about a specific topic.
+Then I start to chat with it in order to
+
+677
+00:56:19.003 --> 00:56:23.164
+organize it according to my idea,
+according to my paper.
+
+678
+00:56:23.644 --> 00:56:28.524
+And once it has been done,
+I ask him to provide me a file of
+
+679
+00:56:28.524 --> 00:56:35.244
+bibliography and a prompt and also a text
+that I can easily incorporate directly in
+
+680
+00:56:35.244 --> 00:56:36.844
+my paper. Okay, yes.
+
+681
+00:56:53.364 --> 00:56:53.884
+Mhm.
+
+682
+00:56:59.724 --> 00:57:04.045
+Absolutely, absolutely. But you have,
+I mean,
+
+683
+00:57:04.045 --> 00:57:11.654
+the way to use this stuff is getting the
+little from them and then work a bit on
+
+684
+00:57:11.654 --> 00:57:16.727
+that. They are very useful,
+especially for one thing,
+
+685
+00:57:16.727 --> 00:57:18.324
+in the sense that
+
+686
+00:57:18.404 --> 00:57:25.546
+they can provide you with a table in
+which essentially it sums up the main
+
+687
+00:57:25.546 --> 00:57:30.212
+content,
+the main result of each specific paper,
+
+688
+00:57:30.212 --> 00:57:37.450
+and help you to connect them together.
+So it's a way to do brainstorming or
+
+689
+00:57:37.450 --> 00:57:39.164
+literature review.
+
+690
+00:57:39.604 --> 00:57:42.880
+And once you have satisfied with this
+brainstorming,
+
+691
+00:57:42.880 --> 00:57:45.909
+then you move to the agent or you move
+directly.
+
+692
+00:57:45.909 --> 00:57:50.422
+Most of the time I need to pass through
+the agent to the literal review.
+
+693
+00:57:50.422 --> 00:57:53.884
+I essentially copy and paste directly on
+the paper. OK.
+
+694
+00:57:55.564 --> 00:58:01.025
+I prefer not book LM because it's much
+more precise because you can start from
+
+695
+00:58:01.025 --> 00:58:05.726
+specific paper that you provide it with.
+You just upload the paper.
+
+696
+00:58:05.726 --> 00:58:10.219
+And so there is no hallucination there.
+You just read the paper.
+
+697
+00:58:10.219 --> 00:58:14.436
+And then from that,
+they can find something else outside the
+
+698
+00:58:14.436 --> 00:58:15.404
+paper by zone.
+
+699
+00:58:16.284 --> 00:58:22.973
+Okay, so this is what typically I do,
+what typically I do for literature review.
+
+700
+00:58:22.973 --> 00:58:29.166
+But this is very good, for example,
+for triage stuff. So connecting stuff,
+
+701
+00:58:29.166 --> 00:58:31.644
+seeing what are the, you know,
+
+702
+00:58:33.244 --> 00:58:36.201
+What a paper contradict over another
+paper,
+
+703
+00:58:36.201 --> 00:58:41.778
+so you can chat very easily with the with
+the CI and help you to write down a very
+
+704
+00:58:41.778 --> 00:58:43.324
+good literature review.
+
+705
+00:58:45.804 --> 00:58:48.844
+These are also good for making slides.
+
+706
+00:58:49.644 --> 00:58:54.871
+For example,
+you really need to include a paper in
+
+707
+00:58:54.871 --> 00:59:02.557
+your class about public economics
+regarding, I don't know, the some rules.
+
+708
+00:59:02.557 --> 00:59:07.067
+OK,
+you don't have time to write a slide or
+
+709
+00:59:07.067 --> 00:59:08.604
+create a slide.
+
+710
+00:59:08.724 --> 00:59:12.528
+Essentially you upload the paper to
+notebook LM,
+
+711
+00:59:12.528 --> 00:59:18.506
+start to chat with him about what you
+want from that paper on the slide that
+
+712
+00:59:18.506 --> 00:59:24.251
+you have just an overview slide.
+You click on that in 10 minutes you have
+
+713
+00:59:24.251 --> 00:59:25.804
+the slide ready. OK.
+
+714
+00:59:27.404 --> 00:59:30.865
+But also that if you don't want him to
+make the slide,
+
+715
+00:59:30.865 --> 00:59:33.004
+he can provide you with the LaTeX.
+
+716
+00:59:34.164 --> 00:59:39.814
+code that you can modify by your own once
+you have. Then the ID agent.
+
+717
+00:59:39.814 --> 00:59:45.385
+What is an ID agent? Well,
+the ID is essentially something like this.
+
+718
+00:59:45.385 --> 00:59:51.991
+It's an app in which you have the entire
+structure of your folder on the left side
+
+719
+00:59:51.991 --> 00:59:56.209
+of the app,
+so you can control the file generated or
+
+720
+00:59:56.209 --> 00:59:57.164
+the version.
+
+721
+00:59:57.404 --> 01:00:03.443
+you can review easily all the file while
+in this instead on the right hand you
+
+722
+01:00:03.443 --> 01:00:08.565
+have the classical chat window that you
+have also in the chat bot.
+
+723
+01:00:08.565 --> 01:00:13.534
+And this central part instead is used for
+previewing every file.
+
+724
+01:00:13.534 --> 01:00:18.044
+So here you can directly see the Stata
+code and modify it.
+
+725
+01:00:18.524 --> 01:00:26.529
+You can see major adding a comment to the
+major and telling to the into the chat
+
+726
+01:00:26.529 --> 01:00:34.434
+that you have to look at the comment in
+the image and implement it as a change,
+
+727
+01:00:34.434 --> 01:00:37.004
+whatever. This is clearly.
+
+728
+01:00:37.884 --> 01:00:43.951
+much more flexible in terms of what you
+can do and what you can control with only
+
+729
+01:00:43.951 --> 01:00:48.020
+one app, okay,
+with respect to the chat window online.
+
+730
+01:00:48.020 --> 01:00:53.791
+Moreover, this is all entirely local.
+So essentially, this is on your laptop,
+
+731
+01:00:53.791 --> 01:00:57.564
+read your file,
+you don't need to upload anything.
+
+732
+01:00:57.884 --> 01:00:59.244
+And so it's very good.
+
+733
+01:01:01.964 --> 01:01:07.194
+And finally, there is, I mean,
+the most expertise, I would say,
+
+734
+01:01:07.194 --> 01:01:12.424
+way to interface this agent,
+which are the CLI terminal window.
+
+735
+01:01:12.424 --> 01:01:16.428
+Essentially,
+you run your agent directly in your
+
+736
+01:01:16.428 --> 01:01:17.164
+terminal.
+
+737
+01:01:18.644 --> 01:01:23.929
+What are the advantage? I mean,
+disadvantage is that it doesn't require
+
+738
+01:01:23.929 --> 01:01:28.480
+really to know coding,
+because essentially when you start the
+
+739
+01:01:28.480 --> 01:01:33.692
+codex or code on your terminal,
+you get a sort of chat window directly
+
+740
+01:01:33.692 --> 01:01:37.730
+your terminal,
+so you can write in natural language or
+
+741
+01:01:37.730 --> 01:01:38.684
+whatever are.
+
+742
+01:01:39.724 --> 01:01:45.889
+your request there.
+You have much less control what has been
+
+743
+01:01:45.889 --> 01:01:52.257
+done because the CLI,
+the terminal don't provide you each time
+
+744
+01:01:52.257 --> 01:01:58.524
+the file that has been modified with the
+line in which these.
+
+745
+01:01:58.844 --> 01:02:02.110
+modification has been done and so on and
+so forth.
+
+746
+01:02:02.110 --> 01:02:07.427
+But the very advantage of this stuff with
+respect to all the other interfaces that
+
+747
+01:02:07.427 --> 01:02:12.615
+it consume much less, much fewer token,
+because it does not need to have all the
+
+748
+01:02:12.615 --> 01:02:17.610
+conversation recorded inside all the
+project and the structure of the project
+
+749
+01:02:17.610 --> 01:02:19.404
+recorded and show it in the.
+
+750
+01:02:20.044 --> 01:02:21.164
+In the interface.
+
+751
+01:02:23.804 --> 01:02:24.924
+At the moment, sir.
+
+752
+01:02:26.684 --> 01:02:31.584
+Essentially,
+what this word is going to where there is
+
+753
+01:02:31.584 --> 01:02:34.524
+essentially using this agent app.
+
+754
+01:02:35.644 --> 01:02:41.959
+that you can download from the website of
+the provider,
+
+755
+01:02:41.959 --> 01:02:50.416
+which essentially are mixing all the
+advantage of the IDE and the terminal
+
+756
+01:02:50.416 --> 01:02:56.844
+interface with the facility in terms of
+usage interface.
+
+757
+01:02:57.244 --> 01:03:02.995
+of the classical chat window. This is,
+for example, from Codex, my Codex.
+
+758
+01:03:02.995 --> 01:03:09.212
+You can see here that on the left side,
+I have all the project that I'm working
+
+759
+01:03:09.212 --> 01:03:14.341
+on. Here you have the chat window, okay,
+with what has been done,
+
+760
+01:03:14.341 --> 01:03:16.284
+the file that he created.
+
+761
+01:03:16.644 --> 01:03:20.938
+what can be reviewed,
+what has to be reviewed,
+
+762
+01:03:20.938 --> 01:03:25.324
+what need to be approved,
+then there is also...
+
+763
+01:03:26.524 --> 01:03:27.164
+Here.
+
+764
+01:03:31.764 --> 01:03:36.269
+allow you essentially to do the same
+thing that you do with the IDE.
+
+765
+01:03:36.269 --> 01:03:40.056
+So essentially going through the
+structure of the folder,
+
+766
+01:03:40.056 --> 01:03:45.475
+reviewing line by line each file and so
+on and so forth. This is the future. Okay,
+
+767
+01:03:45.475 --> 01:03:50.764
+so if you want to start to play around
+with this stuff, what I suggest you is to
+
+768
+01:03:50.924 --> 01:03:54.262
+Download the the agent app from the
+provider,
+
+769
+01:03:54.262 --> 01:03:58.252
+so the codex or the cloud code app and
+using it. What?
+
+770
+01:03:58.252 --> 01:04:03.694
+What is the disadvantage of this?
+This consume a lot of token with respect
+
+771
+01:04:03.694 --> 01:04:09.354
+to CLI and for automation is much more
+difficult. OK, consume a lot of token.
+
+772
+01:04:09.354 --> 01:04:09.644
+Why?
+
+773
+01:04:09.764 --> 01:04:14.086
+essentially because it need to keep in
+memory of the structure,
+
+774
+01:04:14.086 --> 01:04:17.531
+of the conversation,
+and so on and so forth. Okay,
+
+775
+01:04:17.531 --> 01:04:19.084
+so this consume tokens.
+
+776
+01:04:20.764 --> 01:04:25.541
+But it's much more flexible in order to
+review stuff, because you see, I mean,
+
+777
+01:04:25.541 --> 01:04:30.319
+you see directly the file, otherwise,
+for with the terminal the CLE interface,
+
+778
+01:04:30.319 --> 01:04:34.733
+you need to go in the folder,
+open the file, and see what has been done,
+
+779
+01:04:34.733 --> 01:04:36.124
+and so on and so forth.
+
+780
+01:04:40.924 --> 01:04:45.197
+This is the typical terminal interface by
+Claudio,
+
+781
+01:04:45.197 --> 01:04:48.884
+but there is also the app for Claudio
+Code.
+
+782
+01:04:50.684 --> 01:04:51.164
+Okay.
+
+783
+01:04:53.964 --> 01:05:00.223
+Then a possible, I mean,
+this is probably actually the next future
+
+784
+01:05:00.223 --> 01:05:05.642
+for who use this stuff daily and in a
+very intensive way,
+
+785
+01:05:05.642 --> 01:05:07.884
+create your local agent.
+
+786
+01:05:09.404 --> 01:05:13.660
+Why is it good? Well,
+essentially because it's cheaper.
+
+787
+01:05:13.660 --> 01:05:20.044
+So if you create your own agent locally,
+essentially you don't have to pay anybody.
+
+788
+01:05:20.844 --> 01:05:25.324
+You can do everything you want,
+then is my is private.
+
+789
+01:05:26.364 --> 01:05:29.084
+Nothing leave your laptop.
+
+790
+01:05:30.204 --> 01:05:33.244
+OK, without opting out anything.
+
+791
+01:05:35.164 --> 01:05:37.644
+What are the disadvantage? It's costly.
+
+792
+01:05:38.524 --> 01:05:44.747
+costly because the G-Force,
+the RAM now is skyrocketing due to the AI.
+
+793
+01:05:44.747 --> 01:05:50.356
+And so if you want to install, I mean,
+now Google, for example,
+
+794
+01:05:50.356 --> 01:05:57.630
+did this Gamma 4 with just 7 billions of
+parameter that could be easily run on the
+
+795
+01:05:57.630 --> 01:05:58.244
+laptop.
+
+796
+01:05:59.244 --> 01:06:06.000
+but you need a video, SCADA video,
+I don't know how to say in English,
+
+797
+01:06:06.000 --> 01:06:12.662
+the minimum SCADA video for running
+something like this is like 2000,
+
+798
+01:06:12.662 --> 01:06:13.804
+3000 of EUR.
+
+799
+01:06:15.164 --> 01:06:21.356
+OK, but then I mean, it's an investment.
+You save a lot of money in subscription,
+
+800
+01:06:21.356 --> 01:06:26.113
+for example. For example,
+I pay 60 EUR each month. In 2 years,
+
+801
+01:06:26.113 --> 01:06:31.324
+I recovered the entirely the cost of the
+of the of the scalar video.
+
+802
+01:06:34.844 --> 01:06:40.137
+And it's very easy to train.
+Don't think that training this model is
+
+803
+01:06:40.137 --> 01:06:44.126
+difficult. It's very easy, very,
+very easy. I mean,
+
+804
+01:06:44.126 --> 01:06:49.956
+there are out there data set made
+explicitly for training these models. OK,
+
+805
+01:06:49.956 --> 01:06:51.644
+in writing, in coding.
+
+806
+01:06:52.124 --> 01:06:55.709
+in generating images and so on and so
+forth. Okay,
+
+807
+01:06:55.709 --> 01:07:00.982
+you can really personalize a lot the type
+of model that you want to train,
+
+808
+01:07:00.982 --> 01:07:05.974
+especially if you want a model that is
+specific for research workflow,
+
+809
+01:07:05.974 --> 01:07:10.684
+you can train it only on research
+workflow, the workflow and task.
+
+810
+01:07:11.124 --> 01:07:16.039
+Typically of research workflow. OK,
+what are the disadvantage?
+
+811
+01:07:16.039 --> 01:07:21.579
+They are not frontier model,
+so I mean you are they require constantly
+
+812
+01:07:21.579 --> 01:07:25.324
+to be managed, updated,
+and so on and so forth.
+
+813
+01:07:25.324 --> 01:07:31.644
+They will probably you will never reach
+the sophistication of frontier model by.
+
+814
+01:07:32.204 --> 01:07:38.977
+Uh, entropic and so on and so forth. OK,
+so probably you will not never be able to
+
+815
+01:07:38.977 --> 01:07:45.178
+train a Fable 5 and Mitos or a GPT 5.6.
+OK, but still they are very useful,
+
+816
+01:07:45.178 --> 01:07:51.625
+especially if you want to automatize a
+lot of stuff because they don't consume
+
+817
+01:07:51.625 --> 01:07:52.604
+essentially.
+
+818
+01:07:52.844 --> 01:07:53.404
+Any talking?
+
+819
+01:07:56.844 --> 01:08:02.033
+So these are the four, the big four,
+if you want to start to play with,
+
+820
+01:08:02.033 --> 01:08:06.140
+actually there are plenty of new AI
+coming out each day.
+
+821
+01:08:06.140 --> 01:08:09.455
+The Chinese ones are very good at the
+moment,
+
+822
+01:08:09.455 --> 01:08:14.284
+and they are much cheaper than the
+American one, for example, GLM.
+
+823
+01:08:15.604 --> 01:08:20.739
+5.2, Dip Seek, Kimi,
+these are all Chinese model which are
+
+824
+01:08:20.739 --> 01:08:24.569
+very good.
+Now there is also this Japanese,
+
+825
+01:08:24.569 --> 01:08:29.182
+which is very,
+very good because essentially what it
+
+826
+01:08:29.182 --> 01:08:35.884
+does is essentially an orchestrator agent
+which use other agent to run task.
+
+827
+01:08:36.204 --> 01:08:42.967
+And in this manner could make the entire
+distribution of the task more efficient,
+
+828
+01:08:42.967 --> 01:08:49.813
+it achieved the same performance of Fable
+5, for example. It's called Suguka Fuka,
+
+829
+01:08:49.813 --> 01:08:55.999
+typical name from Japanese land.
+So I suggest to start with the codex also
+
+830
+01:08:55.999 --> 01:08:57.484
+because if you are
+
+831
+01:08:57.524 --> 01:09:02.079
+Ping now the Chat GPT plan with Catoriga.
+Without Catoriga,
+
+832
+01:09:02.079 --> 01:09:07.317
+you have already Codex inside,
+you just have to download the app and
+
+833
+01:09:07.317 --> 01:09:12.327
+install it on your laptop,
+and probably you will be already usual
+
+834
+01:09:12.327 --> 01:09:17.337
+with the entire, you know,
+interface because it's very similar to
+
+835
+01:09:17.337 --> 01:09:18.324
+the Chat GPT.
+
+836
+01:09:18.404 --> 01:09:24.611
+the window of online.
+The best one for sure is anthropic at the
+
+837
+01:09:24.611 --> 01:09:28.782
+moment,
+especially for coding and for long
+
+838
+01:09:28.782 --> 01:09:33.244
+tasking, for long task.
+I would avoid Google.
+
+839
+01:09:34.924 --> 01:09:40.591
+Personally, it's terrible. I mean,
+it was good at the beginning,
+
+840
+01:09:40.591 --> 01:09:47.566
+but it's full of bugs. I don't know why,
+because Google actually should rely on
+
+841
+01:09:47.566 --> 01:09:54.540
+the biggest knowledge base in the world,
+given what has done so far with search
+
+842
+01:09:54.540 --> 01:09:56.284
+engineers and so on.
+
+843
+01:09:57.284 --> 01:10:01.801
+What is very useful is Cursor.
+It's not a specific model,
+
+844
+01:10:01.801 --> 01:10:06.396
+but you can use different model within
+the same interface.
+
+845
+01:10:06.396 --> 01:10:12.159
+They also have their own model,
+the default model, which is Composer 2.5,
+
+846
+01:10:12.159 --> 01:10:17.377
+which is good at the moment.
+I'm using Cursor right now, actually,
+
+847
+01:10:17.377 --> 01:10:19.324
+because with the 60 plan,
+
+848
+01:10:19.964 --> 01:10:24.172
+I can almost do everything during the
+entire month,
+
+849
+01:10:24.172 --> 01:10:28.623
+also using a very high model like Opus 4.
+8 by Claude,
+
+850
+01:10:28.623 --> 01:10:33.964
+by entropic within the course or ChatGPTI
+and so on and so forth.
+
+851
+01:10:36.204 --> 01:10:36.764
+So...
+
+852
+01:10:38.044 --> 01:10:41.741
+The idea, as I said,
+as I suggested at the beginning,
+
+853
+01:10:41.741 --> 01:10:46.807
+is not using agent for everything,
+because would not the best way to make
+
+854
+01:10:46.807 --> 01:10:51.188
+your consumption of token efficient,
+but depending on the task,
+
+855
+01:10:51.188 --> 01:10:56.459
+using different model or different type
+of agent. OK, for example, as I say,
+
+856
+01:10:56.459 --> 01:10:58.924
+thinking, writing, a light analysis,
+
+857
+01:10:58.964 --> 01:11:02.342
+Don't use agent,
+don't watch token on that.
+
+858
+01:11:02.342 --> 01:11:07.715
+Go on ChatGPT and use ChatGPT. OK,
+source discovery, evidence triage.
+
+859
+01:11:07.715 --> 01:11:12.321
+Don't use agent, use notebook perplexity,
+elicit, whatever.
+
+860
+01:11:12.321 --> 01:11:18.539
+There are AI out there made explicitly
+for doing this stuff. Coding replication,
+
+861
+01:11:18.539 --> 01:11:19.844
+table generation.
+
+862
+01:11:20.284 --> 01:11:23.425
+I mean,
+here I put ID agent because are the best
+
+863
+01:11:23.425 --> 01:11:28.233
+in terms of reviewing because you see
+directly the file out they have been
+
+864
+01:11:28.233 --> 01:11:32.976
+modified and so on and so forth.
+But the moment you can use and also the,
+
+865
+01:11:32.976 --> 01:11:36.053
+I know,
+Codex Agent app or code code app and so
+
+866
+01:11:36.053 --> 01:11:39.643
+on and so forth.
+There is really no longer a difference
+
+867
+01:11:39.643 --> 01:11:40.284
+between ID
+
+868
+01:11:42.244 --> 01:11:46.844
+Agent app or terminal interface.
+
+869
+01:11:53.084 --> 01:11:57.383
+Nowadays also with the app,
+because they implemented this right-hand
+
+870
+01:11:57.383 --> 01:12:01.434
+menu that you just open,
+you see exactly the same structure that
+
+871
+01:12:01.434 --> 01:12:06.170
+you see in the ID on the left side.
+So before there wasn't that the reason,
+
+872
+01:12:06.170 --> 01:12:11.404
+because most of people still use the ID.
+I use it, I start this stuff using the ID.
+
+873
+01:12:12.764 --> 01:12:15.084
+Because much easier to see what is doing.
+
+874
+01:12:16.204 --> 01:12:20.659
+OK, then I mean,
+if you need a very long pipeline
+
+875
+01:12:20.659 --> 01:12:25.025
+automation,
+probably the CLI interface is better
+
+876
+01:12:25.025 --> 01:12:31.084
+because it consumer fewer token. OK,
+but you are really need to be.
+
+877
+01:12:33.724 --> 01:12:38.949
+100% sure of the automation, the pipeline,
+because they start and then it's
+
+878
+01:12:38.949 --> 01:12:42.661
+difficult to review on during the work
+what is doing.
+
+879
+01:12:42.661 --> 01:12:46.511
+Why instead the sensitive data of full
+reproducibility,
+
+880
+01:12:46.511 --> 01:12:51.804
+probably the local model are the best one,
+but also here it depends because.
+
+881
+01:12:52.684 --> 01:12:56.496
+For example,
+we have this property data with Diogo.
+
+882
+01:12:56.496 --> 01:13:01.774
+I mean, you don't know Diogo is,
+but they have this sensitive data from
+
+883
+01:13:01.774 --> 01:13:05.513
+Brazil.
+And since we cannot use property AI there,
+
+884
+01:13:05.513 --> 01:13:11.084
+we have constructed a local AI within the
+server in which this data stored.
+
+885
+01:13:11.564 --> 01:13:17.818
+A stored, and we are using the local E.I.
+for the analysis on the on on on those
+
+886
+01:13:17.818 --> 01:13:18.204
+data.
+
+887
+01:13:20.204 --> 01:13:24.658
+Cost. Well,
+essentially here we have two words,
+
+888
+01:13:24.658 --> 01:13:30.225
+or subscription or method usage.
+If you never use an agent,
+
+889
+01:13:30.225 --> 01:13:36.256
+start with the lowest level subscription,
+typically it's 20 EUR,
+
+890
+01:13:36.256 --> 01:13:40.524
+$20 for all companies.
+Then if you need more,
+
+891
+01:13:40.804 --> 01:13:42.884
+There are bigger planner.
+
+892
+01:13:46.524 --> 01:13:52.134
+If you have money to spend,
+what I suggest is making the max plan
+
+893
+01:13:52.134 --> 01:13:58.424
+with Anthropic is 200 EUR per month,
+but essentially is almost a limited.
+
+894
+01:13:58.424 --> 01:14:03.864
+If you use by your own,
+is a limited because difficult that you
+
+895
+01:14:03.864 --> 01:14:08.284
+burn all the token that give you this
+kind of plan.
+
+896
+01:14:09.164 --> 01:14:14.198
+I understand that 200 EUR per month is a
+big amount of money. Indeed,
+
+897
+01:14:14.198 --> 01:14:18.153
+I would never suggest to start with this
+kind of plan.
+
+898
+01:14:18.153 --> 01:14:24.121
+Only once you really get into this stuff,
+you embodied a lot of this stuff in your
+
+899
+01:14:24.121 --> 01:14:27.501
+workflow,
+probably it makes sense to switch to
+
+900
+01:14:27.501 --> 01:14:28.364
+higher plan.
+
+901
+01:14:29.084 --> 01:14:35.552
+I tried to coordinate with people in
+order to pay the plan in four people,
+
+902
+01:14:35.552 --> 01:14:42.106
+even if it is illegal. I couldn't,
+and so the best solution that I found is
+
+903
+01:14:42.106 --> 01:14:47.022
+moving to Cursor,
+who was this very good plan for 60 EUR
+
+904
+01:14:47.022 --> 01:14:47.884
+per month.
+
+905
+01:14:48.164 --> 01:14:53.138
+Otherwise, for example,
+Google Gini has also a plan of 50 EUR.
+
+906
+01:14:53.138 --> 01:14:57.481
+Codex, the max, GPT,
+the max plan is 90 EUR per month,
+
+907
+01:14:57.481 --> 01:15:03.324
+so the half of the max by entropic,
+depend on what you really need. Okay.
+
+908
+01:15:11.244 --> 01:15:11.724
+Mhm.
+
+909
+01:15:18.604 --> 01:15:19.164
+Mhm.
+
+910
+01:15:20.124 --> 01:15:21.244
+Mhm, mhm.
+
+911
+01:15:27.564 --> 01:15:28.084
+Mmh.
+
+912
+01:15:30.164 --> 01:15:30.524
+Bing.
+
+913
+01:15:38.844 --> 01:15:39.324
+Why?
+
+914
+01:15:49.404 --> 01:15:56.044
+But if everything remains local,
+that's not possible. No.
+
+915
+01:15:57.204 --> 01:15:57.724
+Memory.
+
+916
+01:15:58.684 --> 01:16:02.431
+You have to set the memory to the agent.
+I work on this.
+
+917
+01:16:02.431 --> 01:16:06.309
+I work on the same folder with different
+agent on Dropbox.
+
+918
+01:16:06.309 --> 01:16:11.305
+My folder are all on Dropbox. Okay.
+And you use different agent and some of
+
+919
+01:16:11.305 --> 01:16:14.263
+my coder use other agent on the same
+folder.
+
+920
+01:16:14.263 --> 01:16:17.484
+The only thing that you have to set is a
+memory.
+
+921
+01:16:18.364 --> 01:16:23.564
+A memory which allow you to move what you
+are doing with one agent to another agent.
+
+922
+01:16:29.804 --> 01:16:33.948
+Yes, you could.
+When you set your knowledge base,
+
+923
+01:16:33.948 --> 01:16:40.414
+one of the documents that you set up for
+your project are what has been done,
+
+924
+01:16:40.414 --> 01:16:44.724
+decision, and or next stop, next step.
+Essentially,
+
+925
+01:16:44.724 --> 01:16:50.444
+each time the agent does something,
+it record this in markdown file.
+
+926
+01:16:50.644 --> 01:16:55.541
+And so the next agent just read this
+markdown file and know what has been done.
+
+927
+01:16:55.541 --> 01:16:59.459
+Okay. And so how to be,
+we're going to see the next time, okay,
+
+928
+01:16:59.459 --> 01:17:02.519
+how to set something like this. Is there,
+I mean,
+
+929
+01:17:02.519 --> 01:17:07.600
+we're going to discuss now the difference
+between the two may use a type of memory
+
+930
+01:17:07.600 --> 01:17:09.804
+which are lag and knowledge base. I.
+
+931
+01:17:10.164 --> 01:17:15.033
+personally prefer knowledge based, okay,
+in which you can also directly edit the
+
+932
+01:17:15.033 --> 01:17:18.159
+notes and the markdown by your own
+without letting,
+
+933
+01:17:18.159 --> 01:17:21.646
+if you see that something is written that
+you don't like,
+
+934
+01:17:21.646 --> 01:17:26.515
+like doing this stuff when you don't want
+to do this stuff or next time that you
+
+935
+01:17:26.515 --> 01:17:30.122
+open the session,
+you just go in your note and by your own,
+
+936
+01:17:30.122 --> 01:17:31.324
+you change the note.
+
+937
+01:17:31.804 --> 01:17:32.284
+Okay.
+
+938
+01:17:34.764 --> 01:17:41.120
+One possible option that you have to opt
+out when you open the app or whatever is
+
+939
+01:17:41.120 --> 01:17:47.088
+the fact to avoid extra usage. Okay,
+so if you start with the plan of 20 EUR
+
+940
+01:17:47.088 --> 01:17:50.498
+plan,
+probably you get out of the plan in a
+
+941
+01:17:50.498 --> 01:17:54.141
+while,
+especially at the beginning because you
+
+942
+01:17:54.141 --> 01:17:54.684
+are not
+
+943
+01:17:55.244 --> 01:17:59.957
+familiar to how manage to avoid consume
+too much token.
+
+944
+01:17:59.957 --> 01:18:06.523
+And so what I strongly suggest you is
+going in the menu option and there is a
+
+945
+01:18:06.523 --> 01:18:13.004
+specific option that avoid the agent to
+consume extra token out of the plan.
+
+946
+01:18:13.764 --> 01:18:19.244
+The otherwise make you pay, OK?
+And then you don't want to pay.
+
+947
+01:18:21.244 --> 01:18:27.122
+Another thing to do is to say that
+unlimited does not exist for agent.
+
+948
+01:18:27.122 --> 01:18:31.841
+There is no plan that is really unlimited.
+With Fable 5,
+
+949
+01:18:31.841 --> 01:18:38.630
+you probably consume an entire max plan,
+the 200 EUR max plan by Anthropic in one
+
+950
+01:18:38.630 --> 01:18:39.044
+week.
+
+951
+01:18:39.404 --> 01:18:43.909
+just because it consume a lot of token.
+It's very good at doing things,
+
+952
+01:18:43.909 --> 01:18:48.977
+it does things very, I mean, very well.
+Probably you really don't need needed to
+
+953
+01:18:48.977 --> 01:18:51.730
+review them,
+but it consume a lot of token.
+
+954
+01:18:51.730 --> 01:18:55.484
+We're talking about millions of tokens
+for each call. Okay.
+
+955
+01:18:57.804 --> 01:19:01.736
+They consume a lot of token with respect
+to a chat bot,
+
+956
+01:19:01.736 --> 01:19:07.493
+essentially because while for a chat bot,
+the token are consumed just for reading
+
+957
+01:19:07.493 --> 01:19:12.267
+the prompt and answering you.
+Here you have different step in which
+
+958
+01:19:12.267 --> 01:19:17.884
+token are consumed. OK, so the context,
+the call for the tool, the retries. OK.
+
+959
+01:19:17.964 --> 01:19:24.312
+And then also there is there are
+differences in the policy of each company
+
+960
+01:19:24.312 --> 01:19:30.575
+in terms of token price. For example,
+Google, I use it for a while, Gini,
+
+961
+01:19:30.575 --> 01:19:37.684
+because typically how this consumption of
+token works. You have two kind of limits.
+
+962
+01:19:38.244 --> 01:19:46.467
+hour limit and a weekly limit. OK,
+so each app has this value that you can
+
+963
+01:19:46.467 --> 01:19:53.594
+see in a specific bar.
+So the hour limit is a limit an amount of
+
+964
+01:19:53.594 --> 01:19:56.884
+token that the regenerate each
+
+965
+01:19:57.124 --> 01:20:03.047
+five hours, each six hours. Okay.
+Each time that you regenerate this daily
+
+966
+01:20:03.047 --> 01:20:06.759
+limit,
+a part of the weekly limit is consumed,
+
+967
+01:20:06.759 --> 01:20:13.236
+of the monthly limit is consumed. Okay.
+So you can repeat this up to the point in
+
+968
+01:20:13.236 --> 01:20:15.684
+which the weekly limit is over.
+
+969
+01:20:16.324 --> 01:20:22.128
+Okay, when the weekly limit is over,
+even if you are still having some token
+
+970
+01:20:22.128 --> 01:20:25.444
+in the hour daily limit,
+you cannot use it.
+
+971
+01:20:26.564 --> 01:20:27.044
+K.
+
+972
+01:20:29.364 --> 01:20:35.497
+Perfect, so I use it at the beginning,
+Gini, because Gini has this default,
+
+973
+01:20:35.497 --> 01:20:41.145
+clearly the default model consume less
+token than the best model. OK,
+
+974
+01:20:41.145 --> 01:20:47.036
+Gini has this Gini Pro Flash 3.5,
+which was a very good default model to
+
+975
+01:20:47.036 --> 01:20:48.004
+doing to do.
+
+976
+01:20:49.244 --> 01:20:54.121
+Mostly of the stuff that I need to do,
+like manage the YouTube channel,
+
+977
+01:20:54.121 --> 01:20:58.253
+sending the newsletter,
+all this kind of stuff that consume,
+
+978
+01:20:58.253 --> 01:21:03.536
+they don't require too much intelligence.
+OK, then from one day to the other,
+
+979
+01:21:03.536 --> 01:21:07.804
+essentially they change the pricing,
+they they triplicate the.
+
+980
+01:21:08.324 --> 01:21:12.559
+cost of each token.
+And so essentially also with the same
+
+981
+01:21:12.559 --> 01:21:17.378
+model, with the same code,
+with the same task from day one day to
+
+982
+01:21:17.378 --> 01:21:21.175
+the other,
+I completely consume different amount of
+
+983
+01:21:21.175 --> 01:21:24.606
+token.
+And this is true for all the companies,
+
+984
+01:21:24.606 --> 01:21:26.724
+all the private models, okay?
+
+985
+01:21:27.004 --> 01:21:31.444
+The only way to avoid this stuff is using
+your local AI, okay?
+
+986
+01:21:35.044 --> 01:21:40.854
+So how to save money here? Well,
+essentially try to use the agent as less
+
+987
+01:21:40.854 --> 01:21:47.135
+as possible. Use it only for hard stuff,
+only when they really need to be used.
+
+988
+01:21:47.135 --> 01:21:51.924
+When you use agent,
+don't use the best model for everything.
+
+989
+01:21:53.404 --> 01:21:59.297
+Some of these allow you for automatic
+location of the task depending on the
+
+990
+01:21:59.297 --> 01:22:05.112
+difficulty of the task that the AI
+understand by its own and it allocates.
+
+991
+01:22:05.112 --> 01:22:09.144
+Otherwise,
+what I typically suggest is use the best
+
+992
+01:22:09.144 --> 01:22:13.796
+model for planning,
+the most intelligent model for planning
+
+993
+01:22:13.796 --> 01:22:14.804
+when the plan
+
+994
+01:22:14.964 --> 01:22:21.223
+be written down the implementation.
+Let's do the implementation to more
+
+995
+01:22:21.223 --> 01:22:26.004
+stupid model because it has just to fall
+off the plan.
+
+996
+01:22:26.964 --> 01:22:33.429
+There is no intelligence there. OK,
+then avoid the 1000 thousand of prompt
+
+997
+01:22:33.429 --> 01:22:37.998
+different prompt. Put all together. OK,
+the request.
+
+998
+01:22:37.998 --> 01:22:44.463
+Don't separate in different prompt.
+This allow you to save a lot of token.
+
+999
+01:22:44.463 --> 01:22:49.204
+Use some tool that allow you to create
+memory. Memory.
+
+1000
+01:22:49.364 --> 01:22:54.886
+Consume token once you and you once once
+you have to create it at the beginning,
+
+1001
+01:22:54.886 --> 01:22:59.794
+but when you have created it,
+you have just to recall it and that could
+
+1002
+01:22:59.794 --> 01:23:05.384
+save you a lot of token because instead
+of re-prompting every time what you need,
+
+1003
+01:23:05.384 --> 01:23:08.724
+it just read the specific file that it
+needs to.
+
+1004
+01:23:08.964 --> 01:23:09.924
+Complete the task.
+
+1005
+01:23:10.884 --> 01:23:11.524
+Okay.
+
+1006
+01:23:15.964 --> 01:23:18.484
+For example, this is just some.
+
+1007
+01:23:21.204 --> 01:23:27.635
+case of using in terms of token.
+Chat question are very cheap. Okay.
+
+1008
+01:23:27.635 --> 01:23:32.947
+Less than 1000 of token.
+Replicate section 4 end to end,
+
+1009
+01:23:32.947 --> 01:23:39.844
+which is something good to be done by the,
+I mean, something that I will.
+
+1010
+01:23:40.724 --> 01:23:46.377
+Let the agent do,
+because it save you a lot of time.
+
+1011
+01:23:46.377 --> 01:23:54.591
+This consume million of token. OK,
+so try to stay only with task that really
+
+1012
+01:23:54.591 --> 01:24:00.564
+need agent implementation. OK,
+don't wash token around.
+
+1013
+01:24:00.804 --> 01:24:07.384
+Token will become your nightmare once you
+start to embody this stuff in your
+
+1014
+01:24:07.384 --> 01:24:11.828
+workflow. I mean,
+the day in which I'm not talking,
+
+1015
+01:24:11.828 --> 01:24:15.760
+I don't do anything. Not really.
+For example,
+
+1016
+01:24:15.760 --> 01:24:22.084
+if I arrive up today up to the renovation
+of the plan of the weekly plan,
+
+1017
+01:24:22.284 --> 01:24:26.179
+In those two days,
+I do something for my family.
+
+1018
+01:24:26.179 --> 01:24:30.630
+I go to the doctor,
+I do all the things that, you know,
+
+1019
+01:24:30.630 --> 01:24:35.399
+because I then, I mean, I just saved,
+I saved so much time,
+
+1020
+01:24:35.399 --> 01:24:40.884
+so much time using the agent that I can
+take someday free, you know.
+
+1021
+01:24:41.524 --> 01:24:44.484
+And waiting for coming back of the agent.
+
+1022
+01:24:47.204 --> 01:24:52.407
+Another thing that I suggest you,
+don't spend the, I mean,
+
+1023
+01:24:52.407 --> 01:24:58.404
+this tool has made for freeing you from
+being in front of a screen.
+
+1024
+01:24:59.564 --> 01:25:03.024
+Don't do as like as what you do with
+Stata. That is,
+
+1025
+01:25:03.024 --> 01:25:08.246
+you run a command and you stay in front
+of the screen and waiting in the end of
+
+1026
+01:25:08.246 --> 01:25:11.640
+the command.
+This is not the way to use this stuff.
+
+1027
+01:25:11.640 --> 01:25:14.904
+The way to use this stuff is launching
+the agent,
+
+1028
+01:25:14.904 --> 01:25:19.604
+let him doing what he need to do,
+in the meanwhile doing anything else.
+
+1029
+01:25:20.964 --> 01:25:27.172
+Answer email, writing a report,
+reading a paper, cleaning, wash,
+
+1030
+01:25:27.172 --> 01:25:32.329
+make something in your place,
+going to take a coffee,
+
+1031
+01:25:32.329 --> 01:25:38.250
+doing anything else,
+because otherwise you are not exploiting
+
+1032
+01:25:38.250 --> 01:25:40.924
+the advantage of this stuff.
+
+1033
+01:25:41.244 --> 01:25:44.039
+which is freeing time.
+This is the advantage.
+
+1034
+01:25:44.039 --> 01:25:47.564
+Freeing a lot of time that allow you to
+make more things.
+
+1035
+01:25:48.764 --> 01:25:53.384
+At the beginning,
+you will feel like you work less.
+
+1036
+01:25:53.384 --> 01:25:58.804
+Actually, you are working much,
+much more than before agent,
+
+1037
+01:25:58.804 --> 01:26:03.246
+because what you spent before one day,
+one month,
+
+1038
+01:26:03.246 --> 01:26:08.044
+one year to do now can be done in a
+second, in a day.
+
+1039
+01:26:08.084 --> 01:26:08.764
+In a week.
+
+1040
+01:26:10.124 --> 01:26:16.452
+We're gonna see some case from my
+workflow in the next session constructing
+
+1041
+01:26:16.452 --> 01:26:20.948
+testing an idea.
+Today I had an idea on this possible
+
+1042
+01:26:20.948 --> 01:26:25.444
+research project from having the idea to
+testing the.
+
+1043
+01:26:26.684 --> 01:26:32.679
+Validity of that idea with the data
+regression is a matter of hours,
+
+1044
+01:26:32.679 --> 01:26:34.764
+not day nowadays, hours.
+
+1045
+01:26:35.964 --> 01:26:41.391
+When the kids are sleeping,
+you can really do what typically would
+
+1046
+01:26:41.391 --> 01:26:46.657
+have been done in a week.
+So this is really the game changing of
+
+1047
+01:26:46.657 --> 01:26:52.004
+this stuff. It's freeing your time.
+And so don't waste your time,
+
+1048
+01:26:52.004 --> 01:26:55.244
+which has be freed in front of your lap.
+
+1049
+01:26:55.284 --> 01:26:58.001
+Stop waiting for the response of the
+agent.
+
+1050
+01:26:58.001 --> 01:27:01.644
+This is not the way which the the the
+stuff could be used.
+
+1051
+01:27:03.484 --> 01:27:08.432
+So, it trained on my data? Well,
+essentially, I don't know,
+
+1052
+01:27:08.432 --> 01:27:15.277
+in the sense that with the default plan,
+with the Gradis plan, with the free plan,
+
+1053
+01:27:15.277 --> 01:27:22.204
+you cannot opting out the training stuff.
+You can opting out once you start to pay.
+
+1054
+01:27:24.684 --> 01:27:31.193
+But actually, you really don't know,
+never know 100% that they don't use your
+
+1055
+01:27:31.193 --> 01:27:35.783
+data to train,
+especially if you use a lot of external
+
+1056
+01:27:35.783 --> 01:27:39.622
+tool.
+You make a lot of API goal or something
+
+1057
+01:27:39.622 --> 01:27:43.044
+like this. So what I suggest is try to be
+
+1058
+01:27:43.244 --> 01:27:48.892
+To generalize your workflow in order to
+not have this problem at all,
+
+1059
+01:27:48.892 --> 01:27:55.266
+in the sense that try to keep out from
+the agent what cannot be shared at all,
+
+1060
+01:27:55.266 --> 01:28:00.026
+like private data or sensible data or
+something like this,
+
+1061
+01:28:00.026 --> 01:28:02.124
+anonymize everything else.
+
+1062
+01:28:02.684 --> 01:28:05.004
+And some way.
+
+1063
+01:28:07.644 --> 01:28:13.584
+Try to keep safe your workflow before to
+throw it into the agent.
+
+1064
+01:28:13.584 --> 01:28:15.564
+This is my suggestion.
+
+1065
+01:28:19.964 --> 01:28:26.712
+I think that this is something that we
+can easily skip. Good practice,
+
+1066
+01:28:26.712 --> 01:28:29.564
+set a budget for each project.
+
+1067
+01:28:30.444 --> 01:28:36.661
+With the 20 EUR plan,
+essentially you will run out of token
+
+1068
+01:28:36.661 --> 01:28:43.189
+very fastly and probably if you want to
+still using the agent,
+
+1069
+01:28:43.189 --> 01:28:49.924
+you need to turn to extra usage.
+So they paid usage. You can set
+
+1070
+01:28:50.004 --> 01:28:55.407
+the limit of the usage. Three EUR, 4 EUR,
+5 EUR seems very small amount,
+
+1071
+01:28:55.407 --> 01:29:00.957
+but you can do a lot of things with the
+two EUR, for example. For example,
+
+1072
+01:29:00.957 --> 01:29:05.324
+now I had to rerun no CR procedure for
+thousands of pages.
+
+1073
+01:29:06.124 --> 01:29:12.364
+PDF page from Spanish Chances of 1940,
+so value.
+
+1074
+01:29:13.244 --> 01:29:19.170
+Badly digitalized. OK,
+instead of use my agent with my plan,
+
+1075
+01:29:19.170 --> 01:29:26.358
+which I've burned a lot of token,
+what I've done is essentially setting 3
+
+1076
+01:29:26.358 --> 01:29:33.644
+euros of budget on Gini API and setting
+an API key from this Gini account.
+
+1077
+01:29:34.124 --> 01:29:40.678
+giving this API K to my agent.
+So the agent instead of burning its own
+
+1078
+01:29:40.678 --> 01:29:45.201
+token from the plan,
+it just used these two EUR,
+
+1079
+01:29:45.201 --> 01:29:50.555
+3 EUR that I put in the Gini Cloud API.
+And with two EUR,
+
+1080
+01:29:50.555 --> 01:29:53.324
+3 EUR and alpha is essentially
+
+1081
+01:29:53.564 --> 01:29:59.413
+did a perfect OCR vision for the
+thousands of pages that I need. Okay,
+
+1082
+01:29:59.413 --> 01:30:03.698
+so a good practice is set the budget for
+your plan,
+
+1083
+01:30:03.698 --> 01:30:10.124
+especially if you use the 20 EUR plan.
+And then for containment, use sandbox.
+
+1084
+01:30:13.124 --> 01:30:17.913
+At least at the beginning,
+ask the permission for everything,
+
+1085
+01:30:17.913 --> 01:30:22.780
+which I put the condition of asking
+permission for everything,
+
+1086
+01:30:22.780 --> 01:30:29.346
+just to get usual of what kind of request
+the agent do, then you can relax it a bit.
+
+1087
+01:30:29.346 --> 01:30:34.444
+There is also an intermediate level of
+permission. There is no...
+
+1088
+01:30:34.484 --> 01:30:39.149
+or permission or never permission.
+There are also different kind of
+
+1089
+01:30:39.149 --> 01:30:44.020
+permission that you can set.
+So permission only for reading something,
+
+1090
+01:30:44.020 --> 01:30:49.029
+only for using specific tool. Also,
+specific tool can be allowed or not,
+
+1091
+01:30:49.029 --> 01:30:52.116
+or ask or requiring permission or not.
+Okay,
+
+1092
+01:30:52.116 --> 01:30:55.684
+so just playing around with the option in
+the menu.
+
+1093
+01:31:00.284 --> 01:31:03.628
+So, control.
+This is the most important thing when you
+
+1094
+01:31:03.628 --> 01:31:06.364
+use Agent.
+You have to control what they do.
+
+1095
+01:31:09.564 --> 01:31:13.425
+Well, while for ChatGPT,
+we have essentially only content
+
+1096
+01:31:13.425 --> 01:31:17.219
+hallucination,
+essentially answering something that does
+
+1097
+01:31:17.219 --> 01:31:22.012
+not exist or citation that do not exist.
+At the moment, this is almost,
+
+1098
+01:31:22.012 --> 01:31:25.806
+it's very difficult to find something
+like this. I mean,
+
+1099
+01:31:25.806 --> 01:31:27.404
+even if you use ChatGPT,
+
+1100
+01:31:27.804 --> 01:31:30.844
+Nowadays, there is no more.
+
+1101
+01:31:32.684 --> 01:31:35.852
+citation, hallucination,
+or something like this.
+
+1102
+01:31:35.852 --> 01:31:40.571
+It's very difficult to encounter
+something like this with ChatGPT at the
+
+1103
+01:31:40.571 --> 01:31:44.126
+moment. But for Agent,
+there are several other kind of
+
+1104
+01:31:44.126 --> 01:31:45.484
+hallucinations. Okay.
+
+1105
+01:31:46.764 --> 01:31:52.311
+Code hallucination. Essentially,
+it return you a result, a table,
+
+1106
+01:31:52.311 --> 01:31:57.355
+but essentially it implemented the wrong
+code. For example,
+
+1107
+01:31:57.355 --> 01:32:03.911
+use different cluster variable that with
+respect to those that you ask for or
+
+1108
+01:32:03.911 --> 01:32:05.844
+different fixed effect.
+
+1109
+01:32:06.124 --> 01:32:08.754
+Okay,
+so you have to review the code to see
+
+1110
+01:32:08.754 --> 01:32:11.564
+what has been done.
+Statistical hallucination.
+
+1111
+01:32:13.164 --> 01:32:17.939
+The same good syntax,
+but then the specification is not the
+
+1112
+01:32:17.939 --> 01:32:23.192
+right one. OK, workflow hallucination.
+This is the the worst one.
+
+1113
+01:32:23.192 --> 01:32:28.684
+When the agent tell you that has done
+something but actually didn't.
+
+1114
+01:32:30.044 --> 01:32:36.584
+It happens. It happens A lot. Okay.
+So you have to check if everything has
+
+1115
+01:32:36.584 --> 01:32:38.764
+been done actually. Okay.
+
+1116
+01:32:40.964 --> 01:32:46.558
+Why is the most dangerous? Well,
+because if you are confident that
+
+1117
+01:32:46.558 --> 01:32:51.149
+something has been done, then it is not.
+You go ahead,
+
+1118
+01:32:51.149 --> 01:32:57.244
+you spend talking ahead for something
+that actually has no base. OK, so.
+
+1119
+01:32:58.404 --> 01:33:01.940
+Control is also for you in terms of
+spending token,
+
+1120
+01:33:01.940 --> 01:33:07.176
+because if something has been done
+wrongly, then you have to come back here.
+
+1121
+01:33:07.176 --> 01:33:11.052
+You have already spent token for doing
+the wrong things,
+
+1122
+01:33:11.052 --> 01:33:15.268
+and then you have also to come back to
+fix the problem. Okay,
+
+1123
+01:33:15.268 --> 01:33:19.484
+so is a overspending with respect to what
+could be done if...
+
+1124
+01:33:19.604 --> 01:33:23.644
+the control is carry on in a proper way.
+
+1125
+01:33:27.004 --> 01:33:31.586
+So automation bias,
+humans systematically overtrust automated
+
+1126
+01:33:31.586 --> 01:33:35.724
+output. The smoother,
+the more confident the output is,
+
+1127
+01:33:35.724 --> 01:33:41.710
+the higher is the likelihood of this bias.
+The output are very smoother and very
+
+1128
+01:33:41.710 --> 01:33:44.444
+confident, especially drafting. Okay.
+
+1129
+01:33:45.844 --> 01:33:50.334
+What is look like in practice?
+Essentially accepting a regression
+
+1130
+01:33:50.334 --> 01:33:53.804
+specification without checking the code.
+I did it.
+
+1131
+01:33:54.764 --> 01:33:58.781
+normal to do something like this because
+you don't have time,
+
+1132
+01:33:58.781 --> 01:34:03.899
+you want the table already done. I did it,
+then I paid the consequence of this
+
+1133
+01:34:03.244 --> 01:34:03.484
+Yeah.
+
+1134
+01:34:03.899 --> 01:34:08.370
+because I had to come back.
+Copy pasting literature without checking
+
+1135
+01:34:08.370 --> 01:34:12.710
+the existence of the reference.
+This is much more limited nowadays
+
+1136
+01:34:12.710 --> 01:34:13.164
+because
+
+1137
+01:34:13.644 --> 01:34:20.801
+They are losing it much less than before,
+or skipping test because the agent
+
+1138
+01:34:20.801 --> 01:34:23.404
+already test the result. OK.
+
+1139
+01:34:25.884 --> 01:34:28.604
+Polish it pros is not validated reasoning.
+
+1140
+01:34:31.164 --> 01:34:37.289
+This essentially bring us to say that
+control cannot be something that you do
+
+1141
+01:34:37.289 --> 01:34:41.137
+sometimes.
+Control need to be a specific slot in
+
+1142
+01:34:41.137 --> 01:34:44.906
+your workflow.
+And this slot can be achieved by
+
+1143
+01:34:44.906 --> 01:34:50.324
+prompting the agent in a way that make
+compulsory the control stage.
+
+1144
+01:34:50.644 --> 01:34:56.527
+in every stage. Okay, for example,
+test with respect to a specific
+
+1145
+01:34:56.527 --> 01:35:01.444
+specification to see if the specification
+change a lot,
+
+1146
+01:35:01.444 --> 01:35:08.557
+changing some part of the specification.
+The difference with respect to what was
+
+1147
+01:35:08.557 --> 01:35:09.084
+before
+
+1148
+01:35:09.364 --> 01:35:13.277
+The implementation of the action by the
+agent,
+
+1149
+01:35:13.277 --> 01:35:20.020
+and so you have to you need to be able to
+revise what was before with respect to
+
+1150
+01:35:19.884 --> 01:35:20.284
+S.
+
+1151
+01:35:20.020 --> 01:35:24.016
+what is now.
+This is something that most of the
+
+1152
+01:35:24.016 --> 01:35:28.844
+interfaces do for you,
+because provide you with the part.
+
+1153
+01:35:29.404 --> 01:35:34.576
+of the file which has been modified and
+the part of the file which was, I mean,
+
+1154
+01:35:34.576 --> 01:35:38.003
+the preview,
+how was modified and how was before the
+
+1155
+01:35:38.003 --> 01:35:38.844
+modification.
+
+1156
+01:35:39.324 --> 01:35:39.564
+Yes.
+
+1157
+01:35:40.124 --> 01:35:45.384
+Logs, generate always logs.
+For command running, generate logs.
+
+1158
+01:35:45.384 --> 01:35:49.576
+For analysis,
+generate report in tech that you can
+
+1159
+01:35:49.576 --> 01:35:54.097
+easily read.
+Specifying the agent to put the code user
+
+1160
+01:35:54.097 --> 01:35:59.851
+for generating the specific table.
+What is the interpretation of this
+
+1161
+01:35:59.851 --> 01:36:01.084
+specific table?
+
+1162
+01:36:01.124 --> 01:36:05.973
+What is the ratio that it used for doing
+that specific analysis?
+
+1163
+01:36:05.973 --> 01:36:11.046
+They are much more easier to control than
+going file by file. Okay.
+
+1164
+01:36:11.046 --> 01:36:15.597
+So generate and tell the agent to
+generate this stuff. Okay.
+
+1165
+01:36:15.597 --> 01:36:21.043
+And then clearly a general review process
+that can be done by the human,
+
+1166
+01:36:21.043 --> 01:36:23.804
+by yourself or by other agents. Okay.
+
+1167
+01:36:28.644 --> 01:36:30.524
+When not use an agent, I mean.
+
+1168
+01:36:33.764 --> 01:36:37.248
+This is a weekly suggestion we're not
+using an agent, okay,
+
+1169
+01:36:37.248 --> 01:36:39.164
+in the sense that identification.
+
+1170
+01:36:40.324 --> 01:36:45.108
+Clearly, you don't have to use agent,
+but you can use agent to brainstorm about
+
+1171
+01:36:45.108 --> 01:36:48.816
+identification. OK,
+but then the last decision of the type of
+
+1172
+01:36:48.816 --> 01:36:52.524
+identification to implement and that need
+to rest on you. OK.
+
+1173
+01:36:53.484 --> 01:36:59.534
+Confidential data here depend on how much
+confidential this data are. OK,
+
+1174
+01:36:59.534 --> 01:37:04.684
+and so the policy in terms of
+confidential usage of this data.
+
+1175
+01:37:04.684 --> 01:37:09.017
+Final claims,
+this is something that you have to do.
+
+1176
+01:37:09.017 --> 01:37:12.941
+I mean,
+you can use a lot of the agent to draft
+
+1177
+01:37:12.941 --> 01:37:14.004
+the paper and
+
+1178
+01:37:14.124 --> 01:37:21.295
+reduce the time dramatically.
+But then when you do some claim in your
+
+1179
+01:37:21.295 --> 01:37:26.110
+draft,
+you have to review it very carefully by
+
+1180
+01:37:26.110 --> 01:37:31.130
+your own,
+because there is where the classier is
+
+1181
+01:37:31.130 --> 01:37:34.204
+loopness exists. OK, there is.
+
+1182
+01:37:34.284 --> 01:37:43.644
+The AI is not good at making claims,
+especially well-founded claims, OK?
+
+1183
+01:37:45.204 --> 01:37:51.127
+What does it mean? Well, essentially,
+you have a section which you start with
+
+1184
+01:37:51.127 --> 01:37:55.303
+some assumption,
+then you want to test this assumption
+
+1185
+01:37:55.303 --> 01:38:01.606
+through the analysis that you provide in
+the section and draw some conclusion from
+
+1186
+01:38:01.606 --> 01:38:03.884
+that result and that analysis.
+
+1187
+01:38:05.004 --> 01:38:06.124
+In that case.
+
+1188
+01:38:07.644 --> 01:38:12.153
+The drafting by the eye is good in the
+sense that the process is good,
+
+1189
+01:38:12.153 --> 01:38:16.789
+but then it does not connect very well
+the flow in the section up to the
+
+1190
+01:38:16.789 --> 01:38:20.155
+conclusion,
+the claim that you do in the conclusion.
+
+1191
+01:38:20.155 --> 01:38:25.108
+So we have to always to review the
+drafting, even if you can use it to draft,
+
+1192
+01:38:25.108 --> 01:38:27.204
+I mean, at least the first draft.
+
+1193
+01:38:27.484 --> 01:38:27.964
+Okay.
+
+1194
+01:38:29.324 --> 01:38:33.062
+Replication package,
+they are very good at doing that,
+
+1195
+01:38:33.062 --> 01:38:38.160
+but clearly you have to review before to
+send them out, but they are very,
+
+1196
+01:38:38.160 --> 01:38:42.645
+very good at doing that. OK,
+so use it in replicate in generating
+
+1197
+01:38:42.645 --> 01:38:46.384
+replication package.
+And don't using them for avoiding
+
+1198
+01:38:46.384 --> 01:38:51.073
+conflict with your author,
+just providing them with some result that
+
+1199
+01:38:51.073 --> 01:38:53.724
+your AI have generated and telling him.
+
+1200
+01:38:53.884 --> 01:38:56.924
+Look,
+the I provide the confirmation of what
+
+1201
+01:38:56.924 --> 01:39:00.098
+I'm telling you. This is not good to do.
+Okay,
+
+1202
+01:39:00.098 --> 01:39:05.164
+also because there is syncopacy in the I
+agent as like us in the chat bot.
+
+1203
+01:39:05.164 --> 01:39:08.204
+They tend to tell you what you want to
+wear.
+
+1204
+01:39:12.764 --> 01:39:16.714
+So,
+these bring us directly to the so-called
+
+1205
+01:39:16.714 --> 01:39:22.421
+alignment problem. OK,
+there is a general alignment problem with
+
+1206
+01:39:22.421 --> 01:39:26.547
+the AI world in the sense that,
+at the moment,
+
+1207
+01:39:26.547 --> 01:39:32.604
+we have decided to developing to develop
+the AI in a way in which we
+
+1208
+01:39:32.844 --> 01:39:36.406
+I mean,
+the companies just throw out a new model
+
+1209
+01:39:36.406 --> 01:39:42.222
+each week without thinking about the
+alignment between this model and humanity.
+
+1210
+01:39:42.222 --> 01:39:47.602
+This is very problematic because if
+really we achieve some point of time,
+
+1211
+01:39:47.602 --> 01:39:51.964
+the general intelligence,
+artificial intelligence, probably
+
+1212
+01:39:52.004 --> 01:39:56.188
+day one of the AGI will kill the entire
+humanity. Okay?
+
+1213
+01:39:56.188 --> 01:40:02.241
+But this is another problem. In our world,
+the local alignment means essentially
+
+1214
+01:40:02.241 --> 01:40:02.764
+that...
+
+1215
+01:40:05.564 --> 01:40:08.124
+What is good for AI is not...
+
+1216
+01:40:09.964 --> 01:40:18.604
+Good of me not to be good also for has as
+researchers. A good code does not mean.
+
+1217
+01:40:21.044 --> 01:40:27.629
+a good identification or a good result in
+terms of what you are,
+
+1218
+01:40:27.629 --> 01:40:31.884
+your research program, your research work.
+
+1219
+01:40:33.644 --> 01:40:39.564
+A table which is good at look at,
+not to be.
+
+1220
+01:40:40.764 --> 01:40:46.284
+Consistent in the content with respect to
+what you want to show. OK, so.
+
+1221
+01:40:47.884 --> 01:40:51.744
+You try,
+you have to try to align the skill,
+
+1222
+01:40:51.744 --> 01:40:58.605
+the very good skill of the agent to your
+own goal in each prompt, in each rule,
+
+1223
+01:40:58.605 --> 01:41:02.379
+in each knowledge base.
+They need to align,
+
+1224
+01:41:02.379 --> 01:41:05.724
+to be aligned to your scope, your goal.
+
+1225
+01:41:06.204 --> 01:41:13.866
+Don't do prompt like fix this table and
+let the agent do that, doing that. OK,
+
+1226
+01:41:13.866 --> 01:41:21.141
+but specifically do a prompt that
+specifically tell the agent that the way
+
+1227
+01:41:21.141 --> 01:41:24.924
+in which you want to fix the table. OK.
+
+1228
+01:41:25.244 --> 01:41:30.884
+why you think that this table need to be
+fixed and so on and so forth. Okay,
+
+1229
+01:41:30.884 --> 01:41:35.206
+this means aligning your scope with the
+EI in each prompt,
+
+1230
+01:41:35.206 --> 01:41:37.404
+with the agent in each prompt.
+
+1231
+01:41:39.724 --> 01:41:42.879
+Argentic architecture - how the agents
+work? OK,
+
+1232
+01:41:42.879 --> 01:41:47.644
+so far we have said that chatbots are
+different from Argent Pro, but why?
+
+1233
+01:41:48.844 --> 01:41:52.902
+Well, essentially,
+the big difference apart from token
+
+1234
+01:41:52.902 --> 01:41:56.444
+consuming is the fact that the agent has
+rules.
+
+1235
+01:41:57.764 --> 01:42:01.380
+What are rules?
+Rules are prompt that remain.
+
+1236
+01:42:01.380 --> 01:42:04.838
+A prompt that you have not to prompt
+again.
+
+1237
+01:42:04.838 --> 01:42:09.869
+The agent already and autonomously read
+once the session start.
+
+1238
+01:42:09.869 --> 01:42:14.192
+What are these rules? Well, for example,
+in the rules,
+
+1239
+01:42:14.192 --> 01:42:18.044
+you can put the project style or the
+convention.
+
+1240
+01:42:18.284 --> 01:42:23.910
+the naming of the structure of the
+citation format or the way in which you
+
+1241
+01:42:23.910 --> 01:42:28.336
+want the table or the regression to be
+run and produce it.
+
+1242
+01:42:28.336 --> 01:42:33.888
+You can put into what you want the agent
+to do or not to do. For example,
+
+1243
+01:42:33.888 --> 01:42:37.564
+so the description of result without
+approval by
+
+1244
+01:42:37.764 --> 01:42:41.739
+by the human, so on and so forth.
+Or you can prompt,
+
+1245
+01:42:41.739 --> 01:42:47.889
+you can write the verification stage and
+so essentially without telling the agent
+
+1246
+01:42:47.889 --> 01:42:53.289
+each time you have to review this stuff
+in this manner, blah blah blah.
+
+1247
+01:42:53.289 --> 01:42:57.564
+It would do it automatically by simply
+reading the rule.
+
+1248
+01:42:57.724 --> 01:43:02.556
+the original rule. What are these rules?
+A markdown file,
+
+1249
+01:43:02.556 --> 01:43:08.304
+markdown is a way to write a note in
+which you can essentially also,
+
+1250
+01:43:08.304 --> 01:43:15.135
+is a text file in which essentially you
+can also put some degree of importance to
+
+1251
+01:43:15.135 --> 01:43:17.884
+a specific part of the text file.
+
+1252
+01:43:18.124 --> 01:43:22.481
+You can create a list,
+you can create bullet point,
+
+1253
+01:43:22.481 --> 01:43:28.932
+you essentially create all that in the
+information contained within the text
+
+1254
+01:43:28.932 --> 01:43:33.792
+file. Typically,
+you have one rule file in the main route
+
+1255
+01:43:33.792 --> 01:43:38.484
+of your project,
+which is called All Agent MD, Code MD,
+
+1256
+01:43:38.604 --> 01:43:42.256
+rules MD,
+I strongly suggest you to maintain only
+
+1257
+01:43:42.256 --> 01:43:46.347
+one rule file.
+Don't create a lot of rule files because
+
+1258
+01:43:46.347 --> 01:43:52.263
+otherwise this generate ambiguosity when
+the agent read this kind of file. Okay,
+
+1259
+01:43:52.263 --> 01:43:57.084
+it's much better instead to create and
+maintain a knowledge base.
+
+1260
+01:43:57.524 --> 01:44:01.515
+Apart from the specific rule file in each
+project,
+
+1261
+01:44:01.515 --> 01:44:06.054
+the rule base can be essentially cooler
+once you need it,
+
+1262
+01:44:06.054 --> 01:44:11.453
+while instead this is read automatically
+when the session start. OK,
+
+1263
+01:44:11.453 --> 01:44:17.244
+so this start to burn your token even if
+you didn't prompt anything. Yes.
+
+1264
+01:44:17.644 --> 01:44:18.644
+You have a question? No.
+
+1265
+01:44:21.564 --> 01:44:21.884
+Ugh.
+
+1266
+01:44:23.324 --> 01:44:30.647
+So don't do a lot of rules file within
+your project. Just keep one very simple,
+
+1267
+01:44:30.647 --> 01:44:36.871
+very schematic. Don't write a lot.
+As always, these are not humans.
+
+1268
+01:44:36.871 --> 01:44:43.004
+They don't need the subordinates,
+subordinates, subordinates. Just
+
+1269
+01:44:43.044 --> 01:44:44.844
+bullet point is enough.
+
+1270
+01:44:47.244 --> 01:44:54.931
+If you really need to create memory,
+create some skill, create some procedure,
+
+1271
+01:44:54.931 --> 01:44:59.310
+hook loops,
+don't put them in the rule file,
+
+1272
+01:44:59.310 --> 01:45:07.484
+but rather generate a knowledge base that
+can be called each time that you need it.
+
+1273
+01:45:07.884 --> 01:45:12.085
+but it does not,
+it is not charged your session once the
+
+1274
+01:45:12.085 --> 01:45:17.318
+session start automatically,
+because otherwise you start to burn token
+
+1275
+01:45:17.318 --> 01:45:20.635
+without prompting. Okay,
+the same for skill.
+
+1276
+01:45:20.635 --> 01:45:25.574
+Skill is something with the connector MCP
+that we're going to use,
+
+1277
+01:45:25.574 --> 01:45:27.564
+we're going to discuss now.
+
+1278
+01:45:27.964 --> 01:45:31.112
+Don't use too much skill,
+at least in your project.
+
+1279
+01:45:31.112 --> 01:45:35.775
+Don't put your skill in your project,
+put your skill in your knowledge base,
+
+1280
+01:45:35.775 --> 01:45:39.286
+in your memory,
+because in this manner you can recall the
+
+1281
+01:45:39.286 --> 01:45:42.980
+skill once you need,
+but it is not recall automatically once
+
+1282
+01:45:42.980 --> 01:45:45.644
+the session start, which consume token.
+OK.
+
+1283
+01:45:47.164 --> 01:45:47.324
+Mm.
+
+1284
+01:45:49.164 --> 01:45:54.797
+So, memory as a layer here,
+you can create different kind of memories.
+
+1285
+01:45:54.797 --> 01:45:58.050
+OK,
+you really need the external tool to
+
+1286
+01:45:58.050 --> 01:46:03.921
+create memories. Agent, as like chatbot,
+has not haven't memories per se.
+
+1287
+01:46:03.921 --> 01:46:08.364
+Even in the same project within different
+conversation,
+
+1288
+01:46:08.444 --> 01:46:12.587
+they don't remember. Okay,
+so you need to create a memory.
+
+1289
+01:46:12.587 --> 01:46:16.730
+You can create different layer of memory.
+Clearly, I mean,
+
+1290
+01:46:16.730 --> 01:46:22.278
+memory we did the same conversation,
+remain, you don't need any external tool.
+
+1291
+01:46:22.278 --> 01:46:27.404
+Simply it remember what has been said in
+previously in the conversation.
+
+1292
+01:46:28.604 --> 01:46:32.604
+Between project,
+you need to create some memory, so here...
+
+1293
+01:46:33.964 --> 01:46:34.444
+I mean.
+
+1294
+01:46:36.124 --> 01:46:39.484
+This is valid for project persistency and
+graph.
+
+1295
+01:46:41.164 --> 01:46:44.879
+You need some external tool to create
+this memory.
+
+1296
+01:46:44.879 --> 01:46:49.686
+You can create this memory using
+repository, GitHub, for example.
+
+1297
+01:46:49.686 --> 01:46:54.567
+Each time you end a session,
+you do a push or a commitment to your
+
+1298
+01:46:54.567 --> 01:46:59.884
+specific repository in GitHub.
+And so the repository in GitHub reflects.
+
+1299
+01:47:00.444 --> 01:47:05.450
+the last session that you did.
+And then if you need to start again,
+
+1300
+01:47:05.450 --> 01:47:10.751
+you simply, at the next session,
+ask the agent to read your repository.
+
+1301
+01:47:10.751 --> 01:47:14.064
+That's it.
+The easiest way to create memory.
+
+1302
+01:47:14.064 --> 01:47:19.512
+The best way to create memory,
+also because this is local, so your notes,
+
+1303
+01:47:19.512 --> 01:47:20.764
+your information.
+
+1304
+01:47:21.164 --> 01:47:25.507
+doesn't go out of your laptop is using a
+knowledge base.
+
+1305
+01:47:25.507 --> 01:47:31.678
+There are plenty of app out there for
+creating a knowledge base, a second brain.
+
+1306
+01:47:31.678 --> 01:47:36.326
+The most useful, I mean,
+the one that I found most useful is
+
+1307
+01:47:36.326 --> 01:47:40.364
+Obsidian, okay,
+that help you to create these notes.
+
+1308
+01:47:41.244 --> 01:47:44.286
+to interconnect this note in a graph.
+And so,
+
+1309
+01:47:44.286 --> 01:47:49.576
+it's not just having all your information
+in one place that the agent can read,
+
+1310
+01:47:49.576 --> 01:47:54.933
+but the agent is going to read only the
+needed information because the notes are
+
+1311
+01:47:54.933 --> 01:47:59.364
+connected to each other.
+And the same is true also with the graph.
+
+1312
+01:47:59.884 --> 01:48:05.750
+because Obsidian allow you to create a
+graph among this information.
+
+1313
+01:48:05.750 --> 01:48:12.212
+So essentially, also among the code,
+instead of reading all the Python that
+
+1314
+01:48:12.212 --> 01:48:18.249
+you need for doing a specific task,
+once you need a change in the task
+
+1315
+01:48:18.249 --> 01:48:18.844
+related
+
+1316
+01:48:18.924 --> 01:48:24.804
+to a really tiny difference in your code.
+It doesn't need to read the entire set of
+
+1317
+01:48:24.804 --> 01:48:30.404
+code that you have that consume token.
+You just have this graph connecting each
+
+1318
+01:48:30.404 --> 01:48:34.604
+code with each other,
+and he already knows the code that he
+
+1319
+01:48:34.604 --> 01:48:38.314
+need to read.
+And the same is true with information,
+
+1320
+01:48:38.314 --> 01:48:39.364
+with the notes.
+
+1321
+01:48:39.804 --> 01:48:46.375
+in your vault. OK, so use external memory.
+This is game changing with the agent
+
+1322
+01:48:46.375 --> 01:48:51.304
+because, for example.
+Today I have everything in my laptop.
+
+1323
+01:48:51.304 --> 01:48:57.629
+Tomorrow I left my laptop on my home and
+I had the place of coder without my
+
+1324
+01:48:57.629 --> 01:48:58.204
+laptop.
+
+1325
+01:48:58.524 --> 01:49:02.452
+How can I recover my agent?
+It's a big problem.
+
+1326
+01:49:02.452 --> 01:49:07.034
+I could not in principle.
+But I have my knowledge base,
+
+1327
+01:49:07.034 --> 01:49:12.189
+which is on Dropbox,
+which has a tool that allows me to access
+
+1328
+01:49:12.189 --> 01:49:18.244
+it in another laptop, in another computer.
+I simply log in in in Dropbox.
+
+1329
+01:49:18.684 --> 01:49:24.091
+I log in my agent, my application,
+agent application in the laptop of my
+
+1330
+01:49:24.091 --> 01:49:27.425
+code,
+and I can easily recover what has been
+
+1331
+01:49:27.425 --> 01:49:30.684
+done in my laptop,
+even if I don't have it.
+
+1332
+01:49:31.884 --> 01:49:32.284
+K.
+
+1333
+01:49:33.564 --> 01:49:37.791
+Then I'm going to show you next time a
+possible structure,
+
+1334
+01:49:37.791 --> 01:49:41.804
+efficient structure for creating such a
+sort of memory.
+
+1335
+01:49:45.884 --> 01:49:49.653
+Essentially,
+we have two kind of way to construct
+
+1336
+01:49:49.653 --> 01:49:55.383
+memory, rag and the knowledge base. Rag,
+essentially what the agent does is
+
+1337
+01:49:55.383 --> 01:50:01.339
+chunking the conversation and the main
+point of conversation in specific small
+
+1338
+01:50:01.339 --> 01:50:04.204
+part that he recall each time he need.
+
+1339
+01:50:04.684 --> 01:50:05.404
+Okay.
+
+1340
+01:50:06.364 --> 01:50:13.448
+The advantage of this is very scalable,
+especially if you have a lot of file,
+
+1341
+01:50:13.448 --> 01:50:18.353
+a lot of code,
+this is not exploding because for each
+
+1342
+01:50:18.353 --> 01:50:22.440
+file,
+each code is essentially just generate
+
+1343
+01:50:22.440 --> 01:50:26.164
+some chunk of the code, some chunk of the
+
+1344
+01:50:27.084 --> 01:50:32.673
+of the file that essentially store in a
+vector database and recall easily once in
+
+1345
+01:50:32.673 --> 01:50:36.285
+need. What is the disadvantage?
+This is a black box.
+
+1346
+01:50:36.285 --> 01:50:40.375
+You cannot do anything on the vector
+database. Essentially,
+
+1347
+01:50:40.375 --> 01:50:45.964
+you don't know how the chunk is done by
+the agent. You don't know actually if the
+
+1348
+01:50:46.164 --> 01:50:50.104
+chunking the right part of the
+conversation,
+
+1349
+01:50:50.104 --> 01:50:57.022
+the silent part of the conversation.
+So also the recovery of the memory is not
+
+1350
+01:50:57.022 --> 01:51:02.364
+stable. Sometimes it works as you want,
+sometimes not. Okay.
+
+1351
+01:51:03.564 --> 01:51:07.977
+The other way instead,
+that it's the one that I use,
+
+1352
+01:51:07.977 --> 01:51:13.971
+actually is the knowledge base.
+This is a sort of folder in which there
+
+1353
+01:51:13.971 --> 01:51:20.549
+are many notes written in markdown file.
+Each note is connected to each other,
+
+1354
+01:51:20.549 --> 01:51:21.964
+so you can search
+
+1355
+01:51:22.284 --> 01:51:27.024
+Also, with the specific key,
+with the specific key,
+
+1356
+01:51:27.024 --> 01:51:33.132
+I hope across each note,
+you can manage directly your note by your
+
+1357
+01:51:33.132 --> 01:51:40.152
+own, modify what you need to modify.
+You can throw into the note PDF, image,
+
+1358
+01:51:40.152 --> 01:51:44.436
+video.
+It will create a markdown starting from
+
+1359
+01:51:44.436 --> 01:51:45.804
+the PDF. It can
+
+1360
+01:51:46.004 --> 01:51:52.270
+compare content of each note where they
+contrast when they instead say the same
+
+1361
+01:51:52.270 --> 01:51:57.830
+things is much more flexible in terms of
+management of your knowledge.
+
+1362
+01:51:57.830 --> 01:52:02.999
+What is the downside of this?
+You need to keep order a lot, okay,
+
+1363
+01:52:02.999 --> 01:52:06.524
+because if you start to throw everything
+you
+
+1364
+01:52:07.484 --> 01:52:12.663
+have in mind of this vote,
+it explode and they can generate much
+
+1365
+01:52:12.663 --> 01:52:17.524
+more consumption than without it. Okay,
+in terms of talking.
+
+1366
+01:52:21.324 --> 01:52:25.625
+The best thing to do is essentially a mix
+of the two.
+
+1367
+01:52:25.625 --> 01:52:31.440
+So having this knowledge base at the
+level of single project with a rag,
+
+1368
+01:52:31.440 --> 01:52:37.016
+which is over the whole project.
+So essentially using the rag to call
+
+1369
+01:52:37.016 --> 01:52:39.724
+specific memory, specific project.
+
+1370
+01:52:40.204 --> 01:52:43.590
+within each session,
+but then within each project,
+
+1371
+01:52:43.590 --> 01:52:47.906
+the memory is generated with the
+knowledge base. In this manner,
+
+1372
+01:52:47.906 --> 01:52:51.491
+it's much easier to keep order in the
+knowledge base,
+
+1373
+01:52:51.491 --> 01:52:56.670
+because essentially you have to keep
+order only within each specific project,
+
+1374
+01:52:56.670 --> 01:52:59.924
+and the rag help you to manage the fact
+that you
+
+1375
+01:53:00.124 --> 01:53:05.627
+could have hundreds of projects open.
+Okay. What I use in my knowledge base,
+
+1376
+01:53:05.627 --> 01:53:11.345
+I install several tools within the one
+advantage of the knowledge base that you
+
+1377
+01:53:11.345 --> 01:53:16.991
+can also install plug in and the tools
+within the knowledge base that help you
+
+1378
+01:53:16.991 --> 01:53:19.564
+to manage the knowledge base itself.
+
+1379
+01:53:19.844 --> 01:53:23.762
+For example,
+I have a tool which is called Memento,
+
+1380
+01:53:23.762 --> 01:53:28.962
+which essentially from in an autonomous
+way, from each conversation,
+
+1381
+01:53:28.962 --> 01:53:32.504
+when some decision is taken,
+when some action,
+
+1382
+01:53:32.504 --> 01:53:37.251
+important action is taken,
+essentially create a memory of that
+
+1383
+01:53:37.251 --> 01:53:39.964
+decision and that action that can be
+
+1384
+01:53:40.204 --> 01:53:45.908
+easily recalled by the agent this time
+that we face the same kind of task of
+
+1385
+01:53:45.908 --> 01:53:51.537
+problem. Then I have a code graph,
+which is a tool that essentially creates
+
+1386
+01:53:51.537 --> 01:53:56.722
+a graph from all the code that I have in
+the project. In this manner,
+
+1387
+01:53:56.722 --> 01:54:00.204
+as I said before,
+it doesn't need the agent to
+
+1388
+01:54:00.444 --> 01:54:05.595
+read all the code within the project,
+but only specifically the code which are
+
+1389
+01:54:05.595 --> 01:54:10.094
+connected each other. Okay.
+Then I have another tool which helped me
+
+1390
+01:54:10.094 --> 01:54:15.246
+to save the entire conversation at the
+end of each session and transform it in
+
+1391
+01:54:15.246 --> 01:54:19.484
+markdown at the end of the session.
+And so create this markdown.
+
+1392
+01:54:19.884 --> 01:54:23.680
+file in the vault that essentially sum up
+the best,
+
+1393
+01:54:23.680 --> 01:54:27.476
+the most important part of each
+conversation. Okay,
+
+1394
+01:54:27.476 --> 01:54:33.244
+but then you can add any kind of other
+tool to this knowledge base in order to
+
+1395
+01:54:33.244 --> 01:54:39.084
+make it easier to surf and search for you,
+but also for the agenda that use it.
+
+1396
+01:54:41.364 --> 01:54:45.441
+Then,
+the way in which the agent used the tool,
+
+1397
+01:54:45.441 --> 01:54:51.895
+there are essentially 3 manners. OK,
+the API that most of you already know,
+
+1398
+01:54:51.895 --> 01:54:56.397
+it's just a call to the endpoint of the
+tool online,
+
+1399
+01:54:56.397 --> 01:54:59.964
+is the way to connect to the tool which...
+
+1400
+01:55:00.524 --> 01:55:06.201
+is less consuming in terms of token
+because you need to call to make the call
+
+1401
+01:55:06.201 --> 01:55:10.204
+of the app.
+You need to ask the agent to do this call.
+
+1402
+01:55:11.404 --> 01:55:11.444
+Uhh.
+
+1403
+01:55:12.604 --> 01:55:16.405
+And so, and moreover, you have, I mean,
+you can miss,
+
+1404
+01:55:16.405 --> 01:55:21.404
+you can select very precisely what to
+send and what to ask to the API.
+
+1405
+01:55:22.364 --> 01:55:25.980
+Then there is the CLI.
+This is a bash command.
+
+1406
+01:55:25.980 --> 01:55:31.674
+It is a command that is run on your
+terminal. Each time that you need it,
+
+1407
+01:55:31.674 --> 01:55:36.984
+take this command, the agent,
+open the terminal and run the command.
+
+1408
+01:55:36.984 --> 01:55:40.600
+Clearly,
+you cannot select very easily what to
+
+1409
+01:55:40.600 --> 01:55:42.524
+send and what to receive.
+
+1410
+01:55:42.964 --> 01:55:47.148
+is much more consuming in terms of token
+than the API,
+
+1411
+01:55:47.148 --> 01:55:52.169
+but it consume a way fewer token than the
+last type of connector,
+
+1412
+01:55:52.169 --> 01:55:57.037
+which is the server MCP.
+This is the way which nowadays most of
+
+1413
+01:55:57.037 --> 01:56:02.439
+the agent talk with the internet. Okay,
+but also with the other tools,
+
+1414
+01:56:02.439 --> 01:56:03.884
+for example, Stata.
+
+1415
+01:56:04.124 --> 01:56:09.223
+For using Stata with your agent,
+you need to allow for the state MCP
+
+1416
+01:56:09.223 --> 01:56:12.992
+connector,
+and this allows the agent to run Stata,
+
+1417
+01:56:12.992 --> 01:56:17.870
+otherwise it cannot. OK,
+essentially is the way in which the tool
+
+1418
+01:56:17.870 --> 01:56:19.644
+is exposed to the agent.
+
+1419
+01:56:21.844 --> 01:56:25.013
+is much more precise, is much more,
+I mean,
+
+1420
+01:56:25.013 --> 01:56:30.848
+much more thing can be done through MCP
+with respect to the simple API. The API,
+
+1421
+01:56:30.848 --> 01:56:34.809
+for example,
+depend which kind of endpoint the company
+
+1422
+01:56:34.809 --> 01:56:37.979
+or the tool expose.
+You cannot do anything,
+
+1423
+01:56:37.979 --> 01:56:41.364
+everything with the API.
+With MCP is like you.
+
+1424
+01:56:41.484 --> 01:56:45.326
+running the tool. Okay,
+so you can do everything.
+
+1425
+01:56:45.326 --> 01:56:51.397
+What is the problem? This is like skill.
+If you have the MCP activated in your
+
+1426
+01:56:51.397 --> 01:56:56.622
+agent, once you open the session,
+it starts to consume token. Okay,
+
+1427
+01:56:56.622 --> 01:56:59.004
+so you should avoid to use MCP.
+
+1428
+01:57:00.164 --> 01:57:05.474
+as much as you can. You can use CLI.
+There is an app that allow you to create
+
+1429
+01:57:05.474 --> 01:57:09.966
+a CLI for any kind of tool or any kind of
+web page that you need.
+
+1430
+01:57:09.966 --> 01:57:14.868
+Also the one that they don't have their
+own MCP or their own CLI, okay,
+
+1431
+01:57:14.868 --> 01:57:18.884
+which is printing press is called.
+I'm gonna give you the.
+
+1432
+01:57:19.884 --> 01:57:21.884
+the link in the next session.
+
+1433
+01:57:25.484 --> 01:57:29.671
+Then there is also sub-agent.
+These are very useful,
+
+1434
+01:57:29.671 --> 01:57:36.070
+especially if you have a long workflow.
+When you establish a plan with an agent,
+
+1435
+01:57:36.070 --> 01:57:41.838
+the plan is made by several points.
+Not all these points are sequential,
+
+1436
+01:57:41.838 --> 01:57:44.524
+and so they could be run parallel.
+
+1437
+01:57:44.724 --> 01:57:51.739
+in parallel way by difference budget. OK,
+this is much faster in terms of achieving
+
+1438
+01:57:51.739 --> 01:57:55.748
+the goal. Clearly,
+they consume more token. OK,
+
+1439
+01:57:55.748 --> 01:58:00.926
+but especially for long workflow,
+this could be very helpful,
+
+1440
+01:58:00.926 --> 01:58:02.764
+especially if you set.
+
+1441
+01:58:04.124 --> 01:58:04.604
+I mean...
+
+1442
+01:58:05.484 --> 01:58:09.703
+You repeat long workflow very often.
+For example,
+
+1443
+01:58:09.703 --> 01:58:16.708
+starting from an idea up to check if the
+idea have sense, makes sense in some way.
+
+1444
+01:58:16.708 --> 01:58:21.518
+What you do? Well,
+essentially you do brainstorming. OK,
+
+1445
+01:58:21.518 --> 01:58:25.484
+then you look for literature.
+This can be done
+
+1446
+01:58:25.564 --> 01:58:28.552
+by one specific sub-agent.
+You look for data,
+
+1447
+01:58:28.552 --> 01:58:32.515
+can be done by a specific sub-agent.
+Once you have the data,
+
+1448
+01:58:32.515 --> 01:58:36.803
+you can run regression.
+This can be done by a specific sub-agent.
+
+1449
+01:58:36.803 --> 01:58:41.351
+If you have everything done,
+you want a rapper to check what has been
+
+1450
+01:58:41.351 --> 01:58:45.444
+done, if the idea makes sense,
+can be done by other sub-agent.
+
+1451
+01:58:45.884 --> 01:58:51.004
+OK, some parallel way,
+some other sequential way, OK?
+
+1452
+01:58:54.924 --> 01:58:59.167
+For example,
+make you this kind of procedure explicit.
+
+1453
+01:58:59.167 --> 01:59:04.567
+Once you have the plan that you have to
+approval, you have, you want,
+
+1454
+01:59:04.567 --> 01:59:09.504
+you could decide which point need to be
+done by the same agent,
+
+1455
+01:59:09.504 --> 01:59:14.364
+which agent will do the specific point if
+the point need to be
+
+1456
+01:59:14.684 --> 01:59:18.108
+If the agent need to work parallelly or
+in sequential way,
+
+1457
+01:59:18.108 --> 01:59:21.533
+it's everything that you have in your
+dashboard interface.
+
+1458
+01:59:21.533 --> 01:59:23.564
+You just have to click on this. OK.
+
+1459
+01:59:25.564 --> 01:59:30.485
+Then there are skill hooks and loops.
+These are probably the most useful stuff
+
+1460
+01:59:30.485 --> 01:59:35.344
+for repeated task. What are skills?
+Reusable procedures. How we make figures,
+
+1461
+01:59:35.344 --> 01:59:38.708
+how we check tables,
+how we write a referee response.
+
+1462
+01:59:38.708 --> 01:59:41.822
+Probably you have your own style of
+making table,
+
+1463
+01:59:41.822 --> 01:59:45.934
+your own style of writing draft,
+your own style of making report,
+
+1464
+01:59:45.934 --> 01:59:48.924
+your style in evaluate the thesis,
+for example.
+
+1465
+01:59:49.444 --> 01:59:53.869
+You can do a skill,
+which essentially you can easily call
+
+1466
+01:59:53.869 --> 01:59:58.524
+each time you need to redo the same task.
+So, for example...
+
+1467
+02:00:01.084 --> 02:00:05.503
+I am now moving a paper from one journal
+to the other,
+
+1468
+02:00:05.503 --> 02:00:11.931
+and each journal has its own language,
+its own reference to put into the in the
+
+1469
+02:00:11.931 --> 02:00:15.628
+text,
+the way in which the subject is framed,
+
+1470
+02:00:15.628 --> 02:00:19.324
+and so on and so forth. So,
+I create a skill.
+
+1471
+02:00:19.804 --> 02:00:24.270
+which essentially once I give the way
+which the journal,
+
+1472
+02:00:24.270 --> 02:00:28.345
+the information about the journal I want
+to submit,
+
+1473
+02:00:28.345 --> 02:00:34.849
+it automatically drafts me the paper in
+the way which the journal wants the paper,
+
+1474
+02:00:34.849 --> 02:00:38.924
+both in terms of form,
+that is the number of words,
+
+1475
+02:00:39.524 --> 02:00:42.914
+the number of figure,
+the page of the manuscript,
+
+1476
+02:00:42.914 --> 02:00:47.525
+the number of pages of the appendix,
+but those in terms of content.
+
+1477
+02:00:47.525 --> 02:00:50.780
+So instead of talking about educational
+policy,
+
+1478
+02:00:50.780 --> 02:00:55.188
+demography prefer to talk about something
+related to demography,
+
+1479
+02:00:55.188 --> 02:00:59.324
+he frame the entire staff in terms of
+what demography wants.
+
+1480
+02:00:59.564 --> 02:01:03.830
+Okay, if you want to make a table,
+regression table,
+
+1481
+02:01:03.830 --> 02:01:10.511
+typically I put the base value at the end,
+the percentage with respect to the base
+
+1482
+02:01:10.511 --> 02:01:14.294
+value,
+I keep outside the name of variable and
+
+1483
+02:01:14.294 --> 02:01:19.284
+so on and so forth.
+I create a skill to create a table and so
+
+1484
+02:01:19.484 --> 02:01:23.681
+Each time the agent need to create a
+table from a regression,
+
+1485
+02:01:23.681 --> 02:01:29.096
+he automatically called the skill and
+created the table in the way which I want
+
+1486
+02:01:29.096 --> 02:01:32.684
+the way I want the skill the table to be
+to be done.
+
+1487
+02:01:34.604 --> 02:01:38.302
+hooks.
+This is automatic check before or after
+
+1488
+02:01:38.302 --> 02:01:44.047
+agent act. If you put an hooks,
+essentially this is a procedure that run
+
+1489
+02:01:44.047 --> 02:01:49.004
+each time something happened.
+It's like an if. OK, an if loop.
+
+1490
+02:01:50.764 --> 02:01:51.484
+Um...
+
+1491
+02:01:59.004 --> 02:02:05.468
+Loops, essentially, this is automation,
+proper automation. For example,
+
+1492
+02:02:05.468 --> 02:02:09.598
+you want to keep updated with the
+literature,
+
+1493
+02:02:09.598 --> 02:02:13.907
+you can create a loop that each week on
+Monday,
+
+1494
+02:02:13.907 --> 02:02:19.204
+going to search on specific sources of
+the all new papers.
+
+1495
+02:02:19.524 --> 02:02:25.886
+that have been published with respect to
+the field that you need to read about. OK,
+
+1496
+02:02:25.886 --> 02:02:26.644
+or rather.
+
+1497
+02:02:29.244 --> 02:02:34.504
+This time that I add to a paper a new
+specification,
+
+1498
+02:02:34.504 --> 02:02:42.544
+he run specific robustness tests on that
+new specification and update the draft.
+
+1499
+02:02:42.544 --> 02:02:47.109
+Okay,
+these are all automation that the agent
+
+1500
+02:02:47.109 --> 02:02:47.804
+can do.
+
+1501
+02:02:48.044 --> 02:02:48.604
+Actually.
+
+1502
+02:02:49.764 --> 02:02:53.694
+At the beginning,
+you will not have all this stuff because
+
+1503
+02:02:53.694 --> 02:02:58.224
+you have to create this habit.
+But once you start to do things with
+
+1504
+02:02:58.224 --> 02:03:01.488
+agent,
+the best thing to do once something works
+
+1505
+02:03:01.488 --> 02:03:05.685
+is creating this stuff.
+Because this is really the time saving
+
+1506
+02:03:05.685 --> 02:03:07.484
+part of all the agent. Yes.
+
+1507
+02:03:12.204 --> 02:03:17.365
+No, no depend on the agent.
+There are also agents that work when the
+
+1508
+02:03:17.365 --> 02:03:22.376
+laptop is down on the code.
+Open Code is an agent system that work
+
+1509
+02:03:22.376 --> 02:03:27.088
+outside of your laptop,
+so you can also turn off the depend on
+
+1510
+02:03:27.088 --> 02:03:30.604
+the agent.
+Most of the typical agent you have.
+
+1511
+02:03:30.764 --> 02:03:33.564
+To the laptop, turn on, turn it on.
+
+1512
+02:03:40.044 --> 02:03:44.483
+You can do, I mean,
+you can run your agent, for example,
+
+1513
+02:03:44.483 --> 02:03:48.767
+Cloud Codex,
+you can run them also on the OpenAI Cloud
+
+1514
+02:03:48.767 --> 02:03:53.362
+and Entropic Cloud.
+You can do that with your plan without
+
+1515
+02:03:53.362 --> 02:03:54.764
+adding more money.
+
+1516
+02:03:56.924 --> 02:04:03.789
+But typically what I do is installing on
+this, your agent or your mobile,
+
+1517
+02:04:03.789 --> 02:04:08.149
+you left the laptop,
+turn it on at your place,
+
+1518
+02:04:08.149 --> 02:04:12.973
+and you are the seaside,
+and you just work. I mean,
+
+1519
+02:04:12.973 --> 02:04:16.684
+just control the work done by the agent.
+
+1520
+02:04:16.844 --> 02:04:22.610
+and chat with the agent.
+This is the best thing to free time and
+
+1521
+02:04:22.610 --> 02:04:29.442
+still working in good with good quality.
+Moreover, if you create this stuff,
+
+1522
+02:04:29.442 --> 02:04:36.184
+managing workflow skill is very easy.
+You just, I want to, I am the C side,
+
+1523
+02:04:36.184 --> 02:04:39.644
+I want to, I receive the rejection from
+
+1524
+02:04:40.124 --> 02:04:45.542
+Journal of Public Economics.
+And then I want to move to demography.
+
+1525
+02:04:45.542 --> 02:04:50.801
+I just ask the agent, OK,
+apply the skill journal and give me the
+
+1526
+02:04:50.801 --> 02:04:55.263
+result of the draft for demography.
+He does everything.
+
+1527
+02:04:55.263 --> 02:05:00.124
+Then he provided me in the chat with the
+artifact generated.
+
+1528
+02:05:00.284 --> 02:05:04.453
+I control the artifact generated or
+directly generated in overleaf,
+
+1529
+02:05:04.453 --> 02:05:08.315
+for example. I read the overleaf,
+I want to change this stuff,
+
+1530
+02:05:08.315 --> 02:05:13.404
+blah blah blah, and then from the C side,
+they can resubmit directly. It's very...
+
+1531
+02:05:14.924 --> 02:05:18.246
+Very easy to do.
+But what I suggest is start,
+
+1532
+02:05:18.246 --> 02:05:23.230
+when you start to use agent,
+if you see something that is repeatable
+
+1533
+02:05:23.230 --> 02:05:27.492
+and it works very well because the agent
+did it very well,
+
+1534
+02:05:27.492 --> 02:05:32.837
+create a skill or create a workflow,
+which is a command, which is easier,
+
+1535
+02:05:32.837 --> 02:05:35.004
+is better than a skill because
+
+1536
+02:05:35.404 --> 02:05:39.411
+It is not you is not charged by the agent
+by default.
+
+1537
+02:05:39.411 --> 02:05:43.195
+You need to call it with slash slash
+workflow. OK,
+
+1538
+02:05:43.195 --> 02:05:48.686
+and they start to do essentially it's
+like a prompting without prompting.
+
+1539
+02:05:48.686 --> 02:05:50.764
+He already knows what to do.
+
+1540
+02:05:57.324 --> 02:05:57.964
+You can.
+
+1541
+02:05:59.244 --> 02:06:02.421
+Again, one, I mean,
+it might be knowledge base.
+
+1542
+02:06:02.421 --> 02:06:07.782
+I have a session start prompt and session
+and prompt. In the session and prompt,
+
+1543
+02:06:07.782 --> 02:06:12.547
+he knows, just read this prompt,
+this markdown in the prompt, there is,
+
+1544
+02:06:12.547 --> 02:06:17.644
+if you find the conversation something
+that can be scalable, make the skill.
+
+1545
+02:06:18.524 --> 02:06:23.497
+A automatically create a skill,
+if see if it is see something that can be
+
+1546
+02:06:23.497 --> 02:06:29.209
+reused in some in other project or in the
+same project. OK, you can use the, I mean,
+
+1547
+02:06:29.209 --> 02:06:33.778
+the entire knowledge base that I did had
+been created by the agent.
+
+1548
+02:06:33.778 --> 02:06:37.004
+I didn't it manually,
+I didn't write down each.
+
+1549
+02:06:37.084 --> 02:06:42.204
+Note, I just add a project, my brain,
+in which I create my knowledge base using
+
+1550
+02:06:42.204 --> 02:06:42.844
+the agent.
+
+1551
+02:06:46.444 --> 02:06:50.253
+Okay,
+so just some case studies teaser for the
+
+1552
+02:06:50.253 --> 02:06:56.655
+next session. Little review. I mean,
+this is tentative because probably I will
+
+1553
+02:06:56.655 --> 02:07:02.896
+not go through all of them. Moreover,
+I would like to show you a live screen
+
+1554
+02:07:02.896 --> 02:07:05.084
+from the scratch some idea.
+
+1555
+02:07:05.724 --> 02:07:11.489
+Not something that have been done by me
+replicated by really new idea that show
+
+1556
+02:07:11.489 --> 02:07:16.317
+you the kind of problem that you can
+encounter once you use agent.
+
+1557
+02:07:16.317 --> 02:07:22.298
+So one thing that's very cool with agent
+that I revive that project, that project,
+
+1558
+02:07:22.298 --> 02:07:23.884
+I mean, project that I
+
+1559
+02:07:25.324 --> 02:07:30.430
+Put, I mean, rest in peace project,
+I would call in the. So,
+
+1560
+02:07:30.430 --> 02:07:36.623
+what I'm gonna do is showing you
+something that I've done so far with the
+
+1561
+02:07:36.623 --> 02:07:41.060
+agent related to specific task within
+research flow,
+
+1562
+02:07:41.060 --> 02:07:44.324
+but also outside the research flow, and
+
+1563
+02:07:44.444 --> 02:07:51.523
+The idea is to see together how this work,
+the kind of problem that you can face
+
+1564
+02:07:51.523 --> 02:07:57.291
+when you start to generate data set from
+scratch, to review code,
+
+1565
+02:07:57.291 --> 02:08:01.661
+to create new tables,
+and so on and so forth. OK,
+
+1566
+02:08:01.661 --> 02:08:05.244
+so I leave you here without going through
+
+1567
+02:08:05.484 --> 02:08:10.473
+all these examples just because we're
+going to do this example in the next
+
+1568
+02:08:10.473 --> 02:08:13.599
+session.
+I hope that you find this helpful and
+
+1569
+02:08:13.599 --> 02:08:17.324
+we're going to see and meet again next
+Wednesday. Okay?

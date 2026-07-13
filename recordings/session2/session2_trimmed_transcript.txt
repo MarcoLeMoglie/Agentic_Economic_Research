@@ -1,0 +1,1312 @@
+Agentic AI for Economic Research — Session 2 (trimmed transcript)
+Window: 00:07:30 → 02:29:23
+
+Le Moglie Marco (marco.lemoglie)   0:00
+by mail, Professor Santoro sent by mail.
+So what are we going to do today? Well, essentially,
+we're going to do some practical stuff regarding what we saw last time.
+In particular, I just prepared some slide to sum up what
+we're going to do very briefly. Essentially, this lesson is divided in four main parts. In the first one,
+we're going to look at the different agent interfaces that we described last
+time. Then I'm going to show you some of my
+success stories, as I call them. That is some of my project that I... push ahead thanks to the agents.
+Then we're going to discuss a bit the second brain and memory. In particular,
+I'm going to show you how to organize my second brain on Obsidian. But I mean,
+there are several other hub out there that can be used to create your own memory and knowledge base.
+And last but not least, we're going to see some work in progress.
+In particular, I'm going to focus on some specific
+feature that I encountered in the last time while I was working. with the agent on some project. And that's it. I mean,
+I hope to stay in the two hours. I probably go a bit out of this time,
+but let's start. So let's start with the agent interfaces.
+Well, essentially, now we're going to see the four main
+interfaces that we discussed last time. In particular,
+we're going to see how to use agent through the classical chat window
+online. In particular, we're going to see the ChatGPT window.
+Then we're going to move to the desktop
+
+Lucifora Claudio   2:00
+And.
+
+Le Moglie Marco (marco.lemoglie)   2:06
+hub for agent. In particular,
+we're going to look to Codex and Cursor. I'm going to show you also the ED, Heidi. interface by showing you anti-gravity.
+And lastly, we're going to see also for the CLI,
+so the terminal interface for using this stuff, still using codecs. Okay.
+So let me get out of this presentation and... go on the web, on ChatGPT.
+So if you want to use the agent, essentially the faster and the quicker
+way to do that is going on your ChatGPT window and essentially click on this plus button and search for agent. Okay,
+my ChatGPT codex and whatever are in Italian.
+So unfortunately for who is not Italian,
+
+Unknown   3:10
+I.
+
+Le Moglie Marco (marco.lemoglie)   3:12
+probably could be a bit misleading,
+but you can find the same command in
+
+Lucifora Claudio   3:12
+Yeah.
+
+Le Moglie Marco (marco.lemoglie)   3:19
+English very easily. So once you include this modality agent,
+you essentially start to ask something to the agent.
+What this agent modality going to do? Well, essentially,
+it's going to create a sort of fake desktop, let's say. in which essentially you can throw into
+this desktop all the files that you need, that the agent need in order to act.
+Clearly, this is the less efficient way to use
+agent. First of all, because you have us like us for chat,
+the classic ChatGPT to upload files. So,
+each file that you that your agent needs need to be uploaded. OK,
+then it rests on this sort of fake desktop online. But I mean,
+it's much more, you know, cumbersome in terms of working on these
+files. or checking, for example,
+if everything went in the proper way. Moreover,
+it is much more slower in terms of action. Okay,
+I did something just to try this for you last week because I did, I haven't never use the agent through ChatGPT.
+Let me just see where, if I remember, I think this one. Let me just check. Uhh... Uh-uh. Not that penny. Hey. Oh. Okay. Okay, so for example,
+here I need to do a plan for putting down a new analysis that we are running on a
+new project using the data, the property data by Adele Lab,
+by Estrazionedatieprenotazionepostazione. So, as many of you probably know,
+you can access directly from your laptop. this data.
+So in some way you need to create the do file and the code without actually
+testing them directly on the data using placeholder names for the files and the
+variable. And then moving everything to the
+terminal in the AIDA. Sorry, not Adele, sorry,
+Adele Lab on the Adele Lab. So essentially,
+once I researched for literature about the topic,
+which is organized crime and migration, I asked the agent if he could have done a
+strong audit about The research strategy that I was made. by cursor, okay,
+in terms of completeness of the sources, review of the literature,
+and so on and so forth. So what it did essentially was, as I say,
+to upload everything, and so it created this sort of directories on this fake desktop online
+and then he start to provide me with a possible plan for this audit that I had
+to approve before running. And that's it. Okay. So very easily and very I mean, easily to use,
+but probably difficult to control properly and to, in some way,
+review changes and so on and so forth. Yes. This is in cloud,
+this is the ChatGPT window. Nothing else.
+You just have to add here with the plus button agent mode and you can ask for
+anything else. Okay. But this is a limited agent mode with
+respect to the other interfaces. So the second kind of interface instead
+is the one that I'm currently using at the moment. which is the desktop app for agents.
+In particular, I'm going to show you Codex,
+which is the agent version of ChatGPT. Let me just find it because I'm full of
+open windows. This is Codex. Okay. So as you can see on the left-hand side
+of the screen, I'm going to open this a bit more so you
+can... See it better.
+You essentially have all your projects here. Okay.
+So these are all the projects that I'm working on at the moment.
+Many of these projects have not chat, active chat at the moment,
+just because I've archived them. Once I've finished in order to save as always token.
+This is something, I mean, it's a good trick for you. Try to,
+once you have done something, just archive the chat because maintaining
+the chat active cost you token because it requires to remember what is in the chat.
+So once you have done, just save everything in your memory and
+close the chat. Okay. If you need something else,
+just start a new chat. Okay. Then here you have something that I
+didn't say before. When you use the agent mode in the
+ChatGPT window, also the capacity to control what can be
+done, what cannot, what the agent can see, what the agent cannot is much more
+limited. But I would say also it's a bit redundant
+in that kind of workspace just because you are not using your laptop, your desktop,
+so the agent cannot directly access your file on your laptop, okay?
+Or the file that it requires to access, you need to upload it, okay,
+to this fake desktop online on the cloud. Well, instead here, the option to... to make safe the entire experience with
+the agent began much more relevant. Just before to go on the specific option,
+I'm going to just give you an overview of what you find on this left-hand bar menu.
+Essentially, Here you can start a new chat. Okay,
+for example, in this manner. Actually, you really don't need to create,
+this is typically used if you don't want to create a specific workspace connected
+to a specific project. Okay, just let the agent working. Then, you can find, as always,
+within the conversation that you that you had in your among the active conversation
+that you have on your menu. Then, here with the programming,
+you can program automation. And I'm going to show you later an
+example of automation in my project regarding the newsletter on applied
+social science. All these, I mean, at the moment I've created 3 automation
+for pushing this newsletter for each issue, one running on Thursday,
+one running on Thursday, another one running on Monday. Each of these automation autonomously
+essentially does things without the without any input by me. OK,
+so it just when the time arrive, it starts. OK,
+then I mean there is some human control at the end of automation. I have to approve the output generated by
+the automation in order to let the next automation start later. Okay.
+And then here you have also the plugins. Okay,
+so you can install in your desktop app several plugins like, I don't know,
+GitHub connection. MCP for a specific service online or in
+your desktop, all the Microsoft Suite MCP connector,
+and so on and so forth. I didn't install anything, actually.
+I tried to keep things as much simple as possible,
+just because as I told you last time, once you start... To create skill, create MCP connection,
+and so on and so forth, you start to consume token without
+prompting anything, just for the connection. Okay,
+so if you need to create skills, what I typically do is creating them in
+the brain. in my second brain and then recall them
+through prompt each time that I need them directly from the brain without creating
+them within the agent interface. Okay. And for MCPs the same,
+try to use them as less as possible, try to. to rely as much as you can on CLE
+connection or rather on API, which are much more cheaper in terms of
+token consumption. Then, here, I mean, this kind of app,
+this kind of desktop app for agent is very similar across providers.
+In the sense, if I show you, for example, the same desktop app for cursor,
+it's pretty much the same. Okay, and the same is also for anti-gravity,
+for example. So once you learn to use one of them,
+you essentially are able to use all of them. Okay, this is anti-gravity.
+I don't know if I'm going to start quickly. Yes,
+so this is the agent by Gemini by Google, which are really the same as like Codex.
+OK. Let me go back to Codex that now I cannot
+find where is Codex. OK, let's move here, that. Okay,
+so typically here you have the setting menu in which you can retrieve very
+quickly your usage. For example, in this case, I mean,
+this is related to the consumption and usage policy by open AI,
+but it almost pretty much the same for the other provider.
+As I told you last time, you have essentially 2 kind of limit for
+usage, one which is weekly limit, the one which is how are daily limits. Okay. Here, for example,
+I have my hour daily limit of five hours at almost 30% of the usage remaining,
+which means essentially that I can use the 40% of the token allocated for this five hours
+budget. And this budget will refresh at this hour
+here. So at 5 to 4 PM. Each time this hour limit refresh, It consume a part of the weekly limit. OK,
+and so this limit here will goes down, will go down once I will use it for
+refreshing the hour limit. This is true pretty much, I mean. is not completely true in the sense that
+this weekly limit also is used while you are using the hour limit.
+Even if it is not, I mean, strongly reduced,
+but you see this number here going down also while you are using your five hours
+limit. Okay. Then, for example,
+Codex give you each two weeks a reset option. At the moment, two of them.
+What does this reset option does? Well, essentially, it allows you once you achieve the end of the limit of
+the weekly one to reset it, even if the day we should automatically
+reset has not achieved yet, has not arrived yet. For example,
+my limit, weekly limit will be resetted. on the 14th of July.
+But if I end this limit before the 14th of July,
+I can use one of my reset option in order to resetting it earlier.
+This does not mean that then it lasts the same. in the sense it allow you to anticipate
+the resetting. And so what you essentially have that you
+are moving the end of the next limit more ahead in time, more in the future. Okay.
+So for example, if I would use now this resetting option, Essentially,
+I will have the entire budget reset at the 100%,
+but then the date of new reset will be moved seven days ahead. Okay, and so It's not a free meal, OK,
+because the time is also moved forward, OK, for the official resetting. Then let's go to the settings.
+So in the settings, you have several options that you can
+personalize. Most of the, I mean, the most important probably are in the
+general folder. For example, I mean,
+don't look at mine because I'm very extreme on this. As I told you last time,
+I give complete access to everything in my laptop to the agent because this is
+the best way to use them. I'm not, I don't care about privacy or this kind
+of stuff. doesn't matter for me except for some
+kind of password that I secured in a specific part of the laptop that cannot
+be accessed by the agent. Well, essentially,
+here you have authorizations. Probably should have been better to have
+this in English. But for example, this complete access, essentially,
+if I put this off, Codex can no longer access everything
+without asking for a permission from me. Yes. Yeah. Then, essentially,
+this is another thing that I mean, this can be easily put on by everybody in
+the sense that you're going to modify all the kind of files that it has in a
+specific workspace. without asking for a permission,
+then you can revise these changes and approve or not after that have been made,
+okay, which is much more faster than, you know,
+giving a permission for each modification also, because when it start to work,
+you modify a lot of stuff inside. Um... What I need to tell you before is the
+just going back to the main window. Before I told you that if you start a new
+chat, essentially you really don't need a
+specific folder, okay, for working on a project. Generally,
+this is not the way in which agent works. Agent work by essentially generating each
+time that you create a new project, essentially you are allowing the agent to
+enter a specific folder within your lab. where it can find everything you need for
+achieving the goal and doing the, taking the action that you ask it to take.
+Okay. Within the project, the folder project,
+the agent is almost free to do everything. Okay. For example, here, I know in my folder, Canale,
+this correspond to a specific folder on my laptop, which is in my desktop. here, Canale.
+And so essentially within this folder, the agent can do everything he wants.
+Okay, can modify every kind of file, can take any kind of decision, whatever.
+Then it's up to you to let the agent doing the same things outside the folder or
+each time asking permission for doing something outside the folder. Okay. My case, I let them play with everything,
+okay? I don't have any kind of problem in that
+sense. Let me just close this because otherwise
+it's going to slow everything. And going back to Codex.
+So back to the setting part. Them. I mean,
+then you have different other kind of other general option.
+Just go through them and look at what is much more suitable for your specific
+experience or not. I will not go through any of this option here. Something that it could be useful to look
+at, but this is not this is something that
+actually in Codex is much more is much less useful than, for example,
+in which use different kind of model and agent is this screen with the usage in
+which the usage is much better. Visualized something which is very an
+option which is very important to. I don't know if it is here or... In general, let me check. I was looking for the option about extra
+usage, which is instead something that you
+should opt out for sure. That is, there should be probably here. In Codex, you have to do that on the web. Uh... Uh, uh, uh. I don't find it now,
+but there should be an option that can be opted out in order to avoid once you end
+up your credit connected with your plan to use extra token paying them. Okay. This is very helpful to opt out because
+otherwise you don't realize when you start to pay on top of what you already
+pay for the plan. Okay. And this is an option that actually,
+I don't know what is in Codex. I set it previously.
+I don't remember where, but for example, I mean, this is for cursor.
+You can see that if you go on plan usage, Essentially,
+I have this option on demand spending, which is disabled. OK. But it's pretty much the same also in
+Codex. I can I cannot find it now, but it is there. OK,
+just going through all the option of the setting panel and you're going to find it.
+Then here, for example, you have all the. be installed in your agent.
+You can switch them off and on as you want. Um... You have the hook that you have generated.
+OK, so we discussed the hook, the hook are sort of loop. OK,
+that I mean the sort of automation that you do automatically when something
+happen. automation are a specific type of loop
+that start when a specific time is achieved, but this can be expanded,
+generalized to any kind of condition that can,
+that need to be met in order to start the action. Okay.
+Then here you have your Git that is the connection to repository in order to control the,
+to run the version control of your project.
+I strongly suggest you for each project to create a repository on GitHub in order
+to maintain and recover any kind of version that you want to. In some way. Going back, okay. Also, I mean,
+I don't know how many of you are familiar with GitHub,
+but in GitHub you have this option which is branching that allow you to branch
+your project. So once each time you take a very strong
+decision on the way in which you construct, for example, your data set, or the way in which you run your analysis.
+Instead of rewriting everything, any kind of code with a new decision
+taken, you essentially start a new branch of
+your GitHub. And in that manner, everything which is connected to the new
+decision, is going to be saved in this new branch.
+And if you want to come back and going back to the previous situation before
+taking such decision, you just move to the other branch,
+to the previous branch, and everything is saved and restorable
+very easily. Okay. So that's for the agent desktop app,
+another kind of interface. Yes. Mhm. With MCP,
+I have a specific MCP connecting data with the,
+it's not a mother license because it is using your own state on your laptop.
+So it is using, if you have the license for your start on
+your laptop, it's fine. The only problem is the way in which the
+agent speak to Stata. So you need a connector, an MCP.
+There is a specific MCP for Stata to work with this. I don't know if I did install it here.
+Let me check, but I should because it uses a lot of
+data. Let me check. Super memory, codecs up. I don't know,
+I cannot see it in this list. It should be. But if you go MCP name Stata. Um... I have to, okay, this will set it.
+The best way to do this stuff, it asks to the agent to install the MCP
+state directory and it's going to do this for you. But for example,
+if you go on my cursor, what is cursor here, and you go on MCP. You can see that I have MCPS data here
+activated. Okay. Okay, so the other way,
+the other interface that you can use for interacting with the agent is the IDE. What is an ID? Well, an ID is,
+I would say, an app, a desktop app with the steroid, okay,
+in the sense that a limitation at the moment of this desktop app regard the
+fact that you cannot directly work on some file which have been modified
+during the action. Okay, I mean, for some of them you can,
+but not completely. No, this is not this cursor.
+Let me just check this one. How can you do that? Well, essentially,
+for example, I go on these channels, you open the right-hand side bar menu,
+and here you have also you can inspect. Very quickly,
+all the files generated by the by the the agent, for example,
+let's see if something else remaining on the memory. Okay, no. Read me. Okay, for example,
+here. Okay, this is the read me file generated by the
+agent. Just by clicking on this on the chat
+window, it opened the file on the right hand menu. The problem,
+the difference with the ID is that in the case of ID,
+you could work directly on this file on this menu.
+So you can modify it by your own, typing something new,
+adding comment for letting the agent reading the comment once you ask it to
+modify the file. and so on and so forth. At the moment,
+you can do this using the desktop app. Okay,
+so the main difference between desktop app and the ID at the moment is the fact
+that you can directly review the file on the IDE while you cannot on the desktop
+app. For example, let's Open the anti-gravity ID. She's the only one that has remained on
+my laptop. Uh... That's you. And this is the typical ID screen that
+you have once you launch one of them. So for example,
+this is the still the Canale folder, okay? And so for example, I want to see the... video that I created recently.
+I go on one of them. Within them, for example,
+I have the thumbnail of the video, which is charged directly,
+should be charged directly here. That's just the entire interface to Uh,
+charge everything because this is opening and starting phase,
+and maybe it's much better to see if... Like, come on. Okay, I'm a bit. Okay,
+he's just charging all the MCP and skill, so it requires some time. Maybe something easier to see here. No. Okay, let let him, okay. Okay, this is the terminal. For example,
+in the IDE, you can work directly on the terminal.
+Okay. Let's see if it works. Still charge, you cannot run. OK,
+for example, this is the metadata that I use for the
+video. OK, that is, this is the information description that
+I upload to YouTube when I upload the video, and as you can see, I can simply... Okay, I can modify it directly.
+This is impossible on the desktop app. Okay. So then I can serve the folder directly,
+something that cannot be done in the desktop pop.
+I have the terminal bash here if I want to run something directly on the terminal
+without exiting the IDE. And that's the the the stuff. I mean,
+this is really the same then with respect to the desktop up.
+Here you have the chat window, you start to to write whatever to prompt
+or whatever, and you get the answer directly. OK,
+and then you can revise the answers. and the file and the artifact generated
+directly on these window of preview windows in the middle. As like us with the app,
+you can hear directly site-specific file in your folder, specific folder,
+specific media. You can put the plan, the plan mode or rather the action mode
+and whatever. You can install plugin and so on and so
+forth. And last but not least,
+you have a fourth kind of interface, which is the least consuming interface,
+which is, yes,
+
+Masolo Riccardo Maria (riccardomaria.masolo)   35:10
+Marco.
+
+Le Moglie Marco (marco.lemoglie)   35:12
+Please.
+
+Masolo Riccardo Maria (riccardomaria.masolo)   35:12
+Just a quick question on the ID.
+So would you recommend using, so it seems like you're suggesting we
+should be using the sort of AI sort of sanction ID,
+but if someone's using Visual Studio, I use Zed or what, is it the same?
+
+Le Moglie Marco (marco.lemoglie)   35:28
+It's just the same. I mean,
+all the ID at the moment are constructed
+
+Masolo Riccardo Maria (riccardomaria.masolo)   35:31
+Did you?
+
+Le Moglie Marco (marco.lemoglie)   35:33
+on top of our forks of Visual Studio.
+So if you open your agent in Visual
+
+Masolo Riccardo Maria (riccardomaria.masolo)   35:36
+Okay.
+
+Le Moglie Marco (marco.lemoglie)   35:38
+Studio, it's fine. I mean, I work,
+I start to work with agent with the ID on
+
+Masolo Riccardo Maria (riccardomaria.masolo)   35:40
+Okay.
+
+Le Moglie Marco (marco.lemoglie)   35:44
+Visual Studio and then I move on the
+specific one made by Gemini, by Google, or rather, for example,
+Codex has not a proper app for the IDE,
+
+Masolo Riccardo Maria (riccardomaria.masolo)   35:49
+Okay. Mhm.
+
+Le Moglie Marco (marco.lemoglie)   35:55
+but you can open Codex in any kind of
+other IDE, also the anti-gravity one.
+
+Masolo Riccardo Maria (riccardomaria.masolo)   36:01
+Okay.
+
+Le Moglie Marco (marco.lemoglie)   36:02
+So I think that at least for the
+beginning, for learning what can be done and what
+cannot be done, and I think that the idea interface is the
+best. Okay,
+
+Masolo Riccardo Maria (riccardomaria.masolo)   36:15
+Mhm.
+
+Le Moglie Marco (marco.lemoglie)   36:15
+then once you understand how things work
+within Agent, probably the most efficient one is the
+app. Also, because at this moment, I mean, for example,
+when I start to use the desktop app, this right hand bar menu,
+which you can in some way simulate what an IDE typically does. There wasn't. Okay,
+now it is there.
+
+Masolo Riccardo Maria (riccardomaria.masolo)   36:41
+Mm.
+
+Le Moglie Marco (marco.lemoglie)   36:44
+You can search among the folders like as
+an IDE. You cannot modify directly. the file as like in an IDE,
+but I think that the future you're going to do also this directly in the desktop
+pub. Indeed, for example, for Anti-Gravity,
+they are planning to retire their IDE and moving everything to the Uh, desktop app for anti-gravity. OK, so..
+.
+
+Masolo Riccardo Maria (riccardomaria.masolo)   37:15
+OK, thanks.
+
+Le Moglie Marco (marco.lemoglie)   37:17
+You're welcome. Then, as I was saying,
+the last way to interact with the with the agent, let me just. Because this full mode is through your
+terminal. So, for example,
+I open my terminal and I digit codex. And they start here. I'll let it starting. OK,
+this is codex directly on the terminal. And here you can easily type everything
+you want in another language. You don't really need any kind of coding
+skill. For example, let me just use existing model, open AI,
+start my MCP server. And then, boom it, die. It is upon you. OK, this is much lighter,
+much, much lighter in terms of the token
+consumption with respect to the all the other interfaces,
+but it's also much difficult. I mean, less efficient in terms of revision and
+whatever, because you don't see the folder directly,
+you have... to each time to exit the terminal. I mean,
+exit this window of going on your folder, check what has been done,
+then moving back to the terminal, right, for example, asking for something new.
+Okay. Of. Yeah. OK, I didn't find any memory root.
+I will rent. I see starting now the session,
+so it's gonna ask me for the classical bootstrap when I start the session. OK,
+this can be closed. And we can move. Too many say yeah,
+I open make your laptop very slow, so okay, where is the here? So. OK, back to our... To our summary slides,
+this was what was related to part one of this presentation. Part 2,
+I'm going to tell you a bit about some of my successful stories in the sense of
+what I typically label project at equilibrium,
+the sense that they achieve a sort of clearness and completeness that require
+really few, really small little maintainment. Okay,
+they almost work alone without my without too many input by me.
+We're going to see, for example, my YouTube channel,
+the newsletter about the tool in applied social science.
+I'm going to show you a new project that I work on using the AI,
+which is this creation of data set. using new melodic songs for mapping mafia
+culture. And then I'm going to show you a couple
+of skills that are much more research related that I develop using the agent
+that I constantly use for doing peer reviewing. and for moving a specific article from
+the template typical of the last submission that I did to a new submission,
+for example, moving from journal population to
+demography. Okay. So starting from the very first project
+that I did using Agent, it is my YouTube channel.
+I don't know if how many of you has had a look at it.
+Essentially here the objective was to in some way turn economic paper into short
+explainer video for not for the general audience.
+And so essentially the idea was to find a way to automate production, CEO,
+YouTube programming and cross posting. Because I mean,
+I don't have just the YouTube channel, but also some profile on Instagram and
+Facebook. At the moment, the project is very stable.
+I really need just to call each day a command and work by alone without too
+much effort by myself, unless just approval of the artifact
+generated. What this project does essentially is a
+workflow in which essentially I, the agent proposed me some of some paper
+to do a short video about. I decide the paper,
+then he provide me with five type of catchy title for the video.
+I choose one of them, one I did the choice essentially generate
+according to this title, chosen a specific thumbnail for the video,
+for the YouTube video with specific guideline in terms of palette. and style. Once I approve this thumbnail,
+essentially create a new folder within the channel folder with the name of this
+new video and including within this folder the metadata about the video
+generated by reading the paper. and extracting this metadata from the
+paper, the thumbnail. And then essentially what it does,
+it takes the paper, it uploads this to Notebook LM,
+it generates the Notebook LM, the infographics and the video overview.
+Once these are being generated, they are downloaded automatically by the
+agent into my lab. Top,
+they are cleaned from water marks and trimmed the last part of the in the
+beginning part of the video to. to eliminate the watermark.
+And once this has been done, essentially it upload these infographics
+and the infographics on Instagram while the video on YouTube,
+scheduling the video for a giving data specific time. Okay. Together. with subtitle in four languages, English,
+French, Spanish, and Deutch. And then once this upload has been done,
+it cleans the folder from the more weighted files like the video and also
+the paper, the PDF, because I mean,
+this is this has also a public repository on GitHub,
+I cannot upload on GitHub the PDF of the of the of the paper for copyright reason,
+but also I can I don't want to upload the video itself just because otherwise the
+repository is going to explode in a while, but also my laptop is going to explode at
+the moment. I've generated more than 100 videos in
+less than four months, so you can understand that 100 videos
+will weight a lot in terms of memory, especially if you put this stuff on
+Dropbox. You end with your, you know, plan of... of Dropbox very quickly if you do
+something like this. I'm going to show you just what is the
+result of all this effort. This is the video on YouTube. As you can see, there are many videos.
+This is all, everything is done by the agent from
+production up to the management of the channel. What does this mean,
+management of the channel? For example, I have a specific agent that each day
+essentially go through the competitor of my channel. and look for video in which I can put
+some comment linking some of my video, for example. Or rather,
+it creates each week a special report in which act as a sort of social media
+manager with 10 years of experience, suggests me some strategy to improve the visualization of the video,
+or rather it look at the comment made by the users of my video,
+and it just proposed me some response to this comment,
+then it post it directly on the video. And that's it. Okay. As you can see,
+there are many, many videos, many, many papers published in top journal
+economics. You can use, I mean, I'm using this also in my class of public
+finance, I mean public finance, public economics, because I mean,
+when you have to create sort of engagement with the with the student,
+these are very useful. just because they have done,
+they are done for general audience. I mean,
+the banner of my channels is the economic research explained to your grandmother.
+Okay, so you can see the video, you have different subtitles and so on
+and so forth. Review of economic studies. OK. And this is what was the channel,
+what I learned doing this stuff. I learned a lot of stuff doing this stuff,
+especially because this is not related to economics. So I learned, for example,
+how to use MCP connectors. I learned how to write structural rules files.
+I learned a lot how to control the token usage, because for doing all this stuff,
+you really need to know how to control token usage,
+otherwise you run out of token very quickly,
+especially for the many things that you need to do to manage the entire channel. I learned to be a CEO, for example, very,
+you know, I never done something like this.
+So looking for specific keyword to put in the hashtag to maximize the audience and
+the visibility of the video, for getting the video really in the
+algorithm of YouTube to be searched and found by people and so on and so forth.
+And moreover, I lot I learned a lot about tool drift.
+This is something that we talked about last time.
+One possible problem with the agent are the drift of the agent. That is,
+each time a new version of the agent is released, there could be bugs,
+a lot of bugs, especially this happened for anti-gravity
+in Gemini. and I had to figure out how to solve this
+bug by my own. And the best thing with the agent is the
+fact that essentially you find the solution online of the bug and you ask
+just the agent to repair himself, okay, by looking at the specific solution that
+you find on the web. So just to give you an idea,
+I also the Instagram in which instead of the video,
+I upload the infographics generated by If it opens. Infographic generated for each for each
+paper. OK, and also here you have many of them. Okay, this was a very successful project.
+Then a second successful project was my newsletter about tool for applied social
+scientists that I officially launched last week. But I mean,
+I'm working on since a couple of months. It is called Assist. Weekly. which essentially you sign up and you
+receive once each week a specific e-mail, which I provide you with the data set and
+tool useful for your research workflow by scraping essentially different sorts of
+data like GitHub, data verts, again face, read it, Moreover,
+I also provide you with a list of new working paper,
+the main working paper series, like NBR, CPR, SISIFO, and so on and so forth. So,
+for example, just to provide you an idea what you will
+receive, this is the last issue received by people
+last Monday. Essentially, you have this. For example, Maine Peaks,
+Municipal Election Scrapper, Aerostat MCP Server,
+Canada Survey of Household Spending 2023, USA Government Open Data MCP,
+Bank of England Press Conference Corpus, maybe for macroeconomists this is could
+be useful. German County Panel of Far Right Activism.
+Essentially, you have all this item in which all the
+AI provide you also for a possible use of this stuff,
+best for regarding a specific field of research.
+And then you have here all the new working paper. out these in the last week on the main
+series MBR and so on and so forth, for the divided by macro field. Okay.
+The idea here is try to monetize something in the sense now this is all
+for free, but then I'm going to make a freemium
+version in which behind the payment of 1 euro per month,
+you will also have a dashboard and a mobile app that you can use in order to
+order and classify the link that I'm going to send you.
+You can access previous issue of the of the of the newsletter and also you can
+access link that I have, but I don't send Through the newsletter, OK. What I learned from this experience? Well,
+essentially here I learned a lot in terms of marketing campaign.
+So how to set and deploy this kind of campaign because it's not easy.
+It's not a matter of just, you know, do the scraping. programme the e-mail and send e-mail
+because there are a lot of problems out there depending of the provider of e-mail
+which the people register to the newsletter. For example,
+if you register with the university account, I have to understand how to bypass the filter
+for spam imposed by the university, and so on and so forth,
+different problems. What I learned very importantly here is
+to create automation. Okay, so as I told you before, this is as always, mainly run by the agents. Okay,
+I did very few things. I just approved that stuff.
+And essentially what I prove are the result of these three automation that I
+create through Codex. I'm going to show you quickly how they
+work. Just let me find Codex. Okay, here. So I have three automation here.
+A first automation which run on Tuesday each week,
+which essentially do an harvest of all the sources that I provide the agent with.
+And it provide me with some potential items to
+include the newsletter. Okay. For example, this was the last one for the issue that
+I'm going to send next Monday. Then I go through what is produced.
+I mean, it also generates a short description for
+making it very easy to control. then I'm going to look at the item on its
+own web direction and then just tell him if this is good or not or change it. Okay.
+At the end of the automation, once everything is good for me, I mean,
+it generates a score. depending of my training method,
+let's call it that. I mean, I trained the agent for finding the kind
+of item that I really like. Okay, and then I'm going to show you how.
+And it creates a score depending on this training. So this allows me to quickly see what is good and what is
+not good. Once everything is approved, essentially it creates a file which is
+approved shortlist, okay, which is used by the next automation. which is instead this one. render approved mail,
+which essentially on Thursday, essentially take what has been done by
+the previous automation. I mean, just read the file for approval that has
+been created with the other automation. It started a new automation,
+which is essentially, I don't know why I don't see. I don't see. Here, okay. So this is, for example,
+the automation for creating the e-mail, the template of the e-mail that I showed
+you before. So render the week last is the e-mail
+draft for the newsletter issue dated to Monday immediately following the current
+Thursday, but only if the short list approval flag
+exists for that Monday issue. If approval is missing, skip the run. Always use the Marco Second Brain
+newsletter project file on the desktop as the persistent source of truth before
+rendering. OK, everything is saved in my brain.
+I'm going to show you the brain later. Generally,
+the final reviewable newsletter e-mail output from the dedicated production
+template, not from a full back render. The HTML e-mail template is definitely
+approved research monograph design. in asset e-mail template, blah, blah,
+blah. Okay, and this is done each Thursday on 11
+o'clock in the morning, automatically. My laptop needs just to be open and, yeah,
+open. Okay, run. I don't do anything here. I don't push any buttons. It works automatically.
+Once this has been done on Monday, there is the third automation. I mean,
+once this has been done, generate another file of approval,
+which is read by the last automation on Monday,
+which is the automation that send out the e-mail to all the subscribers. Okay, yes. Yeah. I don't send you the PDF.
+I send you the link to the page on MBR. So I'm covered by respect to copy.
+The same is also true for the channel. I don't give you the paper. I mean,
+I link the page of the paper that you can look at. But this is another thing because it's a
+real elaboration of the paper in the video.
+So they cannot tell me anything about this. So in terms of copywriting,
+I should be fine on that. This is something that I learned also
+during the development on this stuff. Yes. Yes. Stick. Yes, I, I mean, I developed this stuff,
+yeah, sure, I... No, no. I provided, I provided him,
+I mean, at the beginning, he provided me with some sourcing from
+which I would probably like to extract new items. Then I revised the sources,
+I tell him, no, this is good, this is not good. Okay,
+and then now I have a restricted stuff. Moreover,
+what I really learned here is using dashboard to control your agent.
+One marvelous thing that the agent can do is creating for you dashboard for quick
+control what has been done. For example, here, For the newsletter,
+I have a dashboard generated and updated at each harvest.
+Then I'm going to show you. This letter. Uhh. Why not? Okay, does it work? No,
+it should, it's supposed to work, actually. I don't know why it does. Ah,
+okay. So essentially here. This is a dashboard created on top of my
+data set of all items collected so far. Okay,
+you can see here that I have almost 5000 links harvested in the last two months.
+To review by myself almost 1000, but I will not review them by myself
+because I create these mechanism of judgment that I trained on.
+I mean, for a while, I, for some of them, I do manually review of the quality, good,
+very good, bad, normal. Then I struck the agent to learn how to,
+I judge this stuff and to repeat the judgment. Okay. And so essentially you have here,
+for example, you go in status, you see what we already sent.
+This is how all the link that I already sent some of the issue.
+You have the issue where I was sent it. You just click on this, for example,
+and you see everything from this adaptive scraping framework for resilient data
+collection. You have the link here to go on the,
+you should have a link here somewhere. the metadata of the link and so on and so
+forth. So I say you can delete directly the item
+without going into the database. So. Dashboard are very useful stuff to create
+with agent because help you to control the agent very well.
+Then I'm going to show you another example of dashboard. Especially, I mean,
+when we're going to look at the work in progress,
+we had this problem to revise these old CR. reading by the agent, made by the agent,
+which was made good for some of the Spanish province,
+but very badly for the others due to the fact that the PDF,
+the quality of PDF was very bad. So for instead of prompting each time,
+not doing better, not doing better, I just create a dashboard that allow me to manually revise and look at the
+specific PDF and insert directly the value. Okay,
+this is something that seems very dummy, but it's very useful because otherwise
+you have, it's time to open the PDF, look at specific row,
+then going on the data set. looking at the corresponding row and
+changing the value. In this manner, you have just one local web page that you
+click on. Okay, it's very quick to do. Instead of wasting days in doing that,
+you take at most a couple of hours to do that. Okay? I'm going to show you later.
+But doing dashboard is very useful in order to control the agent. So, next... Next success story,
+I create this from the scratch, this data set. I mean, my idea,
+my guilty pleasure has a researcher on organized crime is try to map mafia
+culture, which is something that nobody has done
+so far. So the way in which I would like to do
+that is using Uh... music, okay, in particular for Campora,
+new melodic singers, okay, and their text, lyrics, and so on and so forth.
+So what I've done is essentially put together a set of artists.
+This is a pilot. Now I want to expand it using Spotify. private playlist,
+but also I can expand this to Mexico. Mexico has the same kind of stuff because
+they are called the narcorridos, which are very similar to new melodic
+singers and song, talking about bandoleros and narcos at
+the moment and so on and so forth. So I create this seed of 190 artists
+scraping essentially the booking agency, these melodic singers.
+Once I put them together, I instruct the agent to go on different
+sources and collect all the repertory of these singers. Okay, put all together,
+cleaning, keeping out the duplication and adding. If possible, the lyrics to each song. OK,
+and this has been done. I spent, I don't know,
+one week to do that in order to, you know, cleaning also stuff along the pipeline,
+stabilizing the pipeline in order also to manage the API call, because in this,
+I mean, especially... when you use Spotify,
+try to scrape this sort of private commercial site and services,
+so you get very quickly. Essentially, you are blocked very quickly because the
+API call are limited. OK, so I had to find a way,
+figure out a way to circumvent these kind of blocks. in order to create this stuff.
+And essentially, I really did it. OK. This is, for example,
+a word of a cloud of word extrapolated for the topic Malavita crime. OK,
+simply from the title of the of the songs of this. sample that I create,
+but essentially I create, I did the same also for the lyrics.
+So for example, before using the lyrics, I had to figure out how to translate from
+Napolitan to Italian. And so it's all, as I said, From each project, I learn a piece of new,
+you know, skill that I put together and the new
+project always better just because I learn from most,
+especially from projects which are not research related.
+I learn much more because are things that are never done.
+And so the learning curve is much more steeper, I would say. And so what I really learned here was
+clearly all the managing this very complicated pipeline that called
+different services online that clean the result and so on and so forth.
+But especially what I learned is a good Practice,
+which is creating a report that tells you what the agent has done,
+instead of revising the file, the raw file created,
+let the agent explain to you what has been done, okay,
+in the way which it creates the data set. Then when I need to see if it did
+something which was meaningful, I make the agent did a sort of
+explorative analysis of each of the three data set that integrated,
+that is the data set of the artist, the data set of the tracks,
+and the data set of the lyrics. And essentially what I get,
+what I got is this report that I'm now using in all my project. I mean,
+I'm creating this kind of report in all my project. I'm going to show you,
+let me just... Dropbox Mafia Culture Report English.
+This is, for example, the report for the creation of the data
+set in which every step is described in details.
+That is what has been done by the agent. And, for example, introduction,
+this is the stage one, how I collect the seed for the artist,
+then how I construct the discography for each artist. Stage 3, stage 4,
+the problem that I face, how I solve it, for example, singer who have the same name,
+for example, with Jet Singer, okay, or rather with pop singers.
+So the way in which I separated the ones that I was really looking at from the
+ones that I don't want to have in my data set, the quality,
+a sort of audit about the quality of the name of the singer that I put into
+the data set, and so on and so forth. In this manner,
+it's very easy to see if something strange pop up. Okay.
+And the same is true also for the final data set.
+I did a specific report for all the three type of data set that I create.
+For example, this is the general validation,
+audit of the data set about artist. For example, final coverage,
+you have imputation, you have the main sources used to create
+this data set and these biographies. the distribution in terms of generation
+or gender, in terms of the original, I don't know why, is... OK, just freeze it. In terms of regional regions, for example,
+at the beginning, I had this figure with a lot of singers
+coming from outside Campora, which was where to have indeed there was
+an error in the way in which they were collected due to anonymous. And. to the same name of some singers with the
+other singer which are not no melodic one. Okay, so thanks to this stuff,
+I could correct the mistake very quickly. Otherwise,
+if I would go into the raw data set, it would have been very difficult to see. to spot this kind of mistakes. Okay,
+so a good practice that I learned with this project was to create this sort of
+report made by the agent. Yes. Yeah. Mine, mine, and for each for each graph,
+you have also I report all with this data code from which this graph has been
+created, also the line in the in the code user to
+create this graph. OK, and so also also for each analysis there
+is a specific template applied to all this report in which. For each analysis,
+provide me with the rationale of this specific analysis object,
+the measures used and interpretation. And this is for all for all of them and see it, right? Some additional doubts that there might
+be some distraction there, yeah. You can ask the agent to think
+out-of-the-box. Yes, I mean, I asked him, what kind of analysis do you suggest me
+to run in order to see if you did well your job? And so he provided me,
+probably we can see how the distribution across provinces. So right,
+I brought distribution across generation. We can do a table of all the single I label us outside from Campania,
+so on and so forth. Then I mean, we I refine the analysis with the
+interaction back and forth with the back and forth with the agent,
+but I mean I use also the agent for brainstorming this kind of analysis,
+if this was your question. Okay, uh, then... Another thing clearly that a good
+practice that I learned here is to once you retain to have achieved a stable
+situation in terms of data set creation, a good practice is to make the agent
+create a replication package from cold start. that is the replication package can be
+run and essentially it starts from collecting from the scratch the entire
+information, raw information underlying the data,
+put it together, cleaning and running the analysis. Okay, and so in this manner,
+a certain point of time, what has been done is fully replicable.
+Okay, now you can modify it, you can update it,
+but you have something that is fully replicable. Okay,
+which is something important, especially when you use agents. Okay,
+then I'm going to show you a couple of skills that I developed during this trip,
+I would say. The first one is the one that I use now
+for doing referee report, which saved me a lot of time. So As I told you last time,
+I don't want to completely delegate everything in this kind of document to
+the machine, simply because then I'm the person that
+is responsible for the referral report. So what I typically do is a combination
+of Human comments and machine comment. OK,
+well packaged by the machine, clearly. OK, so what typically I do is... I read the paper on PDF.
+I put my comment directly on the PDF in neither in Italian, in Roman, OK,
+completely without grammatic check or whatever. Just, you know,
+the typical comment of the PDF with the cloud on neither neither. by highlighting the specific part of the
+text where that cloud is referring. Okay. Bubble, bubble around. Okay.
+Then I just give this PDF to the machine, the PDF, read my comment, organize them,
+generate A scaffold, which essentially create folder with a specific naming and
+specific file inside. Extract, expand, organize my comment and drop the no sense
+one. Because sometimes I also did some no
+sense comment just because you start to read the paper and you, I don't know,
+you write. you are not doing this at the beginning
+of the paper, and then you discover that they did. OK,
+something like this. Or rather, you misunderstand what they did.
+And so the machine tell me, look, probably this comment is not really one
+we sent. So I mean, probably you were not reading very well
+the paper. because this is not a problem.
+So the machine also make this sort of... check on the quality of my comment. Okay.
+Then once this has been done, it runs this tool which is called
+Econoclast. Okay, which is sort of refine. You know refine? Have you heard about it?
+Refine? Yeah, sort of refine, but for free.
+You can download it from GitHub. I mean, if you were subscribed at my newsletter,
+you would have received this. trick in the last issue.
+So I run this iconoclass tool, essentially made other comment like
+refine, and then essentially he put this comment
+together to mine in order to have always in,
+I mean mine before the iconoclass comment. But if some of them coincide, it's,
+I mean, a marker of good quality for that comment,
+so it will enter in the final report. Then if some of the comment by Econoclass
+is not made by me, these are reviewed by myself at the end
+before the creation of the report. Once this plan of referee is done and
+approved by me, it's created the draft. Okay,
+it's simple PDF starting from LaDeck with my style because I also trained at the,
+I mean, I specific folder in which I put into all
+my referee report that I've done so far. And so it knows how I write the referee
+report. I use my very similar style. or writing. Okay.
+Then after the draft is done, I apply another tool for anti-sloppiness
+in writing. still in my brain that avoid the
+classical way in which AI write things, you know,
+specific typical connectors or rather specific usage of a word which flag the
+use of AI, not because I'm, I mean, no one that people know that I use AI,
+just because they are. sometimes very boring and I mean,
+make the entire referee report not very readable in terms of the content,
+the true content. Once I have approved everything,
+essentially this report is archived and then it just left to be sent by myself to
+the editor. Okay. Let that I spend a couple of hours
+reading the PDF. Everything can be done in less than three
+hours. Okay, so with respect to,
+I don't know how much time you spent before for doing a referee report,
+but this cut my time by 10 times, I would say.
+I would have spent a couple of days, three days to do that properly,
+because I had to read it. to reread the comment that I've done,
+then to, you know, writing, which for me, that I'm not an English native speaker,
+is difficult. Then another cool skill that I developed
+is this journal style paper rewrite, in which essentially, again,
+is not everything automatized. It's something that is a mix of my input
+and machine input, which is useful when you have to resubmit your article to different
+journal with different kind of audience, with different kind of, you know, style,
+framing and so on and so forth. What does this skill,
+what this skill does? Well, essentially, what typically I do is Starting from the last submitted version,
+I give this last submitted version to ChatGPT, high intelligence,
+and start to brainstorm with it in terms of how could you, could I frame,
+reframe this stuff for this specific journal, then some back and forth between me and ChatGPT and the end I have
+a plan of reframing by ChatGPT according to the journal. Yes. You really don't need deep research in
+that sense, no, because deep research look at,
+it's a deep research on internet and sources. Actually,
+you want what you really want is something which reason well. OK,
+so high level of intelligence, ChatGPT is almost... infinite in terms of usage with respect
+to the agent. So you can really put the extreme high
+intelligence and just brainstorming with it. Okay, so once we have this plan,
+I throw this plan to the agent, into the agent. Uh. Typically, I mean,
+if ChatGPT didn't suggest me. very, you know,
+breakthrough new analysis to do that probably I can do.
+Most of the time I don't change an empirical analysis,
+I just change the framing because I want to resubmit that this is especially
+useful for the 5th, 6th, 7th submission when the paper is already
+polished, you already know what can be done more or
+not. Okay,
+probably is not the best for the first submission because there is always
+something new that can be done, especially if you receive good referee
+report from the rejection, the first rejections. So essentially, once I have this plan,
+I threw it into the machine and then it start to apply the plan in order to
+reframe the paper. And essentially what it does is creating
+two kind of files. One is a report for this reframing,
+in which essentially it lists all the points of the original plan with the
+different colour and the way which these have been addressed in the paper.
+And then a new version of the paper which the part of the manuscript which have
+been changed are coloured according to the point,
+the reference point in the report. So my coder don't need to read the entire
+paper. They have just to read the part which are
+coloured and they know why this new part has been added or changed by looking at
+the report, which explains them the rationale behind the change. Okay. Then, as always,
+anti-slope tool in order to reduce sloppiness in writing.
+And I'm going to show you, I'm going to show you an example of this
+stuff. I'm going to show you an example of this
+stuff by going online on... Overleaf. Or relief. For example,
+this is a paper that have with Gemma and Mateo on probably some of you have
+already listened to this presentation about the school reform during the
+Francesco regime in Spain, how this affects fertility.
+So essentially we got some rejection. Okay,
+and now we have to move from the last rejection that we got on the Journal of
+Development toward demography. So a big change because we have changed
+completely the audience. We are not moving from a specific field
+of economics to another field. We are moving from economists to
+demographers. So, the way in which the... paper need to be right is completely
+different. Also, the type of highlighting that we have to
+do on the paper is completely different. So what we essentially get once this
+skill is applied is a full report. Of the changes,
+let me just see if compile, otherwise I have just to clear cached. Take a while. Okay. This is the report. As you can see, the status, blah, blah,
+blah, essentially, these are all the changes that have been
+implemented, differentiated by colour. So for example, demographic frame,
+so we change the framing, population studies, positioning,
+early life institutional exposure instead of policy reform, blah, blah, blah,
+contribution. Then court exposure, the sign languages,
+adjacent court exposure by age at reform and so on and so forth.
+Children never born in terms of dependent outcome, attività court.
+These are all the big changes made for moving from the journal development To demography,
+then they are explained better in the days along the along the report,
+as you can see how each section has been changed in the paper,
+depending on the on the on the plan. The manual editing that I did and the
+empirical to do eventually, if I want to expand also the empirical
+analysis, these have been suggested by ChatGPT.
+Some of them are also very, I mean, interesting to implement eventually,
+but I really don't want to take the change the empirical analysis at the
+moment. I just want to publish this stuff as soon
+as possible. So just reframing and nothing. Yes, yes. No, once I add it,
+I ask the agent to collect my editor on the paper and put it put them in this
+list. OK, and so the final manuscript that I have. Is this one? Let me just compile it. Okay,
+so as you can see. My code or need just to read what is
+colored in this in this manuscript. So, for example,
+this is the change in the abstract connected to the specific type of change
+reported in the report. Sorry for the wording.
+And this is almost for all the paper. So there are parts which are not changed. This one, they could also not really. And this is, that's it. OK, clearly references, Marco,
+if you need to add new references or need some formal references,
+too much economics, would you? This is one of the points actually did
+here, you can see that they have a color
+specific color, because these now are only demography
+references I cut almost by. Eighty percent the economic reference,
+because they don't need it. They don't want it, actually.
+They want demography references. They were suggested by the agent. Yeah,
+by the agent. And then you will find the list.
+And probably my code or Mateo gonna now gonna expand on this using other agents. Okay, because these are very few,
+probably there are much more out there regarding institution and fertility.
+It's not my field, so. Some actually was my field because I
+several publication on this because I started working on this,
+but it's not my main field, let's call it. So some of them, for example,
+could be approved by me because I know, for example, Bill Larry, Bertran and this,
+I call some of them, I know them because I work on them,
+but I'm not a demographer. So it's a way. These need to be expanded even further.
+OK, but I mean this is a base start to read
+already done. OK, basically, can I,
+if this agent is uploaded in your Git to this is out myself? No, I cannot, I, yes,
+but I mean the best thing that you can use, I mean, if you go on GitHub,
+there are plenty or repository full of skill that can be used, or... adapted to your work.
+This is not the best way to do to create from scratch your own skill.
+Just start from what has been done. It's full of this stuff online,
+especially on GitHub. Okay, regarding all the steps of research
+workflow, from review literature to ideas, to writing everything.
+Just take it them and adapt to your workflow, change them. I mean,
+at the end of the story, they are just marked down files,
+text file that you have just to write and change.
+So it's not something difficult to do. So. Then, I mean, what I do typically,
+and then with the brain, is when I end the session of each project,
+I call this end session prompt in my brain,
+and the brain automatically looks if in the conversation that we had is something
+that is valuable to transforming skill. Most of the time I try to avoid to create
+skill because they consume token. They are charged by the agent at the
+beginning, even if you don't prompt anything,
+just because it's like MCP tools, MCP connector.
+They are charged at the beginning of each session and consume token just for
+charging. OK, so I try to avoid to create them.
+When I do, I create them in my brain, not in the folder of the project,
+because in this manner, the agent will not load them at the
+beginning of each session automatically. OK, I have to call. To load them,
+I had to ask him to call him to to to load them. So... I'm running out of time as like as last
+time, so try to speed up a bit. The brain,
+which is probably the most interesting stuff here. The second brain, as I told you last time,
+the new frontier of agent is memory and try to give them memory. In general,
+they don't have memory, even within the same project.
+They don't remember what has been done in one conversation into the other. Okay,
+so we have to create a layer of memory. You have two ways to do that,
+which are all the rug or the knowledge base.
+I definitely prefer knowledge base because it's much more manageable in
+terms of what really is recorded and what is remained. So I'm going to show you some how I
+organize my second brain. So the folder structure,
+I'm going to show you the typically workflow that I have,
+that I run once I start the one session using my brain.
+So the session starting prompt and the ending session prompt. And then I'm going to talk a bit about
+the tools, plugin, and protocols and skills that I construct
+on top of my brain. This is my brain. OK, this is our project. For example,
+this is the channel project with all the file memories and so on and so forth.
+Remember, this is Matia culture. This is another project.
+This is the index, general index of the brain. OK,
+these are the connection on my brain. So how the brain works,
+what a brain is actually, because you imagine something very weird,
+and now you have a brain, not, is not very difficult to understand in
+the sense that I have this app, which is called obsidian. But you can do it with the many other
+apps that are out there. Uhh... My brain essentially is a set of folder
+stored at the locally in my laptop, but you can store it in Dropbox in order
+to access it of another laptop or machine in which I collect and connect notes and
+markdown file which instruct the agent to do things in a specific manner,
+in a specific way. Okay, my brain is typically structured in two
+main folders, which is a general folder, which include all the note and markdown,
+which can be applied to all, generally to all projects. For example,
+here I have this index. This is the first,
+when I call for starting a brain session to the agent,
+essentially go to this file index and essentially here he knows already
+everything because he could. All these notes, in these notes,
+you have all the connection with all the other important stuff within the brain.
+For example, here, I go directly in research.
+This is connected with the index of research.
+You have directly all my project within the areas of research, for example,
+mafia culture. Then you click on Mafia Culture,
+it starts the index of Mafia Culture. Here you have all the project memory.
+So the project brief, what briefly is about the project. Okay,
+then. Uh... Current state of the project. Okay, so what we,
+where we left last time that we work, what has been done,
+what has been the decision taken important for the structure of the brain,
+how, where we left, and so on and so forth. Or rather,
+next action. What should be done next time that I
+start the session working on this project? OK,
+so it already knows without that prompting anything you already knows. OK. skills specific to this project.
+For example, how to write the report that I showed you
+before, the template that I want, is useless to prompt each time the type
+of template that you want. Just create a skill which replicated the
+plate. And this is what has been done, for example, here.
+Mafia Gultural Skill Addex Report. skill that tell the agent how I want this
+report to be written. Okay, the manner. So for example,
+putting the Stata code behind each analysis from which code this analysis
+taken, or rather each description should be
+divided in three sections, rational, measure, interpretation. And so on and so forth, OK? Uhh... Why this is cool? This is very cool,
+for example, for the fact that you can install
+different plugin on this brain. For example,
+one very cool plugin is this Smart Connection plugin,
+which essentially for each node that you have in your brain,
+it provides you with the all the other notes in your brain which
+are potentially connected with the topic in the note that you are looking at with
+a specific index of connection. So You just, we are, for example, in this,
+I don't know, let's go on area, research, mafia culture, and go to Mafia Index.
+Okay, now on the right side, we have all the other nodes in the entire
+brain which are potentially connected with this. So, if I want, for example,
+to see what happens, I don't know what has been done in Matter
+Culture prompt, it just give me the connection with the
+note regarding the prompt related to this project. OK, for example,
+Spotify reconstruction, this is the typical prompt that I used to. reconstruct the artists seed the universe
+from Spotify private playlist. And then get into my second grade and
+then I get done by other problems. So do you like delete stuff or? You can.
+I mean, today I organized completely my brain
+this morning. OK, it was full of useless stuff and file.
+I just. cancel them,
+put together and divided and so on and so forth.
+But the thing is that if you structure the brain in a proper way,
+you have for each project, I will always the same template. Okay,
+so you have decision, for example. Here my brain collect all the decision,
+also decision to remove something that have been wrongly done before. Okay,
+this is the data, the date in which the decision has been
+taken. It just, if you need to recover something that has
+been done or try something new, you task to your agent to see what has
+been done before and they're going to go directly through Given the fact that you have structured
+everything to telling him to look at this file when you need to take decision,
+you're going to go directly here. OK, and for example... When I start the project,
+I have a specific prompt for starting the project, the session each project,
+to close the session each project, which is... Don't know where is it. Let me just check bootstrap here. So, when I start the project... On the star. The turning of another, no. See more difficult. Come la dice questo?
+Let me check because I change everything this morning. As I said,
+session closes this one. OK, this is the prompt that you run each time
+that I. Tell the agent, OK,
+now close the session with my brain. It goes here and just run all this stuff.
+So we create new memories. He take decision if something valuable
+could be transformed in skill. It update the current state of the
+project MD. The next action,
+the agent memory of the project and so on and so forth, OK. So, as I say, this is my brain.
+How I create my brain? Well, essentially, I let the agent create my brain.
+I discuss with it, I brainstorming with it,
+the structure that I want, the most efficient structure that I want. Then I let him create the folder in the
+way in which I reflect such structure, and then since I start my brain after
+starting using agents, so I had already some project already
+opened, I. Went project by project and I ingest the
+project within the brain. Here it's very cool to see how my brain
+temporally. Hose created e added part by part. And this is updated each time that you
+add a session is continuously growing and developing developing. OK. So it's not just the structure of the
+folders inside your computer, but also they are linked with functional
+functional links across. They are all connected, all the file,
+all of the markdown file within each folder are connected to each other.
+And so the The agent don't need to read everything,
+it can easily move from one node to the other,
+which are strictly connected to each other. OK, without prompting,
+you don't have to prompt anything here, just ask OK,
+open the session in the Brain. Punto. Everything video image PDF directly in
+the notes OK, you can graph like a whiteboard inside. No, it's not like Apple notes. No, no,
+you can do this with how was called the other. I don't remember,
+which is very famous. Many, many people use it.
+I don't remember now the name. Well, I don't remember at the moment,
+but there is another competitor of obsidian.
+Then there is other type of knowledge-based creator. For example,
+now it's very trend topic, this gratify. Another one is understanding everything. They are all way to create this sort of
+knowledge base. At the moment, I think that obsidian is still the best
+anthropic itself used obsidian to create the second brain. Indeed,
+yesterday they fired one of the higher highest manager because he leaked out the. Obsidian vault of anthropic just to
+because it's very useful, then you can install on this different
+plugin which are provided by directly by obsidian, for example, here I. Put the smart connection or rather you
+have co-pilot directly here. I can just use the co-pilot e i here to
+manage the brain without using my agent. I just asked to co-pilot here to do stuff. Then I have this protocol which is called
+LMLM wiki. If you see a each of my research template,
+for example mafia culture, there is always this row folder here.
+Here I put everything about the project. Could be a PDF, could be a song,
+could be a video, could be a note, could be a transcript of a meeting with
+my coder, then I do waking jest command and
+essentially transform automatically all the stuff in the raw folder in markdown
+file. That indecise in the index of the project
+automatically spotting also inconsistency between sources. It's Crazy,
+it's completely Crazy. You can do it by co-pilot here,
+or you can do it by the agent. I have a specific project which is my
+brain in which I manage this brain with agents. Open a session in my brain, simple,
+I'm gonna show you. O. Because my agent I have access to
+everything in my laptop, but you can just give access to your
+vault your brain folder. I'm gonna show you just because otherwise
+simply seems like magic. You don't have to prompt,
+it just knows what I need to do, just know where you left last time,
+you know, it knows already the problem faced,
+the solution encountered to. No, it's used token, but much,
+much less than prompting each time everything, all the context. OK, for example here. I just after done with the slide of this
+course, I just tell him, chiude session in brain,
+closed brain session and update all the necessary files,
+eventually use tools that you need like memento,
+which is a tool that I use for create external memory layers. For recalling memories, OK, much easier,
+I mean much quickly than simply looking in the brain,
+especially when there are something specific happening during the session.
+And so what it does essentially update all this file. With what has been done in this session,
+then we create some memory, so for example,
+this memory is telling you telling to agent that the version of the slide
+session two. It should be pushed to github are the
+ones from which it should start again if we're going to modify the slide again,
+or rather this edit policy slide is a. Tell you when you modify something,
+you have to maintain everything as like as you find,
+you just change what I ask you to change because otherwise sometimes what happens
+is just you update on top of your manual. Changes essentially completely removing
+any change that you did in the meanwhile, and so in this manner you remember that
+time that you want to modify my slide to change just what I asked to change
+without updating restoring the previous version. Knowing what these memory are actually,
+I create a restart point, provide me with some kind of uncertainty
+problem that we need to solve in the next session and so on and so forth, that's it. Next time I it's like if I had the entire
+conversation that I did so far already memorized inside without using that
+conversation, because the other the alternative would
+be to. Write always in the same conversation,
+but this consume a lot of token because each time you prompt when the context,
+even if you compact the context once the conversation become longer and longer,
+each time that you prompt, you need to read everything and so
+consume a lot of token. Instead, in this manner,
+I can start a new conversation, he already knows what we discuss in this
+one. OK. OK, so very quickly have 10 minutes left.
+I'm going to show you now a couple of work in progress and fixed problem that I
+faced recently. Let me just. Sì. OK, here you can find a way. I mean,
+these are, for example, other integration tool that I add to my
+brain, like the anti-slopiness tool that I told
+you before when I did, when I do referee report,
+I use this tool which is. Integrated on top of my brain and just
+recalled when I needed from the brain deadroom tool which compact the context
+as much as possible in order to save token the memento,
+which is this tool that helped me to create this sort of memory that can be
+recalled. Organized, I have this code review graph,
+which made essentially what obsidian does, but with the code within the code.
+So I have a grafo a graph connecting all the Python code or stata code within my
+folder instead of reading each time all the code. In a specific project,
+it knows which code is connected, which what other coded with other code.
+OK, so just go through edge without reading
+everything and saving a lot of token in this manner again, then I have. This tail test tool that allow me to make
+things less sloppy, especially when you do graphically stuff,
+front-end page and this kind of stuff. I have a iconoclast which is the refine
+type tool. That I told you before,
+then I have this protocol and skill, which are LLM wiki,
+which is this protocol generated by one of the founder openai,
+which is called Andrei Karpati, which is the way which you organize your
+your your brain that is with this row. Fold in which you throw all the
+information needed and then you have some code and command that transform this row
+knowledge in stable knowledge indexed by your markdown file. Then I have came on that essentially,
+instead of using normal language with you, it transformed before answering and. If you're answering the text that you
+prompt in much, much smaller text, for example,
+here there is something which is very fun, there is an option of this caveman that
+allow you to transform the prompt in a specific Chinese dialect. Which is very cool for this stuff because
+with one symbol you essentially sum up an entire sentence in Italian and this saves
+a lot of token. So it transformed this before in the
+Chinese and then read just the Chinese. Very cool. Saving token,
+this all strategy data implemented to save token as much as possible. And so when I tell the agent open brain
+session, it read global and project memory, index,
+current state, and essentially provide me with a
+summarization of what has been done so far, what is left to do. And something similar happened when I
+asked the agent to close the brain session. So work in progress,
+I'm going to show you three main things in work in progress. I'm going to show you a project bootstrap,
+so as I start a new project, I mean, I don't start a new project now,
+I'm going to show you a recent project that I started and so I show you how I
+indecise ingest the project within my brain. The classical pipeline that I run for
+each project that is ingest the brain, create a github repository and starting
+an overleaf project, OK? Then I'm going to show you a classical
+example in which the machine need the human control,
+that is the problem that I found with this OCR reading when I was reviewing the
+Franco papers. For the new submission and how I deal
+with it in order to save time when the machine cannot do it by himself,
+but it helped me to find a way to do the review manually but in a shorter time. Using dashboard again,
+which are very useful tool for reviewing what an agent does,
+and then I'm going to show you something really live screen in the sense I'm going
+to show you why it's better to use an agent than simply chat GPT. So I'm going to show you how the same
+prompt. Generate,
+I mean how much time and you know interaction you need to create the same
+figure from the same data set using simple chat GPT prompting or an agent. OK. Because many of you also today during the
+lunch, Maria Luisa asked me, OK, but you spend a lot of time to, you know,
+construct all this infrastructure, but it's not simpler just to tell chat
+GPT to do things. My answer is not at all. We are talking about dimension several
+dimension of you know time saved using the agent with respect to chat GPT OK so. Project bootstrap let's see, for example,
+this new project that I had with this PHD from transcrime here in cattolica. Let me check where is this project? Mafia migres. Guarda pur this setting. Ma stanno chat a chi va de qua? Box, just a second. Dove stanno? Ciao. Maybe it's better from here instead of. No,
+I don't remember out to recover the chat chi a te. Why did it? Dove trovo Aspe facciamo così lo chiede
+direttamente a lui. Qui perché è cattolica. Ohh. And that is going to work on the second
+time of work in progress. I'm going to show you.
+The problem was essentially, as I say, that the OCR difficult to be completely
+implemented by the agent just because the PDF, the quality of the PDF was very bad. So. I would add two kinds of options in front
+of me or doing this by my hand and so going each time to each specific PDF open
+the PDF looking at specific we are talking about a pager pager for each PDF
+OK so finding the line. Taking the value,
+bringing the value directly in the Excel or whatever. Okay,
+and this repeated for all the in provinces in each PDF,
+like 15 pages for each PDF. Very long work. OK, the other things that can be done is. Instruct the agent to construct a
+dashboard that allow me to do this work very quickly,
+how essentially on one specific side of the page it show me just the specific. Part of the PDF that I want and then on
+the other side of that the a sort of dashboard that I can directly change
+manually and the change automatically went on the original dataset file on the
+original Excel file CSV file. OK. This is what has been done here,
+so we create for each of. For each of the Spanish province. A web page which is run locally on my
+laptop or the laptop my coder. In open. Oh, che devo fa? Tutto lento. Ce la farà? Tondi. Vabbè, ti apriamo, non rispondi. OK, potrebbe rispondere, no? Allora vediamo un po di cose. Vediamo un po di qua mi sto per computer. Lo so. OK. Se blocca. Va. Dai. OK. So di. OK. Bene. I already essentially the properties were
+properly with okay, okay, good. Then I were fail failed or women or men
+the source. Ciao. In essential. PDF that I need,
+you can see that the quality is very bad. Yeah,
+you have to guess what can is there and you have here essentially the part of the
+Excel file directly that you can directly change. Okay, for example,
+you can manually change this number, blah, blah, blah, blah,
+you can add the row if for example there are cases in which the quality of PDF is
+so bad that you start to cross this line. I mean, you can see here for example,
+this is not near. Neither here nor here,
+and so a lot because create a new line and so here that is add line remove line
+from the from the Excel. To this for each part of the PDF Garding
+Alicante. Va meglio che non va. Sì. Rasta. Poco you have a new Jason. In the agent we read the J sol the new J
+sol e in implement the the correction automatically yes, yes, yes. Maria. But also, I mean,
+during the change you see this staff here changes and they provide you with the
+number of correction already done and so on and so forth,
+but also if you go back to your index once you do any change. To do that now, so, for example,
+I put TR 66 OK, bene. See now that you have a correction there. Province, which is very useful.
+This stuff, imagine to do this by your end,
+just open file and put the file. You know the side of the PDF? Monica Bellini. Sì. No. Code modify the OCR with this with this. Va. Oddio. Pace. And or something is. Lo fedio de mi. Pro. Sì. Paolo. In che? A variable. Lo. Piera. Took me. Digo. Bene. Ivan. Bla bla bla bla. Just for one figure, OK? Non prompt agent. OK, quindi. Come va? I go, I don't know. New project, I created this. Prova. Box. Just put the same data set, Apri. Sì. 8. Pro. Va bene, Ciao. Provi un file nella cartella. Ciao. Hi chat GPT. Flavia. Damn last time, but still after time. A. Grazie. No. Ok. Yes, but I mean, if you're a local model,
+you really don't want to. Use a private model, I mean,
+the way you start again to use token to search. If you train it to do that,
+you can do it very easily, but the training of local model is
+something that sound very difficult, but it's very easy to implement because
+there are out there dataset to train this local LLM which can be used. And in a couple of day you can now there
+is this model by Gemini, which is called gamma four billions,
+which is a model of four billion parameter,
+which is a small number of parameters for a model we can easily run on 16 RAM. GPU. Gamma four. OK, so let's see what happens here. I should have tested this,
+I should have done this before and show you simply a work through, yeah, yeah. O I just still do this,
+if you want disconnect, you will find this stuff on the recording. Euros now is skyrocket to more than 1000
+€ per Mac mini so at that at that price would much more to an investment in
+graphic skill the nvidia the the minimum requirement invidia. For running a good local model would cost
+you around 2500 euros, so I think that it's definitely better
+having something like this than a couple of Mac mini because you cannot do
+anything with one Mac mini at the moment. Especially the frontier model are
+difficult to implement and you need, I mean, frontier model for doing, I mean,
+you local model are very good, but you don't have fable five,
+for example, you don't have GPT five point six,
+which at the moment are. Really good ones, especially for planning.
+So I thought honestly to move at certain point toward the local model I will do
+for sure. At the moment I'm not so expertised to do
+that. In a manner that could replace the
+frontier model. And also, I don't have money to do that. Clearly,
+if I win the print, the next print probably to think about
+this. OK. Is doing something,
+so let's see what is cooking. Meanwhile,
+how this is stopped because essentially cursor doesn't work with cattolica wifi,
+I don't know why. Let's see if I have something here to
+show without. Vediamo un po qui se ce l'ho. E l'ho qui. Everything very slow. Questo stoppalo perché tanto è inutile. OK, I mean, I can show you this actually. Instead of the other. So for example,
+I had to do this every report, so I essentially create a new, I mean,
+I had already a folder in which I put all the every report, so I ask. To the agent to initialize this folder
+within the second brain. To activate all the necessary tool and I
+actually told him that all the referee report in the folder were the ones that
+I've already done up to that point and to use them as example for the style and so
+on and so forth. So essentially what the agent did the
+create the new area in my brain named the referee report with the with all the
+typical template file that is the index, the brief, the current state. The agent memory decision, the wiki,
+the prompt and the log. It converted the twenty two report in
+markdown file in order to use it as training for the style,
+it installed the iconoclast. Tool in order to use it for the report. And essentially create some I mean some
+rule and file within the workspace. Then I mean,
+it was some problem with with the Econoclast I had to install the Codex CLI
+in order to work with it and it was ready to work. OK, so I throw into the. The agent the manuscript OK,
+essentially you create these files OK, then essentially run iconoclast. E mi comment directly from the PDF that I
+give it, I gave it. Then use iconoclast essentially when OK. I generate review with econoclast,
+this is the report generated OK, this is the main comment generated by
+econoclast, especially the ones that overlap with
+mine. He gave me a plan proposed point,
+ma da noi still. So this is the topic. OK,
+this is if this topic is in some way touched by my comment or by iconoclast
+and the proposal, the major comment. Required me a short description of each
+comment, so I had to approve this stuff. Once this is approved,
+essentially start to write down the report with the tone and anti-slope that
+are required. Then. Esegui step eight OK at the end I've just
+launch a prompt chiusura session my Brain and it update all the file in my Brain
+with this report and what has been done, the decision taken. So on and so forth,
+they create the memories with memento, generate some skills, I mean,
+there were già already the skills and then the next section and what are the
+open point, still open point at the end of the of the
+stuff. Let's see what happened here if something
+had been done. OK, almost done. And see what it did some matter of
+minutes. You can always see what what he's doing
+by just clicking here, I mean. These number are the line which are added,
+the green are the line added to the code and the red are the cancelled one. OK,
+always. Yes, sì, yes, yes,
+I mean if you open the I don't know if now this can be open directly, let's see. No, OK,
+if you open the file once it has done, this is especially easy to see with the
+ID. In the ID you see the file in the preview
+slide in the preview window with the part of the code cancelled,
+the part added or modified. And then you can approve each
+modification, each different year, you cannot actually,
+you can just see without approval. Let's see what happens. OK,
+già even definitely better than the other for the first round. OK. Is still missing something? OK,
+you already know that something went wrong in terms of. Of formatting, so it's we running again. But during all this time I could have
+done anything else, OK, so writing email, doing working on another project without
+waiting chat GPT from giving something back and then re-prompting. Definitely better than before. Still missing the year the year legend,
+but probably it's gonna do this in the next change. This is neither the best model I'm
+usually used for everything the chat GPT 5.4 medium. Because it's the one consuming less token,
+but with acceptable result. So let's see what happens,
+dissi stata merce bla bla bla bla bla bla. So. Let's see what you create. OK,
+something is missing, but most of the plot is there.
+We are still missing the legend for the years, so probably I need to reprompt.
+I don't know if I did. Il colore deve essere una scala blu più
+chiaro. OK, I have to prompt it now to add the Legend
+for the color, but is definitely better than the first
+interaction with chat GPT, OK? So that's it for today also because we
+are running very late. I hope that you find this course useful
+and I hope you to see working with this staff in the next time that gonna save
+you a lot of time and effort. See you soon.
+
+Giudice, Arturo Manuel   2:21:51
+Grazie Marco, alla prossima.
+
+Le Moglie Marco (marco.lemoglie)   2:21:52
+Ciao.

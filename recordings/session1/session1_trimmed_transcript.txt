@@ -1,0 +1,1343 @@
+Agentic AI for Economic Research — Session 1 (trimmed transcript)
+Window: 00:11:20 → 02:19:40
+
+Le Moglie Marco (marco.lemoglie)   0:07
+Thank you for coming.
+I hope that this course will be helpful for many of you,
+especially because many of you is still asking for, I mean,
+suggestion about how to use this new technology. for the research workflow.
+And this is indeed the aim of this course, try to provide you with some necessary,
+I would say, idea about how to use it in your own. Research workflow. At the moment,
+I don't know if you received the slides, but once you receive the slides,
+if you click on this slide source on GitHub,
+you get directly on the GitHub repository of this course,
+where there are the slide of today, but also I gonna post the. recording of today and the slide for the
+next class. Okay, so just go there and download everything.
+You can use it, everything for your own necessary.
+So if you have to teach this stuff or to somebody else, you can just take the tech file on the repository,
+modify and use it. Okay. So probably I have not to say who I am
+since many of you know me. I'm an applied economist.
+I'm not a computer science. So essentially I will not. provide you with the technical stuff
+behind these new tools and methods. I'm just provide you with some example,
+especially in the next session, about how to use it in your daily
+workflow, okay, in different step of your daily workflow. Why this course exists? As I said before,
+essentially in order to avoid to having people keeping asking for a question
+about this tool, try to provide you a general overview of
+these tools. What this course is not, Well, essentially,
+this is not a coding course. This is not a comparison between a large
+language model, neither a discussion about the usefulness
+of artificial intelligence, the way which this will steal our job.
+What is actually is just a practical map. for using an agent in economics research
+without any kind of losing control about what you do. Okay. So today,
+we're going to discuss some vocabulary. What is an agent?
+We're going to look at the type of interfaces that you can use in order to
+use agents. In particular, I will stress a lot the issue of control
+of what agents do. We're going to discuss how agentic
+architecture typically is structured. So we're going to talk about rules. connector, MCP, memories,
+and so on and so forth. And lastly, we're going to see very briefly some
+example of using these new tools in your research flow that we're going to discuss
+better in detail. So with the live streaming with live streaming in the next session.
+Here, I mean, the next session, I provide you with a list of tentative
+things that I would like to show you directly using the agents.
+Probably I will add something, I will drop something else. I'm not... done,
+I've not done the roadmap of our next session yet.
+So this probably will change with respect to what we will do actually in the next
+session. So this is a practical map, it's not a technical manual.
+I just suggest you to go on internet, which is full of resources,
+especially on YouTube, to start to play with agents.
+The idea of this course, they try to provide you with a framework
+that avoid you the two extreme of these resources on internet,
+which are the alarmistic, as I call them, resources in which they essentially talk
+mostly about how these were going to still your job,
+but also there are a lot of resources which are try to sell you something in
+particular course about the use of agent EI. Okay, so I try to give you some,
+an overview that help you to navigate among these sources, but What I've learned is something that you
+can easily learn by yourself by going on YouTube and just digit agentic EI,
+Codecode, Codex and whatever. OK, and you find a lot of resources online
+for practicing. So why now?
+Why we are talking about this stuff today? Well,
+essentially because this world is running very fast. We are moving from Chatbot,
+which was essentially the ChatGPT and similar that you probably already use, in which essentially you just ask
+question, okay, you prompt question, you receive answer to assistant,
+which was another step, a first step undertaken in the last years,
+up to the current situation of this world, of this agenda world,
+in which essentially we have not just the chat bot, but proper work bot that help you to do
+things. Okay, so plan things to do, call tools, and reiterate this action.
+Essentially, this means that while before we had just
+to control the correctness of the answer provided by the chat bot, Now,
+the dimension of control and delegation that you are giving to this agent is much
+wider, and so there are much more things to
+control. Something that I want to add since the
+beginning is the fact that, I mean... Clearly here,
+the control sphere is widening A lot. Okay, a lot. But still,
+this is much less time consuming than doing things by your own.
+Because the control sphere was present also in your common workflow. Okay.
+But then you had also to do all the part before the control. So coding,
+finding the data, cleaning the data, analyzing the data,
+all this stuff in some way. consume time, a lot of time,
+is not 100% sure that what you did by your own was right. And so in some way,
+probably you strive a lot, you put a lot of effort for something
+that at the end was also wrong. Now instead,
+what you have to do is essentially let The agent cook and control a lot what is
+cooked. Okay? Clearly, it takes times, much times than before,
+just because the amount of files, the amount of artifact that the agent
+create are. an order greater than at least one order
+greater than the one that you produced by your own. Also,
+because once you write code, probably you already know where control
+where not. But again, still the time saving is Very big, OK,
+so you just have to control a lot. So why now? Well,
+essentially because not just this world is running fast,
+but also the adoption of this world is running fast. While in 2023,
+according to the Nature Survey, one out of three of individuals in the
+research use, have used the a chatbot, while just 8% use it weekly.
+Nowadays, almost all researchers use chatbot,
+and one out of three use it weekly. Okay, this is just regarding chatbot. Okay,
+we are not talking about Argent World here, but Just by looking at this,
+you can see that the adoption is even faster probably than how this world is
+running. So you really need to know what is
+happening. Okay. Otherwise, you lose the competitive advantage or
+rather, this is especially true for PhD, but For faculty,
+if you start to use it without knowing how to use it,
+you can really lose scientific control of what you do, OK? So what is the difference with respect to
+ChatGPT in 2022-23? Well, essentially now your AI can call tools,
+can use tools, could be browser, use your home files,
+your home application, your laptop. coding, use your shell,
+your terminal to do things. It has memory. That's something that ChatGPT completely
+missed. You didn't have memory across
+conversation, even within the same account. OK,
+now you can have it. OK, and so Essentially, UEI remember what you did,
+and essentially this is helping you a lot in avoiding to prompting each time what
+you really need, especially for the most repeatable task
+that actually are the ones in which this kind of tool are very useful. Okay,
+and then autonomy. So essentially with respect to ChatGPT,
+now the agent help you to lay down a plan for what need to be done and then discuss
+this plan with you, approving this plan and let them
+autonomously implement the plan. OK, eventually finding error. by themselves and correcting those errors. Why we are very exposed as economists to
+this world? Well, essentially because most of our tasks are
+very repetitive. Okay, many of our tasks include long writing,
+long reading, that can be in some way is shortened by the use of this tool.
+We code a lot, at least for applied economies.
+We code a lot. Most of the time, the coding pipeline are very fragile.
+Reproducibility is not so high, especially when you are still in the,
+you know, working paper stage of your work. While instead, for example,
+at the end of the chain, you are required nowadays,
+a strong degree of reproducibility. I don't know how many of you have
+submitted or, I mean, got some acceptance recently and the
+policy in terms of reproduction by the top journal. are very strict nowadays.
+Most of the time in the last my experience with the last acceptance with
+the economic journal was like three months of working on reproduction stuff.
+Okay, with back and forward with the data
+editor because something was not perfectly reproducible on all machines.
+They want a very detailed read me in order to know where the data come from,
+from the scratch, from the raw data up to the cleaned ones,
+and so on and so forth. So at the moment, this kind of process is very fragile in the middle. Okay.
+And what happens is typically is that you spend a lot of time at the end of the
+chain in order to make this fragile process more robust in order to submit
+this to the data ID of the journal. Okay. And this tool could help a lot in this
+kind of procedure. since the beginning. Okay,
+so maintaining ordered everything since the beginning of your project. Um... I mean, these are two papers,
+probably you have read. The one is on the journal economic
+perspective, another in the QJE, in which essentially they try to
+understand and analyze how these new tools are already used within the
+economic profession. The The Cottini paper essentially assess the
+fact that this kind of tool are already well established within the profession.
+Many of the economists in top department use them in different stage of the
+research workflow from the idea up to the review of the
+manuscript. We are moving fastly from cognitive
+assistance of this tool toward cognitive automation of this research workflow,
+which most of these tasks are in some way automated and done
+autonomously by the machine and then controlled by the human.
+Most of this productivity gain regard the lower level of the productivity
+distribution within the The field,
+so the ones who probably most are affected,
+positively affected by the use of this tool are those. coming from not top department,
+I would say, just because this kind of tool
+essentially erase any kind of competitive advantage that top department could
+provide to their faculty or their PhD student in terms of coding,
+from tier course and so on and so forth. But this gain come not by just automatize
+everything, okay? But you have to learn the way in which
+you can apply this tool. And so a workflow that should be stable,
+reproducible, And robust, OK. As I said before,
+the implication for PhD and faculty is straightforward. For PhD,
+you lose competitive advantage if you have it. But I think that,
+especially talking to our PhD student, This is a way that help you to catch up
+with PhD students from top departments. Because really,
+this allows you to test the idea to write papers that probably before you couldn't
+do, just because you missed the skill for
+doing that. Python, for example. Or rather, even simpler,
+the way in which you write. Because clearly, I mean, you listen to me,
+no? My English is not perfect. So I write even roast than this. OK,
+now I can write my paper. I can draft my paper at the level of top
+90 in English department. So this is already something that helps A
+lot. Okay, help you to catch up with the top
+department that have several competent advantages apart from the quality of
+faculties, but also in terms of time of the years
+that they have to develop an idea and their paper and the quality of the paper
+once they reach the job market. Okay, so these help you a lot,
+this kind of tool. So don't... I mean, don't put a stigma on this.
+Don't think that you can do better than the machine because this is not true at
+all. You can control the machine, but probably machine will do better than
+you. And so take advantage of this. OK, don't reject this ideologically,
+I would say. as many people are doing in in the field,
+I would say, especially those who before had this kind
+of competitive advantage in terms of coding, in terms of resources,
+and so on and so forth. This is another advantage, for example.
+Here you have an army of your personal research assistant for
+free. Okay, so something completely for free,
+$20 per month. Okay, so you can really speed up your work,
+even if you have fewer years to complete your PhD. You can really speed up stuff with the
+with these tools, OK? While instead for senior researcher,
+clearly this course is useful because help in some way to navigate better what
+has to control, what has to be controlled at once they
+use this kind of new tools. So,
+let's start with some very basic concept vocabulary. What is an agent? OK,
+before I talk about the work bot, actually an agent is not a smarter chat
+bot. OK, it's a workflow in which the chat bot is
+a core part, but is a only a part. embodied in an entire workflow in which
+we have the LLM a starting point, which we ask to achieve and complete a
+task. And to do that, the LLM essentially use tools, okay,
+in order to implement Plan to achieve such goals that we put it
+put to them. OK, so it's essentially a workflow with
+partial autonomy. What differentiate a chatbot from an
+agent? Well, the action is different. Chatbot just respond to your question,
+while instead the agent act. Okay. The tools are optional for chatbot.
+It can be used or not. I mean, it doesn't matter. too much for the answer that you received
+from them, while they are central for agents.
+This is the way in which they act using tools, your own tools, cloud tools,
+whatever, okay? Files, you usually upload file to chatbot,
+while instead the agent browse directly files on your laptop, OK,
+or your computer. You really don't need to be instructed
+where the file is, what the file is about. Okay,
+the typical thing that I do when I start a new project, once I open,
+I give access to a specific folder to my agent is just, okay,
+now study the folder and understand what I was doing.
+And it's simply by reading by itself the folder, it knows even better than me. what has been done up to that point. Okay.
+Failure. I mean, with chatbot, the failure risk was pretty contained in
+the sense that at most you receive a wrong answer.
+If you have the skill to spot the wrongness of the answer,
+it's easy to correct. Here is much more subtle. OK,
+this is the problem for with agent is that they do the wrong action,
+which can be then categorized in different kind of acting hallucination,
+and we're going to discuss them later in this presentation.
+Human role completely different, while for chatbot just a reader. Here is a controller,
+a supervisor for Agent. And also the cost,
+and this is probably the most important things that differentiate the two.
+Chatbot almost don't consume token. I mean,
+they are pretty much unlimited in their usage,
+even with a higher level of intelligence. With urgent nodes,
+they burn a lot of tokens. OK, and so one thing that you really need to
+learn is how to make your workflow efficient in a way that try to avoid to
+burn token as much as possible. OK, are we going to see something about later? and probably even better in the next
+session with concrete case studies. So, let's see how typically an agent loop
+works. For example, let's think about a very simple task,
+which is we run table 2 and fix the missing standard error. So once you provide the agent with the
+task, the agent observe the context that you
+provide to him, or to it, I would say, to him, understand the context,
+observe the context understanding, understand it.
+Then it provides you with a plan of action. Okay,
+so probably going to suggest you to run a regression to see where the standard
+error are missing. Once they are spotted, essentially provide you with a possible
+fix for for that missingness.
+Once you approve the plan, it start to act. Okay,
+so you will run the code, it will edit the code in the line in
+which it generate this missingness in standard error, then rerun the new code,
+then recreate the new table, And provide you with a new do file. OK,
+which is 02 table to point to dot do. Then. Now is the step which you get into this
+process. You have to verify what it did. OK, how? Well, essentially, if you plan,
+if you did a good plan, you also ask to your agent to provide
+some artifact that allow you to check what it did in a very fast way.
+How? Well, essentially, for example, generating a log file, for example,
+generating a report file in which it clearly state what has been done,
+the line of code that has been changed. which code has been changed.
+So you can easily go on your folder and go on the new do file,
+see the specific line that has been changed and control that the change is
+the right one. Okay. If this is not true, just start again. Okay. Also this very. Fication step could be done by the agent,
+actually something that time. Recently start to do a lot because one,
+I mean one I would say drawback of Agent is that they produce a lot of files. OK,
+they produce a lot of files and if you don't order,
+if you don't make to be ordered a. compulsory feature of your plan,
+this number of file explodes and start to control and verify become very difficult
+because it change a lot the name of the files, it start to create subfolders,
+you don't know where are the original files and so on and so forth. Okay. So in some way,
+especially for big project, this could be cumbersome,
+the controlling step. So what you can do is,
+or in some way in your rules, and now we're going to discuss what rules
+are, you put that you need to maintain order
+among the files. in order to making the controlling step
+easier for the human. Or rather, you can use other agent to check what the
+original agent did. And this is very, very useful,
+especially if you want something that is not just a yes man. OK,
+because this is another typical problem with the LLM in general,
+but also with agentic AI. They try, they tend to tell you what you want to
+wear. OK, and so essentially, if you ask to the same agent to review
+his own work, probably he will not spot the error in
+the work. Okay,
+so what I typically do is just switching the model, I don't know, from GPT 5.
+5 to Claudio and ask to Claudio to review what GPT 5.5 has done. No, no. You need token to do that.
+So we're going to discuss the problem of token and plan later,
+but essentially if you want to start to play around with this stuff,
+I suggest you to start with whatever kind of agents, so Codex, Anthropic. Mmh. Mm-hmm. Depend on how you extract them in the
+sense that the best practice here is try to change the the agent, the model. So,
+for example, I use cursor now, which allow you to use many different
+model, not just GPT, not just anthropic, not just Gini. you can use different ones.
+So what typically I do is essentially doing something with Claudio and then
+reviewing it with another model. But you can do the same in Claudio,
+just extracting sub-agent, that in a parallel way,
+do the same kind of work of the main orchestrator. Okay,
+but typically the best practice of this for having a really good review of what
+has been done is changing also the model. Okay. I will say, I will tell you this later,
+but you will not use just one model here. I mean, for starting,
+you're going to start by playing with Codex, Claudio,
+but once you get the experience on this, trust on me that you're going to use a
+different kind of model. together. For example, I use,
+I had a moment of time in my life in which I use the big four all together,
+Gini, Corsor, Anthropic, Codex. Simply because in some way I pay 20 EUR
+for one, I pay another 20 EUR for another, I have something free from another. And so, in some way,
+also to manage the tokens, I used the fourth. Now, I move in,
+I move it to toward a more expensive plan on cursor, and I'm using just one model,
+just one agent platform, then I use different model within the
+same platform. Okay.
+So you will not stay just with one model, especially if you start to embody these
+tools in your research workflow very deeply. Okay. So essentially,
+before the unit of delegation was just the answer to your prompt,
+now the unit of delegation is a set of action that the agent take in order to
+achieve the goal that you ask him to achieve. Okay. So what about context, token and memory,
+which are something very important with Agentic AI. So what is the context? Well,
+the context essentially is everything the model can see. So your chatting window,
+all the information that you threw into the chat window is the context. Okay. You cannot throw into the window
+everything up to the infinite. Okay, chat window and context are limited.
+With time, these limitation are growing, I mean, are making wider and wider.
+For example, the original chat GPT-4 had 8,000 token context. Now,
+Gini has a 2 million token context. The bigger is the size of the context,
+the more information you can throw into this more information, more idea,
+more file you can give to the AI. This does not mean then that bigger
+contexts are better than shorter contexts. This does not mean that more information
+you provide to the AI batteries its performance. Okay. Many times,
+many of you since I then I saw some of you Using this stuff,
+you throw a lot of or use of, I would say, redundant information to the model to the
+to the to the AI, for example. One thing that you, you, I mean,
+one thing that people typically do is... Structuring the conversation,
+as if the respondent would be a human, it is not a human. Don't say, "Ciao,
+how is doing?" No, do this. OK, then another thing typically that people
+does, which consume a lot of token. You give a prompt, it answer,
+then something is wrong and several things are wrong.
+You start from the first, you re-prompt the first mistake,
+then it contests and correct the mistake, then you prompt the second mistake. and so on and so forth.
+This consume a lot of token. Never do something like this.
+When you receive the first answer, just look at what has been done and
+collect all the mistakes in the same prompt and give it all together.
+Because each time that you prompt something to the agent, it needs to read All the contest since the beginning,
+reading the since the beginning, consume token. So many people that who I talk with,
+they always complain about the fact, but this lasts me just, I don't know,
+one day. I have this 20 EUR plan, it lasts me two days. Yes,
+because you don't use it in the proper way. This is the problem. I had the 20 EUR plan for a while and I
+achieved to do stuff for the entire month without getting out,
+without going in over usage. So the way in which you modify the
+context, the way in which you provide information
+to the AI, is determinant for the way which you can
+use it and the quality of stuff that you get from it. Okay.
+And this brings us directly to the measure of consumption within this world,
+which are the tokens. What are the tokens? Well,
+essentially the tokens are the, but I think that most of you know how LLM
+works, right? They essentially divide the prompt is
+small part, which are called token, and essentially you read this big part,
+this big, yeah, this small part in some way. predicting what is the next token. Okay,
+so the more token they have to read, the more they consume. Okay. And then there is memory,
+something that ChatGPT hasn't before. hadn't before.
+Memory that can be essentially managed in different way.
+We're going to look later on to common type of memory,
+that is the rug and the knowledge base. But essentially memory,
+what does is extending the context from one conversation to another. or from one agent to another agent,
+or from one project to another project, or from one machine to another machine.
+What does this mean? It means that you really don't need,
+every time you start a conversation, to explain the agent what you want to do,
+because he already knows. Okay. Then I'm going to show you how to set,
+for example, a knowledge base. Probably you have heard that if you surf
+on the internet, this second brain word, you know, probably. Essentially,
+what does it mean? Essentially means creating a set,
+an architecture of note in markdown, that your agent read before starting
+anything. And this essentially helps the agent to
+know where you are when you stop the last session, what has been done,
+what are the errors that are being encountered, how it's solved. Those errors, and so on and so forth.
+Without that, you explain it anything you already knows,
+OK? No, skill is something different.
+Skills are something that you repeat. I'm going to define them better later,
+but it's something that has been done once, has been done good.
+You like the way which has been done, and so you create something that can be
+easily repeated by the agent. Simply by call it,
+so you don't have to prompt the skill again.
+He already knows how to do that task, because it's written in the skill,
+but you have not to exaggerate with the use of skill,
+because skill consume context, because if you have skill,
+he charges skill at. teach session.
+Second brain or memory is different. You have to ask it to read the brain and
+read the memory. And so you just read, consuming token for reading,
+but then you already knows. And probably the amount of token that you
+have consuming, consuming for reading. Is a... a way lower than the re-prompting
+everything since the from scratch. OK. So then we have tool permission and
+sandbox. Most of people is concerned about,
+but I have data that I don't want people know about,
+that I don't want that model know about, I don't want training the model about my
+data. These are ********, okay,
+in the sense that our concern of people who never try to use this stuff,
+because most of the model allow to opt out the use of your data for training the
+model. You can establish a very strong permission hierarchies for
+what can be done by the agent and what cannot. You really don't need to use,
+for example, browser. One possible source of leak of your data
+could be the fact that the agent connect to the browser to go to on internet. Okay,
+but this is not true at all because you can use sandbox. What is sandbox?
+Sandbox is a sort of box, okay, within the agent which is not your
+browser, your computer. It is isolated from your computer.
+It's just used by the agent for going on the internet. Indeed, many of the action that you take in your browser,
+for example, downloading stuff on the downloading
+folder and just pick, then the file cannot be done within the
+sandbox, just because you don't have access to the
+sandbox. Only the agent is in the sandbox. So the possibility that some... Somebody just getting to your laptop
+through the agent going on internet is simply a no fact. OK,
+because they can use a sandbox. Then you can also allow them to use the
+normal browser as I do. And you can give them permission for all
+the file in your laptop as I do. Otherwise,
+when you start a project on Agent, you allow it to read just one folder.
+And for any kind of thing that you need to do for achieving the task,
+you ask permission. I can do this, you allow me to do this,
+and you click on I allow, I don't allow. I can read this folder, allow, not allow.
+And this is done essentially for everything if you set the option for
+asking for everything. Clearly, what is the drawback of this?
+That you lose a bit of the advantage of having an agent that do things
+automatically. autonomously. Okay. And so for example,
+I opt out of this stuff. I let the agent do and just ask me for
+the most important things. Because otherwise it stop every while for
+asking permission. Okay, depend on you, depend on how do you trust on it,
+how many sensible stuff you have in your laptop, on your platform, yes. Mm. Yes,
+and there is this opting this option for training.
+If you really don't want to your data to be used for for training the model,
+you can go on the option opting out
+
+Mancusi Maria Luisa (marialuisa.mancusi)   40:16
+Marco, sorry,
+can you repeat the questions because we
+
+Le Moglie Marco (marco.lemoglie)   40:16
+simply. Yes.
+
+Mancusi Maria Luisa (marialuisa.mancusi)   40:20
+don't hear them?
+
+Le Moglie Marco (marco.lemoglie)   40:21
+He asked me if they are, I mean,
+according to my experience, some of the option that need to be in
+some way opted out or opted out for sure once you use this stuff.
+And I suggest just to opt out for the option regarding in using your
+data for training. That could be useful in the sense that
+otherwise, I don't know, you have some idea for grant or something
+like this. If you if the model use it to train
+somebody else in the other part of the world asking a specific question. could in principle receive an answer with
+connect with your idea. Okay, so in some way, this is the risk,
+the main risk with respect to using your stuff for training. But I mean, I don't know how much this is likely to
+happen. No, because I mean, at the beginning,
+the review stage was a bit, was not so strong as such nowadays.
+Nowadays, everything that is changed by the agent,
+you can review it, you can just going back in time if you
+don't like it. As I said before,
+I let the agent going everywhere in my laptop. The only, I think,
+the only thing that I do in order to avoid to be stolen from my bank account
+is putting, I was usual to save my password of
+everything in the notes. the block notes in my Mac.
+Now I just move all the password in a specific app that make them reachable by
+the agent without my permission. Is the only thing that I did.
+For the rest, I just let it going everywhere in my laptop.
+Also because this is the only manner to exploit as much as possible the
+advantages of this tool. Because otherwise you have to still stay
+in front of your laptop and giving permission for everything which is... Also,
+because most of the time you really don't know what he's doing. OK,
+he's changed a Python code in the folder of the, I don't know, I don't know Python,
+so I cannot, I don't have neither the either the
+ability to see if he is doing something wrong or not. So it's better to see the last,
+the final result and judging that. Directly. Other question? You go on the menu,
+there is an option for permission. No, no, just, just the option,
+just the option. Then clearly, I mean, if you want,
+you can also set this in your rules. We're going to discuss what rules are
+there, but you can write explicitly in the rules
+that you have to always check this before changing. I don't know, in Overleaf,
+you do a specific mock-up. what you do on local and then once I
+check it, you can move it to overleaf in order to
+avoid, I don't know, changing in the version of your paper
+that you send to, I don't know. Okay. So,
+these are four layers of the autonomy spectrum that the agent has. Okay.
+Suggest, this is typical also of chatbot. Essentially, you ask a question,
+you do brainstorming with your agent, he suggests you something,
+you refine what is suggested with... respect to what you know and so on and so
+forth. Almost 0 autonomy here. OK. Then there is your review. So,
+if you want your agent to do something and changing something, changing code,
+changing file, you, you want to you make it making it out. autonomously,
+you need also to set some kind of document that allow you to review what
+has been done. In principle, this is not necessary because all kind of
+platform, all kind of agent, once they change something,
+they provide you with the previous code and the new code just in
+the same file with a button for allowing or not to change.
+And so you can just go on the code, see what has been changed with respect to
+what was before. And if you are good with that,
+you just approve. Okay. Then there is the execution. Here,
+the control is much more tougher. Here, you need to instruct the agent for
+creating some sort of file for reviewing stuff. So report or what has been done,
+the tele report, log file, and so on and so forth.
+And then there is the orchestration. This is probably the highest level of
+risk in terms of autonomy in which essentially you have
+an agent, an orchestrator, a main agent, with which you establish a plan,
+and then this orchestrator called a sub-agent to implement the plan in an
+independent way. Or also. consequentially. Okay. Here, and it's much more difficult to,
+much more difficult, can be done clearly, but it's much more cumbersome,
+the control part of what has been done. Okay. So these are, I mean,
+I would say a set of typical problem with agents. Hallucination,
+and then this can be different type of hallucination.
+We're going to discuss them better later. The drift,
+drift is due to change in the model. by the company.
+And this is something that happens A lot. For example,
+I start to use Gini for some advantage with respect to the other,
+especially for managing this YouTube channel that I created. Then suddenly,
+Google changed the pricing. policy.
+And so Gini start to be much more expensive. And also with the updating,
+there were several bugs that I had to fix by my own. Okay, and this happens. This is typically happens,
+especially with the lowest level of proprietary model.
+It's much more difficult to happen with Claudio, for example, with ChatGPT,
+but it happens also with them. Okay. For example, a bug was that it stopped to.
+.. wait for my approval of the plan.
+It just provide me with the plan and I start without approval. Okay.
+And so I had to go on internet looking within the forum about this problem.
+Somebody fixed the problem. And so I just tell to the agent, okay,
+go to this forum, read the solution to this problem and how
+to fix you. and it fixes itself,
+which is something that is much more easier than the older world, I would say,
+in which you have to put your hands on the mud, I would say,
+in order to fix the problem. Then there is automation bias. This is something that probably you're
+going to experience at least once on your life with the agent in the sense that the
+agent provides you with the final outcome. Many times this outcome is really good,
+at least the appearance of this app, the way in which is framing this outcome
+is really good. So, for example, in draft,
+it writes quietly good. OK, but a good process is not a good outcome.
+OK, and the same is also true for tables. OK,
+so I extract the agent to download the data, run the regression,
+and create a table and provide me at the end with this table. with all coefficient,
+all the standard error, everything is good. Okay,
+so the classical bias that you have is okay. I approve. It seems good.
+It seems good. For sure it's good also the content.
+Not at all. So you have to start back again going to
+see. The data, if they are good,
+then you have to check the code that they run, it see if seeing if, for example,
+it put the right fixed effect or right cluster level,
+and then see how this essentially reflect in the table that the agent is providing
+you. Okay. The eye sloppiness.
+This is something also quietly important, especially for writing.
+They are very sloppy in the sense that they,
+if you look at the text made by the AI, at the first glance, they look very good.
+But then when you start to read, especially if you know, the content, okay,
+that you ask for right to be written, you realize that is not so good. I mean,
+the form is good, but the content is not good.
+Then nowadays, there are tools that allow you to reduce
+at the minimum. this AI sloppiness.
+These are tools that your agent could charge once you start a new session of
+writing, for example. For example, once he write the text at the end of
+writing, essentially review the text. try to eliminate all the classical EI
+marker. For example, the double line, for example,
+the connector at the beginning of the sentences, which are typical of EI. OK.
+Essentially, try to go much deeply into the content
+instead to remain superficial,
+and so on and so forth. There are several tools that allow you to
+reduce as much as possible these EI slopeness.
+Then there is the reward taking, that is the agent find a solution which
+in some way satisfy the metric that you want to to estimate, for example,
+but then defeat the goal. You cannot in some way achieve the goal
+that you impose to the agent. And finally, probably this is the worst one.
+And as like as the automation bias is something which is such subtle, That is difficult to spot. This encompassy,
+the eye tell you what you want to hear. So the typical thing that people do is,
+OK, this is my paper. I want to submit this paper to this
+journal. Could you please do a review as could you
+please act as a review tool and do a review of this paper before the
+submission? So what the agent does is essentially a
+several point, as like a review would have done,
+and then you start to tell him, this point doesn't seem to me really
+important because I do this, I do this. Then the EI will not act. like a reviewer which will send you back
+another RAR, secondary RAR telling you didn't convince
+to miss me too much with this argumentation.
+I think that there is still a problem. No, the AI what we'll do is essentially, oh,
+you are right, this comment, this argument completely address my
+comment. It's something that happens A lot. Okay.
+So you have to be a lot aware of this also because this is not a bias of AI per
+se. This is a bias of you. Is that your cognitive bias,
+as like as the automation bias. Is your bias, not the AI bias. Okay. Okay,
+let's move to the interfaces for using Agent. Essentially,
+we have 4 categories of interfaces at the moment. They overlap A lot.
+You can use any of them interchangeably, I would say. The most easy, I would say,
+gate for using The agent is using your chat window,
+the chat GPT windows, if you go. On the on this stuff here,
+you have a different way for using the ChatGPT in Dip search mode, in agent mode. Okay,
+the agent mode is essentially doing the same thing that an agent will do your
+laptop. The only difference is that it is on
+cloud. So unless you give them access
+specifically to a specific folder of your laptop, it cannot do that. Okay. The second,
+I mean, this is, I would say, an intermediate layer that is very useful
+for research workflow, but probably is used people outside
+research. Don't exploit too much,
+which is the research browser. There are specific AI made for literature
+review. Okay, I use a lot it, for example, because always in the idea of saving
+tokens, I don't do everything with the agent
+because I let the agent doing their stuff. So, for example, brainstorming,
+I don't do brainstorming with the agent. I go to ChatGPT,
+I brainstorm with ChatGPT, which is almost free,
+also with the highest level of intelligence.
+Once the brainstorm has been done, I ask to ChatGPT to create a prompt to
+give to the agent to implement a specific plan. The same is true with the Literal review, for example,
+I don't use the agent for doing literal review, just useless. consumption of token.
+I go to notebook LM of Google. OK, and ask it to find me all the literature
+in economics, top journal, top field about a specific topic.
+Then I start to chat with it in order to organize it according to my idea,
+according to my paper. And once it has been done,
+I ask him to provide me a file of bibliography and a prompt and also a text
+that I can easily incorporate directly in my paper. Okay, yes. Mhm. Absolutely, absolutely. But you have,
+I mean, the way to use this stuff is getting the
+little from them and then work a bit on that. They are very useful,
+especially for one thing, in the sense that they can provide you with a table in
+which essentially it sums up the main content,
+the main result of each specific paper, and help you to connect them together.
+So it's a way to do brainstorming or literature review. And once you have satisfied with this
+brainstorming, then you move to the agent or you move
+directly. Most of the time I need to pass through
+the agent to the literal review. I essentially copy and paste directly on
+the paper. OK. I prefer not book LM because it's much
+more precise because you can start from specific paper that you provide it with.
+You just upload the paper. And so there is no hallucination there.
+You just read the paper. And then from that,
+they can find something else outside the paper by zone. Okay, so this is what typically I do,
+what typically I do for literature review. But this is very good, for example,
+for triage stuff. So connecting stuff, seeing what are the, you know, What a paper contradict over another
+paper, so you can chat very easily with the with
+the CI and help you to write down a very good literature review. These are also good for making slides. For example,
+you really need to include a paper in your class about public economics
+regarding, I don't know, the some rules. OK,
+you don't have time to write a slide or create a slide. Essentially you upload the paper to
+notebook LM, start to chat with him about what you
+want from that paper on the slide that you have just an overview slide.
+You click on that in 10 minutes you have the slide ready. OK. But also that if you don't want him to
+make the slide, he can provide you with the LaTeX. code that you can modify by your own once
+you have. Then the ID agent. What is an ID agent? Well,
+the ID is essentially something like this. It's an app in which you have the entire
+structure of your folder on the left side of the app,
+so you can control the file generated or the version. you can review easily all the file while
+in this instead on the right hand you have the classical chat window that you
+have also in the chat bot. And this central part instead is used for
+previewing every file. So here you can directly see the Stata
+code and modify it. You can see major adding a comment to the
+major and telling to the into the chat that you have to look at the comment in
+the image and implement it as a change, whatever. This is clearly. much more flexible in terms of what you
+can do and what you can control with only one app, okay,
+with respect to the chat window online. Moreover, this is all entirely local.
+So essentially, this is on your laptop, read your file,
+you don't need to upload anything. And so it's very good. And finally, there is, I mean,
+the most expertise, I would say, way to interface this agent,
+which are the CLI terminal window. Essentially,
+you run your agent directly in your terminal. What are the advantage? I mean,
+disadvantage is that it doesn't require really to know coding,
+because essentially when you start the codex or code on your terminal,
+you get a sort of chat window directly your terminal,
+so you can write in natural language or whatever are. your request there.
+You have much less control what has been done because the CLI,
+the terminal don't provide you each time the file that has been modified with the
+line in which these. modification has been done and so on and
+so forth. But the very advantage of this stuff with
+respect to all the other interfaces that it consume much less, much fewer token,
+because it does not need to have all the conversation recorded inside all the
+project and the structure of the project recorded and show it in the. In the interface. At the moment, sir. Essentially,
+what this word is going to where there is essentially using this agent app. that you can download from the website of
+the provider, which essentially are mixing all the
+advantage of the IDE and the terminal interface with the facility in terms of
+usage interface. of the classical chat window. This is,
+for example, from Codex, my Codex. You can see here that on the left side,
+I have all the project that I'm working on. Here you have the chat window, okay,
+with what has been done, the file that he created. what can be reviewed,
+what has to be reviewed, what need to be approved,
+then there is also... Here. allow you essentially to do the same
+thing that you do with the IDE. So essentially going through the
+structure of the folder, reviewing line by line each file and so
+on and so forth. This is the future. Okay, so if you want to start to play around
+with this stuff, what I suggest you is to Download the the agent app from the
+provider, so the codex or the cloud code app and
+using it. What? What is the disadvantage of this?
+This consume a lot of token with respect to CLI and for automation is much more
+difficult. OK, consume a lot of token. Why? essentially because it need to keep in
+memory of the structure, of the conversation,
+and so on and so forth. Okay, so this consume tokens. But it's much more flexible in order to
+review stuff, because you see, I mean, you see directly the file, otherwise,
+for with the terminal the CLE interface, you need to go in the folder,
+open the file, and see what has been done, and so on and so forth. This is the typical terminal interface by
+Claudio, but there is also the app for Claudio
+Code. Okay. Then a possible, I mean,
+this is probably actually the next future for who use this stuff daily and in a
+very intensive way, create your local agent. Why is it good? Well,
+essentially because it's cheaper. So if you create your own agent locally,
+essentially you don't have to pay anybody. You can do everything you want,
+then is my is private. Nothing leave your laptop. OK, without opting out anything. What are the disadvantage? It's costly. costly because the G-Force,
+the RAM now is skyrocketing due to the AI. And so if you want to install, I mean,
+now Google, for example, did this Gamma 4 with just 7 billions of
+parameter that could be easily run on the laptop. but you need a video, SCADA video,
+I don't know how to say in English, the minimum SCADA video for running
+something like this is like 2000, 3000 of EUR. OK, but then I mean, it's an investment.
+You save a lot of money in subscription, for example. For example,
+I pay 60 EUR each month. In 2 years, I recovered the entirely the cost of the
+of the of the scalar video. And it's very easy to train.
+Don't think that training this model is difficult. It's very easy, very,
+very easy. I mean, there are out there data set made
+explicitly for training these models. OK, in writing, in coding. in generating images and so on and so
+forth. Okay, you can really personalize a lot the type
+of model that you want to train, especially if you want a model that is
+specific for research workflow, you can train it only on research
+workflow, the workflow and task. Typically of research workflow. OK,
+what are the disadvantage? They are not frontier model,
+so I mean you are they require constantly to be managed, updated,
+and so on and so forth. They will probably you will never reach
+the sophistication of frontier model by. Uh, entropic and so on and so forth. OK,
+so probably you will not never be able to train a Fable 5 and Mitos or a GPT 5.6.
+OK, but still they are very useful, especially if you want to automatize a
+lot of stuff because they don't consume essentially. Any talking? So these are the four, the big four,
+if you want to start to play with, actually there are plenty of new AI
+coming out each day. The Chinese ones are very good at the
+moment, and they are much cheaper than the
+American one, for example, GLM. 5.2, Dip Seek, Kimi,
+these are all Chinese model which are very good.
+Now there is also this Japanese, which is very,
+very good because essentially what it does is essentially an orchestrator agent
+which use other agent to run task. And in this manner could make the entire
+distribution of the task more efficient, it achieved the same performance of Fable
+5, for example. It's called Suguka Fuka, typical name from Japanese land.
+So I suggest to start with the codex also because if you are Ping now the Chat GPT plan with Catoriga.
+Without Catoriga, you have already Codex inside,
+you just have to download the app and install it on your laptop,
+and probably you will be already usual with the entire, you know,
+interface because it's very similar to the Chat GPT. the window of online.
+The best one for sure is anthropic at the moment,
+especially for coding and for long tasking, for long task.
+I would avoid Google. Personally, it's terrible. I mean,
+it was good at the beginning, but it's full of bugs. I don't know why,
+because Google actually should rely on the biggest knowledge base in the world,
+given what has done so far with search engineers and so on. What is very useful is Cursor.
+It's not a specific model, but you can use different model within
+the same interface. They also have their own model,
+the default model, which is Composer 2.5, which is good at the moment.
+I'm using Cursor right now, actually, because with the 60 plan, I can almost do everything during the
+entire month, also using a very high model like Opus 4.
+8 by Claude, by entropic within the course or ChatGPTI
+and so on and so forth. So... The idea, as I said,
+as I suggested at the beginning, is not using agent for everything,
+because would not the best way to make your consumption of token efficient,
+but depending on the task, using different model or different type
+of agent. OK, for example, as I say, thinking, writing, a light analysis, Don't use agent,
+don't watch token on that. Go on ChatGPT and use ChatGPT. OK,
+source discovery, evidence triage. Don't use agent, use notebook perplexity,
+elicit, whatever. There are AI out there made explicitly
+for doing this stuff. Coding replication, table generation. I mean,
+here I put ID agent because are the best in terms of reviewing because you see
+directly the file out they have been modified and so on and so forth.
+But the moment you can use and also the, I know,
+Codex Agent app or code code app and so on and so forth.
+There is really no longer a difference between ID Agent app or terminal interface. Nowadays also with the app,
+because they implemented this right-hand menu that you just open,
+you see exactly the same structure that you see in the ID on the left side.
+So before there wasn't that the reason, because most of people still use the ID.
+I use it, I start this stuff using the ID. Because much easier to see what is doing. OK, then I mean,
+if you need a very long pipeline automation,
+probably the CLI interface is better because it consumer fewer token. OK,
+but you are really need to be. 100% sure of the automation, the pipeline,
+because they start and then it's difficult to review on during the work
+what is doing. Why instead the sensitive data of full
+reproducibility, probably the local model are the best one,
+but also here it depends because. For example,
+we have this property data with Diogo. I mean, you don't know Diogo is,
+but they have this sensitive data from Brazil.
+And since we cannot use property AI there, we have constructed a local AI within the
+server in which this data stored. A stored, and we are using the local E.I.
+for the analysis on the on on on those data. Cost. Well,
+essentially here we have two words, or subscription or method usage.
+If you never use an agent, start with the lowest level subscription,
+typically it's 20 EUR, $20 for all companies.
+Then if you need more, There are bigger planner. If you have money to spend,
+what I suggest is making the max plan with Anthropic is 200 EUR per month,
+but essentially is almost a limited. If you use by your own,
+is a limited because difficult that you burn all the token that give you this
+kind of plan. I understand that 200 EUR per month is a
+big amount of money. Indeed, I would never suggest to start with this
+kind of plan. Only once you really get into this stuff,
+you embodied a lot of this stuff in your workflow,
+probably it makes sense to switch to higher plan. I tried to coordinate with people in
+order to pay the plan in four people, even if it is illegal. I couldn't,
+and so the best solution that I found is moving to Cursor,
+who was this very good plan for 60 EUR per month. Otherwise, for example,
+Google Gini has also a plan of 50 EUR. Codex, the max, GPT,
+the max plan is 90 EUR per month, so the half of the max by entropic,
+depend on what you really need. Okay. Mhm. Mhm. Mhm, mhm. Mmh. Bing. Why? But if everything remains local,
+that's not possible. No. Memory. You have to set the memory to the agent.
+I work on this. I work on the same folder with different
+agent on Dropbox. My folder are all on Dropbox. Okay.
+And you use different agent and some of my coder use other agent on the same
+folder. The only thing that you have to set is a
+memory. A memory which allow you to move what you
+are doing with one agent to another agent. Yes, you could.
+When you set your knowledge base, one of the documents that you set up for
+your project are what has been done, decision, and or next stop, next step.
+Essentially, each time the agent does something,
+it record this in markdown file. And so the next agent just read this
+markdown file and know what has been done. Okay. And so how to be,
+we're going to see the next time, okay, how to set something like this. Is there,
+I mean, we're going to discuss now the difference
+between the two may use a type of memory which are lag and knowledge base. I. personally prefer knowledge based, okay,
+in which you can also directly edit the notes and the markdown by your own
+without letting, if you see that something is written that
+you don't like, like doing this stuff when you don't want
+to do this stuff or next time that you open the session,
+you just go in your note and by your own, you change the note. Okay. One possible option that you have to opt
+out when you open the app or whatever is the fact to avoid extra usage. Okay,
+so if you start with the plan of 20 EUR plan,
+probably you get out of the plan in a while,
+especially at the beginning because you are not familiar to how manage to avoid consume
+too much token. And so what I strongly suggest you is
+going in the menu option and there is a specific option that avoid the agent to
+consume extra token out of the plan. The otherwise make you pay, OK?
+And then you don't want to pay. Another thing to do is to say that
+unlimited does not exist for agent. There is no plan that is really unlimited.
+With Fable 5, you probably consume an entire max plan,
+the 200 EUR max plan by Anthropic in one week. just because it consume a lot of token.
+It's very good at doing things, it does things very, I mean, very well.
+Probably you really don't need needed to review them,
+but it consume a lot of token. We're talking about millions of tokens
+for each call. Okay. They consume a lot of token with respect
+to a chat bot, essentially because while for a chat bot,
+the token are consumed just for reading the prompt and answering you.
+Here you have different step in which token are consumed. OK, so the context,
+the call for the tool, the retries. OK. And then also there is there are
+differences in the policy of each company in terms of token price. For example,
+Google, I use it for a while, Gini, because typically how this consumption of
+token works. You have two kind of limits. hour limit and a weekly limit. OK,
+so each app has this value that you can see in a specific bar.
+So the hour limit is a limit an amount of token that the regenerate each five hours, each six hours. Okay.
+Each time that you regenerate this daily limit,
+a part of the weekly limit is consumed, of the monthly limit is consumed. Okay.
+So you can repeat this up to the point in which the weekly limit is over. Okay, when the weekly limit is over,
+even if you are still having some token in the hour daily limit,
+you cannot use it. K. Perfect, so I use it at the beginning,
+Gini, because Gini has this default, clearly the default model consume less
+token than the best model. OK, Gini has this Gini Pro Flash 3.5,
+which was a very good default model to doing to do. Mostly of the stuff that I need to do,
+like manage the YouTube channel, sending the newsletter,
+all this kind of stuff that consume, they don't require too much intelligence.
+OK, then from one day to the other, essentially they change the pricing,
+they they triplicate the. cost of each token.
+And so essentially also with the same model, with the same code,
+with the same task from day one day to the other,
+I completely consume different amount of token.
+And this is true for all the companies, all the private models, okay? The only way to avoid this stuff is using
+your local AI, okay? So how to save money here? Well,
+essentially try to use the agent as less as possible. Use it only for hard stuff,
+only when they really need to be used. When you use agent,
+don't use the best model for everything. Some of these allow you for automatic
+location of the task depending on the difficulty of the task that the AI
+understand by its own and it allocates. Otherwise,
+what I typically suggest is use the best model for planning,
+the most intelligent model for planning when the plan be written down the implementation.
+Let's do the implementation to more stupid model because it has just to fall
+off the plan. There is no intelligence there. OK,
+then avoid the 1000 thousand of prompt different prompt. Put all together. OK,
+the request. Don't separate in different prompt.
+This allow you to save a lot of token. Use some tool that allow you to create
+memory. Memory. Consume token once you and you once once
+you have to create it at the beginning, but when you have created it,
+you have just to recall it and that could save you a lot of token because instead
+of re-prompting every time what you need, it just read the specific file that it
+needs to. Complete the task. Okay. For example, this is just some. case of using in terms of token.
+Chat question are very cheap. Okay. Less than 1000 of token.
+Replicate section 4 end to end, which is something good to be done by the,
+I mean, something that I will. Let the agent do,
+because it save you a lot of time. This consume million of token. OK,
+so try to stay only with task that really need agent implementation. OK,
+don't wash token around. Token will become your nightmare once you
+start to embody this stuff in your workflow. I mean,
+the day in which I'm not talking, I don't do anything. Not really.
+For example, if I arrive up today up to the renovation
+of the plan of the weekly plan, In those two days,
+I do something for my family. I go to the doctor,
+I do all the things that, you know, because I then, I mean, I just saved,
+I saved so much time, so much time using the agent that I can
+take someday free, you know. And waiting for coming back of the agent. Another thing that I suggest you,
+don't spend the, I mean, this tool has made for freeing you from
+being in front of a screen. Don't do as like as what you do with
+Stata. That is, you run a command and you stay in front
+of the screen and waiting in the end of the command.
+This is not the way to use this stuff. The way to use this stuff is launching
+the agent, let him doing what he need to do,
+in the meanwhile doing anything else. Answer email, writing a report,
+reading a paper, cleaning, wash, make something in your place,
+going to take a coffee, doing anything else,
+because otherwise you are not exploiting the advantage of this stuff. which is freeing time.
+This is the advantage. Freeing a lot of time that allow you to
+make more things. At the beginning,
+you will feel like you work less. Actually, you are working much,
+much more than before agent, because what you spent before one day,
+one month, one year to do now can be done in a
+second, in a day. In a week. We're gonna see some case from my
+workflow in the next session constructing testing an idea.
+Today I had an idea on this possible research project from having the idea to
+testing the. Validity of that idea with the data
+regression is a matter of hours, not day nowadays, hours. When the kids are sleeping,
+you can really do what typically would have been done in a week.
+So this is really the game changing of this stuff. It's freeing your time.
+And so don't waste your time, which has be freed in front of your lap. Stop waiting for the response of the
+agent. This is not the way which the the the
+stuff could be used. So, it trained on my data? Well,
+essentially, I don't know, in the sense that with the default plan,
+with the Gradis plan, with the free plan, you cannot opting out the training stuff.
+You can opting out once you start to pay. But actually, you really don't know,
+never know 100% that they don't use your data to train,
+especially if you use a lot of external tool.
+You make a lot of API goal or something like this. So what I suggest is try to be To generalize your workflow in order to
+not have this problem at all, in the sense that try to keep out from
+the agent what cannot be shared at all, like private data or sensible data or
+something like this, anonymize everything else. And some way. Try to keep safe your workflow before to
+throw it into the agent. This is my suggestion. I think that this is something that we
+can easily skip. Good practice, set a budget for each project. With the 20 EUR plan,
+essentially you will run out of token very fastly and probably if you want to
+still using the agent, you need to turn to extra usage.
+So they paid usage. You can set the limit of the usage. Three EUR, 4 EUR,
+5 EUR seems very small amount, but you can do a lot of things with the
+two EUR, for example. For example, now I had to rerun no CR procedure for
+thousands of pages. PDF page from Spanish Chances of 1940,
+so value. Badly digitalized. OK,
+instead of use my agent with my plan, which I've burned a lot of token,
+what I've done is essentially setting 3 euros of budget on Gini API and setting
+an API key from this Gini account. giving this API K to my agent.
+So the agent instead of burning its own token from the plan,
+it just used these two EUR, 3 EUR that I put in the Gini Cloud API.
+And with two EUR, 3 EUR and alpha is essentially did a perfect OCR vision for the
+thousands of pages that I need. Okay, so a good practice is set the budget for
+your plan, especially if you use the 20 EUR plan.
+And then for containment, use sandbox. At least at the beginning,
+ask the permission for everything, which I put the condition of asking
+permission for everything, just to get usual of what kind of request
+the agent do, then you can relax it a bit. There is also an intermediate level of
+permission. There is no... or permission or never permission.
+There are also different kind of permission that you can set.
+So permission only for reading something, only for using specific tool. Also,
+specific tool can be allowed or not, or ask or requiring permission or not.
+Okay, so just playing around with the option in
+the menu. So, control.
+This is the most important thing when you use Agent.
+You have to control what they do. Well, while for ChatGPT,
+we have essentially only content hallucination,
+essentially answering something that does not exist or citation that do not exist.
+At the moment, this is almost, it's very difficult to find something
+like this. I mean, even if you use ChatGPT, Nowadays, there is no more. citation, hallucination,
+or something like this. It's very difficult to encounter
+something like this with ChatGPT at the moment. But for Agent,
+there are several other kind of hallucinations. Okay. Code hallucination. Essentially,
+it return you a result, a table, but essentially it implemented the wrong
+code. For example, use different cluster variable that with
+respect to those that you ask for or different fixed effect. Okay,
+so you have to review the code to see what has been done.
+Statistical hallucination. The same good syntax,
+but then the specification is not the right one. OK, workflow hallucination.
+This is the the worst one. When the agent tell you that has done
+something but actually didn't. It happens. It happens A lot. Okay.
+So you have to check if everything has been done actually. Okay. Why is the most dangerous? Well,
+because if you are confident that something has been done, then it is not.
+You go ahead, you spend talking ahead for something
+that actually has no base. OK, so. Control is also for you in terms of
+spending token, because if something has been done
+wrongly, then you have to come back here. You have already spent token for doing
+the wrong things, and then you have also to come back to
+fix the problem. Okay, so is a overspending with respect to what
+could be done if... the control is carry on in a proper way. So automation bias,
+humans systematically overtrust automated output. The smoother,
+the more confident the output is, the higher is the likelihood of this bias.
+The output are very smoother and very confident, especially drafting. Okay. What is look like in practice?
+Essentially accepting a regression specification without checking the code.
+I did it. normal to do something like this because
+you don't have time, you want the table already done. I did it,
+then I paid the consequence of this
+
+Colombo Ferdinando   1:34:03
+Yeah.
+
+Le Moglie Marco (marco.lemoglie)   1:34:03
+because I had to come back.
+Copy pasting literature without checking the existence of the reference.
+This is much more limited nowadays because They are losing it much less than before,
+or skipping test because the agent already test the result. OK. Polish it pros is not validated reasoning. This essentially bring us to say that
+control cannot be something that you do sometimes.
+Control need to be a specific slot in your workflow.
+And this slot can be achieved by prompting the agent in a way that make
+compulsory the control stage. in every stage. Okay, for example,
+test with respect to a specific specification to see if the specification
+change a lot, changing some part of the specification.
+The difference with respect to what was before The implementation of the action by the
+agent, and so you have to you need to be able to
+revise what was before with respect to
+
+Colombo Ferdinando   1:35:19
+S.
+
+Le Moglie Marco (marco.lemoglie)   1:35:20
+what is now.
+This is something that most of the interfaces do for you,
+because provide you with the part. of the file which has been modified and
+the part of the file which was, I mean, the preview,
+how was modified and how was before the modification.
+
+Colombo Ferdinando   1:35:39
+Yes.
+
+Le Moglie Marco (marco.lemoglie)   1:35:40
+Logs, generate always logs.
+For command running, generate logs. For analysis,
+generate report in tech that you can easily read.
+Specifying the agent to put the code user for generating the specific table.
+What is the interpretation of this specific table? What is the ratio that it used for doing
+that specific analysis? They are much more easier to control than
+going file by file. Okay. So generate and tell the agent to
+generate this stuff. Okay. And then clearly a general review process
+that can be done by the human, by yourself or by other agents. Okay. When not use an agent, I mean. This is a weekly suggestion we're not
+using an agent, okay, in the sense that identification. Clearly, you don't have to use agent,
+but you can use agent to brainstorm about identification. OK,
+but then the last decision of the type of identification to implement and that need
+to rest on you. OK. Confidential data here depend on how much
+confidential this data are. OK, and so the policy in terms of
+confidential usage of this data. Final claims,
+this is something that you have to do. I mean,
+you can use a lot of the agent to draft the paper and reduce the time dramatically.
+But then when you do some claim in your draft,
+you have to review it very carefully by your own,
+because there is where the classier is loopness exists. OK, there is. The AI is not good at making claims,
+especially well-founded claims, OK? What does it mean? Well, essentially,
+you have a section which you start with some assumption,
+then you want to test this assumption through the analysis that you provide in
+the section and draw some conclusion from that result and that analysis. In that case. The drafting by the eye is good in the
+sense that the process is good, but then it does not connect very well
+the flow in the section up to the conclusion,
+the claim that you do in the conclusion. So we have to always to review the
+drafting, even if you can use it to draft, I mean, at least the first draft. Okay. Replication package,
+they are very good at doing that, but clearly you have to review before to
+send them out, but they are very, very good at doing that. OK,
+so use it in replicate in generating replication package.
+And don't using them for avoiding conflict with your author,
+just providing them with some result that your AI have generated and telling him. Look,
+the I provide the confirmation of what I'm telling you. This is not good to do.
+Okay, also because there is syncopacy in the I
+agent as like us in the chat bot. They tend to tell you what you want to
+wear. So,
+these bring us directly to the so-called alignment problem. OK,
+there is a general alignment problem with the AI world in the sense that,
+at the moment, we have decided to developing to develop
+the AI in a way in which we I mean,
+the companies just throw out a new model each week without thinking about the
+alignment between this model and humanity. This is very problematic because if
+really we achieve some point of time, the general intelligence,
+artificial intelligence, probably day one of the AGI will kill the entire
+humanity. Okay? But this is another problem. In our world,
+the local alignment means essentially that... What is good for AI is not... Good of me not to be good also for has as
+researchers. A good code does not mean. a good identification or a good result in
+terms of what you are, your research program, your research work. A table which is good at look at,
+not to be. Consistent in the content with respect to
+what you want to show. OK, so. You try,
+you have to try to align the skill, the very good skill of the agent to your
+own goal in each prompt, in each rule, in each knowledge base.
+They need to align, to be aligned to your scope, your goal. Don't do prompt like fix this table and
+let the agent do that, doing that. OK, but specifically do a prompt that
+specifically tell the agent that the way in which you want to fix the table. OK. why you think that this table need to be
+fixed and so on and so forth. Okay, this means aligning your scope with the
+EI in each prompt, with the agent in each prompt. Argentic architecture - how the agents
+work? OK, so far we have said that chatbots are
+different from Argent Pro, but why? Well, essentially,
+the big difference apart from token consuming is the fact that the agent has
+rules. What are rules?
+Rules are prompt that remain. A prompt that you have not to prompt
+again. The agent already and autonomously read
+once the session start. What are these rules? Well, for example,
+in the rules, you can put the project style or the
+convention. the naming of the structure of the
+citation format or the way in which you want the table or the regression to be
+run and produce it. You can put into what you want the agent
+to do or not to do. For example, so the description of result without
+approval by by the human, so on and so forth.
+Or you can prompt, you can write the verification stage and
+so essentially without telling the agent each time you have to review this stuff
+in this manner, blah blah blah. It would do it automatically by simply
+reading the rule. the original rule. What are these rules?
+A markdown file, markdown is a way to write a note in
+which you can essentially also, is a text file in which essentially you
+can also put some degree of importance to a specific part of the text file. You can create a list,
+you can create bullet point, you essentially create all that in the
+information contained within the text file. Typically,
+you have one rule file in the main route of your project,
+which is called All Agent MD, Code MD, rules MD,
+I strongly suggest you to maintain only one rule file.
+Don't create a lot of rule files because otherwise this generate ambiguosity when
+the agent read this kind of file. Okay, it's much better instead to create and
+maintain a knowledge base. Apart from the specific rule file in each
+project, the rule base can be essentially cooler
+once you need it, while instead this is read automatically
+when the session start. OK, so this start to burn your token even if
+you didn't prompt anything. Yes. You have a question? No. Ugh. So don't do a lot of rules file within
+your project. Just keep one very simple, very schematic. Don't write a lot.
+As always, these are not humans. They don't need the subordinates,
+subordinates, subordinates. Just bullet point is enough. If you really need to create memory,
+create some skill, create some procedure, hook loops,
+don't put them in the rule file, but rather generate a knowledge base that
+can be called each time that you need it. but it does not,
+it is not charged your session once the session start automatically,
+because otherwise you start to burn token without prompting. Okay,
+the same for skill. Skill is something with the connector MCP
+that we're going to use, we're going to discuss now. Don't use too much skill,
+at least in your project. Don't put your skill in your project,
+put your skill in your knowledge base, in your memory,
+because in this manner you can recall the skill once you need,
+but it is not recall automatically once the session start, which consume token.
+OK. Mm. So, memory as a layer here,
+you can create different kind of memories. OK,
+you really need the external tool to create memories. Agent, as like chatbot,
+has not haven't memories per se. Even in the same project within different
+conversation, they don't remember. Okay,
+so you need to create a memory. You can create different layer of memory.
+Clearly, I mean, memory we did the same conversation,
+remain, you don't need any external tool. Simply it remember what has been said in
+previously in the conversation. Between project,
+you need to create some memory, so here... I mean. This is valid for project persistency and
+graph. You need some external tool to create
+this memory. You can create this memory using
+repository, GitHub, for example. Each time you end a session,
+you do a push or a commitment to your specific repository in GitHub.
+And so the repository in GitHub reflects. the last session that you did.
+And then if you need to start again, you simply, at the next session,
+ask the agent to read your repository. That's it.
+The easiest way to create memory. The best way to create memory,
+also because this is local, so your notes, your information. doesn't go out of your laptop is using a
+knowledge base. There are plenty of app out there for
+creating a knowledge base, a second brain. The most useful, I mean,
+the one that I found most useful is Obsidian, okay,
+that help you to create these notes. to interconnect this note in a graph.
+And so, it's not just having all your information
+in one place that the agent can read, but the agent is going to read only the
+needed information because the notes are connected to each other.
+And the same is true also with the graph. because Obsidian allow you to create a
+graph among this information. So essentially, also among the code,
+instead of reading all the Python that you need for doing a specific task,
+once you need a change in the task related to a really tiny difference in your code.
+It doesn't need to read the entire set of code that you have that consume token.
+You just have this graph connecting each code with each other,
+and he already knows the code that he need to read.
+And the same is true with information, with the notes. in your vault. OK, so use external memory.
+This is game changing with the agent because, for example.
+Today I have everything in my laptop. Tomorrow I left my laptop on my home and
+I had the place of coder without my laptop. How can I recover my agent?
+It's a big problem. I could not in principle.
+But I have my knowledge base, which is on Dropbox,
+which has a tool that allows me to access it in another laptop, in another computer.
+I simply log in in in Dropbox. I log in my agent, my application,
+agent application in the laptop of my code,
+and I can easily recover what has been done in my laptop,
+even if I don't have it. K. Then I'm going to show you next time a
+possible structure, efficient structure for creating such a
+sort of memory. Essentially,
+we have two kind of way to construct memory, rag and the knowledge base. Rag,
+essentially what the agent does is chunking the conversation and the main
+point of conversation in specific small part that he recall each time he need. Okay. The advantage of this is very scalable,
+especially if you have a lot of file, a lot of code,
+this is not exploding because for each file,
+each code is essentially just generate some chunk of the code, some chunk of the of the file that essentially store in a
+vector database and recall easily once in need. What is the disadvantage?
+This is a black box. You cannot do anything on the vector
+database. Essentially, you don't know how the chunk is done by
+the agent. You don't know actually if the chunking the right part of the
+conversation, the silent part of the conversation.
+So also the recovery of the memory is not stable. Sometimes it works as you want,
+sometimes not. Okay. The other way instead,
+that it's the one that I use, actually is the knowledge base.
+This is a sort of folder in which there are many notes written in markdown file.
+Each note is connected to each other, so you can search Also, with the specific key,
+with the specific key, I hope across each note,
+you can manage directly your note by your own, modify what you need to modify.
+You can throw into the note PDF, image, video.
+It will create a markdown starting from the PDF. It can compare content of each note where they
+contrast when they instead say the same things is much more flexible in terms of
+management of your knowledge. What is the downside of this?
+You need to keep order a lot, okay, because if you start to throw everything
+you have in mind of this vote,
+it explode and they can generate much more consumption than without it. Okay,
+in terms of talking. The best thing to do is essentially a mix
+of the two. So having this knowledge base at the
+level of single project with a rag, which is over the whole project.
+So essentially using the rag to call specific memory, specific project. within each session,
+but then within each project, the memory is generated with the
+knowledge base. In this manner, it's much easier to keep order in the
+knowledge base, because essentially you have to keep
+order only within each specific project, and the rag help you to manage the fact
+that you could have hundreds of projects open.
+Okay. What I use in my knowledge base, I install several tools within the one
+advantage of the knowledge base that you can also install plug in and the tools
+within the knowledge base that help you to manage the knowledge base itself. For example,
+I have a tool which is called Memento, which essentially from in an autonomous
+way, from each conversation, when some decision is taken,
+when some action, important action is taken,
+essentially create a memory of that decision and that action that can be easily recalled by the agent this time
+that we face the same kind of task of problem. Then I have a code graph,
+which is a tool that essentially creates a graph from all the code that I have in
+the project. In this manner, as I said before,
+it doesn't need the agent to read all the code within the project,
+but only specifically the code which are connected each other. Okay.
+Then I have another tool which helped me to save the entire conversation at the
+end of each session and transform it in markdown at the end of the session.
+And so create this markdown. file in the vault that essentially sum up
+the best, the most important part of each
+conversation. Okay, but then you can add any kind of other
+tool to this knowledge base in order to make it easier to surf and search for you,
+but also for the agenda that use it. Then,
+the way in which the agent used the tool, there are essentially 3 manners. OK,
+the API that most of you already know, it's just a call to the endpoint of the
+tool online, is the way to connect to the tool which... is less consuming in terms of token
+because you need to call to make the call of the app.
+You need to ask the agent to do this call. Uhh. And so, and moreover, you have, I mean,
+you can miss, you can select very precisely what to
+send and what to ask to the API. Then there is the CLI.
+This is a bash command. It is a command that is run on your
+terminal. Each time that you need it, take this command, the agent,
+open the terminal and run the command. Clearly,
+you cannot select very easily what to send and what to receive. is much more consuming in terms of token
+than the API, but it consume a way fewer token than the
+last type of connector, which is the server MCP.
+This is the way which nowadays most of the agent talk with the internet. Okay,
+but also with the other tools, for example, Stata. For using Stata with your agent,
+you need to allow for the state MCP connector,
+and this allows the agent to run Stata, otherwise it cannot. OK,
+essentially is the way in which the tool is exposed to the agent. is much more precise, is much more,
+I mean, much more thing can be done through MCP
+with respect to the simple API. The API, for example,
+depend which kind of endpoint the company or the tool expose.
+You cannot do anything, everything with the API.
+With MCP is like you. running the tool. Okay,
+so you can do everything. What is the problem? This is like skill.
+If you have the MCP activated in your agent, once you open the session,
+it starts to consume token. Okay, so you should avoid to use MCP. as much as you can. You can use CLI.
+There is an app that allow you to create a CLI for any kind of tool or any kind of
+web page that you need. Also the one that they don't have their
+own MCP or their own CLI, okay, which is printing press is called.
+I'm gonna give you the. the link in the next session. Then there is also sub-agent.
+These are very useful, especially if you have a long workflow.
+When you establish a plan with an agent, the plan is made by several points.
+Not all these points are sequential, and so they could be run parallel. in parallel way by difference budget. OK,
+this is much faster in terms of achieving the goal. Clearly,
+they consume more token. OK, but especially for long workflow,
+this could be very helpful, especially if you set. I mean... You repeat long workflow very often.
+For example, starting from an idea up to check if the
+idea have sense, makes sense in some way. What you do? Well,
+essentially you do brainstorming. OK, then you look for literature.
+This can be done by one specific sub-agent.
+You look for data, can be done by a specific sub-agent.
+Once you have the data, you can run regression.
+This can be done by a specific sub-agent. If you have everything done,
+you want a rapper to check what has been done, if the idea makes sense,
+can be done by other sub-agent. OK, some parallel way,
+some other sequential way, OK? For example,
+make you this kind of procedure explicit. Once you have the plan that you have to
+approval, you have, you want, you could decide which point need to be
+done by the same agent, which agent will do the specific point if
+the point need to be If the agent need to work parallelly or
+in sequential way, it's everything that you have in your
+dashboard interface. You just have to click on this. OK. Then there are skill hooks and loops.
+These are probably the most useful stuff for repeated task. What are skills?
+Reusable procedures. How we make figures, how we check tables,
+how we write a referee response. Probably you have your own style of
+making table, your own style of writing draft,
+your own style of making report, your style in evaluate the thesis,
+for example. You can do a skill,
+which essentially you can easily call each time you need to redo the same task.
+So, for example... I am now moving a paper from one journal
+to the other, and each journal has its own language,
+its own reference to put into the in the text,
+the way in which the subject is framed, and so on and so forth. So,
+I create a skill. which essentially once I give the way
+which the journal, the information about the journal I want
+to submit, it automatically drafts me the paper in
+the way which the journal wants the paper, both in terms of form,
+that is the number of words, the number of figure,
+the page of the manuscript, the number of pages of the appendix,
+but those in terms of content. So instead of talking about educational
+policy, demography prefer to talk about something
+related to demography, he frame the entire staff in terms of
+what demography wants. Okay, if you want to make a table,
+regression table, typically I put the base value at the end,
+the percentage with respect to the base value,
+I keep outside the name of variable and so on and so forth.
+I create a skill to create a table and so Each time the agent need to create a
+table from a regression, he automatically called the skill and
+created the table in the way which I want the way I want the skill the table to be
+to be done. hooks.
+This is automatic check before or after agent act. If you put an hooks,
+essentially this is a procedure that run each time something happened.
+It's like an if. OK, an if loop. Um... Loops, essentially, this is automation,
+proper automation. For example, you want to keep updated with the
+literature, you can create a loop that each week on
+Monday, going to search on specific sources of
+the all new papers. that have been published with respect to
+the field that you need to read about. OK, or rather. This time that I add to a paper a new
+specification, he run specific robustness tests on that
+new specification and update the draft. Okay,
+these are all automation that the agent can do. Actually. At the beginning,
+you will not have all this stuff because you have to create this habit.
+But once you start to do things with agent,
+the best thing to do once something works is creating this stuff.
+Because this is really the time saving part of all the agent. Yes. No, no depend on the agent.
+There are also agents that work when the laptop is down on the code.
+Open Code is an agent system that work outside of your laptop,
+so you can also turn off the depend on the agent.
+Most of the typical agent you have. To the laptop, turn on, turn it on. You can do, I mean,
+you can run your agent, for example, Cloud Codex,
+you can run them also on the OpenAI Cloud and Entropic Cloud.
+You can do that with your plan without adding more money. But typically what I do is installing on
+this, your agent or your mobile, you left the laptop,
+turn it on at your place, and you are the seaside,
+and you just work. I mean, just control the work done by the agent. and chat with the agent.
+This is the best thing to free time and still working in good with good quality.
+Moreover, if you create this stuff, managing workflow skill is very easy.
+You just, I want to, I am the C side, I want to, I receive the rejection from Journal of Public Economics.
+And then I want to move to demography. I just ask the agent, OK,
+apply the skill journal and give me the result of the draft for demography.
+He does everything. Then he provided me in the chat with the
+artifact generated. I control the artifact generated or
+directly generated in overleaf, for example. I read the overleaf,
+I want to change this stuff, blah blah blah, and then from the C side,
+they can resubmit directly. It's very... Very easy to do.
+But what I suggest is start, when you start to use agent,
+if you see something that is repeatable and it works very well because the agent
+did it very well, create a skill or create a workflow,
+which is a command, which is easier, is better than a skill because It is not you is not charged by the agent
+by default. You need to call it with slash slash
+workflow. OK, and they start to do essentially it's
+like a prompting without prompting. He already knows what to do. You can. Again, one, I mean,
+it might be knowledge base. I have a session start prompt and session
+and prompt. In the session and prompt, he knows, just read this prompt,
+this markdown in the prompt, there is, if you find the conversation something
+that can be scalable, make the skill. A automatically create a skill,
+if see if it is see something that can be reused in some in other project or in the
+same project. OK, you can use the, I mean, the entire knowledge base that I did had
+been created by the agent. I didn't it manually,
+I didn't write down each. Note, I just add a project, my brain,
+in which I create my knowledge base using the agent. Okay,
+so just some case studies teaser for the next session. Little review. I mean,
+this is tentative because probably I will not go through all of them. Moreover,
+I would like to show you a live screen from the scratch some idea. Not something that have been done by me
+replicated by really new idea that show you the kind of problem that you can
+encounter once you use agent. So one thing that's very cool with agent
+that I revive that project, that project, I mean, project that I Put, I mean, rest in peace project,
+I would call in the. So, what I'm gonna do is showing you
+something that I've done so far with the agent related to specific task within
+research flow, but also outside the research flow, and The idea is to see together how this work,
+the kind of problem that you can face when you start to generate data set from
+scratch, to review code, to create new tables,
+and so on and so forth. OK, so I leave you here without going through all these examples just because we're
+going to do this example in the next session.
+I hope that you find this helpful and we're going to see and meet again next
+Wednesday. Okay?
