@@ -1,0 +1,231 @@
+% =============================================================
+% Models and benchmarks
+% =============================================================
+
+\sectionframe[Who builds them, how to compare them, what people use]{Models and benchmarks}
+
+% -------- Who builds frontier models --------
+\begin{frame}{Who builds frontier models, October 2026}
+  \vspace{0.4em}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \group{United States, closed weights}
+      \renewcommand{\arraystretch}{1.3}
+      \begin{tabularx}{\linewidth}{>{\bfseries\color{ink}}l >{\small\leavevmode\color{dark}}X}
+        Anthropic & Claude Opus 5.5, Sonnet 5.5, Fable 5.1, Haiku 5.5\\
+        OpenAI & GPT-6 Astra, GPT-6.1 Sol, GPT-6 Luna\\
+        Google & Gemini 4 Argon\\
+        Meta & Muse Wonder, Muse Wonder Full\\
+        SpaceXAI & Grok 4.7\\
+      \end{tabularx}
+    \column{0.48\textwidth}
+      \group{China, mostly open weights}
+      \renewcommand{\arraystretch}{1.3}
+      \begin{tabularx}{\linewidth}{>{\bfseries\color{ink}}l >{\small\leavevmode\color{dark}}X}
+        DeepSeek & DeepSeek V4.1 Flash\\
+        Z.ai & GLM-5.3, GLM-5.3 Flash\\
+        Moonshot & Kimi K3, Kimi K3.1 Pro\\
+        Alibaba & Qwen3.8\\
+        Xiaomi & MiMo-V2.6 Pro and Flash\\
+      \end{tabularx}
+  \end{columns}
+  \vfill
+  {\small\color{muted}Frontier releases now arrive weeks apart: Grok 4.7 on 21 Sep, Opus 5.5 on 22 Sep, Muse Wonder on 12 Oct, Kimi K3.1 Pro on 23 Oct.\par}
+  \source{vendor release pages; Artificial Analysis model list, read 26 Oct 2026.}
+\end{frame}
+
+% -------- One independent index --------
+\pgfplotstableread[col sep=comma]{assets/lesson1/charts/data/aa_index_2026-10.csv}\aatable
+\begin{frame}{One independent index}
+  \begin{columns}[c,onlytextwidth]
+    \column{0.60\textwidth}
+      \begin{tikzpicture}
+        \begin{axis}[l1axis,
+            width=0.8\linewidth,height=6.1cm,
+            xbar,bar width=6pt,bar shift=0pt,
+            xmin=0,xmax=64,
+            xtick={0,20,40,60},
+            ytick={0,...,11},y dir=reverse,
+            ymin=-0.6,ymax=11.6,
+            yticklabels from table={\aatable}{model},
+            yticklabel style={font=\scriptsize,color=dark},
+            xlabel={Artificial Analysis Intelligence Index},
+            nodes near coords,
+            nodes near coords style={font=\scriptsize,color=muted,anchor=west},
+            unbounded coords=discard,
+          ]
+          \addplot[draw=none,fill=ink,only if={weights}{closed}]
+            table[x=index,y expr=\coordindex]{\aatable};
+          \addplot[draw=none,fill=accent,only if={weights}{open}]
+            table[x=index,y expr=\coordindex]{\aatable};
+        \end{axis}
+      \end{tikzpicture}
+    \column{0.36\textwidth}
+      {\small
+      {\color{accent}\bfseries Orange}: weights you can download today. {\color{ink}\bfseries Blue}: API only.\par
+      \vspace{0.7em}
+      {\color{muted}The best open-weight model sits 12 points below the top.\par}
+      \vspace{0.7em}
+      {\color{muted}Kimi K3.1 Pro is called open-weight at launch; the weights are promised for 4 Nov. Until then, it is a closed model.\par}
+      \vspace{0.7em}
+      {\color{muted}gpt-oss-120b is shown as the strongest US open-weight reference.\par}}
+  \end{columns}
+  \source{\citet{aa_2026_index}, best setting per model, read 26 Oct 2026; \texttt{aa\_index\_2026-10.csv}.}
+\end{frame}
+
+% -------- How to read a benchmark --------
+\begin{frame}{How to read a benchmark}
+  \begin{columns}[c,onlytextwidth]
+    \column{0.45\textwidth}
+      {\small
+      \group{Who ran it}
+      {\color{muted}An independent lab, or the vendor's own launch post? Launch charts often reuse rivals' self-reported numbers.\par}
+      \vspace{0.6em}
+      \group{At which setting}
+      {\color{muted}Claude Opus 5.5 scores 58 at maximum effort and 42 at low effort. Same model, same week.\par}
+      \vspace{0.6em}
+      \group{Ranked by what}
+      {\color{muted}Capability and use rank models differently. On the right, the same five models on two scales.\par}}
+    \column{0.51\textwidth}
+      \begin{tikzpicture}[x=2.3cm,y=0.62cm]
+        \node[font=\scriptsize\bfseries,text=ink,anchor=east] at (0,6.0) {ordered by index};
+        \node[font=\scriptsize\bfseries,text=ink,anchor=west] at (1,6.0) {by tokens used};
+        \foreach \l/\a/\s/\b/\t/\c in {%
+          Claude Opus 5.5/1/58/4/8.3T/ink,%
+          DeepSeek V4.1 Flash/2/45/1/33.6T/accent,%
+          GLM-5.3 Flash/3/42/2/13.2T/accent,%
+          GPT-6 Luna/4/38/3/8.4T/ink,%
+          MiMo-V2.6 Flash/5/38/5/6.1T/accent}{%
+          \draw[\c,line width=0.9pt] (0,5.4-\a) -- (1,5.4-\b);
+          \fill[\c] (0,5.4-\a) circle (2pt);
+          \fill[\c] (1,5.4-\b) circle (2pt);
+          \node[anchor=east,font=\scriptsize,text=dark] at (-0.04,5.4-\a) {\l\quad\s};
+          \node[anchor=west,font=\scriptsize,text=muted] at (1.04,5.4-\b) {\t};
+        }
+      \end{tikzpicture}
+      \par\vspace{0.2em}{\color{muted}\scriptsize Index: Artificial Analysis. Tokens: OpenRouter, week to 25 Oct 2026.\par}
+  \end{columns}
+\end{frame}
+
+% -------- Intelligence per dollar --------
+\pgfplotstableread[col sep=comma]{assets/lesson1/charts/data/price_vs_index.csv}\pxtable
+\begin{frame}{Intelligence per dollar}
+  \begin{columns}[c,onlytextwidth]
+    \column{0.64\textwidth}
+      \begin{tikzpicture}
+        \begin{axis}[l1axis,
+            width=\linewidth,height=6.0cm,
+            xmode=log,xmin=0.04,xmax=12,
+            xtick={0.1,1,10},xticklabels={\$0.10,\$1,\$10},
+            ymin=34,ymax=61,ytick={40,50,60},
+            xlabel={cost to run the index once, per task (log scale)},
+            ylabel={index},
+            only marks,
+            unbounded coords=discard,
+          ]
+          \addplot[mark=*,mark size=2.2pt,color=ink,only if={weights}{closed}]
+            table[x=cost_per_task,y=index]{\pxtable};
+          \addplot[mark=*,mark size=2.2pt,color=accent,only if={weights}{open}]
+            table[x=cost_per_task,y=index]{\pxtable};
+          \foreach \x/\y/\l/\p in {5.98/58/Claude Opus 5.5/east,2.11/55/Kimi K3.1 Pro/east,
+              0.72/52/GPT-6.1 Sol/east,0.13/46/MiMo-V2.6-Pro/south west,
+              0.26/45/DeepSeek V4.1 Flash/north west,2.01/45/GLM-5.3/north,
+              0.21/43/Claude Haiku 5.5/north west,0.07/38/GPT-6 Luna/west}{%
+            \edef\temp{\noexpand\node[font=\noexpand\tiny,text=muted,anchor=\p,inner sep=2.5pt] at (axis cs:\x,\y) {\l};}\temp
+          }
+        \end{axis}
+      \end{tikzpicture}
+    \column{0.32\textwidth}
+      {\small
+      {\color{muted}Opus 5.5 costs \$5.98 per task and scores 58.\par}
+      \vspace{0.5em}
+      {\color{muted}GPT-6.1 Sol costs \$0.72 and scores 52.\par}
+      \vspace{0.5em}
+      {\color{muted}MiMo-V2.6-Pro, open weights, costs \$0.13 and scores 46.\par}
+      \vspace{0.9em}
+      {\color{ink}\bfseries About 45 times cheaper for twelve points. Whether that trade is good depends on the task.\par}}
+  \end{columns}
+  \source{\citet{aa_2026_index}, ``cost per task'' column, read 26 Oct 2026; \texttt{price\_vs\_index.csv}.}
+\end{frame}
+
+% -------- What people actually use --------
+\pgfplotstableread[col sep=comma]{assets/lesson1/charts/data/openrouter_share_2026-10-19.csv}\ortable
+\begin{frame}{What people actually use}
+  \begin{columns}[c,onlytextwidth]
+    \column{0.56\textwidth}
+      \begin{tikzpicture}
+        \begin{axis}[l1axis,
+            width=\linewidth,height=5.8cm,
+            xbar,bar width=6.5pt,bar shift=0pt,
+            xmin=0,xmax=31,
+            xtick={0,10,20,30},xticklabels={0\%,10\%,20\%,30\%},
+            ytick={0,...,9},y dir=reverse,
+            ymin=-0.6,ymax=9.6,
+            yticklabels from table={\ortable}{author},
+            yticklabel style={font=\scriptsize,color=dark},
+            xlabel={share of requests on OpenRouter, week of 19 Oct 2026},
+            nodes near coords,
+            nodes near coords style={font=\scriptsize,color=muted,anchor=west},
+            unbounded coords=discard,
+          ]
+          \addplot[draw=none,fill=accent,only if={country}{CN}]
+            table[x=share,y expr=\coordindex]{\ortable};
+          \addplot[draw=none,fill=ink,only if={country}{US}]
+            table[x=share,y expr=\coordindex]{\ortable};
+          \addplot[draw=none,fill=faint,only if={country}{EU}]
+            table[x=share,y expr=\coordindex]{\ortable};
+          \addplot[draw=none,fill=faint,only if={country}{other}]
+            table[x=share,y expr=\coordindex]{\ortable};
+        \end{axis}
+      \end{tikzpicture}
+    \column{0.40\textwidth}
+      {\small
+      {\color{accent}\bfseries Orange}: Chinese labs. {\color{ink}\bfseries Blue}: US labs.\par
+      \vspace{0.7em}
+      {\color{muted}Open-weight models have carried more than 62\% of OpenRouter tokens every week since July 2026.\par}
+      \vspace{0.7em}
+      {\color{ink}\bfseries This is traffic on one router, counted in requests. It is not market share, users or spend.\par}}
+  \end{columns}
+  \source{\citet{openrouter_2026_rankings} (CC BY 4.0); \citet{openrouter_2026_tokenstate}.}
+\end{frame}
+
+% -------- Open weights, open source, local --------
+\begin{frame}{Open weights, open source, local}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \defn{Open weights}{The trained parameters can be downloaded and run on your own hardware, under the terms of a licence.}{DeepSeek, GLM, Qwen, MiMo, Kimi K3, gpt-oss, Gemma.}
+      \vspace{0.7em}
+      \defn{Open source AI}{Open weights, plus the training code and enough information about the data to rebuild the model.}{Open Source Initiative, Open Source AI Definition 1.0. Few frontier models qualify.}
+    \column{0.46\textwidth}
+      {\small
+      \group{Licences differ}
+      {\color{muted}Kimi K3's licence requires a separate agreement from model-as-a-service businesses above \$20M in yearly revenue. Read the licence before building on a model.\par}
+      \vspace{0.6em}
+      \group{Local pays off when}
+      {\color{muted}data cannot leave the machine, or the same small task runs thousands of times.\par}
+      \vspace{0.6em}
+      \group{Local hurts when}
+      {\color{muted}the task needs frontier reasoning or long agent loops on a laptop. Tools: Ollama, LM Studio.\par}}
+  \end{columns}
+\end{frame}
+
+% -------- Demo 4 --------
+\demoframe{Live: same harness, another model}{%
+  {\small
+  Run the bug-fixing task from the first demo in OpenCode.\\[0.4em]
+  Change one flag, \texttt{-m}, and run it again with a different model.\par}}{%
+  {\small
+  Time to finish.\\[0.4em]
+  Number of steps.\\[0.4em]
+  Whether ``done'' is really done.\par}}
+
+\begin{frame}{Recorded result: one task, three models}
+  \vspace{0.6em}
+  \begin{center}
+  \renewcommand{\arraystretch}{1.3}
+  \input{assets/lesson1/traces/demo4_table.tex}
+  \end{center}
+  \vfill
+  {\small\color{muted}Same harness, same prompt, same repository, same day. Only the \texttt{-m} flag changed. A one-line typo is easy for all three; harder tasks are where models separate.\par}
+  \source{runs on 26 Oct 2026; full logs in \texttt{assets/lesson1/traces/}.}
+\end{frame}
