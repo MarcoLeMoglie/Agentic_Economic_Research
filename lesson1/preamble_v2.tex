@@ -1,0 +1,204 @@
+% =============================================================
+% Agentic AI for Economic Research, Lesson 1 theme (v2)
+% Compiler: pdflatex (no fontspec). Paths are relative to repo root.
+% Design read: lecture deck for economics PhD students and faculty,
+% watched over a screen share; calm academic language; one ink colour,
+% one accent, real screenshots and data charts as the only visuals.
+% Dials: variance 5, motion 1, density 4.
+% =============================================================
+
+\documentclass[aspectratio=169,10pt]{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage[default,scale=0.95]{sourcesanspro}
+\usepackage[scaled=0.85]{sourcecodepro}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{microtype}
+
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,calc,fit,backgrounds}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{dateplot}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{hyperref}
+\usepackage[most]{tcolorbox}
+\usepackage{fancyvrb}
+\usepackage[round,authoryear]{natbib}
+\bibliographystyle{plainnat}
+
+\ifdefined\DeclareUnicodeCharacter
+  \DeclareUnicodeCharacter{2192}{\ensuremath{\rightarrow}}
+  \DeclareUnicodeCharacter{2190}{\ensuremath{\leftarrow}}
+  \DeclareUnicodeCharacter{2717}{x}
+  \DeclareUnicodeCharacter{00B7}{\textperiodcentered}
+\fi
+
+\graphicspath{{assets/lesson1/screens/}{assets/lesson1/logos/}{assets/real/}}
+
+% ---------- Palette (locked: one ink, one accent, one cool grey family) ----------
+\definecolor{ink}{HTML}{163A59}
+\definecolor{accent}{HTML}{D97706}
+\definecolor{dark}{HTML}{111827}
+\definecolor{muted}{HTML}{4B5563}
+\definecolor{faint}{HTML}{9CA3AF}
+\definecolor{hair}{HTML}{D1D5DB}
+\definecolor{paper}{HTML}{F8FAFC}
+\definecolor{tint}{HTML}{EEF2F6}
+% semantic only (good / bad), never decorative
+\definecolor{good}{HTML}{166534}
+\definecolor{bad}{HTML}{B91C1C}
+
+\hypersetup{colorlinks=true,linkcolor=ink,urlcolor=ink,citecolor=ink}
+
+% ---------- Beamer base ----------
+\useinnertheme{rectangles}
+\useoutertheme{default}
+\setbeamersize{text margin left=2.2em,text margin right=2.2em}
+\setbeamercolor{background canvas}{bg=paper}
+\setbeamercolor{normal text}{fg=dark}
+\setbeamercolor{structure}{fg=ink}
+\setbeamercolor{alerted text}{fg=accent}
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamercolor{frametitle}{fg=ink}
+\setbeamertemplate{frametitle}{%
+  \vspace{0.9em}%
+  \begin{minipage}[t]{\dimexpr\paperwidth-4.4em\relax}%
+    \raggedright\insertframetitle\par
+    \vspace{-0.35em}{\color{accent}\rule{2.2em}{1.2pt}}%
+  \end{minipage}%
+  \vspace{0.2em}%
+}
+
+\setbeamertemplate{footline}{%
+  \leavevmode\hbox to \paperwidth{%
+    \hspace{2.2em}{\color{faint}\fontsize{6.5}{8}\selectfont Agentic AI for Economic Research, Lesson 1}%
+    \hfill{\color{faint}\fontsize{6.5}{8}\selectfont\insertframenumber}\hspace{2.2em}}%
+  \vspace{0.9em}%
+}
+
+% bullets: small grey square, no chevrons
+\setbeamertemplate{itemize item}{\raisebox{0.18em}{\color{faint}\rule{0.32em}{0.32em}}}
+\setbeamertemplate{itemize subitem}{\raisebox{0.2em}{\color{hair}\rule{0.26em}{0.26em}}}
+\setbeamertemplate{enumerate item}{\color{ink}\bfseries\insertenumlabel.}
+\setlength{\leftmargini}{1.1em}
+
+% ---------- tcolorbox styles (radius locked at 2pt) ----------
+\tcbset{
+  l1base/.style={enhanced,arc=2pt,outer arc=2pt,boxrule=0pt,
+    left=0pt,right=0pt,top=0pt,bottom=0pt},
+}
+
+% Definition: accent rule on the left, term, text, source
+\newtcolorbox{defbox}[1]{enhanced,frame hidden,interior hidden,
+  borderline west={1.6pt}{0pt}{accent},
+  left=0.9em,right=0pt,top=0.15em,bottom=0.15em,
+  fontupper=\normalsize,
+  before upper={{\color{ink}\bfseries #1}\par\vspace{0.25em}}}
+\newcommand{\defn}[3]{%
+  \begin{defbox}{#1}#2\par\vspace{0.3em}{\color{muted}\scriptsize #3}\end{defbox}}
+
+% Real file or real terminal output, read verbatim from disk:
+% \filebox[width]{path}{caption}
+\newcommand{\filebox}[3][\linewidth]{%
+  \begin{tcolorbox}[l1base,width=#1,colback=white,
+      borderline={0.4pt}{0pt}{hair},left=0.6em,right=0.4em,top=0.4em,bottom=0.4em]
+    \VerbatimInput[fontsize=\fontsize{6}{7.1}\selectfont,formatcom=\color{dark}]{#2}%
+  \end{tcolorbox}%
+  \par\vspace{0.15em}{\color{muted}\scriptsize #3}}
+
+% Screenshot frame: hairline border, caption below
+\newcommand{\shot}[3][\linewidth]{%
+  \begin{tcolorbox}[l1base,width=#1,colback=white,
+      borderline={0.4pt}{0pt}{hair},left=0pt,right=0pt,top=0pt,bottom=0pt]
+    \includegraphics[width=\linewidth]{#2}%
+  \end{tcolorbox}%
+  \par\vspace{0.15em}{\color{muted}\scriptsize #3}}
+\newcommand{\shoth}[4][\linewidth]{% height-capped variant: [width]{file}{height}{caption}
+  \begin{tcolorbox}[l1base,width=#1,colback=white,halign=center,
+      borderline={0.4pt}{0pt}{hair},left=0pt,right=0pt,top=0pt,bottom=0pt]
+    \includegraphics[width=\linewidth,height=#3,keepaspectratio]{#2}%
+  \end{tcolorbox}%
+  \par\vspace{0.15em}{\color{muted}\scriptsize #4}}
+
+% Source line at the bottom of a frame
+\newcommand{\source}[1]{\vfill{\color{muted}\scriptsize Source: #1\par}}
+
+% One statement per slide, at most
+\newcommand{\takeaway}[1]{\par\vspace{0.5em}{\color{ink}\large\bfseries #1\par}}
+
+% Small group label used instead of numbered labels
+\newcommand{\group}[1]{{\color{ink}\bfseries #1}\par\vspace{0.2em}}
+
+% Section divider: ink background, topic name only
+\newcommand{\sectionframe}[2][]{%
+\begin{frame}[plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[ink] (current page.south west) rectangle (current page.north east);
+    \node[anchor=south west,inner sep=0pt,text=white,align=left,text width=0.8\paperwidth]
+      at ($(current page.south west)+(1.6cm,1.7cm)$)
+      {{\fontsize{28}{33}\selectfont\bfseries #2}\par\vspace{0.4em}{\color{white!75!ink}\large #1}};
+    \fill[accent] ($(current page.south west)+(1.6cm,1.25cm)$) rectangle ++(1.4cm,0.06cm);
+  \end{tikzpicture}
+\end{frame}}
+
+% Live demo placeholder
+\newcommand{\demoframe}[3]{% {title}{what we do}{what to look at}
+\begin{frame}{#1}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.55\textwidth}
+      \group{What we do}
+      #2
+    \column{0.40\textwidth}
+      \group{What to look at}
+      #3
+  \end{columns}
+  \vfill{\color{muted}\scriptsize Live on screen share. Demo repository: \url{https://github.com/MarcoLeMoglie/demo-lesson1}. If the demo fails, the next slide shows the recorded result.\par}
+\end{frame}}
+
+% ---------- TikZ styles ----------
+\tikzset{
+  lab/.style={align=center,font=\small,text=dark},
+  sub/.style={align=center,font=\scriptsize,text=muted},
+  hl/.style={align=center,font=\small\bfseries,text=ink},
+  frameb/.style={draw=hair,line width=0.5pt,rounded corners=2pt,fill=white},
+  inkb/.style={draw=ink,line width=0.8pt,rounded corners=2pt,fill=white},
+  accb/.style={draw=accent,line width=0.9pt,rounded corners=2pt,fill=white},
+  arr/.style={-{Stealth[length=4pt]},line width=0.6pt,color=faint},
+  arrA/.style={-{Stealth[length=5pt]},line width=0.9pt,color=accent},
+}
+
+% ---------- pgfplots defaults: no legends, no background tracks ----------
+\pgfplotsset{
+  l1axis/.style={
+    axis lines*=left,
+    axis line style={hair},
+    tick style={draw=none},
+    ticklabel style={font=\scriptsize,color=muted},
+    label style={font=\scriptsize,color=muted},
+    every axis plot/.append style={line width=0.6pt},
+    enlargelimits=false,
+    clip=false,
+    /pgf/number format/assume math mode=true,
+  },
+  % keep only rows whose column #1 equals #2 (colour bars by group from the CSV)
+  only if/.style 2 args={
+    x filter/.code={\getthisrow{#1}\tempa\edef\tempb{#2}%
+      \ifx\tempa\tempb\else\def\pgfmathresult{inf}\fi}},
+}
+
+% ---------- Metadata ----------
+\title{Agentic AI for Economic Research}
+\author{Marco Le Moglie}
+\institute{Catholic University of the Sacred Heart}
