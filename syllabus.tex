@@ -1,0 +1,127 @@
+\documentclass[10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[margin=0.72in]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage[default,scale=0.95]{sourcesanspro}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[colorlinks=true,urlcolor=blue!50!black]{hyperref}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{array}
+
+\definecolor{deepblue}{HTML}{163A59}
+\definecolor{accent}{HTML}{D97706}
+\definecolor{muted}{HTML}{4B5563}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.4em}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}p{0.14\linewidth}}
+\newcolumntype{R}{>{\raggedright\arraybackslash}p{0.82\linewidth}}
+
+\begin{document}
+\thispagestyle{empty}
+
+{\Large\bfseries\color{deepblue} Agentic AI for Economic Research}\\[-0.15em]
+{\large Practical workshop for first-year PhD students in Economics}\\[0.25em]
+{\color{accent}\rule{\linewidth}{1.2pt}}
+
+\vspace{0.35em}
+
+\textbf{Format:} 4 sessions $\times$ 2 hours (8 hours total) \\
+\textbf{Instructor:} Prof. Marco Le Moglie -- Catholic University of the Sacred Heart
+
+\vspace{0.35em}
+
+\textbf{\color{deepblue}Why this course}
+
+Economic research still runs on the same steps---literature, data, identification,
+estimation, writing, revision---but the tools around those steps are changing quickly.
+Agents can now read files, run code, search the web, and carry out multi-step tasks on
+your behalf. That can save real time, but only if you know how to set them up, what to
+delegate, and what to verify.
+
+This course is not about whether AI will replace economists, nor about choosing the
+``best'' model. It is a practical introduction to \emph{agentic workflows}: how to use
+AI assistants as controlled collaborators across a research pipeline, without losing
+oversight of what they do.
+
+\vspace{0.2em}
+
+\textbf{\color{deepblue}Structure}
+
+\textbf{Before class --- Pre-course readings (required).}
+Theoretical foundations are covered in written materials distributed before Session~1:
+what agents are, how they differ from chatbots, core vocabulary (context, tokens, rules,
+MCP connectors), and the main risks (hallucination, automation bias, over-delegation).
+Come to the first session having read these notes.
+
+\vspace{0.15em}
+
+\begin{tabularx}{\linewidth}{@{}L R@{}}
+\toprule
+\textbf{Session} & \textbf{Topic} \\
+\midrule
+\textbf{1} &
+\textbf{Interfaces and setup.} Desktop apps, IDEs, CLIs, and browser-based tools;
+chat vs.\ agent modes; model and context settings; project rules; basic permissions
+and control. Goal: choose and configure a working environment. \\
+\addlinespace
+\textbf{2} &
+\textbf{Memory and knowledge.} Persistent memory, RAG, and project knowledge bases;
+building and querying a research ``second brain'' with Obsidian. Goal: give agents
+stable context across sessions without dumping everything into every prompt. \\
+\addlinespace
+\textbf{3} &
+\textbf{Research workflow --- live examples (I).} Concrete cases along the pipeline:
+literature synthesis, data documentation, replication checks, Stata/LaTeX assistance,
+referee-response drafting. Emphasis on prompting, verification, and iteration. \\
+\addlinespace
+\textbf{4} &
+\textbf{Research workflow --- live examples (II).} Going further: custom commands,
+hooks, skills, automations, agent loops, and lightweight multi-agent review (e.g.\
+code audit, robustness checks). Goal: reusable setups you can adapt to your own
+projects. \\
+\bottomrule
+\end{tabularx}
+
+\vspace{0.2em}
+
+\textbf{\color{deepblue}What you will be able to do}
+
+By the end of the course, you should be able to:
+\begin{enumerate}\setlength\itemsep{0.15em}
+  \item \textbf{Set up} an agentic environment suited to economic research (IDE or CLI,
+        rules, connectors).
+  \item \textbf{Decide} what to delegate to an agent and what to keep under direct
+        control.
+  \item \textbf{Build} a small knowledge base and connect it to your workflow so agents
+        can retrieve project-specific context.
+  \item \textbf{Apply} agents to common research tasks---reading papers, documenting
+        data, coding, writing, responding to feedback---with explicit verification
+        steps.
+  \item \textbf{Design} simple reusable automations (commands, skills, hooks) for tasks
+        you repeat often.
+  \item \textbf{Evaluate} agent output critically: spot errors, avoid automation bias,
+        and maintain an audit trail.
+\end{enumerate}
+
+\vspace{0.15em}
+
+\textbf{\color{deepblue}What this course is not}
+Not a programming course (basic familiarity with Stata/R/Python and LaTeX is enough);
+not a survey of every AI product on the market; not a substitute for econometric
+training or research judgment.
+
+\vfill
+{\scriptsize\color{muted}
+Pre-course readings, slide sources, and session recordings:
+\href{https://github.com/MarcoLeMoglie/Agentic_Economic_Research}{github.com/MarcoLeMoglie/Agentic\_Economic\_Research}.
+}
+
+\end{document}
