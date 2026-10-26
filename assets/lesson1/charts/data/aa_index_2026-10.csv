@@ -1,0 +1,13 @@
+model,lab,country,weights,index,setting
+Claude Opus 5.5,Anthropic,US,closed,58,max
+Muse Wonder Full,Meta,US,closed,56,max
+Kimi K3.1 Pro,Moonshot,CN,closed,55,default
+GPT-6 Astra,OpenAI,US,closed,53,max
+Gemini 4 Argon,Google,US,closed,53,high
+GPT-6.1 Sol,OpenAI,US,closed,52,max
+Grok 4.7,SpaceXAI,US,closed,46,xhigh
+MiMo-V2.6-Pro,Xiaomi,CN,open,46,default
+DeepSeek V4.1 Flash 1017,DeepSeek,CN,open,45,max
+GLM-5.3,Z.ai,CN,open,45,max
+Qwen3.8 Max,Alibaba,CN,closed,45,default
+gpt-oss-120b,OpenAI,US,open,12,high

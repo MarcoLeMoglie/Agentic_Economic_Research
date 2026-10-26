@@ -1,0 +1,18 @@
+> build · deepseek-v4.1-flash-free
+→ Read code/analysis.do
+$ command -v stata-mp || ls .../MacOS/stata-mp
+.../MacOS/stata-mp
+$ .../stata-mp -b do code/analysis.do; echo "EXIT:$?"
+EXIT:0
+→ Read analysis.log
+← Edit code/analysis.do
+-gen lprice = ln(prise)
++gen lprice = ln(price)
+$ .../stata-mp -b do code/analysis.do; echo "EXIT:$?";
+  tail -20 analysis.log
+EXIT:0
+[...]
+(output written to output/table1.tex)
+Fixed typo in `code/analysis.do:11`
+(`ln(prise)` → `ln(price)`), reran the do-file,
+and confirmed `output/table1.tex` exists.

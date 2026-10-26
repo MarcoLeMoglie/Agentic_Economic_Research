@@ -1,0 +1,147 @@
+
+> build · deepseek-v4.1-flash-free
+
+✗ Read MEMORY.md failed
+Error: File not found: /private/tmp/demo-run/MEMORY.md
+→ Read code/analysis.do
+
+$ ls -la && ls -la code output data 2>/dev/null
+total 24
+drwxr-xr-x@ 10 marco  wheel   320 Oct 26 17:07 .
+drwxrwxrwt  22 root   wheel   704 Oct 26 17:07 ..
+drwxr-xr-x@  3 marco  wheel    96 Oct 26 17:07 .agents
+drwxr-xr-x@ 13 marco  wheel   416 Oct 26 17:07 .git
+-rw-r--r--@  1 marco  wheel    42 Oct 26 17:07 .gitignore
+-rw-r--r--@  1 marco  wheel   934 Oct 26 17:07 AGENTS.md
+-rw-r--r--@  1 marco  wheel  1169 Oct 26 17:07 README.md
+drwxr-xr-x@  3 marco  wheel    96 Oct 26 17:07 code
+drwxr-xr-x@  3 marco  wheel    96 Oct 26 17:07 data
+drwxr-xr-x@  3 marco  wheel    96 Oct 26 17:07 output
+code:
+total 8
+drwxr-xr-x@  3 marco  wheel   96 Oct 26 17:07 .
+drwxr-xr-x@ 10 marco  wheel  320 Oct 26 17:07 ..
+-rw-r--r--@  1 marco  wheel  524 Oct 26 17:07 analysis.do
+
+data:
+total 32
+drwxr-xr-x@  3 marco  wheel     96 Oct 26 17:07 .
+drwxr-xr-x@ 10 marco  wheel    320 Oct 26 17:07 ..
+-rw-r--r--@  1 marco  wheel  12766 Oct 26 17:07 auto.dta
+
+output:
+total 0
+drwxr-xr-x@  3 marco  wheel   96 Oct 26 17:07 .
+drwxr-xr-x@ 10 marco  wheel  320 Oct 26 17:07 ..
+-rw-r--r--@  1 marco  wheel    0 Oct 26 17:07 .gitkeep
+
+$ command -v stata-mp || ls /Applications/Stata/StataMP.app/Contents/MacOS/stata-mp 2>/dev/null || ls /Applications/Stata* 2>/dev/null
+/Applications/Stata/StataMP.app/Contents/MacOS/stata-mp
+
+$ git log --oneline -5 && cat README.md
+893ff34 Lesson 1 demo: auto data, buggy do-file, AGENTS.md, regression-table skill
+# demo-lesson1
+
+Material for the four live demos in Lesson 1 of *Agentic AI for Economic
+Research*. Clone it and follow along:
+
+```
+git clone https://github.com/MarcoLeMoglie/demo-lesson1
+cd demo-lesson1
+```
+
+`code/analysis.do` contains a deliberate bug. Do not fix it before the lesson.
+
+| Demo | What we do | What to watch |
+|------|------------|---------------|
+| Chat vs agent | Paste the do-file into a chat window and ask for the bug. Then give the same request to an agent in this folder. | The chat guesses; the agent runs Stata, reads `analysis.log`, edits, reruns. |
+| Context and compaction | Long session, then `/compact` in Codex. | The context meter before and after; what the summary keeps. |
+| MCP and skills | Ask for "a regression table" with the skill in `.agents/skills/` available. | The agent loads `SKILL.md` only when the request matches. |
+| Model swap | Same task in OpenCode, first with a closed model, then with an open-weight model via OpenRouter. | Same harness, same tools, different model: speed, cost, result. |
+
+## Requirements
+
+Stata 17 or later with `esttab` (`ssc install estout`). One of: Codex CLI,
+Claude Code, Cursor, OpenCode.
+
+$ /Applications/Stata/StataMP.app/Contents/MacOS/stata-mp -b do code/analysis.do; echo "EXIT:$?"; ls -la analysis.log output/
+EXIT:0
+-rw-r--r--@ 1 marco  wheel  1415 Oct 26 17:08 analysis.log
+
+output/:
+total 0
+drwxr-xr-x@  3 marco  wheel   96 Oct 26 17:07 .
+drwxr-xr-x@ 11 marco  wheel  352 Oct 26 17:08 ..
+-rw-r--r--@  1 marco  wheel    0 Oct 26 17:07 .gitkeep
+
+→ Read analysis.log
+
+← Edit code/analysis.do
+Index: /private/tmp/demo-run/code/analysis.do
+===================================================================
+--- /private/tmp/demo-run/code/analysis.do
++++ /private/tmp/demo-run/code/analysis.do
+@@ -7,9 +7,9 @@
+ 
+ use "data/auto.dta", clear
+ 
+ * log price, used as the outcome
+-gen lprice = ln(prise)
++gen lprice = ln(price)
+ 
+ * fuel efficiency in litres per 100 km
+ gen l100km = 235.21 / mpg
+ 
+
+
+$ /Applications/Stata/StataMP.app/Contents/MacOS/stata-mp -b do code/analysis.do; echo "EXIT:$?"; tail -20 analysis.log; ls -la output/table1.tex
+EXIT:0
+    Foreign  |   .4860038   .1397896     3.48   0.001     .2064772    .7655303
+             |
+       rep78 |
+          2  |    .037192   .1322981     0.28   0.780    -.2273544    .3017384
+          3  |   .0793197   .0922905     0.86   0.393    -.1052267     .263866
+          4  |   .1024637   .1137227     0.90   0.371    -.1249389    .3298664
+          5  |   .1462298    .140576     1.04   0.302    -.1348692    .4273289
+             |
+       _cons |   6.941932   .2153583    32.23   0.000     6.511297    7.372568
+------------------------------------------------------------------------------
+
+. estimates store m2
+
+. 
+. esttab m1 m2 using "output/table1.tex", replace se label booktabs
+(file output/table1.tex not found)
+(output written to output/table1.tex)
+
+. 
+end of do-file
+-rw-r--r--@ 1 marco  wheel  1973 Oct 26 17:08 output/table1.tex
+
+Fixed typo in `code/analysis.do:11` (`ln(prise)` → `ln(price)`), reran the do-file, and confirmed `output/table1.tex` exists (1973 bytes).
+
+Last 20 lines of `analysis.log`:
+```
+    Foreign  |   .4860038   .1397896     3.48   0.001     .2064772    .7655303
+             |
+       rep78 |
+          2  |    .037192   .1322981     0.28   0.780    -.2273544    .3017384
+          3  |   .0793197   .0922905     0.86   0.393    -.1052267     .263866
+          4  |   .1024637   .1137227     0.90   0.371    -.1249389    .3298664
+          5  |   .1462298    .140576     1.04   0.302    -.1348692    .4273289
+             |
+       _cons |   6.941932   .2153583    32.23   0.000     6.511297    7.372568
+------------------------------------------------------------------------------
+
+. estimates store m2
+
+. 
+. esttab m1 m2 using "output/table1.tex", replace se label booktabs
+(file output/table1.tex not found)
+(output written to output/table1.tex)
+
+. 
+end of do-file
+```
+
+Note: per `README.md`, that typo was intentional for the lesson.

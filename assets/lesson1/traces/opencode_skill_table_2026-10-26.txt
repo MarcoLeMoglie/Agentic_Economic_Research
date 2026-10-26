@@ -1,0 +1,188 @@
+
+> build · deepseek-v4.1-flash-free
+
+$ ls -la; cat MEMORY.md 2>/dev/null | head -50
+total 24
+drwxr-xr-x@ 10 marco  wheel   320 Oct 26 17:16 .
+drwxrwxrwt  37 root   wheel  1184 Oct 26 17:16 ..
+drwxr-xr-x@  3 marco  wheel    96 Oct 26 17:16 .agents
+drwxr-xr-x@ 13 marco  wheel   416 Oct 26 17:16 .git
+-rw-r--r--@  1 marco  wheel    42 Oct 26 17:16 .gitignore
+-rw-r--r--@  1 marco  wheel   934 Oct 26 17:16 AGENTS.md
+-rw-r--r--@  1 marco  wheel  1169 Oct 26 17:16 README.md
+drwxr-xr-x@  3 marco  wheel    96 Oct 26 17:16 code
+drwxr-xr-x@  3 marco  wheel    96 Oct 26 17:16 data
+drwxr-xr-x@  3 marco  wheel    96 Oct 26 17:16 output
+
+→ Read code/analysis.do
+→ Read .agents/skills/regression-table/SKILL.md
+
+$ which stata-mp || ls /Applications/Stata/StataMP.app/Contents/MacOS/stata-mp 2>/dev/null; ls output; cat README.md
+/Applications/Stata/StataMP.app/Contents/MacOS/stata-mp
+# demo-lesson1
+
+Material for the four live demos in Lesson 1 of *Agentic AI for Economic
+Research*. Clone it and follow along:
+
+```
+git clone https://github.com/MarcoLeMoglie/demo-lesson1
+cd demo-lesson1
+```
+
+`code/analysis.do` contains a deliberate bug. Do not fix it before the lesson.
+
+| Demo | What we do | What to watch |
+|------|------------|---------------|
+| Chat vs agent | Paste the do-file into a chat window and ask for the bug. Then give the same request to an agent in this folder. | The chat guesses; the agent runs Stata, reads `analysis.log`, edits, reruns. |
+| Context and compaction | Long session, then `/compact` in Codex. | The context meter before and after; what the summary keeps. |
+| MCP and skills | Ask for "a regression table" with the skill in `.agents/skills/` available. | The agent loads `SKILL.md` only when the request matches. |
+| Model swap | Same task in OpenCode, first with a closed model, then with an open-weight model via OpenRouter. | Same harness, same tools, different model: speed, cost, result. |
+
+## Requirements
+
+Stata 17 or later with `esttab` (`ssc install estout`). One of: Codex CLI,
+Claude Code, Cursor, OpenCode.
+
+$ stata-mp -b do code/analysis.do; echo "EXIT:$?"; tail -40 analysis.log
+/bin/bash: stata-mp: command not found
+EXIT:127
+tail: analysis.log: No such file or directory
+
+$ /Applications/Stata/StataMP.app/Contents/MacOS/stata-mp -b do code/analysis.do; echo "EXIT:$?"; tail -40 analysis.log
+EXIT:0
+
+. estimates store m1
+
+. 
+. regress lprice l100km weight i.foreign i.rep78, vce(robust)
+
+Linear regression                               Number of obs     =         69
+                                                F(7, 61)          =      11.23
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.5656
+                                                Root MSE          =     .27002
+
+------------------------------------------------------------------------------
+             |               Robust
+      lprice | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      l100km |   .0193381   .0330818     0.58   0.561     -.046813    .0854892
+      weight |   .0004064   .0001529     2.66   0.010     .0001006    .0007121
+             |
+     foreign |
+    Foreign  |   .4860038   .1397896     3.48   0.001     .2064772    .7655303
+             |
+       rep78 |
+          2  |    .037192   .1322981     0.28   0.780    -.2273544    .3017384
+          3  |   .0793197   .0922905     0.86   0.393    -.1052267     .263866
+          4  |   .1024637   .1137227     0.90   0.371    -.1249389    .3298664
+          5  |   .1462298    .140576     1.04   0.302    -.1348692    .4273289
+             |
+       _cons |   6.941932   .2153583    32.23   0.000     6.511297    7.372568
+------------------------------------------------------------------------------
+
+. estimates store m2
+
+. 
+. esttab m1 m2 using "output/table1.tex", replace se label booktabs
+(file output/table1.tex not found)
+(output written to output/table1.tex)
+
+. 
+end of do-file
+
+→ Read output/table1.tex
+
+$ grep -n -i "error\|warning\|r(" analysis.log | head -20; echo ---; head -30 analysis.log
+28:r(199);
+---
+
+  ___  ____  ____  ____  ____ ©
+ /__    /   ____/   /   ____/      17.0
+___/   /   /___/   /   /___/       MP—Parallel Edition
+
+ Statistics and Data Science       Copyright 1985-2021 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-STATA-PC        https://www.stata.com
+                                   979-696-4600        stata@stata.com
+
+Stata license: Single-user 2-core  perpetual
+Serial number: 501706343699
+  Licensed to: MARCO LE MOGLIE
+               Catholic University
+
+Notes:
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. More than 2 billion observations are allowed; see help obs_advice.
+      4. Maximum number of variables is set to 5,000; see help set_maxvar.
+
+
+Running /Users/marcolemoglie_1_2/Library/Application Support/Stata/ado/personal
+> /profile.do ...
+command panelwhiz is unrecognized
+r(199);
+
+. do code/analysis.do
+
+$ ls -la .git; git log --oneline -5; git status --short
+total 48
+drwxr-xr-x@ 13 marco  wheel  416 Oct 26 17:16 .
+drwxr-xr-x@ 11 marco  wheel  352 Oct 26 17:16 ..
+-rw-r--r--@  1 marco  wheel    9 Oct 26 17:16 COMMIT_EDITMSG
+-rw-r--r--@  1 marco  wheel   21 Oct 26 17:16 HEAD
+-rw-r--r--@  1 marco  wheel  315 Oct 26 17:16 config
+-rw-r--r--@  1 marco  wheel   73 Oct 26 17:16 description
+drwxr-xr-x@ 16 marco  wheel  512 Oct 26 17:16 hooks
+-rw-r--r--@  1 marco  wheel  826 Oct 26 17:16 index
+drwxr-xr-x@  3 marco  wheel   96 Oct 26 17:16 info
+drwxr-xr-x@  4 marco  wheel  128 Oct 26 17:16 logs
+drwxr-xr-x@ 23 marco  wheel  736 Oct 26 17:16 objects
+-rw-r--r--@  1 marco  wheel   40 Oct 26 17:16 opencode
+drwxr-xr-x@  5 marco  wheel  160 Oct 26 17:16 refs
+8d4d8f3 fix typo
+893ff34 Lesson 1 demo: auto data, buggy do-file, AGENTS.md, regression-table skill
+
+← Edit code/analysis.do
+Index: /private/tmp/demo-run3/code/analysis.do
+===================================================================
+--- /private/tmp/demo-run3/code/analysis.do
++++ /private/tmp/demo-run3/code/analysis.do
+@@ -18,5 +18,7 @@
+ 
+ regress lprice l100km weight i.foreign i.rep78, vce(robust)
+ estimates store m2
+ 
+-esttab m1 m2 using "output/table1.tex", replace se label booktabs
++esttab m1 m2 using "output/table1.tex", replace ///
++    se label booktabs star(* 0.10 ** 0.05 *** 0.01) ///
++    stats(N r2, labels("Observations" "R-squared"))
+
+
+$ /Applications/Stata/StataMP.app/Contents/MacOS/stata-mp -b do code/analysis.do; echo "EXIT:$?"; tail -20 analysis.log
+EXIT:0
+             |
+       rep78 |
+          2  |    .037192   .1322981     0.28   0.780    -.2273544    .3017384
+          3  |   .0793197   .0922905     0.86   0.393    -.1052267     .263866
+          4  |   .1024637   .1137227     0.90   0.371    -.1249389    .3298664
+          5  |   .1462298    .140576     1.04   0.302    -.1348692    .4273289
+             |
+       _cons |   6.941932   .2153583    32.23   0.000     6.511297    7.372568
+------------------------------------------------------------------------------
+
+. estimates store m2
+
+. 
+. esttab m1 m2 using "output/table1.tex", replace ///
+>     se label booktabs star(* 0.10 ** 0.05 *** 0.01) ///
+>     stats(N r2, labels("Observations" "R-squared"))
+(output written to output/table1.tex)
+
+. 
+end of do-file
+
+→ Read output/table1.tex
+Updated `code/analysis.do:22` to export with explicit stars and fit stats. Table written to `output/table1.tex` with 2 columns (m1, m2), robust SEs in parentheses, observations (74/69), R-squared, and `* p<0.10, ** p<0.05, *** p<0.01`.

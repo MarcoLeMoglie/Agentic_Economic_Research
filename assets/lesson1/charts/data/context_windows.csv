@@ -1,0 +1,9 @@
+label,year,tokens,group,show
+GPT-4 (Mar 2023),2023,8192,past,8k
+Claude 2.1 (Nov 2023),2023,200000,past,200k
+Qwen3.8 27B (local),2026,256000,now,256k
+Grok 4.7,2026,500000,now,500k
+Claude Opus 5.5,2026,1000000,now,1M
+Gemini 4 Argon,2026,1000000,now,1M
+DeepSeek V4.1 Flash,2026,1000000,now,1M
+GPT-6.1 Sol,2026,1050000,now,1.05M

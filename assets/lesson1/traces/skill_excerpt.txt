@@ -1,0 +1,16 @@
+> build · deepseek-v4.1-flash-free
+→ Read code/analysis.do
+→ Read .agents/skills/regression-table/SKILL.md
+[...]
+← Edit code/analysis.do
+-esttab m1 m2 using "output/table1.tex", replace se label booktabs
++esttab m1 m2 using "output/table1.tex", replace ///
++    se label booktabs star(* 0.10 ** 0.05 *** 0.01) ///
++    stats(N r2, labels("Observations" "R-squared"))
+$ .../stata-mp -b do code/analysis.do; echo "EXIT:$?";
+  tail -20 analysis.log
+(output written to output/table1.tex)
+→ Read output/table1.tex
+Table written to `output/table1.tex` with 2 columns (m1, m2),
+robust SEs in parentheses, observations (74/69), R-squared,
+and `* p<0.10, ** p<0.05, *** p<0.01`.

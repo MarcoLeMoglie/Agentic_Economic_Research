@@ -1,0 +1,76 @@
+
+> build · glm-5.3
+
+→ Read code/analysis.do
+
+$ ls -la /private/tmp/demo4-glm-5.3 /private/tmp/demo4-glm-5.3/output 2>&1
+/private/tmp/demo4-glm-5.3:
+total 24
+drwxr-xr-x@ 10 marco  wheel   320 Oct 26 17:32 .
+drwxrwxrwt  44 root   wheel  1408 Oct 26 17:32 ..
+drwxr-xr-x@  3 marco  wheel    96 Oct 26 17:32 .agents
+drwxr-xr-x@ 13 marco  wheel   416 Oct 26 17:32 .git
+-rw-r--r--@  1 marco  wheel    42 Oct 26 17:32 .gitignore
+-rw-r--r--@  1 marco  wheel   934 Oct 26 17:32 AGENTS.md
+-rw-r--r--@  1 marco  wheel  1169 Oct 26 17:32 README.md
+drwxr-xr-x@  3 marco  wheel    96 Oct 26 17:32 code
+drwxr-xr-x@  3 marco  wheel    96 Oct 26 17:32 data
+drwxr-xr-x@  3 marco  wheel    96 Oct 26 17:32 output
+
+/private/tmp/demo4-glm-5.3/output:
+total 0
+drwxr-xr-x@  3 marco  wheel   96 Oct 26 17:32 .
+drwxr-xr-x@ 10 marco  wheel  320 Oct 26 17:32 ..
+-rw-r--r--@  1 marco  wheel    0 Oct 26 17:32 .gitkeep
+
+The bug is on line 11 of `code/analysis.do`: `ln(prise)` is a typo for `ln(price)`. Fixing it:
+← Edit code/analysis.do
+Index: /private/tmp/demo4-glm-5.3/code/analysis.do
+===================================================================
+--- /private/tmp/demo4-glm-5.3/code/analysis.do
++++ /private/tmp/demo4-glm-5.3/code/analysis.do
+@@ -7,9 +7,9 @@
+ 
+ use "data/auto.dta", clear
+ 
+ * log price, used as the outcome
+-gen lprice = ln(prise)
++gen lprice = ln(price)
+ 
+ * fuel efficiency in litres per 100 km
+ gen l100km = 235.21 / mpg
+ 
+
+
+$ command -v stata-mp || ls /Applications/Stata/StataMP.app/Contents/MacOS/stata-mp
+/Applications/Stata/StataMP.app/Contents/MacOS/stata-mp
+
+$ /Applications/Stata/StataMP.app/Contents/MacOS/stata-mp -b do code/analysis.do
+(no output)
+
+$ tail -20 analysis.log && echo "---" && ls -l output/
+Foreign  |   .4860038   .1397896     3.48   0.001     .2064772    .7655303
+             |
+       rep78 |
+          2  |    .037192   .1322981     0.28   0.780    -.2273544    .3017384
+          3  |   .0793197   .0922905     0.86   0.393    -.1052267     .263866
+          4  |   .1024637   .1137227     0.90   0.371    -.1249389    .3298664
+          5  |   .1462298    .140576     1.04   0.302    -.1348692    .4273289
+             |
+       _cons |   6.941932   .2153583    32.23   0.000     6.511297    7.372568
+------------------------------------------------------------------------------
+
+. estimates store m2
+
+. 
+. esttab m1 m2 using "output/table1.tex", replace se label booktabs
+(file output/table1.tex not found)
+(output written to output/table1.tex)
+
+. 
+end of do-file
+---
+total 8
+-rw-r--r--@ 1 marco  wheel  1973 Oct 26 17:32 table1.tex
+
+Done. The bug was a typo on line 11: `gen lprice = ln(prise)` → `ln(price)`. After the fix, the do-file ran clean to `end of do-file` (no errors; last 20 log lines shown above) and `output/table1.tex` now exists (1,973 bytes) with both regressions via `esttab`.
