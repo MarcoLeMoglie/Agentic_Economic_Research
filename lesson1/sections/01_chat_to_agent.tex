@@ -1,0 +1,150 @@
+% =============================================================
+% From chat to agent
+% =============================================================
+
+\sectionframe[What changes when the model can act]{From chat to agent}
+
+% -------- Model + harness = agent --------
+\begin{frame}{Model plus harness equals agent}
+  \begin{columns}[c,onlytextwidth]
+    \column{0.47\textwidth}
+      \defn{Harness}{The runtime layer that wraps a language model and turns it into an agent that can act: it runs the loop, exposes tools, manages context and enforces controls.}{\citet{macedo_2026_harness}; \citet{barbaste_2026_harness}}
+      \vspace{0.9em}
+      {\small\color{muted}Not a harness: an agent framework such as LangChain, or an evaluation harness such as SWE-bench's. Across eleven production harnesses, none imports a general agent framework.\par}
+    \column{0.49\textwidth}
+      \begin{center}
+      \begin{tikzpicture}
+        \draw[hair,line width=0.6pt] (0,0) circle (1.75cm);
+        \node[accb,minimum width=1.7cm,minimum height=0.8cm,font=\bfseries,text=ink] (m) at (0,0) {Model};
+        \foreach \a/\t in {90/loop,0/tools,270/context,180/controls}{
+          \fill[paper] (\a:1.75) circle (0.42cm);
+          \node[lab] at (\a:1.75) {\t};
+        }
+        \node[sub,anchor=west] at (2.35,0.55) {files};
+        \node[sub,anchor=west] at (2.35,0) {shell};
+        \node[sub,anchor=west] at (2.35,-0.55) {web, APIs};
+        \draw[arr] (2.25,0.55) -- (1.95,0.3);
+        \draw[arr] (2.25,0) -- (2.05,0);
+        \draw[arr] (2.25,-0.55) -- (1.95,-0.3);
+        \node[sub] at (0,-2.25) {harness};
+        \node[sub,anchor=west] at (2.35,1.05) {\itshape environment};
+      \end{tikzpicture}
+      \end{center}
+  \end{columns}
+  \takeaway{Same model, different harness: a different agent.}
+\end{frame}
+
+% -------- Chatbot vs agent --------
+\begin{frame}{Chatbot vs agent}
+  \vspace{0.6em}
+  \begin{center}
+  \renewcommand{\arraystretch}{1.25}
+  \begin{tabularx}{0.86\linewidth}{>{\bfseries\color{ink}}l X X}
+  \toprule
+   & \leavevmode\color{muted}Chatbot & \leavevmode\color{muted}Agent\\
+  \midrule
+  Who runs the loop & You & The harness\\
+  Unit of delegation & An answer & A task\\
+  Files & Pasted or attached & Read, edited, created\\
+  Failure mode & A wrong \emph{answer} & A wrong \emph{action}\\
+  Your role & Reader & Supervisor\\
+  \bottomrule
+  \end{tabularx}
+  \end{center}
+  \takeaway{Different failure mode, different control.}
+\end{frame}
+
+% -------- The loop, in a real trace --------
+\begin{frame}{The loop, in a real trace}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.36\textwidth}
+      \vspace{0.3em}
+      {\small
+      \group{Observe}{\color{muted}reads the do-file\par}
+      \vspace{0.45em}
+      \group{Act}{\color{muted}runs Stata in batch\par}
+      \vspace{0.45em}
+      \group{Observe}{\color{muted}exit code 0, yet the log says \texttt{prise not found}\par}
+      \vspace{0.45em}
+      \group{Act}{\color{muted}edits one line\par}
+      \vspace{0.45em}
+      \group{Verify}{\color{muted}reruns, shows the end of the log, as \texttt{AGENTS.md} asks\par}}
+    \column{0.60\textwidth}
+      \filebox{assets/lesson1/traces/loop_excerpt.txt}{Real run on the course demo repository, 26 Oct 2026: OpenCode with DeepSeek V4.1 Flash (free tier), 22 seconds. Paths shortened.}
+  \end{columns}
+\end{frame}
+
+% -------- Timeline --------
+\begin{frame}{From chat window to command center}
+  \vspace{1.2em}
+  \begin{center}
+  \begin{tikzpicture}[x=2.72cm]
+    \draw[hair,line width=0.6pt] (-0.1,0) -- (4.1,0);
+    \foreach \x/\d/\e/\c in {%
+      0/Nov 2022/ChatGPT: a chat window/faint,%
+      1/Feb 2025/Claude Code: an agent in the terminal/faint,%
+      2/Feb 2026/Codex app: ``a command center for agents''/faint,%
+      3/Jul 2026/Codex merges into the ChatGPT desktop app/accent,%
+      4/Sep 2026/Claude: Chat and Cowork become one/accent}{%
+      \fill[\c] (\x,0) circle (2.8pt);
+      \node[anchor=south,font=\scriptsize\bfseries,text=ink] at (\x,0.22) {\d};
+      \node[anchor=north,font=\small,text=dark,text width=2.45cm,align=center] at (\x,-0.25) {\e};
+    }
+  \end{tikzpicture}
+  \end{center}
+  \vfill
+  \takeaway{The interface no longer tells you whether you are chatting or delegating.}
+  \source{\citet{openai_2026_chatgptapp}; \citet{anthropic_2026_oneclaude}; OpenAI, \emph{Introducing the Codex app}, 2 Feb 2026.}
+\end{frame}
+
+% -------- METR --------
+\begin{frame}{How long a task can an agent finish?}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.64\textwidth}
+      \shot{metr_time_horizon.png}{METR, Time Horizon 1.1. Captured 26 Oct 2026.}
+    \column{0.32\textwidth}
+      \vspace{0.2em}
+      {\small
+      \group{What it measures}
+      {\color{muted}The length of software tasks, timed on human experts, that a model completes half of the time.\par}
+      \vspace{0.7em}
+      \group{What it does not}
+      {\color{muted}How long an agent works alone. Economics tasks. Anything above 16 hours, which METR calls unreliable.\par}
+      \vspace{0.7em}
+      \group{Status}
+      {\color{muted}Page frozen on 8 Sep 2026.\par}}
+  \end{columns}
+\end{frame}
+
+% -------- Demo 1 --------
+\demoframe{Live: chat vs agent}{%
+  {\small
+  The do-file in the demo repository fails.\\[0.4em]
+  First, paste it into a chat window and ask for the bug.\\[0.4em]
+  Then give the same sentence to an agent opened in the repository folder.\par}}{%
+  {\small
+  Who runs Stata.\\[0.4em]
+  Who reads the log.\\[0.4em]
+  What you have to check at the end.\par}}
+
+\begin{frame}{Recorded result: what the agent left behind}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.42\textwidth}
+      \group{The change}
+      \begin{tcolorbox}[l1base,colback=white,borderline={0.4pt}{0pt}{hair},left=0.6em,top=0.4em,bottom=0.4em]
+        \ttfamily\footnotesize
+        {\color{bad}- gen lprice = ln(prise)}\\
+        {\color{good}+ gen lprice = ln(price)}
+      \end{tcolorbox}
+      \vspace{0.9em}
+      {\small\color{muted}One line in the do-file. The data are untouched, as the rules file asks.\par}
+      \vspace{0.9em}
+      {\small\color{muted}The table runs, but look at the empty base-category rows: ``done'' still needs a reader. Lesson 3.\par}
+    \column{0.54\textwidth}
+      \group{The output}
+      \begin{tcolorbox}[l1base,colback=white,borderline={0.4pt}{0pt}{hair},halign=center,top=0.3em,bottom=0.3em]
+        \resizebox*{!}{5.3cm}{\input{assets/lesson1/traces/table1_from_agent.tex}}
+      \end{tcolorbox}
+      {\color{muted}\scriptsize \texttt{output/table1.tex} as written by the agent, compiled unedited.\par}
+  \end{columns}
+\end{frame}

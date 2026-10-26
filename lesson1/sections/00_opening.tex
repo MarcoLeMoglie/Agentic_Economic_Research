@@ -1,0 +1,60 @@
+% =============================================================
+% Opening: title, the four lessons, twelve words
+% =============================================================
+
+% -------- Title --------
+\begin{frame}[plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[ink] (current page.south west) rectangle (current page.north east);
+    \node[anchor=south west,inner sep=0pt,text=white,align=left,text width=0.82\paperwidth]
+      at ($(current page.south west)+(1.6cm,3.4cm)$)
+      {{\fontsize{30}{35}\selectfont\bfseries Agentic AI for\\[0.1em] Economic Research}\par
+       \vspace{0.7em}{\Large Lesson 1: The vocabulary}};
+    \fill[accent] ($(current page.south west)+(1.6cm,2.95cm)$) rectangle ++(1.4cm,0.06cm);
+    \node[anchor=south west,inner sep=0pt,text=white!78!ink,align=left,font=\small]
+      at ($(current page.south west)+(1.6cm,1.1cm)$)
+      {Marco Le Moglie, Catholic University of the Sacred Heart\\
+       Four lessons of two hours, autumn 2026\\
+       \href{https://github.com/MarcoLeMoglie/demo-lesson1}{\color{white!78!ink}github.com/MarcoLeMoglie/demo-lesson1}};
+  \end{tikzpicture}
+\end{frame}
+
+% -------- The course in four lessons --------
+\begin{frame}{The course in four lessons}
+  \vspace{1.6em}
+  \begin{center}
+  \begin{tikzpicture}[x=3.45cm]
+    \draw[hair,line width=0.6pt] (0,0) -- (3,0);
+    \foreach \x/\name/\q/\c in {%
+      0/Vocabulary/What are these things?/accent,%
+      1/Second brain/How do agents remember?/faint,%
+      2/Control/How do I check their work?/faint,%
+      3/Automations/How do they run without me?/faint}{%
+      \fill[\c] (\x,0) circle (3.2pt);
+      \node[anchor=south,font=\scriptsize,text=muted] at (\x,0.25) {Lesson \the\numexpr\x+1\relax};
+      \node[anchor=north,font=\large\bfseries,text=ink] at (\x,-0.25) {\name};
+      \node[anchor=north,font=\small,text=muted,text width=3.1cm,align=center] at (\x,-0.85) {\q};
+    }
+  \end{tikzpicture}
+  \end{center}
+  \vfill
+  {\color{muted}\small Today is the map. The next three lessons build on these words.\par}
+\end{frame}
+
+% -------- Twelve words for today --------
+\begin{frame}{Twelve words for today}
+  \vspace{0.8em}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.31\textwidth}
+      \group{What an agent is}
+      {\large model\\[0.25em] harness\\[0.25em] agent\\[0.25em] tool and permission\par}
+    \column{0.31\textwidth}
+      \group{What it sees}
+      {\large prompt\\[0.25em] context window\\[0.25em] token\\[0.25em] compaction\par}
+    \column{0.31\textwidth}
+      \group{How you extend it}
+      {\large rules file\\[0.25em] MCP\\[0.25em] skill\\[0.25em] sub-agent\par}
+  \end{columns}
+  \vfill
+  {\color{muted}\small By the end you should be able to define each one in a sentence. The last slide checks.\par}
+\end{frame}

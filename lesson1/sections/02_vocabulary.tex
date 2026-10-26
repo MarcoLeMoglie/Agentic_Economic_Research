@@ -1,0 +1,236 @@
+% =============================================================
+% Core vocabulary
+% =============================================================
+
+\sectionframe[What the agent sees, and how you extend it]{Core vocabulary}
+
+% -------- Prompt vs task --------
+\begin{frame}{Prompt vs task}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.44\textwidth}
+      \defn{Prompt}{``Explain how to cluster standard errors in Stata.''}{One question, one answer. No state, no side effects.}
+      \vspace{0.8em}
+      \defn{Task}{``Rerun both models with clustered errors, regenerate the table, tell me what changed.''}{A goal, a workflow, an artefact you can check.}
+    \column{0.50\textwidth}
+      \group{A task an agent can finish names four things}
+      \vspace{0.3em}
+      \renewcommand{\arraystretch}{1.35}
+      \begin{tabularx}{\linewidth}{>{\bfseries\color{ink}}l X}
+        Goal & what should exist at the end\\
+        Inputs & which files, which data\\
+        Limits & what must not change\\
+        Done & how you will check it\\
+      \end{tabularx}
+  \end{columns}
+  \takeaway{Agents change the unit of delegation.}
+\end{frame}
+
+% -------- Context window and tokens --------
+\pgfplotstableread[col sep=comma]{assets/lesson1/charts/data/context_windows.csv}\ctxtable
+\begin{frame}{Context window and tokens}
+  \begin{columns}[c,onlytextwidth]
+    \column{0.58\textwidth}
+      \begin{tikzpicture}
+        \begin{axis}[l1axis,
+            width=0.82\linewidth,height=5.4cm,
+            xbar,bar width=7pt,bar shift=0pt,
+            xmode=log,log basis x=10,log origin x=infty,
+            xmin=5000,xmax=2000000,
+            xtick={10000,100000,1000000},
+            xticklabels={10k,100k,1M},
+            ytick={0,...,7},y dir=reverse,
+            ymin=-0.6,ymax=7.6,
+            unbounded coords=discard,
+            yticklabels from table={\ctxtable}{label},
+            yticklabel style={font=\scriptsize,color=dark},
+            xlabel={tokens the model can see at once (log scale)},
+            nodes near coords,
+            point meta=explicit symbolic,
+            nodes near coords style={font=\scriptsize,color=muted,anchor=west},
+          ]
+          \addplot[draw=none,fill=faint,only if={group}{past}]
+            table[x=tokens,y expr=\coordindex,meta=show]{\ctxtable};
+          \addplot[draw=none,fill=ink,only if={group}{now}]
+            table[x=tokens,y expr=\coordindex,meta=show]{\ctxtable};
+        \end{axis}
+      \end{tikzpicture}
+    \column{0.38\textwidth}
+      {\small
+      \group{Token}
+      {\color{muted}The unit models read, write and bill. A 30-page paper is roughly 25k.\par}
+      \vspace{0.6em}
+      \group{Context window}
+      {\color{muted}Everything the model sees in one turn: rules, files, tool output, history.\par}
+      \vspace{0.6em}
+      \group{Context rot}
+      {\color{muted}Accuracy falls as the window fills. A bigger window is not a better memory.\par}}
+  \end{columns}
+  \source{vendor model pages and Artificial Analysis, read 26 Oct 2026; \texttt{context\_windows.csv}.}
+\end{frame}
+
+% -------- Compaction --------
+\begin{frame}{Compaction}
+  \defn{Compaction}{Taking a conversation nearing the context window limit, summarizing its contents, and reinitiating a new context window with the summary.}{\citet{anthropic_2025_context}. In Codex and Claude Code: \texttt{/compact}. Most harnesses also do it on their own.}
+  \vspace{0.9em}
+  \begin{center}
+  \begin{tikzpicture}
+    \tikzset{win/.style={draw=hair,line width=0.5pt,rounded corners=2pt,fill=white,minimum width=3.0cm,minimum height=1.25cm}}
+    \node[win] (a) at (0,0) {};
+    \fill[faint] ($(a.south west)+(0.12,0.12)$) rectangle ($(a.north east)+(-0.12,-0.12)$);
+    \node[sub,below=0.12cm of a] {window almost full};
+    \node[win] (b) at (4.4,0) {};
+    \fill[accent] ($(b.south west)+(0.12,0.12)$) rectangle ++(0.65,1.01);
+    \node[sub,below=0.12cm of b] {old turns become a summary};
+    \node[win] (c) at (8.8,0) {};
+    \fill[accent] ($(c.south west)+(0.12,0.12)$) rectangle ++(0.65,1.01);
+    \fill[ink!55] ($(c.south west)+(0.85,0.12)$) rectangle ++(0.55,1.01);
+    \node[sub,below=0.12cm of c] {summary, recent files, room to work};
+    \draw[arr] (a.east) -- (b.west);
+    \draw[arr] (b.east) -- (c.west);
+  \end{tikzpicture}
+  \end{center}
+  \takeaway{A summary loses detail. Decisions belong in files.}
+\end{frame}
+
+% -------- Rules files --------
+\begin{frame}{Rules files: prompts that stay}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.56\textwidth}
+      \filebox{assets/lesson1/files/AGENTS_excerpt.md}{\texttt{AGENTS.md} of the course demo repository (excerpt). The agent reads it at every session start.}
+    \column{0.40\textwidth}
+      \vspace{0.2em}
+      {\small
+      \group{Where the agent is}
+      {\color{muted}Layout of the project, what is raw and what is output.\par}
+      \vspace{0.6em}
+      \group{What it must not do}
+      {\color{muted}Never touch the data. No new packages without asking.\par}
+      \vspace{0.6em}
+      \group{What ``done'' means}
+      {\color{muted}Run the do-file and show the end of the log.\par}
+      \vspace{0.9em}
+      {\color{muted}Same idea, different names: \texttt{AGENTS.md}, \texttt{CLAUDE.md}, \texttt{.cursor/rules}.\par}}
+  \end{columns}
+\end{frame}
+
+% -------- Tools, permissions, sandbox --------
+\begin{frame}{Tools, permissions, sandbox}
+  \begin{columns}[c,onlytextwidth]
+    \column{0.52\textwidth}
+      \begin{tikzpicture}[y=-0.8cm]
+        \draw[hair,line width=0.6pt] (0,0) -- (0,3);
+        \foreach \i/\t/\s/\c in {0/read/browse and summarise/ink,1/edit/change files in the workspace/ink,2/run/shell commands and scripts/accent,3/network/{outside calls, uploads}/accent}{
+          \fill[\c] (0,\i) circle (2.6pt);
+          \node[anchor=west,font=\bfseries,text=ink] at (0.3,\i) {\t};
+          \node[anchor=west,font=\small,text=muted] at (1.9,\i) {\s};
+        }
+        \node[anchor=west,font=\scriptsize,text=muted] at (-0.12,3.7) {each step down widens what a mistake can reach};
+      \end{tikzpicture}
+      \par\vspace{0.8em}
+      {\small
+      \textbf{\color{ink}Tool}: a function the harness lets the model call.\\[0.25em]
+      \textbf{\color{ink}Permission}: the line between proposing and doing.\\[0.25em]
+      \textbf{\color{ink}Sandbox}: a place where doing is reversible.\par}
+    \column{0.42\textwidth}
+      \shot{codex_permission_prompt_crop.png}{Codex asks before running a command. OpenAI, \emph{Unlocking the Codex harness}, 2026.}
+  \end{columns}
+\end{frame}
+
+% -------- MCP --------
+\begin{frame}{MCP: one plug for many tools}
+  \defn{Model Context Protocol}{An open standard for connecting AI applications to external systems. The harness is the client; each server exposes tools, data and prompts.}{\citet{mcp_spec}}
+  \vspace{0.2em}
+  \begin{center}
+    \includegraphics[width=0.54\linewidth]{mcp_simple_diagram.png}
+  \end{center}
+  \vspace{-0.4em}
+  {\small\color{muted}Cost to remember: every connected server adds its tool descriptions to the context before the task starts.\par}
+  \source{diagram from modelcontextprotocol.io, read 26 Oct 2026.}
+\end{frame}
+
+% -------- Skills --------
+\begin{frame}{Skills: procedures the agent loads on demand}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.52\textwidth}
+      \filebox{assets/lesson1/files/SKILL.md}{A real skill from the demo repository.}
+    \column{0.44\textwidth}
+      {\small
+      \defn{Skill}{A folder with a \texttt{SKILL.md} file: a name, a description, instructions, and optional scripts and references.}{\citet{agentskills_spec}}
+      \vspace{0.7em}
+      \group{Loaded in three steps}
+      {\color{muted}Discovery: name and description only.\\
+      Activation: the full file, when a request matches.\\
+      Execution: scripts and references, if needed.\par}
+      \vspace{0.7em}
+      {\color{muted}Nine of eleven production harnesses read \texttt{SKILL.md}; eight speak MCP \citep{barbaste_2026_harness}.\par}}
+  \end{columns}
+\end{frame}
+
+% -------- Sub-agents and hooks --------
+\begin{frame}{Sub-agents and hooks}
+  \vspace{0.6em}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.47\textwidth}
+      \group{Sub-agent}
+      {\small An agent started by the main agent, with its own context and one narrow job. It hands back a short report and keeps its history.\par}
+      \vspace{0.6em}
+      {\small\color{muted}
+      A reviewer that reads the diff before a commit.\\[0.2em]
+      An explorer that searches a large repository.\\[0.2em]
+      A Stata runner that returns only the table.\par}
+    \column{0.47\textwidth}
+      \group{Hook}
+      {\small A fixed command the harness runs at a set moment, whatever the model thinks. It is code; the model cannot skip it.\par}
+      \vspace{0.6em}
+      {\small\color{muted}
+      At session start: load the rules and the project state.\\[0.2em]
+      After an edit: run a linter or a prose check.\\[0.2em]
+      Before a commit: block secrets and raw data.\par}
+  \end{columns}
+  \takeaway{Sub-agents delegate judgement. Hooks remove it. Lesson 4 builds both.}
+\end{frame}
+
+% -------- Memory has layers --------
+\begin{frame}{Memory has layers}
+  \vspace{1.0em}
+  \begin{center}
+  \begin{tikzpicture}[x=3.4cm]
+    \foreach \x/\n/\q/\s in {%
+      0/Session/What did we just say?/frameb,%
+      1/Project/What is this project?/accb,%
+      2/Persistent/What did I decide before?/frameb,%
+      3/Graph/How is it all connected?/frameb}{%
+      \node[\s,minimum width=2.8cm,minimum height=0.95cm,font=\bfseries,text=ink] (n\x) at (\x,0) {\n};
+      \node[sub,text width=2.8cm,anchor=north] at (\x,-0.7) {\q};
+    }
+    \foreach \x [evaluate=\x as \y using int(\x+1)] in {0,1,2}{\draw[arr] (n\x.east) -- (n\y.west);}
+  \end{tikzpicture}
+  \end{center}
+  \vspace{0.8em}
+  {\small\color{muted}\centering The context window is only the first layer. Compaction is why the others exist.\par}
+  \takeaway{Lesson 2 builds the project layer: the one researchers use least.}
+\end{frame}
+
+% -------- Demo 2 and 3 --------
+\demoframe{Live: context, MCP and skills}{%
+  {\small
+  Watch the context meter while the agent works, then run \texttt{/compact} and read the summary it keeps.\\[0.4em]
+  List the MCP servers the harness can reach.\\[0.4em]
+  Ask for ``a regression table'' and see which skill it loads.\par}}{%
+  {\small
+  What the summary drops.\\[0.4em]
+  Which tools appear without being asked for.\\[0.4em]
+  When \texttt{SKILL.md} gets read.\par}}
+
+\begin{frame}{Recorded result: the skill was read when the request matched}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.64\textwidth}
+      \filebox{assets/lesson1/traces/skill_excerpt.txt}{Real run, 26 Oct 2026: OpenCode with DeepSeek V4.1 Flash (free tier), 57 seconds. Paths shortened.}
+    \column{0.32\textwidth}
+      \vspace{0.2em}
+      {\small
+      {\color{muted}The request said ``regression table''. The skill's description said the same. The agent opened \texttt{SKILL.md} second, before touching Stata.\par}
+      \vspace{0.8em}
+      {\color{muted}Stars, statistics and the closing report come from the skill. The prompt never asked for them.\par}}
+  \end{columns}
+\end{frame}
