@@ -1,0 +1,53 @@
+% =============================================================
+% Closing: glossary, homework, references
+% =============================================================
+
+% -------- Twelve words, one line each --------
+\begin{frame}{Twelve words, one line each}
+  \vspace{0.3em}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.31\textwidth}
+      \group{What an agent is}
+      {\footnotesize
+      \textbf{\color{ink}Model}: the network that predicts text.\\[0.45em]
+      \textbf{\color{ink}Harness}: the runtime around it: loop, tools, context, controls.\\[0.45em]
+      \textbf{\color{ink}Agent}: model plus harness, given a task.\\[0.45em]
+      \textbf{\color{ink}Tool and permission}: what it can call, and what it may do without asking.\par}
+    \column{0.31\textwidth}
+      \group{What it sees}
+      {\footnotesize
+      \textbf{\color{ink}Prompt}: one request, one answer.\\[0.45em]
+      \textbf{\color{ink}Context window}: everything the model sees in one turn.\\[0.45em]
+      \textbf{\color{ink}Token}: the unit it reads, writes and bills.\\[0.45em]
+      \textbf{\color{ink}Compaction}: old turns replaced by a summary when the window fills.\par}
+    \column{0.31\textwidth}
+      \group{How you extend it}
+      {\footnotesize
+      \textbf{\color{ink}Rules file}: instructions loaded at every start, such as \texttt{AGENTS.md}.\\[0.45em]
+      \textbf{\color{ink}MCP}: an open standard that plugs tools and data into a harness.\\[0.45em]
+      \textbf{\color{ink}Skill}: a \texttt{SKILL.md} procedure loaded when a request matches.\\[0.45em]
+      \textbf{\color{ink}Sub-agent}: a helper agent with its own context and one job.\par}
+  \end{columns}
+\end{frame}
+
+% -------- Before Lesson 2 --------
+\begin{frame}{Before Lesson 2}
+  \vspace{1.2em}
+  {\Large\color{ink}\bfseries Install one harness.\par}
+  \vspace{0.3em}{\small\color{muted}ChatGPT desktop with Codex, Claude Code, Cursor or OpenCode.\par}
+  \vspace{1.0em}
+  {\Large\color{ink}\bfseries Connect one MCP server.\par}
+  \vspace{0.3em}{\small\color{muted}Any one: a file system, your calendar, Stata.\par}
+  \vspace{1.0em}
+  {\Large\color{ink}\bfseries Write a ten-line \texttt{AGENTS.md} for a real project.\par}
+  \vspace{0.3em}{\small\color{muted}Layout, what must not change, what ``done'' means. Bring it to Lesson 2.\par}
+  \vfill
+  {\color{muted}\scriptsize Demo repository: \url{https://github.com/MarcoLeMoglie/demo-lesson1}\par}
+\end{frame}
+
+% -------- References --------
+\begin{frame}[allowframebreaks]{References}
+  \nocite{*}
+  \scriptsize
+  \bibliography{lesson1/lesson1}
+\end{frame}
