@@ -1,9 +1,9 @@
 # Lesson 1 demos
 
 Material for the live demos in Lesson 1 of *Agentic AI for Economic Research*.
-The folder is part of the course repo, on branch `course-8h`:
+The folder is part of the course repo:
 
-https://github.com/MarcoLeMoglie/Agentic_Economic_Research/tree/course-8h/demos/lesson1
+https://github.com/MarcoLeMoglie/Agentic_Economic_Research/tree/main/demos/lesson1
 
 `code/analysis.do` contains a deliberate bug. Do not fix it before the lesson.
 

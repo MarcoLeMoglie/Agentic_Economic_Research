@@ -31,7 +31,15 @@ _minted-*
 *.upa
 *.upb
 
-# pdflatex scratch at repo root (use session folders for release PDFs)
+# Earlier four-hour course. Kept on disk for Overleaf. Not part of this repo.
+session1/
+session2/
+recordings/
+preamble.tex
+bibliography.bib
+assets/mafia-culture/
+
+# pdflatex scratch at repo root
 main.pdf
 main.aux
 main.log

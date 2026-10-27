@@ -1,20 +1,9 @@
 % =============================================================
 % Overleaf default entry (repo root) — required by Overleaf.
-% All slide content lives in session1/ and session2/.
+% Slide content lives in lesson1/.
+% Recompile → main.pdf
 %
-% SET SESSION: 1 = Session 1 | 2 = Session 2 (4-hour course, archived)
-%              3 = Lesson 1 of the 8-hour course
-% Then Recompile → main.pdf
-%
-% Alternative: Main document → session1/session1.tex, session2/session2.tex
-%              or lesson1/lesson1.tex → PDF in each folder.
+% Alternative: Main document → lesson1/lesson1.tex
+%              → lesson1/lesson1.pdf
 % =============================================================
-\newcommand{\CompileSession}{3}  % <-- 1 | 2 | 3
-
-\ifnum\CompileSession=3
-  \input{lesson1/lesson1.tex}
-\else\ifnum\CompileSession=2
-  \input{session2/session2.tex}
-\else
-  \input{session1/session1.tex}
-\fi\fi
+\input{lesson1/lesson1.tex}
