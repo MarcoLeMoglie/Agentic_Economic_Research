@@ -31,7 +31,8 @@
   \end{columns}
   \vfill
   {\small\color{muted}Frontier releases now arrive weeks apart: Grok 4.7 on 21 Sep, Opus 5.5 on 22 Sep, Muse Wonder on 12 Oct, Kimi K3.1 Pro on 23 Oct.\par}
-  \source{vendor release pages; Artificial Analysis model list, read 26 Oct 2026.}
+  \vspace{0.45em}
+  {\small\rev{Most of these take text and images. A few are text only. The same lab usually ships two: a large model and a cheap fast one, Pro and Flash.}\par}
 \end{frame}
 
 % -------- One independent index --------
@@ -70,41 +71,6 @@
       \vspace{0.7em}
       {\color{muted}gpt-oss-120b is shown as the strongest US open-weight reference.\par}}
   \end{columns}
-  \source{\citet{aa_2026_index}, best setting per model, read 26 Oct 2026; \texttt{aa\_index\_2026-10.csv}.}
-\end{frame}
-
-% -------- How to read a benchmark --------
-\begin{frame}{How to read a benchmark}
-  \begin{columns}[c,onlytextwidth]
-    \column{0.45\textwidth}
-      {\small
-      \group{Who ran it}
-      {\color{muted}An independent lab, or the vendor's own launch post? Launch charts often reuse rivals' self-reported numbers.\par}
-      \vspace{0.6em}
-      \group{At which setting}
-      {\color{muted}Claude Opus 5.5 scores 58 at maximum effort and 42 at low effort. Same model, same week.\par}
-      \vspace{0.6em}
-      \group{Ranked by what}
-      {\color{muted}Capability and use rank models differently. On the right, the same five models on two scales.\par}}
-    \column{0.51\textwidth}
-      \begin{tikzpicture}[x=2.3cm,y=0.62cm]
-        \node[font=\scriptsize\bfseries,text=ink,anchor=east] at (0,6.0) {ordered by index};
-        \node[font=\scriptsize\bfseries,text=ink,anchor=west] at (1,6.0) {by tokens used};
-        \foreach \l/\a/\s/\b/\t/\c in {%
-          Claude Opus 5.5/1/58/4/8.3T/ink,%
-          DeepSeek V4.1 Flash/2/45/1/33.6T/accent,%
-          GLM-5.3 Flash/3/42/2/13.2T/accent,%
-          GPT-6 Luna/4/38/3/8.4T/ink,%
-          MiMo-V2.6 Flash/5/38/5/6.1T/accent}{%
-          \draw[\c,line width=0.9pt] (0,5.4-\a) -- (1,5.4-\b);
-          \fill[\c] (0,5.4-\a) circle (2pt);
-          \fill[\c] (1,5.4-\b) circle (2pt);
-          \node[anchor=east,font=\scriptsize,text=dark] at (-0.04,5.4-\a) {\l\quad\s};
-          \node[anchor=west,font=\scriptsize,text=muted] at (1.04,5.4-\b) {\t};
-        }
-      \end{tikzpicture}
-      \par\vspace{0.2em}{\color{muted}\scriptsize Index: Artificial Analysis. Tokens: OpenRouter, week to 25 Oct 2026.\par}
-  \end{columns}
 \end{frame}
 
 % -------- Intelligence per dollar --------
@@ -137,15 +103,10 @@
       \end{tikzpicture}
     \column{0.32\textwidth}
       {\small
-      {\color{muted}Opus 5.5 costs \$5.98 per task and scores 58.\par}
-      \vspace{0.5em}
-      {\color{muted}GPT-6.1 Sol costs \$0.72 and scores 52.\par}
-      \vspace{0.5em}
-      {\color{muted}MiMo-V2.6-Pro, open weights, costs \$0.13 and scores 46.\par}
-      \vspace{0.9em}
+      \rev{Same task, cost per task. Opus 5.5: \$5.98, score 58. GPT-6.1 Sol: \$0.72, score 52. MiMo-V2.6-Pro, open weights: \$0.13, score 46.}\par
+      \vspace{0.8em}
       {\color{ink}\bfseries About 45 times cheaper for twelve points. Whether that trade is good depends on the task.\par}}
   \end{columns}
-  \source{\citet{aa_2026_index}, ``cost per task'' column, read 26 Oct 2026; \texttt{price\_vs\_index.csv}.}
 \end{frame}
 
 % -------- What people actually use --------
@@ -182,25 +143,20 @@
       {\small
       {\color{accent}\bfseries Orange}: Chinese labs. {\color{ink}\bfseries Blue}: US labs.\par
       \vspace{0.7em}
-      {\color{muted}Open-weight models have carried more than 62\% of OpenRouter tokens every week since July 2026.\par}
-      \vspace{0.7em}
-      {\color{ink}\bfseries This is traffic on one router, counted in requests. It is not market share, users or spend.\par}}
+      {\color{muted}Open-weight models have carried more than 62\% of OpenRouter tokens every week since July 2026.\par}}
   \end{columns}
-  \source{\citet{openrouter_2026_rankings} (CC BY 4.0); \citet{openrouter_2026_tokenstate}.}
+  \source{\citet{openrouter_2026_rankings}; \citet{openrouter_2026_tokenstate}.}
 \end{frame}
 
 % -------- Open weights, open source, local --------
-\begin{frame}{Open weights, open source, local}
-  \begin{columns}[T,onlytextwidth]
+\begin{frame}{Closed weights and open weights}
+  \begin{columns}[c,onlytextwidth]
     \column{0.48\textwidth}
-      \defn{Open weights}{The trained parameters can be downloaded and run on your own hardware, under the terms of a licence.}{DeepSeek, GLM, Qwen, MiMo, Kimi K3, gpt-oss, Gemma.}
+      \defn{Closed weights}{\rev{You call the model through an API. The lab keeps the parameters. Fine-tuning them is not available to you.}}{}
       \vspace{0.7em}
-      \defn{Open source AI}{Open weights, plus the training code and enough information about the data to rebuild the model.}{Open Source Initiative, Open Source AI Definition 1.0. Few frontier models qualify.}
+      \defn{Open weights}{\rev{You download the parameters and can fine-tune them for your own task, under the model's licence.}}{DeepSeek, GLM, Qwen, MiMo, Kimi K3, gpt-oss, Gemma.}
     \column{0.46\textwidth}
       {\small
-      \group{Licences differ}
-      {\color{muted}Kimi K3's licence requires a separate agreement from model-as-a-service businesses above \$20M in yearly revenue. Read the licence before building on a model.\par}
-      \vspace{0.6em}
       \group{Local pays off when}
       {\color{muted}data cannot leave the machine, or the same small task runs thousands of times.\par}
       \vspace{0.6em}

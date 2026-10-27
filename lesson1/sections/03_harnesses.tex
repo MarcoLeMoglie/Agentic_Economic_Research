@@ -11,9 +11,9 @@
     \node[accb,minimum width=2.9cm,minimum height=0.9cm,align=center,font=\small\bfseries,text=ink] (h) at (0,0) {model + harness};
     \foreach \a/\n/\p/\an in {%
       90/Chat apps/{ChatGPT, Claude, Gemini, Grok}/south,%
-      18/Desktop agent apps/{ChatGPT desktop with Codex, Claude desktop, Kimi Work}/west,%
+      18/Desktop agent apps/{ChatGPT desktop with Codex, Claude desktop, Kimi Work, \rev{OpenCode}}/west,%
       -54/IDE/{Cursor, Antigravity, VS Code with Copilot or Codex}/north west,%
-      -126/Terminal/{Claude Code, Codex CLI, Gemini CLI, Grok Build, OpenCode, Pi}/north east,%
+      -126/Terminal/{Claude Code, \rev{Codex}, Gemini CLI, Grok Build, OpenCode, Pi}/north east,%
       162/Research tools/{NotebookLM, deep research modes}/east}{%
       \draw[hair,line width=0.6pt] (h) -- ({2.45*cos(\a)},{1.25*sin(\a)});
       \node[anchor=\an,align=center,text width=3.7cm,inner sep=2pt] at ({2.55*cos(\a)},{1.32*sin(\a)})
@@ -27,68 +27,42 @@
 
 % -------- Chat became agent --------
 \begin{frame}{Chat became agent}
-  \begin{columns}[T,onlytextwidth]
-    \column{0.49\textwidth}
-      \shot{chatgpt_app_proactive_teammate_v2.png}{ChatGPT desktop app: Chat, Work and Codex in one window since 9 Jul 2026. OpenAI, learn.chatgpt.com.}
-    \column{0.47\textwidth}
-      \shot{claude_unified_article.png}{Claude: Chat and Cowork merged into one conversation, rolling out from 16 Sep 2026. Anthropic Help Center.}
-  \end{columns}
-  \vfill
-  {\small\color{muted}Both vendors removed the switch between chatting and delegating. The model now decides when to use tools, so you decide what it is allowed to touch.\par}
-\end{frame}
-
-% -------- One harness, many surfaces --------
-\begin{frame}{One harness, many surfaces: Codex}
   \begin{columns}[c,onlytextwidth]
-    \column{0.45\textwidth}
-      \begin{tikzpicture}[y=-0.8cm]
-        \node[accb,text width=2.0cm,minimum height=1.7cm,align=center,font=\small,text=ink] (core) at (0,1.5)
-          {\textbf{Codex harness}\\[0.2em]{\scriptsize loop, tools, context, sandbox}};
-        \foreach \i/\t in {0/terminal (CLI),1/VS Code extension,2/web,3/ChatGPT desktop app}{
-          \node[anchor=west,font=\footnotesize,text=dark] (c\i) at (1.95,\i) {\t};
-          \draw[arr] (core.east) -- (c\i.west);
-        }
-        \node[sub,anchor=north] at (0,2.85) {one App Server, JSON-RPC};
-      \end{tikzpicture}
-      \vspace{0.6em}
-      {\small\color{muted}Same agent, same rules file, same permissions in every window.\par}
     \column{0.52\textwidth}
-      \includegraphics[width=0.325\linewidth]{codex_cli.png}\hfill
-      \includegraphics[width=0.325\linewidth]{codex_vscode.png}\hfill
-      \includegraphics[width=0.325\linewidth]{codex_web.png}
-      \par\vspace{0.15em}{\color{muted}\scriptsize Terminal, VS Code and web. Images from OpenAI, \emph{Unlocking the Codex harness}, 2026.\par}
+      \shot{chatgpt_app_proactive_teammate_v2.png}{ChatGPT desktop: Chat, Work and Codex in one window since 9 Jul 2026.}
+    \column{0.44\textwidth}
+      {\small\rev{Claude is on the same path. From 16 Sep 2026, Chat and Cowork are merging into one conversation. The rollout is still incomplete.}\par}
+      \vspace{0.8em}
+      {\small\rev{You can still tell Chat from Work, and you can still switch. What is changing is the merger into one harness.}\par}
   \end{columns}
-  \takeaway{Choose the harness. The window is a detail.}
 \end{frame}
 
-% -------- CLI and open harnesses --------
-\begin{frame}{Terminal and open harnesses}
-  \begin{columns}[T,onlytextwidth]
-    \column{0.47\textwidth}
-      \filebox{assets/lesson1/traces/opencode_models_excerpt.txt}{OpenCode on this laptop, 26 Oct 2026: one harness, models from ten labs.}
-    \column{0.49\textwidth}
-      \vspace{0.2em}
+\begin{frame}{The terminal, on its own}
+  \begin{columns}[c,onlytextwidth]
+    \column{0.46\textwidth}
+      \includegraphics[height=5.2cm]{claude_code_terminal.png}
+      \par\vspace{0.12em}{\scriptsize\rev{Claude Code in the shell.}\par}
+    \column{0.50\textwidth}
       {\small
-      \group{Vendor harnesses}
-      {\color{muted}Claude Code, Codex CLI, Gemini CLI, Grok Build. Tuned for the vendor's own models.\par}
+      \group{What it is}
+      {\rev{You type in a shell. The agent reads the folder, runs commands and edits files. Claude Code and Codex both work this way.}\par}
+      \vspace{0.7em}
+      \group{Where it pays}
+      {\rev{Scriptable. Runs on a server. Every step is text you can log.}\par}
       \vspace{0.7em}
       \group{Open harnesses}
-      {\color{muted}OpenCode, Pi, Aider, OpenHands. Open source; you bring the model, through an API key or a router such as OpenRouter.\par}
-      \vspace{0.7em}
-      \group{Why the terminal}
-      {\color{muted}Scriptable, runs on a server, and every step is text you can log.\par}}
+      {\rev{OpenCode, Pi, Aider, OpenHands. OpenCode also has an app. You bring the model, through an API key or OpenRouter.}\par}}
   \end{columns}
-  \source{harness list from \citet{barbaste_2026_harness}.}
 \end{frame}
 
 % -------- IDE agents --------
 \begin{frame}{IDE agents: review is a diff}
   \begin{columns}[T,onlytextwidth]
     \column{0.55\textwidth}
-      \shot{antigravity_ide.png}{Google Antigravity. Capture by the author, 2026.}
+      \shot{antigravity_ide.png}{Google Antigravity.}
     \column{0.41\textwidth}
-      \shoth{codex_vscode.png}{3.5cm}{Codex inside VS Code. OpenAI, 2026.}
-      \par\vspace{0.5em}
+      \shoth{codex_vscode.png}{3.5cm}{Codex inside VS Code.}
+      \par\vspace{0.7em}
       {\small\color{muted}Every change arrives as a diff you accept or reject, line by line.\par}
   \end{columns}
 \end{frame}

@@ -9,8 +9,6 @@
   \begin{columns}[c,onlytextwidth]
     \column{0.47\textwidth}
       \defn{Harness}{The runtime layer that wraps a language model and turns it into an agent that can act: it runs the loop, exposes tools, manages context and enforces controls.}{\citet{macedo_2026_harness}; \citet{barbaste_2026_harness}}
-      \vspace{0.9em}
-      {\small\color{muted}Not a harness: an agent framework such as LangChain, or an evaluation harness such as SWE-bench's. Across eleven production harnesses, none imports a general agent framework.\par}
     \column{0.49\textwidth}
       \begin{center}
       \begin{tikzpicture}
@@ -57,20 +55,32 @@
 % -------- The loop, in a real trace --------
 \begin{frame}{The loop, in a real trace}
   \begin{columns}[T,onlytextwidth]
-    \column{0.36\textwidth}
-      \vspace{0.3em}
-      {\small
-      \group{Observe}{\color{muted}reads the do-file\par}
-      \vspace{0.45em}
-      \group{Act}{\color{muted}runs Stata in batch\par}
-      \vspace{0.45em}
-      \group{Observe}{\color{muted}exit code 0, yet the log says \texttt{prise not found}\par}
-      \vspace{0.45em}
-      \group{Act}{\color{muted}edits one line\par}
-      \vspace{0.45em}
-      \group{Verify}{\color{muted}reruns, shows the end of the log, as \texttt{AGENTS.md} asks\par}}
-    \column{0.60\textwidth}
-      \filebox{assets/lesson1/traces/loop_excerpt.txt}{Real run on the course demo repository, 26 Oct 2026: OpenCode with DeepSeek V4.1 Flash (free tier), 22 seconds. Paths shortened.}
+    \column{0.34\textwidth}
+      \vspace{0.15em}
+      {\scriptsize
+      \group{\textcolor{ink}{Observe}}{\color{ink}reads the do-file\par}
+      \vspace{0.35em}
+      \group{\textcolor{accent}{Act}}{\color{accent}runs Stata.\par}
+      \vspace{0.35em}
+      \group{\textcolor{stepR}{Observe}}{\textcolor{stepR}{reads the log. The diff is the typo: \texttt{ln(prise)}.}\par}
+      \vspace{0.35em}
+      \group{\textcolor{stepE}{Act}}{\textcolor{stepE}{replaces that one line. Minus is the old line, plus is the new one.}\par}
+      \vspace{0.35em}
+      \group{\textcolor{good}{Verify}}{\textcolor{good}{runs it again, and the table is there.}\par}}
+    \column{0.63\textwidth}
+      \begin{tcolorbox}[l1base,colback=white,borderline={0.4pt}{0pt}{hair},left=0.45em,right=0.3em,top=0.3em,bottom=0.3em]
+        \ttfamily\fontsize{5.6}{6.7}\selectfont
+        {\color{ink}> build · deepseek-v4.1-flash-free\\
+        → Read code/analysis.do}\\[0.15em]
+        {\color{accent}\$ .../stata-mp -b do code/analysis.do; echo "EXIT:\$?"\\
+        EXIT:0}\\[0.15em]
+        {\color{stepR}→ Read analysis.log\\
+        -gen lprice = ln(prise)}\\[0.15em]
+        {\color{stepE}+gen lprice = ln(price)}\\[0.15em]
+        {\color{good}\$ .../stata-mp -b do code/analysis.do; echo "EXIT:\$?"\\
+        EXIT:0\\
+        (output written to output/table1.tex)}
+      \end{tcolorbox}
   \end{columns}
 \end{frame}
 
@@ -93,27 +103,18 @@
   \end{tikzpicture}
   \end{center}
   \vfill
-  \takeaway{The interface no longer tells you whether you are chatting or delegating.}
-  \source{\citet{openai_2026_chatgptapp}; \citet{anthropic_2026_oneclaude}; OpenAI, \emph{Introducing the Codex app}, 2 Feb 2026.}
+  \takeaway{\rev{Chat and the agent are folding into one harness.}}
 \end{frame}
 
 % -------- METR --------
-\begin{frame}{How long a task can an agent finish?}
-  \begin{columns}[T,onlytextwidth]
-    \column{0.64\textwidth}
-      \shot{metr_time_horizon.png}{METR, Time Horizon 1.1. Captured 26 Oct 2026.}
-    \column{0.32\textwidth}
-      \vspace{0.2em}
-      {\small
-      \group{What it measures}
-      {\color{muted}The length of software tasks, timed on human experts, that a model completes half of the time.\par}
-      \vspace{0.7em}
-      \group{What it does not}
-      {\color{muted}How long an agent works alone. Economics tasks. Anything above 16 hours, which METR calls unreliable.\par}
-      \vspace{0.7em}
-      \group{Status}
-      {\color{muted}Page frozen on 8 Sep 2026.\par}}
-  \end{columns}
+\begin{frame}{\textcolor{red}{Models finish longer tasks each year}}
+  \begin{center}
+    \includegraphics[width=0.74\linewidth]{metr_time_horizon.png}
+  \end{center}
+  \vspace{0.35em}
+  {\small
+  \group{What it measures}
+  {\color{muted}The length of software tasks, timed on human experts, that a model completes half of the time.\par}}
 \end{frame}
 
 % -------- Demo 1 --------

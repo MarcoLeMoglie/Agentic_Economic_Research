@@ -50,6 +50,8 @@ captures or vendor press images with attribution. No mock-ups.
 | `mcp_simple_diagram.png` | https://modelcontextprotocol.io/docs/getting-started/intro | 26 Oct 2026 |
 | `agentskills_spec.png` | Viewport of https://agentskills.io/specification | 26 Oct 2026 |
 | `claude_unified_article.png` | Viewport of https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude | 26 Oct 2026 |
+| `claude_code_terminal.png` | Product image from https://www.anthropic.com/claude-code (Welcome to Claude Code). Cropped to the terminal window. | 27 Oct 2026 |
+| `context_rot_boolean_related.png` | Boolean, "Context Rot Quantified", related-context chart, https://www.boolean.ai/blog/context-rot-quantified | 27 Oct 2026 |
 | `../traces/opencode_fix_bug_2026-10-26.txt` | Real run: `opencode run --pure --auto -m opencode/deepseek-v4.1-flash-free` on a copy of `demo-lesson1`, 22 s, exit 0 | 26 Oct 2026 |
 | `assets/real/antigravity_ide.png` | Earlier capture, reused | 2026 |
 

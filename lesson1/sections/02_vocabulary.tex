@@ -21,6 +21,10 @@
         Limits & what must not change\\
         Done & how you will check it\\
       \end{tabularx}
+      \vspace{0.45em}
+      {\color{ink}\bfseries Plan, then act\par}
+      \vspace{0.05em}
+      {\rev{Plan mode writes the steps and waits. Act mode runs the tools. Read the plan before anything changes.}\par}
   \end{columns}
   \takeaway{Agents change the unit of delegation.}
 \end{frame}
@@ -63,14 +67,20 @@
       {\color{muted}Everything the model sees in one turn: rules, files, tool output, history.\par}
       \vspace{0.6em}
       \group{Context rot}
-      {\color{muted}Accuracy falls as the window fills. A bigger window is not a better memory.\par}}
+      {\color{muted}Accuracy falls as the window fills. A bigger window is not a better memory.\par}
+      \vspace{0.5em}
+      {\rev{Past about 200k tokens the model gets worse. Type \texttt{/compact}, or \texttt{/handoff} and start a new conversation.}\par}}
   \end{columns}
-  \source{vendor model pages and Artificial Analysis, read 26 Oct 2026; \texttt{context\_windows.csv}.}
+\end{frame}
+
+% -------- Context rot, measured --------
+\begin{frame}{\textcolor{red}{Accuracy falls before the window is full}}
+  \shoth{context_rot_boolean_related.png}{4.7cm}{\rev{Boolean, 2026. Opus 5 and GPT-5.6 Sol, terminal-bench-4. Related context pulls the pass rate down before the window is full.}}
 \end{frame}
 
 % -------- Compaction --------
 \begin{frame}{Compaction}
-  \defn{Compaction}{Taking a conversation nearing the context window limit, summarizing its contents, and reinitiating a new context window with the summary.}{\citet{anthropic_2025_context}. In Codex and Claude Code: \texttt{/compact}. Most harnesses also do it on their own.}
+  \defn{Compaction}{Taking a conversation nearing the context window limit, summarizing its contents, and reinitiating a new context window with the summary.}{\rev{The command to type is \texttt{/compact}.} Most harnesses also do it on their own.}
   \vspace{0.9em}
   \begin{center}
   \begin{tikzpicture}
@@ -132,27 +142,26 @@
       \textbf{\color{ink}Permission}: the line between proposing and doing.\\[0.25em]
       \textbf{\color{ink}Sandbox}: a place where doing is reversible.\par}
     \column{0.42\textwidth}
-      \shot{codex_permission_prompt_crop.png}{Codex asks before running a command. OpenAI, \emph{Unlocking the Codex harness}, 2026.}
+      \includegraphics[width=\linewidth]{codex_permission_prompt_crop.png}
   \end{columns}
 \end{frame}
 
 % -------- MCP --------
 \begin{frame}{MCP: one plug for many tools}
-  \defn{Model Context Protocol}{An open standard for connecting AI applications to external systems. The harness is the client; each server exposes tools, data and prompts.}{\citet{mcp_spec}}
+  \defn{Model Context Protocol}{An open standard for connecting AI applications to external systems. The harness is the client; each server exposes tools, data and prompts.}{}
   \vspace{0.2em}
   \begin{center}
-    \includegraphics[width=0.54\linewidth]{mcp_simple_diagram.png}
+    \includegraphics[width=0.56\linewidth]{mcp_simple_diagram.png}
   \end{center}
-  \vspace{-0.4em}
+  \vspace{0.15em}
   {\small\color{muted}Cost to remember: every connected server adds its tool descriptions to the context before the task starts.\par}
-  \source{diagram from modelcontextprotocol.io, read 26 Oct 2026.}
 \end{frame}
 
 % -------- Skills --------
 \begin{frame}{Skills: procedures the agent loads on demand}
   \begin{columns}[T,onlytextwidth]
     \column{0.52\textwidth}
-      \filebox{assets/lesson1/files/SKILL.md}{A real skill from the demo repository.}
+      \filebox{assets/lesson1/files/SKILL.md}{}
     \column{0.44\textwidth}
       {\small
       \defn{Skill}{A folder with a \texttt{SKILL.md} file: a name, a description, instructions, and optional scripts and references.}{\citet{agentskills_spec}}
@@ -162,7 +171,7 @@
       Activation: the full file, when a request matches.\\
       Execution: scripts and references, if needed.\par}
       \vspace{0.7em}
-      {\color{muted}Nine of eleven production harnesses read \texttt{SKILL.md}; eight speak MCP \citep{barbaste_2026_harness}.\par}}
+      {\rev{Claude Code, Codex and Cursor read a \texttt{SKILL.md} file. So do most other harnesses in use.}\par}}
   \end{columns}
 \end{frame}
 
@@ -187,7 +196,8 @@
       After an edit: run a linter or a prose check.\\[0.2em]
       Before a commit: block secrets and raw data.\par}
   \end{columns}
-  \takeaway{Sub-agents delegate judgement. Hooks remove it. Lesson 4 builds both.}
+  \vspace{1.8em}
+  \takeaway{Sub-agents delegate judgement. Hooks remove it.}
 \end{frame}
 
 % -------- Memory has layers --------
@@ -206,21 +216,16 @@
     \foreach \x [evaluate=\x as \y using int(\x+1)] in {0,1,2}{\draw[arr] (n\x.east) -- (n\y.west);}
   \end{tikzpicture}
   \end{center}
-  \vspace{0.8em}
-  {\small\color{muted}\centering The context window is only the first layer. Compaction is why the others exist.\par}
-  \takeaway{Lesson 2 builds the project layer: the one researchers use least.}
+  \vspace{1.3em}
+  {\small\color{muted}\centering The context window is only the first layer.\par}
 \end{frame}
 
 % -------- Demo 2 and 3 --------
-\demoframe{Live: context, MCP and skills}{%
+\demoframe{Live: the skill}{%
   {\small
-  Watch the context meter while the agent works, then run \texttt{/compact} and read the summary it keeps.\\[0.4em]
-  List the MCP servers the harness can reach.\\[0.4em]
-  Ask for ``a regression table'' and see which skill it loads.\par}}{%
+  \rev{In \texttt{demos/lesson1}, type: ``Make a regression table.''}\par}}{%
   {\small
-  What the summary drops.\\[0.4em]
-  Which tools appear without being asked for.\\[0.4em]
-  When \texttt{SKILL.md} gets read.\par}}
+  \rev{The agent opens \texttt{SKILL.md} before it edits the do-file.}\par}}
 
 \begin{frame}{Recorded result: the skill was read when the request matched}
   \begin{columns}[T,onlytextwidth]
@@ -229,7 +234,7 @@
     \column{0.32\textwidth}
       \vspace{0.2em}
       {\small
-      {\color{muted}The request said ``regression table''. The skill's description said the same. The agent opened \texttt{SKILL.md} second, before touching Stata.\par}
+      {\color{muted}The skill's description says the same thing. The agent opened \texttt{SKILL.md} second, before touching Stata.\par}
       \vspace{0.8em}
       {\color{muted}Stars, statistics and the closing report come from the skill. The prompt never asked for them.\par}}
   \end{columns}

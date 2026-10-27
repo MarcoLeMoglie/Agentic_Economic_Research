@@ -20,6 +20,8 @@
 
 \usepackage{graphicx}
 \usepackage{xcolor}
+% Review pass: rewritten and added text. Delete this line for the clean version.
+\newcommand{\rev}[1]{\textcolor{red}{#1}}
 \usepackage{tikz}
 \usetikzlibrary{positioning,arrows.meta,calc,fit,backgrounds}
 \usepackage{pgfplots}
@@ -57,6 +59,8 @@
 % semantic only (good / bad), never decorative
 \definecolor{good}{HTML}{166534}
 \definecolor{bad}{HTML}{B91C1C}
+\definecolor{stepR}{HTML}{6D28D9}
+\definecolor{stepE}{HTML}{0F766E}
 
 \hypersetup{colorlinks=true,linkcolor=ink,urlcolor=ink,citecolor=ink}
 
@@ -107,7 +111,7 @@
   fontupper=\normalsize,
   before upper={{\color{ink}\bfseries #1}\par\vspace{0.25em}}}
 \newcommand{\defn}[3]{%
-  \begin{defbox}{#1}#2\par\vspace{0.3em}{\color{muted}\scriptsize #3}\end{defbox}}
+  \begin{defbox}{#1}#2\if\relax\detokenize{#3}\relax\else\par\vspace{0.3em}{\color{muted}\scriptsize #3}\fi\end{defbox}}
 
 % Real file or real terminal output, read verbatim from disk:
 % \filebox[width]{path}{caption}
@@ -164,7 +168,7 @@
       \group{What to look at}
       #3
   \end{columns}
-  \vfill{\color{muted}\scriptsize Live on screen share. Demo repository: \url{https://github.com/MarcoLeMoglie/demo-lesson1}. If the demo fails, the next slide shows the recorded result.\par}
+  \vfill{\color{muted}\scriptsize Live on screen share. Demo folder: \rev{\url{https://github.com/MarcoLeMoglie/Agentic_Economic_Research/tree/course-8h/demos/lesson1}}. If the demo fails, the next slide shows the recorded result.\par}
 \end{frame}}
 
 % ---------- TikZ styles ----------

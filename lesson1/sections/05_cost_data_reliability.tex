@@ -26,9 +26,8 @@
         Model tier & a 100-fold range between Luna and Astra\\
       \end{tabularx}
       \par\vspace{1.0em}
-      {\small\color{ink}\bfseries A chat ignores three of these. An agent pays for all four.\par}
+      {\small\rev{A chat subscription often has, in practice, no cap you will hit. An agent on the API pays for every one of these four. The same token usually costs far less inside a subscription than on the API.}\par}
   \end{columns}
-  \source{OpenAI and Anthropic API pricing pages, read 26 Oct 2026.}
 \end{frame}
 
 % -------- Cost spike --------
@@ -44,13 +43,10 @@
   Long reading & ``Summarise this 30-page paper.'' & 25k\\
   Agent task & ``Rerun all tables and check them.'' & 100k to 200k\\
   Long agent run & ``Replicate Section 4 end to end.'' & 0.5M to 2M\\
-  Full context, ten retries & a 1M-token window resent ten times & 10M\\
+  \rev{Full replication} & \rev{Paper, online appendix, every do-file and the logs.} & \rev{above 2M}\\
   \bottomrule
   \end{tabularx}
   \end{center}
-  \vspace{0.4em}
-  {\small\color{muted}\centering Ten resends of a 1M-token prompt on GPT-6.1 Sol: \$40 at the long-context list price, about \$2 if the context is cached.\par}
-  \takeaway{Same window on screen. Four orders of magnitude in cost.}
 \end{frame}
 
 % -------- Data risk --------
@@ -94,5 +90,4 @@
   \bottomrule
   \end{tabularx}
   \end{center}
-  \takeaway{Lesson 3 is about controlling all six.}
 \end{frame}
