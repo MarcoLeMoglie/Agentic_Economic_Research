@@ -74,7 +74,22 @@
 
 % -------- Context rot, measured --------
 \begin{frame}{Accuracy falls before the window is full}
-  \shoth{context_rot_boolean_related.png}{4.7cm}{\rev{Boolean, 2026. Opus 5 and GPT-5.6 Sol, terminal-bench-4. Related context pulls the pass rate down before the window is full.}}
+  \shoth{context_rot_repeated_words.png}{5.5cm}{Chroma, July 2025. Repeated words, several models. The score falls before the window is full.}
+\end{frame}
+
+\begin{frame}{Keep the window from filling}
+  \vspace{0.4em}
+  {\small Three habits. Each one keeps the next turn from rereading a pile you did not need.\par}
+  \vspace{0.9em}
+  {\small
+  \group{Few skills}
+  {Every skill puts its name and description in the window at the start. Write the ones you use. Leave the rest out.\par}
+  \vspace{0.7em}
+  \group{Few MCP servers}
+  {Connect a server when the task needs it. Each one adds its tool list before you type.\par}
+  \vspace{0.7em}
+  \group{One message, several jobs}
+  {A new question resends the whole window. Ask for the table, the check and the note in the same message.\par}}
 \end{frame}
 
 % -------- Compaction --------
@@ -99,6 +114,21 @@
   \end{tikzpicture}
   \end{center}
   \takeaway{A summary loses detail. Decisions belong in files.}
+\end{frame}
+
+\begin{frame}{Handoff, then a new session}
+  \vspace{0.5em}
+  {\small Compaction stays in this chat. Handoff leaves it.\par}
+  \vspace{0.9em}
+  {\small
+  \group{\texttt{/handoff}}
+  {The agent writes a short file: what was decided, which files matter, what comes next.\par}
+  \vspace{0.7em}
+  \group{New session}
+  {You open a fresh conversation and point it at that file. The old window is not sent again.\par}
+  \vspace{0.7em}
+  \group{When to use it}
+  {The summary from \texttt{/compact} is already lossy, or the chat has wandered off the task.\par}}
 \end{frame}
 
 % -------- Rules files --------
@@ -233,7 +263,7 @@
     \column{0.32\textwidth}
       \vspace{0.2em}
       {\small
-      {\color{muted}The skill's description says the same thing. The agent opened \texttt{SKILL.md} second, before touching Stata.\par}
+      {\color{muted}The skill's description says the same thing. The agent read the do-file, then \texttt{SKILL.md}, and only then ran Stata.\par}
       \vspace{0.8em}
       {\color{muted}Stars, statistics and the closing report come from the skill. The prompt never asked for them.\par}}
   \end{columns}

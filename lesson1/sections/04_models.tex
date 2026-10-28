@@ -71,6 +71,7 @@
       \vspace{0.7em}
       {\color{muted}gpt-oss-120b is shown as the strongest US open-weight reference.\par}}
   \end{columns}
+  \source{Artificial Analysis, Intelligence Index, Oct 2026.}
 \end{frame}
 
 % -------- Intelligence per dollar --------
@@ -80,12 +81,12 @@
     \column{0.64\textwidth}
       \begin{tikzpicture}
         \begin{axis}[l1axis,
-            width=\linewidth,height=6.0cm,
+            width=\linewidth,height=4.6cm,
             xmode=log,xmin=0.04,xmax=12,
             xtick={0.1,1,10},xticklabels={\$0.10,\$1,\$10},
             ymin=34,ymax=61,ytick={40,50,60},
             xlabel={cost to run the index once, per task (log scale)},
-            ylabel={index},
+            ylabel={Intelligence Index},
             only marks,
             unbounded coords=discard,
           ]
@@ -105,8 +106,11 @@
       {\small
       \rev{Same task, cost per task. Opus 5.5: \$5.98, score 58. GPT-6.1 Sol: \$0.72, score 52. MiMo-V2.6-Pro, open weights: \$0.13, score 46.}\par
       \vspace{0.8em}
-      {\color{ink}\bfseries About 45 times cheaper for twelve points. Whether that trade is good depends on the task.\par}}
+      {\color{ink}\bfseries About 45 times cheaper for twelve points on the Intelligence Index. Whether that trade is good depends on the task.\par}
+      \vspace{0.6em}
+      {\small Do not spend the top model on every step. You pick the tier for the task, or a router in the harness does. Several harnesses ship that as the default.\par}}
   \end{columns}
+  \source{Artificial Analysis, cost per task, Oct 2026.}
 \end{frame}
 
 % -------- What people actually use --------
@@ -158,10 +162,10 @@
     \column{0.46\textwidth}
       {\small
       \group{Local pays off when}
-      {\color{muted}data cannot leave the machine, or the same small task runs thousands of times.\par}
+      {\color{muted}data cannot leave the machine, or the same small task runs thousands of times. Ollama and LM Studio run that smaller model on the laptop.\par}
       \vspace{0.6em}
       \group{Local hurts when}
-      {\color{muted}the task needs frontier reasoning or long agent loops on a laptop. Tools: Ollama, LM Studio.\par}}
+      {The task needs a frontier model, or a long loop.\par}}
   \end{columns}
 \end{frame}
 
