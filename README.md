@@ -2,11 +2,15 @@
 
 # Agentic AI for Economic Research
 
-**Eight-hour course** for PhD students and faculty in economics. Four lessons of two hours, taught remotely in English.
+**Instructor:** Marco Le Moglie, Catholic University of the Sacred Heart
 
-**Instructor:** Marco Le Moglie · Catholic University of the Sacred Heart
+I teach this to PhD students and faculty in economics. Eight hours, four lessons of two hours, in English, on a video call.
 
-Lesson 1 is in the repo. Lessons 2 to 4 are not written yet.
+A paper is still the same job: read, get the data in shape, estimate, write, answer the referee. An agent can now take a piece of that job inside the project folder. It opens the files, runs Stata, and changes the line that failed. The course is about that setup. How you point the agent at the right files, what you let it do, and how you check the result before you trust it.
+
+We start with the vocabulary, because the product names change and the pieces underneath do not. A model writes the next bit of text. The harness is the program around it: it holds the conversation, calls tools, and stops when it needs permission. Lesson 1 is those pieces. Context and tokens, and what happens when the window fills. Rules, MCP, and skills. Which model you are calling, what a long run costs, and which data should stay off a consumer chat. The slides are [`lesson1/lesson1.pdf`](lesson1/lesson1.pdf). In class we use [`demos/lesson1`](demos/lesson1): a Stata do-file with a bug left in on purpose, a skill the agent should load when you ask for a regression table, and a short pull of public municipal data through the Cruscotto Italia MCP.
+
+Lessons 2, 3, and 4 are not in the repository yet. Lesson 2 is memory, how the agent keeps this project the next time you open it. Lesson 3 is control, how you check the diff, the table, and the log. Lesson 4 is automations, the same checks running when you are not in the session.
 
 ## Overleaf
 
