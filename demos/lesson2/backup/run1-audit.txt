@@ -1,0 +1,49 @@
+START run1-audit 09:40:01
+
+> build · glm-5.3-flash-free
+
+→ Skill "brain-maintenance"
+✱ Glob "**/lint_demo_brain.py" 1 match
+
+$ python3 scripts/lint_demo_brain.py
+Certain
+  1. wiki/event-study-pitfalls.md is not listed under ## Wiki
+  2. CURRENT_STATE links to [[transit-jobs_DECISION]] (missing final s)
+  3. decision 2026-09-02 (cluster by tract) is not marked superseded
+Possible
+  4. staggered-did.md and staggered-did-notes.md overlap (Jaccard 0.59)
+  5. raw chat 2026-10-28 asks for a 2008-line placebo; core files do not mention it
+
+✱ Grep "transit-jobs_DECISION|## Wiki" 0 matches
+✱ Grep "supersede|2026-09-02" in decisions · 7 matches
+→ Read areas/Research/transit-jobs/transit-jobs_DECISIONS.md
+
+$ grep -rn "## Wiki" --include="*.md" . | grep -v scripts | grep -v SKILL; grep -rn "transit-jobs_DECISION\]" --include="*.md" . | grep -v scripts
+./areas/Research/transit-jobs/transit-jobs_INDEX.md:18:## Wiki
+./general/agent/WIKI_WORKFLOW.md:6:4. List every file in `wiki/` in the project INDEX, section `## Wiki`.
+./general/agent/SESSION_CLOSE.md:9:5. If you added a page under `wiki/`, list it in INDEX under `## Wiki`.
+./general/templates/PROJECT_TEMPLATE/{{SLUG}}_INDEX.md:15:## Wiki
+./areas/Research/transit-jobs/transit-jobs_CURRENT_STATE.md:22:In force since 14 September 2026: cluster by district, not tract. See [[transit-jobs_DECISION]].
+
+Ran `scripts/lint_demo_brain.py`. Report below — no files edited.
+
+## Certain
+
+1. **`wiki/event-study-pitfalls.md` is not listed under `## Wiki`** in `areas/Research/transit-jobs/transit-jobs_INDEX.md:18`.
+   *Fix:* add a line for it in the INDEX `## Wiki` section (title + one-line purpose, matching the existing entry style).
+2. **Broken wikilink** in `areas/Research/transit-jobs/transit-jobs_CURRENT_STATE.md:22`: `[[transit-jobs_DECISION]]` — the file is `transit-jobs_DECISIONS.md`.
+   *Fix:* correct the target to `[[transit-jobs_DECISIONS]]`.
+3. **Superseded decision not marked** — `transit-jobs_DECISIONS.md:3`, the 2026-09-02 "Cluster by tract" decision still says `Status: in force`, but 2026-09-14 supersedes it.
+   *Fix:* change line 11 to `Status: superseded on 2026-09-14 by clustering by district. Do not use tract clustering.`
+
+Items 1–3 are exactly what `--apply 1,2,3` automates in the script.
+
+## Possible
+
+4. **Note overlap** — `wiki/staggered-did.md` vs `wiki/staggered-did-notes.md`, Jaccard 0.59.
+   *Fix options:* (a) keep both but re-scope (one = design decision, other = reading notes); (b) merge into one page and leave a stub; (c) leave as is. Needs a decision — I'd read both first.
+5. **Raw chat 2026-10-28** asks for a 2008-line placebo, but the core files never mention it.
+   *Fix options:* (a) distill it into `transit-jobs_DECISIONS.md` as a `--distill 5` item (decide to run or not to run, then record); (b) if intentionally dropped, note that in the log so it stops flagging.
+
+Tell me which item numbers to apply and I'll run the `--apply`/`--distill` step, then `scripts/validate_demo_brain.py` and `git diff` for your review.
+END run1-audit 09:40:31 exit=0

@@ -1,0 +1,15 @@
+Loading model EleutherAI/gpt-neo-2.7B...
+Moving model to GPU...DONE (1.08s)
+{
+  "status": "ok",
+  "criterion": 0.62890625,
+  "p_machine": 0.37564297832505233,
+  "p_machine_pct": 38,
+  "tokens": 2047,
+  "chars": 32450,
+  "sampling_model": "gpt-neo-2.7B",
+  "scoring_model": "gpt-neo-2.7B",
+  "device": "mps",
+  "advisory": true,
+  "note": "Advisory signal only \u2014 do not rewrite to beat the detector."
+}

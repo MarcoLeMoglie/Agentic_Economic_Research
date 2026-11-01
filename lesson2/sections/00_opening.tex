@@ -1,0 +1,246 @@
+% Opening, slides 1-10
+\begin{frame}[plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[ink] (current page.south west) rectangle (current page.north east);
+    \node[anchor=south west,inner sep=0pt,text=white,align=left,text width=0.82\paperwidth]
+      at ($(current page.south west)+(1.6cm,3.2cm)$)
+      {{\fontsize{28}{33}\selectfont\bfseries Agentic AI for\\[0.1em] Economic Research}\par
+       \vspace{0.55em}{\Large From JARVIS to your own second brain}};
+    \fill[accent] ($(current page.south west)+(1.6cm,2.75cm)$) rectangle ++(1.4cm,0.06cm);
+    \node[anchor=south west,inner sep=0pt,text=white!78!ink,align=left,font=\small]
+      at ($(current page.south west)+(1.6cm,1.05cm)$)
+      {Marco Le Moglie, Catholic University of the Sacred Heart\\
+       Four lessons of two hours, autumn 2026\\
+       {\hypersetup{urlcolor=white!78!ink}\href{https://github.com/MarcoLeMoglie/Agentic_Economic_Research}{\includegraphics[height=1.05em]{github_mark_white.png}\ GitHub repo}}};
+  \end{tikzpicture}
+\end{frame}
+
+\sectionframe[What we want from an assistant, and why memory is the missing piece]{From JARVIS to the second brain}
+
+\begin{frame}[plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[ink] (current page.south west) rectangle (current page.north east);
+    \node[anchor=west,inner sep=0pt,text=white,align=left,text width=0.82\paperwidth]
+      at ($(current page.west)+(1.6cm,0.3cm)$)
+      {{\fontsize{26}{32}\selectfont\bfseries Can we build something like this today?}};
+    \node[anchor=south west,inner sep=0pt,text=white!78!ink,align=left,font=\scriptsize,text width=0.8\paperwidth]
+      at ($(current page.south west)+(1.6cm,1.15cm)$)
+      {Iron Man (2008), Marvel Studios. The film is the reference. No still is embedded: this repository is public, and no frame with a licence for redistribution was found.};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{What makes JARVIS different from a chatbot?}
+  \begin{center}
+  \begin{tikzpicture}
+    \node[accb,minimum width=2.6cm,minimum height=0.9cm,font=\small\bfseries,text=ink] (j) at (0,0) {JARVIS};
+    \node[frameb,anchor=south,text width=3.2cm,align=center] (a) at (0,1.45) {{\small\bfseries\color{ink} Remembers}\\{\scriptsize\color{muted} what Tony built last week, and why}};
+    \node[frameb,anchor=north,text width=3.2cm,align=center] (b) at (0,-1.45) {{\small\bfseries\color{ink} Acts}\\{\scriptsize\color{muted} changes things, then reports back}};
+    \node[frameb,anchor=east,text width=3.1cm,align=center] (c) at (-3.7,0) {{\small\bfseries\color{ink} Reaches tools}\\{\scriptsize\color{muted} the workshop, the suit, the databases}};
+    \node[frameb,anchor=west,text width=3.1cm,align=center] (d) at (3.7,0) {{\small\bfseries\color{ink} Knows the setting}\\{\scriptsize\color{muted} which project, which room, which deadline}};
+    \draw[arr] (j) -- (a); \draw[arr] (j) -- (b); \draw[arr] (j) -- (c); \draw[arr] (j) -- (d);
+  \end{tikzpicture}
+  \end{center}
+  \takeaway{A chatbot answers a message. JARVIS keeps working on the same project.}
+\end{frame}
+
+\begin{frame}{Can we build it today?}
+  \begin{center}
+  \begin{tikzpicture}[node distance=0.35cm]
+    \node[frameb,text width=3.15cm,align=center,minimum height=2.15cm] (a) {%
+      {\small\bfseries\color{ink} Chatbot}\\[0.25em]
+      {\scriptsize model + chat window}\\[0.35em]
+      {\scriptsize\color{muted} Forgets when the tab closes.}};
+    \node[frameb,text width=3.15cm,align=center,minimum height=2.15cm,right=0.55cm of a] (b) {%
+      {\small\bfseries\color{ink} Agent}\\[0.25em]
+      {\scriptsize model + harness + tools}\\[0.35em]
+      {\scriptsize\color{muted} Acts on files. Forgets when the session ends.}};
+    \node[accb,text width=3.15cm,align=center,minimum height=2.15cm,right=0.55cm of b] (c) {%
+      {\small\bfseries\color{ink} Agent + second brain}\\[0.25em]
+      {\scriptsize agent + files it reads at every start}\\[0.35em]
+      {\scriptsize\color{muted} Picks up where the last session stopped.}};
+    \draw[arrA] (a) -- (b); \draw[arrA] (b) -- (c);
+  \end{tikzpicture}
+  \end{center}
+  \vspace{0.35em}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \group{Feasible in 2026}
+      {\small Read and write project files. Call tools through MCP. Reload rules and state at every start. Load procedures only when needed.\par}
+    \column{0.48\textwidth}
+      \group{Still missing}
+      {\small Nothing is remembered unless someone writes it down. The agent does not know what is worth keeping. A wrong note stays wrong until someone checks it.\par}
+  \end{columns}
+  \source{Lesson 1, model + harness = agent; \citet{anthropic_2025_context}.}
+\end{frame}
+
+\begin{frame}{The problem with ordinary chatbots}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.46\textwidth}
+      \group{Six months of a paper in chat windows}
+      {\scriptsize\color{muted} Illustrative example.\par}
+      \vspace{0.35em}
+      {\small
+      Week 2: you explain the sample and the treatment again.\\[0.35em]
+      Week 5: the agent clusters by province. You had decided on municipality.\\[0.35em]
+      Week 9: a new chat. Why 2020 was dropped is gone.\\[0.35em]
+      Week 14: two chats give two different rules for outliers.\\[0.35em]
+      Week 20: the coauthor's instructions sit in a thread you cannot find.\par}
+    \column{0.50\textwidth}
+      \renewcommand{\arraystretch}{1.25}
+      \begin{tabularx}{\linewidth}{>{\bfseries\color{ink}}l >{\small\leavevmode\color{dark}}X}
+      \toprule
+      \color{muted}Problem & \color{muted}What it costs\\
+      \midrule
+      Repeated context & tokens and time at every start\\
+      Lost decisions & the same choice made twice, differently\\
+      Hard restarts & the first twenty minutes spent rebuilding\\
+      Inconsistent instructions & outputs that contradict each other\\
+      Fragmentation & no single place to check\\
+      \bottomrule
+      \end{tabularx}
+  \end{columns}
+  \takeaway{A chat log records what was said. It is a poor record of what was decided.}
+\end{frame}
+
+\begin{frame}{Persistent memory}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \renewcommand{\arraystretch}{1.18}
+      \begin{tabularx}{\linewidth}{>{\bfseries\color{ink}}l >{\small\leavevmode\color{dark}}X}
+      \toprule
+      \color{muted}What to keep & \color{muted}In one line\\
+      \midrule
+      State & where the project stands today\\
+      Decisions & what was chosen, when, and why\\
+      Constraints & what must not change\\
+      Sources & where each number comes from\\
+      Solved errors & the bug and the fix that worked\\
+      Next actions & the first thing to do next time\\
+      Procedures & steps you repeat, written once\\
+      \bottomrule
+      \end{tabularx}
+    \column{0.48\textwidth}
+      \defn{Chat history}{Everything said, in order. Long, and mostly noise for the next session.}{}
+      \vspace{0.45em}
+      \defn{Document archive}{Papers, data, drafts. The evidence, not the summary.}{}
+      \vspace{0.45em}
+      \defn{Persistent memory}{Short files, kept current by you or the agent, read at every start.}{}
+  \end{columns}
+  \takeaway{Memory is what you would tell a coauthor who joins tomorrow.}
+\end{frame}
+
+\begin{frame}{Own your knowledge, not your model}
+  \begin{columns}[c,onlytextwidth]
+    \column{0.52\textwidth}
+      \begin{tikzpicture}
+        \node[accb,text width=3.1cm,align=center] (k) at (0,0) {{\small\bfseries Markdown folder}\\{\scriptsize index, state, decisions, skills}};
+        \foreach \a/\n in {90/Claude Code,30/Codex,-40/OpenCode,-110/Cursor,160/next year's agent}{
+          \node[frameb,font=\scriptsize,align=center] at ({\a}:2.55) {\n};
+          \draw[hair] (k) -- ({\a}:1.85);
+        }
+      \end{tikzpicture}
+    \column{0.44\textwidth}
+      \group{Portable}
+      {\small Plain text files. Any agent that can open a folder can use them. Changing provider does not move your memory.\par}
+      \vspace{0.55em}
+      \group{Less portable}
+      {\small Rules files have different names: \texttt{AGENTS.md}, \texttt{CLAUDE.md}, \texttt{.cursor/rules}. MCP servers and plugins are set up again in each harness. Memory stored inside a vendor's app stays with the vendor.\par}
+  \end{columns}
+  \source{\citet{agents_md}; \citet{claude_memory}; \citet{cursor_rules}.}
+\end{frame}
+
+\begin{frame}{New session, same knowledge}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \group{One long chat}
+      \begin{tikzpicture}
+        \draw[hair] (0,0) rectangle (0.55,3.3);
+        \fill[faint] (0.08,0.08) rectangle (0.47,3.15);
+        \node[font=\scriptsize,text=muted,rotate=90,anchor=south] at (0.9,1.6) {turn 1 \ldots\ turn 180};
+        \node[anchor=west,font=\scriptsize,text=muted,align=left,text width=3.4cm] at (1.5,2.6) {early decisions, far back};
+        \node[anchor=west,font=\scriptsize,text=muted,align=left,text width=3.4cm] at (1.5,1.6) {compaction summary};
+        \node[anchor=west,font=\scriptsize,text=muted,align=left,text width=3.4cm] at (1.5,0.6) {accuracy falls as the window fills};
+      \end{tikzpicture}
+    \column{0.48\textwidth}
+      \group{New session + bootstrap}
+      \begin{tikzpicture}
+        \node[frameb,minimum width=4.6cm,minimum height=0.42cm,font=\scriptsize] at (0,2.4) {rules file};
+        \node[frameb,minimum width=4.6cm,minimum height=0.42cm,font=\scriptsize] at (0,1.75) {INDEX};
+        \node[frameb,minimum width=4.6cm,minimum height=0.42cm,font=\scriptsize] at (0,1.1) {CURRENT\_STATE};
+        \node[frameb,minimum width=4.6cm,minimum height=0.42cm,font=\scriptsize] at (0,0.45) {NEXT\_ACTIONS};
+        \node[accb,minimum width=4.6cm,minimum height=0.55cm,font=\scriptsize] at (0,-0.35) {room to work};
+      \end{tikzpicture}
+  \end{columns}
+  \vspace{0.4em}
+  {\small A fresh session helps when the chat has wandered or the summary has lost detail. Anything the closeout did not write down is gone.\par}
+  \takeaway{A new session costs little if the files are current.}
+  \source{\citet{chroma_2025_contextrot}; \citet{anthropic_2025_context}.}
+\end{frame}
+
+\begin{frame}{Fewer tokens, better context}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.46\textwidth}
+      \begin{tikzpicture}
+        \fill[faint] (0,1.15) rectangle (5.15,1.48);
+        \node[anchor=west,font=\scriptsize,text=ink] at (0,1.65) {Load everything};
+        \node[anchor=west,font=\scriptsize,text=muted] at (5.25,1.31) {100{,}000};
+        \fill[accent] (0,0.25) rectangle (0.41,0.58);
+        \node[anchor=west,font=\scriptsize,text=ink] at (0,0.75) {Load what the task needs};
+        \node[anchor=west,font=\scriptsize,text=muted] at (0.55,0.41) {8{,}000};
+      \end{tikzpicture}
+      \vspace{0.45em}
+      {\small\bfseries\color{ink} 92\% fewer input tokens for this request.\par}
+      \vspace{0.2em}
+      {\scriptsize\color{muted} Illustrative numbers, not a measured benchmark.\par}
+    \column{0.50\textwidth}
+      \renewcommand{\arraystretch}{1.2}
+      {\small
+      \begin{tabularx}{\linewidth}{>{\bfseries\color{ink}}l >{\leavevmode\color{dark}}X}
+      Progressive disclosure & names and descriptions first, full text on demand\\
+      Selective loading & one project's files, not the whole vault\\
+      Retrieval & the few passages that match the question\\
+      Prompt caching & a repeated prefix billed at a discount\\
+      Compaction & old turns replaced by a summary\\
+      \end{tabularx}\par}
+  \end{columns}
+  \vspace{0.45em}
+  {\small Savings per request are not total savings. Writing the notes, building an index, and keeping both current also cost tokens and time.\par}
+  \source{\citet{anthropic_prompt_caching}; \citet{openai_prompt_caching}.}
+\end{frame}
+
+\begin{frame}{Portable skills}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.52\textwidth}
+      \filebox{assets/lesson2/files/skill_excerpt.md}{Opening of the demo skill \texttt{check-synthetic-panel}. The agent sees the name and description first.}
+    \column{0.44\textwidth}
+      {\small
+      At start, the agent sees each skill's name and description: a few dozen tokens.\\[0.45em]
+      When a request matches, it reads the full \texttt{SKILL.md}.\\[0.45em]
+      Scripts, templates and references load only if the steps call for them.\\[0.45em]
+      The same folder works in any harness that follows the Agent Skills format.\par}
+      \vspace{0.4em}
+      {\scriptsize\color{muted} The saving comes from loading in stages. Pasting a folder of procedures into every prompt saves nothing.\par}
+  \end{columns}
+  \source{\citet{agentskills_spec}; \citet{claude_skills}; \citet{codex_skills}.}
+\end{frame}
+
+\begin{frame}{From chatbot to research assistant}
+  \begin{center}
+  \begin{tikzpicture}[node distance=0.18cm]
+    \node[frameb,text width=1.55cm,align=center,font=\scriptsize] (h) {Hypothesis\\[0.15em]{\color{muted} New metro stations raise employment within 1 km.}};
+    \node[frameb,text width=1.6cm,align=center,font=\scriptsize,right=0.16cm of h] (i) {Identification\\[0.15em]{\color{muted} Staggered openings; Callaway and Sant'Anna estimator.}};
+    \node[frameb,text width=1.45cm,align=center,font=\scriptsize,right=0.16cm of i] (d) {Data\\[0.15em]{\color{muted} Synthetic panel, 400 tracts, 2010 to 2022.}};
+    \node[frameb,text width=1.35cm,align=center,font=\scriptsize,right=0.12cm of d] (c) {Code\\[0.15em]{\color{muted} \texttt{code/}\\\texttt{02\_did.py}\\ seed 2026.}};
+    \node[frameb,text width=1.55cm,align=center,font=\scriptsize,right=0.16cm of c] (r) {Results\\[0.15em]{\color{muted} Simulated ATT 0.031 (s.e.\ 0.012). Labelled as simulated.}};
+    \node[frameb,text width=1.55cm,align=center,font=\scriptsize,right=0.16cm of r] (e) {Decisions\\[0.15em]{\color{muted} 14 Sep 2026: cluster by district, not tract.}};
+  \end{tikzpicture}
+  \end{center}
+  \vspace{0.15em}
+  {\scriptsize\color{muted} Coauthor rules: never edit \texttt{data/raw}. Tables only through \texttt{make\_tables.py}.\par}
+  \vspace{0.35em}
+  \begin{defbox}{A real case}
+  {\small My mafia-culture state file says that 1,949 rows are the old artist universe, not 1,949 verified narcocorrido artists. An agent that reads it does not report the wrong number.}
+  \end{defbox}
+  \takeaway{Each session starts from the last verified state.}
+  \source{Synthetic demo; mafia-culture state file, 18 Oct 2026.}
+\end{frame}

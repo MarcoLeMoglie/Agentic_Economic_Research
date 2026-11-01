@@ -1,0 +1,72 @@
+{
+  "lesson2/build/prose/notes.md": [
+    {
+      "Action": {
+        "Name": "",
+        "Params": null
+      },
+      "Span": [
+        309,
+        313
+      ],
+      "Check": "AcademicEnglish.Overclaiming",
+      "Description": "",
+      "Link": "",
+      "Message": "Academic prose should preserve evidentiary strength; check this universal or causal claim.",
+      "Severity": "warning",
+      "Match": "never",
+      "Line": 37
+    },
+    {
+      "Action": {
+        "Name": "",
+        "Params": null
+      },
+      "Span": [
+        548,
+        556
+      ],
+      "Check": "BrainVoice.ArtificialSymmetry",
+      "Description": "",
+      "Link": "",
+      "Message": "Check whether this balanced structure reflects the argument or only decorates it.",
+      "Severity": "suggestion",
+      "Match": "both and ",
+      "Line": 79
+    },
+    {
+      "Action": {
+        "Name": "",
+        "Params": null
+      },
+      "Span": [
+        721,
+        725
+      ],
+      "Check": "AcademicEnglish.Overclaiming",
+      "Description": "",
+      "Link": "",
+      "Message": "Academic prose should preserve evidentiary strength; check this universal or causal claim.",
+      "Severity": "warning",
+      "Match": "never",
+      "Line": 79
+    },
+    {
+      "Action": {
+        "Name": "",
+        "Params": null
+      },
+      "Span": [
+        356,
+        360
+      ],
+      "Check": "AcademicEnglish.Overclaiming",
+      "Description": "",
+      "Link": "",
+      "Message": "Academic prose should preserve evidentiary strength; check this universal or causal claim.",
+      "Severity": "warning",
+      "Match": "never",
+      "Line": 205
+    }
+  ]
+}

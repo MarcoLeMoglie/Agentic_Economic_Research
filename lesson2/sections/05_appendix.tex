@@ -1,0 +1,74 @@
+\sectionframe[Not for the main hour. Read them after class.]{Appendix}
+
+\begin{frame}{Token cost of one request}
+  \vspace{0.8em}
+  {\large\color{ink}
+  cost = input $\times p_{\mathrm{in}}$ + cached input $\times p_{\mathrm{cache}}$ + output $\times p_{\mathrm{out}}$\par}
+  \vspace{0.6em}
+  {\small Prices per million tokens. Cached input is billed at a fraction of $p_{\mathrm{in}}$.\par}
+  \vspace{0.4em}
+  {\small Lesson 1 lists a few public prices. They move. Read the vendor page on the day you pay.\par}
+  \source{\citet{anthropic_prompt_caching}; \citet{openai_prompt_caching}.}
+\end{frame}
+
+\begin{frame}{Caching versus a smaller context}
+  {\small
+  Caching discounts a repeated prefix.\\[0.6em]
+  Selective loading removes tokens.\\[0.6em]
+  They combine: a short, stable prefix is both cheap and cacheable.\par}
+\end{frame}
+
+\begin{frame}{Risks of persistent memory}
+  {\small
+  Stale facts read as current.\\[0.45em]
+  Private data copied into notes.\\[0.45em]
+  One wrong decision repeated by every session.\\[0.45em]
+  Prompt injection through a source the agent was told to ingest.\par}
+\end{frame}
+
+\begin{frame}{Governance and access}
+  {\small
+  Who can read which folder.\\[0.45em]
+  What may be synced or pushed.\\[0.45em]
+  An audit log of edits: Git.\\[0.45em]
+  How long a note is kept, and who deletes it.\par}
+\end{frame}
+
+\begin{frame}{Organisational memory and human capital}
+  {\small
+  \citet{hayek_1945}: the knowledge a decision needs is dispersed. No one file holds it.\\[0.45em]
+  \citet{walsh_1991}: organisations remember through people, routines, and records. Records survive turnover. People do not, unless the record was written.\\[0.45em]
+  \citet{cohen_1990}: using a new source requires capacity built earlier.\\[0.45em]
+  \citet{garicano_2000}: a hierarchy is a way to economise on who must know what. A vault is a cheap layer of that sort, if someone maintains it.\par}
+\end{frame}
+
+\begin{frame}{Reproducibility}
+  {\small The AEA asks authors to deposit the data and code, with a README that a third party can follow from the raw files to the tables \citep{aea_dcap}.\\[0.5em]
+  A project brain is that README, written while the work happens, not the week before submission.\par}
+\end{frame}
+
+\begin{frame}{A possible experiment}
+  {\small PhD students, randomised, four sessions on the same empirical task.\\[0.4em]
+  Arms: chatbot only; retrieval over a shared folder; a second brain with state, decisions, and a closeout.\\[0.4em]
+  Outcomes: minutes to restart, mistakes about earlier decisions, tokens spent.\\[0.5em]
+  \textbf{\color{ink} Design sketch, not run.}\par}
+\end{frame}
+
+\begin{frame}{Checklists}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \group{A personal brain}
+      {\small One folder. An index. Four project files. A rules file. No secrets. A \texttt{.gitignore}. One skill. A closeout you have done once by hand.\par}
+    \column{0.48\textwidth}
+      \group{Maintenance}
+      {\small Unindexed pages. Broken links. Decisions that contradict a later one. Duplicate notes. Raw material not distilled. Stale paths. What bootstrap loads. A snapshot before any deletion.\par}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{If the live demo fails}
+  {\small
+  \texttt{git checkout final-verified} shows the vault after a successful audit.\\[0.4em]
+  \texttt{bash demos/lesson2/reset\_demo.sh} returns the class machine to the broken start.\\[0.4em]
+  Backup screenshots for each minute of the script are in \texttt{demos/lesson2/backup/}.\\[0.4em]
+  Obsidian, \texttt{git diff}, and \texttt{validate\_demo\_brain.py} need no network.\par}
+\end{frame}

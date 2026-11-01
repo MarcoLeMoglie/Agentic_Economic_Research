@@ -1,0 +1,9 @@
+I am a PhD student in economics. Create an Obsidian vault in
+~/Documents/MyBrain for my research. Put one folder per project
+under projects/. In each project create PROJECT_BRIEF.md,
+CURRENT_STATE.md, NEXT_ACTIONS.md and DECISIONS.md. Write
+general/INDEX.md, an AGENTS.md that tells any agent to read
+general/INDEX.md first, a BOOTSTRAP.md for opening a session and
+a SESSION_CLOSE.md for closing one. Do not invent content: leave
+placeholders. Show me the folder tree and wait for my approval
+before writing any file.

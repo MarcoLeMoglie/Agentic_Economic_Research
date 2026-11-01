@@ -1,0 +1,3 @@
+| mafia-culture           | INDEX | CURRENT_STATE | AGENT_MEMORY | DECISIONS |
+| mafia-incendi           | INDEX | CURRENT_STATE | AGENT_MEMORY | DECISIONS |
+| fragmented-opposition   | INDEX | CURRENT_STATE | AGENT_MEMORY | DECISIONS |

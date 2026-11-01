@@ -1,0 +1,225 @@
+\sectionframe[Prompt, retrieval, wiki, graph: what each design keeps]{How AI memory can be designed}
+
+\begin{frame}{A short history of external memory}
+  \vspace{0.2em}
+  \begin{center}
+  \begin{tikzpicture}[x=3.15cm]
+    \draw[hair] (0,1.15) -- (3,1.15);
+    \draw[hair] (0,-1.55) -- (3,-1.55);
+    \foreach \x/\y/\n/\t in {%
+      0/1945/Memex/{Bush: a desk that stores and links records},%
+      1/{1990s}/PKM/{notes, folders, tags},%
+      2/2022/{Second brain}/{Forte: CODE and PARA},%
+      3/---/Wikis/{curated pages, shared in teams}%
+    }{%
+      \fill[ink] (\x,1.15) circle (2.2pt);
+      \node[anchor=south,font=\scriptsize,text=muted] at (\x,1.32) {\y};
+      \node[anchor=north,font=\scriptsize\bfseries,text=ink] at (\x,0.95) {\n};
+      \node[anchor=north,font=\scriptsize,text=muted,align=center,text width=2.9cm] at (\x,0.55) {\t};
+    }
+    \foreach \x/\y/\n/\t in {%
+      0/---/{Vector search}/{find by meaning, not by keyword},%
+      1/2020/RAG/{retrieve passages, then generate},%
+      2/2024/GraphRAG/{entities, summarised by community},%
+      3/2026/{LLM Wiki}/{the model maintains the wiki}%
+    }{%
+      \fill[accent] (\x,-1.55) circle (2.2pt);
+      \node[anchor=south,font=\scriptsize,text=muted] at (\x,-1.38) {\y};
+      \node[anchor=north,font=\scriptsize\bfseries,text=ink] at (\x,-1.75) {\n};
+      \node[anchor=north,font=\scriptsize,text=muted,align=center,text width=2.9cm] at (\x,-2.15) {\t};
+    }
+  \end{tikzpicture}
+  \end{center}
+  \vspace{0.3em}
+  {\small These layers coexist. A 2026 system often combines three of them.\par}
+  \source{\citet{bush_1945}; \citet{forte_2022}; \citet{lewis_2020_rag}; \citet{edge_2024_graphrag}; \citet{karpathy_2026_llmwiki}.}
+\end{frame}
+
+\begin{frame}{Everything in the prompt}
+  \begin{center}
+  \begin{tikzpicture}
+    \node[frameb,font=\small] (a) {all files};
+    \node[frameb,font=\small,right=1.4cm of a] (b) {model};
+    \draw[arrA] (a) -- (b);
+  \end{tikzpicture}
+  \end{center}
+  \vspace{0.4em}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.46\textwidth}
+      \group{Strengths}
+      {\small
+      Simple: no index, no pipeline.\\[0.4em]
+      The model reads every source in the author's own words.\\[0.4em]
+      Works while the material fits comfortably in the window.\par}
+    \column{0.48\textwidth}
+      \group{Limits}
+      {\small
+      The window caps the corpus.\\[0.4em]
+      Every request pays for every token.\\[0.4em]
+      Irrelevant pages dilute attention.\\[0.4em]
+      Every update means sending everything again.\par}
+  \end{columns}
+  \takeaway{Fine for one paper. Not for a research agenda.}
+\end{frame}
+
+\begin{frame}{Retrieval-augmented generation}
+  \begin{center}
+  \begin{tikzpicture}[node distance=0.15cm]
+    \foreach \i/\n/\s in {%
+      0/Documents/{papers, notes, logs},%
+      1/Chunking/{split into passages},%
+      2/Indexing/{keywords or embeddings},%
+      3/Retrieval/{top k passages},%
+      4/LLM/{reads question and passages},%
+      5/Answer/{cites the passages it used}%
+    }{%
+      \node[frameb,text width=1.85cm,align=center,font=\scriptsize,minimum height=1.15cm] (n\i) at ({\i*2.05},0) {{\bfseries\color{ink}\n}\\[0.2em]\s};
+    }
+    \foreach \i in {0,...,4}{
+      \pgfmathtruncatemacro{\j}{\i+1}
+      \draw[arr] (n\i) -- (n\j);
+    }
+  \end{tikzpicture}
+  \end{center}
+  \vspace{0.35em}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      {\small
+      \textbf{\color{ink}Lexical}: matches words (BM25). Good for names, codes, variable labels.\\[0.3em]
+      \textbf{\color{ink}Semantic}: matches meaning through embeddings. Good for paraphrase.\\[0.3em]
+      \textbf{\color{ink}Hybrid}: runs both and merges the rankings.\par}
+    \column{0.48\textwidth}
+      \renewcommand{\arraystretch}{1.15}
+      {\scriptsize
+      \begin{tabularx}{\linewidth}{>{\bfseries\color{ink}}l >{\leavevmode\color{dark}}X}
+      \toprule
+      Failure & What happened\\
+      \midrule
+      Wrong chunk & the split cut the key sentence\\
+      Missed source & the right document never ranks\\
+      Incomplete context & the answer needs ten passages; k is five\\
+      Unfaithful synthesis & the model writes past what the passages say\\
+      \bottomrule
+      \end{tabularx}}
+  \end{columns}
+  \source{\citet{lewis_2020_rag}; \citet{robertson_2009_bm25}.}
+\end{frame}
+
+\begin{frame}{Knowledge bases, wikis and GraphRAG}
+  \begin{center}
+  \begin{tikzpicture}[node distance=0.12cm]
+    \node[frameb,font=\scriptsize] (p) {Paper};
+    \node[frameb,font=\scriptsize,right=0.85cm of p] (m) {Method};
+    \node[frameb,font=\scriptsize,right=1.15cm of m] (d) {Dataset};
+    \node[frameb,font=\scriptsize,right=1.15cm of d] (c) {Code};
+    \node[frameb,font=\scriptsize,right=0.85cm of c] (t) {Table};
+    \node[frameb,font=\scriptsize,right=0.85cm of t] (r) {Result};
+    \draw[arr] (p) -- node[above,font=\tiny,text=muted] {uses} (m);
+    \draw[arr] (m) -- node[above,font=\tiny,text=muted] {on} (d);
+    \draw[arr] (d) -- node[above,font=\tiny,text=muted] {in} (c);
+    \draw[arr] (c) -- node[above,font=\tiny,text=muted] {produces} (t);
+    \draw[arr] (t) -- node[above,font=\tiny,text=muted] {reports} (r);
+  \end{tikzpicture}
+  \end{center}
+  \vspace{0.2em}
+  \renewcommand{\arraystretch}{1.12}
+  {\small
+  \begin{tabularx}{0.92\linewidth}{>{\bfseries\color{ink}}l >{\leavevmode\color{dark}}X}
+  \toprule
+  Term & What it adds\\
+  \midrule
+  Document repository & files in folders, nothing more\\
+  Wiki & pages written for readers, linked by hand\\
+  Knowledge base & curated, reviewed entries\\
+  Link graph & which page links to which\\
+  Knowledge graph & typed relations: uses, estimated on, contradicts\\
+  GraphRAG & extracts a graph from text and retrieves over its communities\\
+  \bottomrule
+  \end{tabularx}}
+  \takeaway{Typed relations answer questions like: which results depend on this dataset?}
+  \source{\citet{edge_2024_graphrag}.}
+\end{frame}
+
+\begin{frame}{Andrej Karpathy's LLM Wiki}
+  \begin{columns}[c,onlytextwidth]
+    \column{0.46\textwidth}
+      \shoth{karpathy-llm-wiki.png}{5.2cm}{Three layers, from the gist of 4 April 2026.}
+    \column{0.50\textwidth}
+      \defn{Raw sources}{Papers, articles, notes. The model reads them and never edits them.}{}
+      \vspace{0.4em}
+      \defn{Wiki}{Markdown pages the model writes and keeps current: summaries, entities, concepts, links.}{}
+      \vspace{0.4em}
+      \defn{Schema}{A rules file that says how the wiki is organised and how to update it.}{}
+  \end{columns}
+  \vspace{0.35em}
+  {\small The model does the bookkeeping that usually makes people give up on a wiki.\par}
+  \source{\citet{karpathy_2026_llmwiki}.}
+\end{frame}
+
+\begin{frame}{Ingest, query, lint}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.30\textwidth}
+      \group{Ingest}
+      {\small Read one new source. Write its summary page. Update every page it touches. Log what changed.\par}
+    \column{0.30\textwidth}
+      \group{Query}
+      {\small Ask the wiki, not the raw pile. A good answer can be filed back as a page.\par}
+    \column{0.30\textwidth}
+      \group{Lint}
+      {\small Look for contradictions, stale claims, orphan pages, missing links, concepts without a page.\par}
+  \end{columns}
+  \vspace{0.45em}
+  \begin{center}
+  \begin{tikzpicture}
+    \node[accb,font=\small,align=center,text width=0.92\textwidth] {Promotion: a result checked in a session becomes a page, a decision, or a skill.};
+  \end{tikzpicture}
+  \end{center}
+  \vspace{0.35em}
+  \group{One paper, five edits}
+  {\small summary page (new); staggered DiD concept page (estimator added); employment entity page (new estimate); open questions (conflict with an earlier result flagged); index (two new rows).\par}
+  \source{\citet{karpathy_2026_llmwiki}.}
+\end{frame}
+
+\begin{frame}{Hybrid RAG + LLM Wiki}
+  \begin{center}
+  \begin{tikzpicture}[node distance=0.28cm]
+    \node[frameb,font=\scriptsize,align=center] (raw) {Raw sources};
+    \node[frameb,font=\scriptsize,align=center,text width=3.3cm,below left=0.7cm and -0.2cm of raw] (ret) {Retrieval layer\\{\color{muted} exact passages, quotes, numbers}};
+    \node[frameb,font=\scriptsize,align=center,text width=3.3cm,below right=0.7cm and -0.2cm of raw] (wiki) {Persistent wiki\\{\color{muted} synthesis, decisions, links}};
+    \node[accb,font=\scriptsize,below=1.55cm of raw] (ag) {Agent};
+    \node[frameb,font=\scriptsize,align=center,text width=3.4cm,right=0.7cm of ag] (val) {Validation\\{\color{muted} check against the source, rerun the code}};
+    \node[frameb,font=\scriptsize,align=center,right=0.55cm of val] (mem) {Memory update};
+    \draw[arr] (raw) -- (ret); \draw[arr] (raw) -- (wiki);
+    \draw[arr] (ret) -- (ag); \draw[arr] (wiki) -- (ag);
+    \draw[arrA] (ag) -- (val); \draw[arrA] (val) -- (mem);
+    \draw[arrA] (mem.north) to[out=60,in=0] (wiki.east);
+  \end{tikzpicture}
+  \end{center}
+  {\small The wiki answers: what do we know, and what did we decide? Retrieval answers: where exactly does the source say it?\par}
+  \takeaway{Orient with the wiki. Go back to the source for any number you publish.}
+\end{frame}
+
+\begin{frame}{Comparing architectures, and firms}
+  \renewcommand{\arraystretch}{1.08}
+  {\fontsize{6.2}{7.4}\selectfont
+  \begin{tabularx}{\linewidth}{>{\bfseries\color{ink}}l l l l l l}
+  \toprule
+  Design & Setup & Keeping current & Retrieval & Provenance & Reuse\\
+  \midrule
+  Full prompt & none & resend everything & complete, if it fits & the source itself & none\\
+  RAG & index pipeline & re-index changed files & depends on chunking & passage & low\\
+  Knowledge base & curation time & manual review & high on covered topics & entry & high\\
+  GraphRAG & extraction, many tokens & re-extract & good on global questions & entity, indirect & medium\\
+  LLM Wiki & a folder and a schema & the agent, at each ingest & good for synthesis & links to raw sources & high\\
+  Hybrid & highest & both & best, if maintained & both & high\\
+  \bottomrule
+  \end{tabularx}}
+  \vspace{0.15em}
+  {\scriptsize\color{muted} Qualitative comparison by the author.\par}
+  \vspace{0.25em}
+  \group{In firms}
+  {\small Glean and Microsoft 365 Copilot index company documents and answer within each user's existing permissions. Meta has described an internal organisational second brain.\par}
+  \vspace{0.25em}
+  {\small The hard part is governance: who may see what, stale pages that look authoritative, memory that outlives the reason it was written.\par}
+  \source{\citet{glean_product}; \citet{m365_copilot}; \citet{meta_2026_secondbrain}.}
+\end{frame}

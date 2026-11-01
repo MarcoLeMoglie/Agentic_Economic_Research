@@ -10,7 +10,7 @@ A paper is still the same job: read, get the data in shape, estimate, write, ans
 
 We start with the vocabulary, because the product names change and the pieces underneath do not. A model writes the next bit of text. The harness is the program around it: it holds the conversation, calls tools, and stops when it needs permission. Lesson 1 is those pieces. Context and tokens, and what happens when the window fills. Rules, MCP, and skills. Which model you are calling, what a long run costs, and which data should stay off a consumer chat. The slides are [`lesson1/lesson1.pdf`](lesson1/lesson1.pdf). In class we use [`demos/lesson1`](demos/lesson1): a Stata do-file with a bug left in on purpose, a skill the agent should load when you ask for a regression table, and a short pull of public municipal data through the Cruscotto Italia MCP.
 
-Lessons 2, 3, and 4 are not in the repository yet. Lesson 2 is memory, how the agent keeps this project the next time you open it. Lesson 3 is control, how you check the diff, the table, and the log. Lesson 4 is automations, the same checks running when you are not in the session.
+Lesson 2 is in the repository. It is memory: how the agent keeps this project the next time you open it. The slides are [`lesson2/lesson2.pdf`](lesson2/lesson2.pdf), and the live vault is built by [`demos/lesson2`](demos/lesson2). Lesson 3 is automations, the same checks running when you are not in the session. Lesson 4 is control, how you check the diff, the table, and the log.
 
 ## Overleaf
 
@@ -22,6 +22,7 @@ Overleaf compiles **`main.tex`** at repo root. It inputs Lesson 1.
 |--------|---------------|------------|
 | Default | `main.tex` | `main.pdf` |
 | Lesson 1 direct | `lesson1/lesson1.tex` | [`lesson1/lesson1.pdf`](lesson1/lesson1.pdf) |
+| Lesson 2 direct | `main_lesson2.tex` | [`lesson2/lesson2.pdf`](lesson2/lesson2.pdf) |
 
 `main.tex` is a thin Overleaf stub. Slide content lives under `lesson1/`.
 
@@ -30,9 +31,9 @@ Overleaf compiles **`main.tex`** at repo root. It inputs Lesson 1.
 | Lesson | Question | In the repo |
 |--------|----------|-------------|
 | 1. Vocabulary | What are these things? | [`lesson1/`](lesson1/) |
-| 2. Second brain | How do agents remember? | not yet |
-| 3. Control | How do I check their work? | not yet |
-| 4. Automations | How do they run without me? | not yet |
+| 2. Second brain | How do agents remember? | [`lesson2/`](lesson2/) |
+| 3. Automations | How do they run without me? | not yet |
+| 4. Control | How do I check their work? | not yet |
 
 One-page outline: [`syllabus.tex`](syllabus.tex).
 
@@ -44,7 +45,9 @@ Agentic_Economic_Research/
 ├── syllabus.tex        # One-page outline of the 8-hour course
 ├── assets/             # Banner and the figures used in Lesson 1
 ├── demos/lesson1/      # Folder for the Lesson 1 live demos
-└── lesson1/            # Lesson 1 deck
+├── demos/lesson2/      # Synthetic vault for the Lesson 2 demo
+├── lesson1/            # Lesson 1 deck
+└── lesson2/            # Lesson 2 deck
 ```
 
 ## File guide

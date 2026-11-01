@@ -1,0 +1,8 @@
+Marco/
+├── README.md
+├── general/        rules, routing, skills, templates
+│   ├── agent/          BOOTSTRAP, SESSION_CLOSE, MEMORY_POLICY, WIKI_WORKFLOW
+│   ├── capabilities/   skills/, integrations/
+│   └── templates/      PROJECT_TEMPLATE/
+├── areas/          Research, Grant, Teaching, Tesi, Other
+└── .infra/         scripts, prose tools, integrations (hidden)

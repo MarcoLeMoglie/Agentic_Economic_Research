@@ -1,0 +1,10 @@
+MyBrain/
+├── README.md
+├── general/
+│   └── INDEX.md
+└── projects/
+    └── my-first-project/
+        ├── PROJECT_BRIEF.md
+        ├── CURRENT_STATE.md
+        ├── NEXT_ACTIONS.md
+        └── DECISIONS.md
