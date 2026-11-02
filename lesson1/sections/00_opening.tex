@@ -6,16 +6,12 @@
 \begin{frame}[plain]
   \begin{tikzpicture}[remember picture,overlay]
     \fill[ink] (current page.south west) rectangle (current page.north east);
-    \node[anchor=south west,inner sep=0pt,text=white,align=left,text width=0.82\paperwidth]
-      at ($(current page.south west)+(1.6cm,3.4cm)$)
-      {{\fontsize{30}{35}\selectfont\bfseries Agentic AI for\\[0.1em] Economic Research}\par
-       \vspace{0.7em}{\Large Lesson 1: The vocabulary}};
-    \fill[accent] ($(current page.south west)+(1.6cm,2.95cm)$) rectangle ++(1.4cm,0.06cm);
-    \node[anchor=south west,inner sep=0pt,text=white!78!ink,align=left,font=\small]
-      at ($(current page.south west)+(1.6cm,1.1cm)$)
-      {Marco Le Moglie, Catholic University of the Sacred Heart\\
-       Four lessons of two hours, autumn 2026\\
-       {\hypersetup{urlcolor=white!78!ink}\href{https://github.com/MarcoLeMoglie/Agentic_Economic_Research}{\includegraphics[height=1.05em]{github_mark_white.png}\ GitHub repo}}};
+    \node[anchor=south west,inner sep=0pt,text=white,align=left,text width=0.86\paperwidth]
+      at ($(current page.south west)+(1.15cm,2.55cm)$)
+      {{\fontsize{28}{32}\selectfont\bfseries Agentic AI for\\[0.06em] Economic Research}\\[8pt]
+       {\Large Lesson 1: The vocabulary}\\[10pt]
+       {\color{white!85}\small Marco Le Moglie \quad|\quad Catholic University of the Sacred Heart \quad|\quad Autumn 2026}\\[8pt]
+       {\hypersetup{urlcolor=white!85}\href{https://github.com/MarcoLeMoglie/Agentic_Economic_Research}{\normalsize\includegraphics[height=1.05em]{github_mark_white.png}\ GitHub repo}}};
   \end{tikzpicture}
 \end{frame}
 
@@ -28,8 +24,8 @@
     \foreach \x/\name/\q/\c in {%
       0/Vocabulary/What are these things?/accent,%
       1/Second brain/How do agents remember?/faint,%
-      2/Control/How do I check their work?/faint,%
-      3/Automations/How do they run without me?/faint}{%
+      2/Automations/How do they run without me?/faint,%
+      3/Control/How do I check their work?/faint}{%
       \fill[\c] (\x,0) circle (3.2pt);
       \node[anchor=south,font=\scriptsize,text=muted] at (\x,0.25) {Lesson \the\numexpr\x+1\relax};
       \node[anchor=north,font=\large\bfseries,text=ink] at (\x,-0.25) {\name};

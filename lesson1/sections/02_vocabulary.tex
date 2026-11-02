@@ -74,12 +74,12 @@
 
 % -------- Context rot, measured --------
 \begin{frame}{Accuracy falls before the window is full}
-  \shoth{context_rot_repeated_words.png}{5.5cm}{Chroma, July 2025. Repeated words, several models. The score falls before the window is full.}
+  \shoth{context_rot_repeated_words.png}{5.2cm}{\textcolor{blue}{Chroma, July 2025. The test asks the model to copy a list of words. The vertical axis is how close the copy is: 1 means exact, lower means more mistakes. The list gets longer from left to right, and the copy gets worse before the window is full.}}
 \end{frame}
 
 \begin{frame}{Keep the window from filling}
   \vspace{0.4em}
-  {\small Three habits. Each one keeps the next turn from rereading a pile you did not need.\par}
+  {\small Three habits. Each one keeps the model in the next turn from rereading a pile you did not need.\par}
   \vspace{0.9em}
   {\small
   \group{Few skills}
@@ -113,12 +113,12 @@
     \draw[arr] (b.east) -- (c.west);
   \end{tikzpicture}
   \end{center}
-  \takeaway{A summary loses detail. Decisions belong in files.}
+  \takeaway{A summary loses detail. \textcolor{blue}{Write the decision in a file. A summary of the chat can drop it, and the next session will not have it.}}
 \end{frame}
 
 \begin{frame}{Handoff, then a new session}
   \vspace{0.5em}
-  {\small Compaction stays in this chat. Handoff leaves it.\par}
+  {\small Compaction stays in the same chat. Handoff leaves it.\par}
   \vspace{0.9em}
   {\small
   \group{\texttt{/handoff}}
@@ -135,7 +135,7 @@
 \begin{frame}{Rules files: prompts that stay}
   \begin{columns}[T,onlytextwidth]
     \column{0.56\textwidth}
-      \filebox{assets/lesson1/files/AGENTS_excerpt.md}{\texttt{AGENTS.md} of the course demo repository (excerpt). The agent reads it at every session start.}
+      \filebox{assets/lesson1/files/AGENTS_excerpt.md}{\texttt{AGENTS.md} of the course demo repository. The agent reads it at every session start.}
     \column{0.40\textwidth}
       \vspace{0.2em}
       {\small
@@ -222,7 +222,7 @@
       \vspace{0.6em}
       {\small\color{muted}
       At session start: load the rules and the project state.\\[0.2em]
-      After an edit: run a linter or a prose check.\\[0.2em]
+      After an edit: run a code debugging or a prose check.\\[0.2em]
       Before a commit: block secrets and raw data.\par}
   \end{columns}
   \vspace{1.8em}
@@ -259,7 +259,7 @@
 \begin{frame}{Recorded result: the skill was read when the request matched}
   \begin{columns}[T,onlytextwidth]
     \column{0.64\textwidth}
-      \filebox{assets/lesson1/traces/skill_excerpt.txt}{Real run, 26 Oct 2026: OpenCode with DeepSeek V4.1 Flash (free tier), 57 seconds. Paths shortened.}
+      \filebox{assets/lesson1/traces/skill_excerpt.txt}{}
     \column{0.32\textwidth}
       \vspace{0.2em}
       {\small

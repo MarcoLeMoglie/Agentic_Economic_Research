@@ -2,7 +2,7 @@
 % Cost, data, reliability: the minimum vocabulary
 % =============================================================
 
-\sectionframe[The minimum vocabulary before Lesson 3]{Cost, data, reliability}
+\sectionframe[The minimum vocabulary before Lesson 4]{Cost, data, reliability}
 
 % -------- Subscription vs API, four levers --------
 \begin{frame}{Subscription vs API, and what drives the bill}
@@ -14,13 +14,17 @@
       \group{API}
       {\small\color{muted}Pay per token. Easy to measure, easy to overspend. Needed when a harness runs many steps on its own.\par}
       \vspace{0.9em}
-      {\scriptsize\color{muted}List prices per million tokens, input and output: GPT-6 Luna \$0.10 and \$0.50; GPT-6.1 Sol \$2 and \$10; Claude Opus 5.5 \$4 and \$20; GPT-6 Astra \$10 and \$50.\par}
+      {\scriptsize\color{muted}\textbf{List prices per million tokens, input and output:} \\
+      \textit{GPT-6 Luna}: \$0.10 and \$0.50; \\
+      \textit{GPT-6.1 Sol}: \$2 and \$10; \\
+      \textit{Claude Opus}: 5.5 \$4 and \$20; \\
+      \textit{GPT-6 Astra}: \$10 and \$50.\par}
     \column{0.54\textwidth}
       \group{Four levers of an agent's bill}
       \vspace{0.2em}
       \renewcommand{\arraystretch}{1.4}
       \begin{tabularx}{\linewidth}{>{\bfseries\color{ink}}l >{\small\leavevmode\color{dark}}X}
-        Context & every step resends files, history and tool output\\
+        Context & every step resends files, history and tool\\
         Tool calls & more autonomy, more steps\\
         Retries & failed runs, self-checks, sub-agents\\
         Model tier & a 100-fold range between Luna and Astra\\
@@ -65,8 +69,11 @@
       \end{tikzpicture}
     \column{0.44\textwidth}
       {\small
-      \group{Whether it trains depends on}
-      {\color{muted}the plan (consumer or business), the workspace settings, the API retention policy, and every tool the agent calls on the way.\par}
+      \group{Whether it trains depends on:}
+      {\color{muted}Plan (consumer or business);\\
+      Workspace settings;\\
+      API retention policy; \\
+      Every tool the agent calls on the way.\par}
       \vspace{0.8em}
       {\color{ink}\bfseries Settings change. Check them; do not assume them.\par}
       \vspace{0.8em}
@@ -81,12 +88,12 @@
   \renewcommand{\arraystretch}{1.25}
   \begin{tabularx}{0.9\linewidth}{>{\bfseries\color{ink}}l X}
   \toprule
-  Hallucination & a confident output with no basis: a citation, a number, a variable\\
-  Context rot & quality falls as the context window fills\\
-  Reward hacking & the agent meets the check and misses the goal, for example by editing the test instead of the code\\
-  Sycophancy & the model agrees with you when you are wrong\\
-  Automation bias & we trust automated output more than it deserves \citep{skitka_1999_automation_bias}\\
-  Drift & the same prompt gives different results after a model update\\
+  Hallucination & A confident output with no basis: a citation, a number, a variable\\
+  Context rot & Quality falls as the context window fills\\
+  Reward hacking & The agent meets the check and misses the goal\\
+  Sycophancy & The model agrees with you when you are wrong\\
+  Automation bias & We trust automated output more than it deserves \citep{skitka_1999_automation_bias}\\
+  Drift & The same prompt gives different results after a model update\\
   \bottomrule
   \end{tabularx}
   \end{center}
