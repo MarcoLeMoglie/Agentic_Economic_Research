@@ -113,7 +113,7 @@ Theme file is `lesson2/preamble.tex`. It loads the Lesson 1 theme, then the Less
 
 | Path | What it is |
 |------|------------|
-| `banner.png` | Header image at the top of this README. Same bottom band as the lesson covers. |
+| `banner.png` | Header image at the top of this README. The Lesson 2 cover, with no text. |
 | `covers/` | Full-bleed covers for the four lessons. Lessons 3 and 4 are not taught yet. |
 | `lesson1/screens/` | Screenshots and vendor images used in Lesson 1. |
 | `lesson1/charts/data/` | CSV behind the pgfplots charts. |
