@@ -55,11 +55,10 @@ oversight of what they do.
 
 \textbf{\color{deepblue}Structure}
 
-\textbf{Before class --- Pre-course readings (required).}
-Theoretical foundations are covered in written materials distributed before Session~1:
-what agents are, how they differ from chatbots, core vocabulary (context, tokens, rules,
-MCP connectors), and the main risks (hallucination, automation bias, over-delegation).
-Come to the first session having read these notes.
+\textbf{Before class.}
+The slides and the demo folders in the course repository are the materials.
+Come to Session~1 with one harness installed: ChatGPT desktop with Codex, Claude Code,
+Cursor, or OpenCode.
 
 \vspace{0.15em}
 
@@ -68,25 +67,33 @@ Come to the first session having read these notes.
 \textbf{Session} & \textbf{Topic} \\
 \midrule
 \textbf{1} &
-\textbf{Interfaces and setup.} Desktop apps, IDEs, CLIs, and browser-based tools;
-chat vs.\ agent modes; model and context settings; project rules; basic permissions
-and control. Goal: choose and configure a working environment. \\
+\textbf{Vocabulary.} What the pieces are, and what they are not. A model writes the
+next bit of text. The harness holds the conversation, calls tools, and stops for
+permission. Context, tokens, and what happens when the window fills. Rules, MCP, and
+skills. Which model you call, what a long run costs, and which data stays off a
+consumer chat. In class: a Stata do-file with a bug left in on purpose, a skill the
+agent should load, and a short pull of public municipal data. \\
 \addlinespace
 \textbf{2} &
-\textbf{Memory and knowledge.} Persistent memory, RAG, and project knowledge bases;
-building and querying a research ``second brain'' with Obsidian. Goal: give agents
-stable context across sessions without dumping everything into every prompt. \\
+\textbf{Second brain.} How the agent keeps this project the next time you open it.
+We start from JARVIS, the film assistant, and from a clip of that assistant being
+built with an agent. Then the choices: paste the files, search them, keep a wiki the
+agent updates, or a hybrid of project files plus search. We build the small version
+in Obsidian, and I show the Brain I use, including the Sunday pass that checks it.
+The demo continues from Session~1 into that vault, and into the same folder on
+Dropbox, Overleaf, and the phone. \\
 \addlinespace
 \textbf{3} &
-\textbf{Research workflow --- live examples (I).} Concrete cases along the pipeline:
-literature synthesis, data documentation, replication checks, Stata/LaTeX assistance,
-referee-response drafting. Emphasis on prompting, verification, and iteration. \\
+\textbf{Automations.} How the same checks run when you are not in the session.
+A schedule ingests the notes, updates the project files, and leaves a log. The
+Sunday pass from Session~2 is the picture: the agent reads the vault, moves finished
+work into the log, and asks you the questions it cannot close. Slides not yet written. \\
 \addlinespace
 \textbf{4} &
-\textbf{Research workflow --- live examples (II).} Going further: custom commands,
-hooks, skills, automations, agent loops, and lightweight multi-agent review (e.g.\
-code audit, robustness checks). Goal: reusable setups you can adapt to your own
-projects. \\
+\textbf{Control.} How you check the work before you trust it. The diff, the table,
+and the log. Session~1 already ends on a table that runs and still needs a reader.
+This session makes that check a habit: what the agent may change, what you must read,
+and what never becomes permanent without you. Slides not yet written. \\
 \bottomrule
 \end{tabularx}
 
@@ -96,19 +103,11 @@ projects. \\
 
 By the end of the course, you should be able to:
 \begin{enumerate}\setlength\itemsep{0.15em}
-  \item \textbf{Set up} an agentic environment suited to economic research (IDE or CLI,
-        rules, connectors).
-  \item \textbf{Decide} what to delegate to an agent and what to keep under direct
-        control.
-  \item \textbf{Build} a small knowledge base and connect it to your workflow so agents
-        can retrieve project-specific context.
-  \item \textbf{Apply} agents to common research tasks---reading papers, documenting
-        data, coding, writing, responding to feedback---with explicit verification
-        steps.
-  \item \textbf{Design} simple reusable automations (commands, skills, hooks) for tasks
-        you repeat often.
-  \item \textbf{Evaluate} agent output critically: spot errors, avoid automation bias,
-        and maintain an audit trail.
+  \item \textbf{Name} the pieces: model, harness, context, tool, permission, skill.
+  \item \textbf{Point} an agent at a project folder and say what it may change.
+  \item \textbf{Keep} the project in files the next session can open, instead of in the chat.
+  \item \textbf{Leave} a repeated check running when you are not in the session.
+  \item \textbf{Read} the diff, the table, and the log, and decide what is allowed to stay.
 \end{enumerate}
 
 \vspace{0.15em}

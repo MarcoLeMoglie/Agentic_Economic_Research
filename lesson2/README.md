@@ -1,6 +1,6 @@
 # Lesson 2
 
-Beamer deck for "From JARVIS to your own second brain". It uses the Lesson 1 theme through `lesson2/preamble.tex`, which inputs `lesson1/preamble_v2.tex` and then overrides the footline, the graphic path, and the demo frame.
+Slide text comes from the 1 November 2026 source pack (`From JARVIS to Your Own Second Brain`). The Beamer theme is Lesson 1: `lesson2/preamble.tex` inputs `lesson1/preamble_v2.tex`, then adds the source pack's boxes, kickers, and image paths.
 
 Compile from the repository root:
 
@@ -8,28 +8,8 @@ Compile from the repository root:
 mkdir -p /tmp/l2c
 tectonic -X compile main_lesson2.tex --outdir /tmp/l2c
 cp /tmp/l2c/main_lesson2.pdf lesson2/lesson2.pdf
-bash lesson2/preflight.sh
 ```
 
-`main.tex` is still Lesson 1. Overleaf does not build this deck unless `main_lesson2.tex` is set as the main file.
+`main.tex` is still Lesson 1.
 
-## Files
-
-| File | Role |
-|---|---|
-| `lesson2.tex` | Frame order |
-| `sections/00_opening.tex` | Slides 1 to 10 |
-| `sections/01_architectures.tex` | Slides 11 to 18 |
-| `sections/02_build.tex` | Slides 19 to 26 |
-| `sections/03_mybrain.tex` | Slides 27 to 36 |
-| `sections/04_close.tex` | Demo frame, homework, references |
-| `sections/05_appendix.tex` | Appendix A1 to A9 |
-| `speaker-notes.md` | Spoken notes, not `\note` |
-| `lesson2.bib` | Sources |
-| `sources-and-image-credits.md` | What each figure is |
-
-## Layout families
-
-D definition, S screenshot or file, C chart, T table, G graph or diagram, F flow. The same family is not used three times in a row. Slides 19 to 22 are all figures, alternating a wide figure, a figure on the right, a full-width graph, and a figure on the left.
-
-Palette: ink `#163A59`, accent `#D97706`, the same as Lesson 1.
+Speaker notes: `speaker-notes.md` (Italian, from the source pack). Sources: `REFERENCES.md`. Image provenance: `sources-and-image-credits.md`. Live demo: `demos/lesson2/` and `DEMO_GUIDE.md`. Do not run `scripts/setup_git.sh` inside this repository. Copy the demo folder out first.

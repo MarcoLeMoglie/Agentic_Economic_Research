@@ -1,5 +1,0 @@
-
- lesson2/build/prose/notes.md
- 119:164  suggestion  Check whether this balanced structure reflects the argument or only decorates it.  BrainVoice.ArtificialSymmetry 
-
-✔ 0 errors, 0 warnings and 1 suggestion in 1 file.

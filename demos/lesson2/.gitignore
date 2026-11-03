@@ -1,0 +1,12 @@
+# No credentials, runtime caches or accidental user data
+.DS_Store
+.obsidian/workspace*
+__pycache__/
+*.pyc
+.env
+.env.*
+credentials/
+secrets/
+API_KEYS*
+*.pem
+*.key

@@ -1,0 +1,73 @@
+% Lesson 2 theme: Lesson 1 preamble, then three overrides.
+\input{lesson1/preamble_v2.tex}
+
+\setbeamertemplate{footline}{%
+  \leavevmode\hbox to \paperwidth{%
+    \hfill{\color{faint}\fontsize{6.5}{8}\selectfont\insertframenumber}\hspace{2.2em}}%
+  \vspace{0.9em}%
+}
+
+\graphicspath{{assets/lesson2/screens/}{assets/lesson2/illustrations/}{assets/lesson2/diagrams/}{assets/lesson1/logos/}{assets/real/}}
+
+% Macros used by the Lesson 2 source pack. Colours and frame chrome stay on the Lesson 1 theme.
+\ifdefined\DeclareUnicodeCharacter
+  \DeclareUnicodeCharacter{2013}{--}
+  \DeclareUnicodeCharacter{2014}{---}
+  \DeclareUnicodeCharacter{2018}{`}
+  \DeclareUnicodeCharacter{2019}{'}
+  \DeclareUnicodeCharacter{201C}{``}
+  \DeclareUnicodeCharacter{201D}{''}
+\fi
+% Review colour accepted: \chg keeps the words and no longer paints them.
+\newcommand{\chg}[1]{#1}
+\newcommand{\chgshoth}[4][\linewidth]{%
+  \begin{tcolorbox}[l1base,width=#1,colback=white,halign=center,
+      borderline={1pt}{0pt}{hair},left=0pt,right=0pt,top=0pt,bottom=0pt]
+    \includegraphics[width=\linewidth,height=#3,keepaspectratio]{#2}%
+  \end{tcolorbox}%
+  \par\vspace{0.15em}{\color{muted}\scriptsize #4}}
+\newtcolorbox{chgfig}{l1base,colback=paper,borderline={1pt}{0pt}{hair},left=4pt,right=4pt,top=4pt,bottom=4pt,halign=center}
+
+% YouTube clip card: \ytclip{video id}{title}{description}; thumbnail in assets/lesson2/video/yt-<id>.jpg
+\newcommand{\ytclip}[3]{%
+  \begin{minipage}[t]{5.15cm}
+    \centering
+    \href{https://www.youtube.com/watch?v=#1}{%
+      \begin{tikzpicture}
+        \node[inner sep=0pt] (img) {\includegraphics[height=3.35cm]{assets/lesson2/video/yt-#1.jpg}};
+        \draw[hair,line width=1pt] (img.south west) rectangle (img.north east);
+        \fill[black,opacity=.55] (img.center) circle (0.42cm);
+        \fill[white] ($(img.center)+(-0.13,-0.2)$) -- ($(img.center)+(-0.13,0.2)$) -- ($(img.center)+(0.21,0)$) -- cycle;
+      \end{tikzpicture}}\par\vspace{0.35em}
+    {\color{ink}\small\bfseries #2}\par\vspace{0.1em}
+    {\color{muted}\scriptsize #3}
+  \end{minipage}}
+
+\newcommand{\kicker}[1]{}
+\newcommand{\subt}[1]{{\color{muted}\small #1}\par\vspace{.65em}}
+\newcommand{\tagline}[1]{\takeaway{#1}}
+\newcommand{\citefoot}[1]{}
+\newcommand{\boxtitle}[1]{{\color{ink}\bfseries #1}}
+\tcbset{l2base/.style={enhanced,arc=2pt,outer arc=2pt,boxrule=0.55pt,colframe=hair,colback=white,left=2mm,right=2mm,top=1.5mm,bottom=1.5mm}}
+\newcommand{\coursebox}[2]{\begin{tcolorbox}[l2base]\boxtitle{#1}\par\vspace{1mm}{\small #2}\end{tcolorbox}}
+\newcommand{\sboxblue}[2]{\begin{tcolorbox}[l2base,colback=tint,colframe=ink!24]\boxtitle{#1}\par\vspace{1mm}{\small #2}\end{tcolorbox}}
+\newcommand{\lightimg}[2]{\begin{tcolorbox}[l2base,left=0pt,right=0pt,top=0pt,bottom=0pt]\includegraphics[width=\linewidth,height=#2,keepaspectratio]{#1}\end{tcolorbox}}
+\newcommand{\inlinecode}[1]{{\ttfamily\small\color{ink}#1}}
+\newcommand{\lc}[1]{{\color{muted}\footnotesize #1}}
+\tikzset{
+  lbox/.style={draw=hair,rounded corners=2pt,fill=white,text width=2.35cm,align=center,inner sep=8pt,font=\small},
+  lblue/.style={draw=ink,rounded corners=2pt,fill=tint,text width=2.35cm,align=center,inner sep=8pt,font=\small},
+  larrow/.style={-{Stealth[length=5pt]},draw=ink,line width=.8pt}
+}
+
+\renewcommand{\demoframe}[3]{%
+\begin{frame}{#1}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.55\textwidth}
+      \group{What we do}
+      #2
+    \column{0.40\textwidth}
+      \group{What to look at}
+      #3
+  \end{columns}
+\end{frame}}

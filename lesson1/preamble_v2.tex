@@ -44,7 +44,22 @@
   \DeclareUnicodeCharacter{00B7}{\textperiodcentered}
 \fi
 
-\graphicspath{{assets/lesson1/screens/}{assets/lesson1/logos/}{assets/real/}}
+\graphicspath{{assets/lesson1/screens/}{assets/lesson1/logos/}{assets/covers/}{assets/real/}}
+
+% One cover. Same band, same fonts, same lines. \coverframe{image}{title}{subtitle}{n}
+\newcommand{\coverframe}[4]{%
+\begin{frame}[plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=center,inner sep=0] at (current page.center)
+      {\includegraphics[width=\paperwidth,height=\paperheight]{#1}};
+    \fill[black,opacity=.55] (current page.south west) rectangle ($(current page.south west)+(\paperwidth,3.45cm)$);
+    \node[anchor=south west,text width=13.4cm,align=left,inner sep=0pt] at ($(current page.south west)+(0.7cm,0.38cm)$)
+      {{\color{white}\fontsize{25}{29}\selectfont\bfseries #2}\\[4pt]
+       {\normalsize\color{white!85} #3}\\[5pt]
+       {\footnotesize\color{white!78} Agentic AI for Economic Research \quad|\quad Lesson #4 \quad|\quad Marco Le Moglie}\\[4pt]
+       {\hypersetup{urlcolor=white!85}\href{https://github.com/MarcoLeMoglie/Agentic_Economic_Research}{\footnotesize\color{white!85}\includegraphics[height=1.05em]{github_mark_white.png}\ GitHub repo}}};
+  \end{tikzpicture}
+\end{frame}}
 
 % ---------- Palette (locked: one ink, one accent, one cool grey family) ----------
 \definecolor{ink}{HTML}{163A59}

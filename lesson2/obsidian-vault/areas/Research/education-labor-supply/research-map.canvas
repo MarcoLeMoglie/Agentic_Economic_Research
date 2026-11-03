@@ -1,0 +1,15 @@
+{
+	"nodes":[
+		{"id":"q","type":"text","x":0,"y":0,"width":330,"height":150,"color":"6","text":"## Question\nDoes one more year of compulsory schooling change women's labour supply?"},
+		{"id":"d","type":"text","x":420,"y":-40,"width":330,"height":190,"text":"## Data\nSynthetic LFS, 1993 to 2019\nWomen born 1940 to 1958\n412,880 observations"},
+		{"id":"i","type":"file","file":"areas/Research/education-labor-supply/wiki/identification.md","x":0,"y":240,"width":360,"height":260},
+		{"id":"r","type":"text","x":440,"y":240,"width":330,"height":200,"color":"4","text":"## Results so far\nFirst stage +0.41 years\nParticipation +2.1 pp (s.e. 0.8)\n*Invented numbers*"},
+		{"id":"o","type":"text","x":860,"y":120,"width":300,"height":160,"color":"1","text":"## Open\nRollout dates disagree for 14 provinces"}
+	],
+	"edges":[
+		{"id":"e1","fromNode":"q","fromSide":"right","toNode":"d","toSide":"left"},
+		{"id":"e2","fromNode":"q","fromSide":"bottom","toNode":"i","toSide":"top"},
+		{"id":"e3","fromNode":"i","fromSide":"right","toNode":"r","toSide":"left"},
+		{"id":"e4","fromNode":"d","fromSide":"right","toNode":"o","toSide":"top"}
+	]
+}
