@@ -40,10 +40,13 @@
 \item \textbf{Prepare.} Parse documents, split or structure text and build searchable indexes.
 \item \textbf{Query.} Retrieve relevant passages using lexical search, vector similarity or both.
 \item \textbf{Generate.} Answer with retrieved context and citations to original documents.
+\item \textbf{Risks}:
+\begin{itemize}
 \item \chg{\textbf{Missed evidence.} Search never returns the appendix table, so the answer goes on without it.}
 \item \chg{\textbf{Bad chunk boundaries.} A coefficient is cut off from the sentence that says which regression it belongs to.}
 \item \chg{\textbf{Ambiguous provenance.} Two notes disagree, and the answer does not say which file it used.}
 \item \chg{\textbf{Stale index.} The paper changed last week; search still returns last month's draft.}
+\end{itemize}
 \end{itemize}
 \medskip
 \tagline{\chg{RAG finds the passages in your documents that match a question. It does not keep track of where the project stands: current decisions, rejected ideas, next steps.}}
