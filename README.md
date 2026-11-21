@@ -10,7 +10,7 @@ A paper is still the same job: read, get the data in shape, estimate, write, ans
 
 **Lesson 1. Vocabulary.**  Slides: [`lesson1/lesson1.pdf`](lesson1/lesson1.pdf). Files for class: [`demos/lesson1`](demos/lesson1).
 
-**Lesson 2. Second brain.**  Slides: [`lesson2/lesson2.pdf`](lesson2/lesson2.pdf). The vault in the repo is invented, a project on education and labour supply: [`lesson2/obsidian-vault`](lesson2/obsidian-vault). The class demo continues from Lesson 1 into that vault. Notes: [`demos/lesson2`](demos/lesson2).
+**Lesson 2. Second brain.**  Slides: [`lesson2/lesson2.pdf`](lesson2/lesson2.pdf). The vault in the repo is invented, a project on education and labour supply: [`lesson2/obsidian-vault`](lesson2/obsidian-vault). Files for class: [`demos/lesson2`](demos/lesson2).
 
 **Lesson 3. Automations and control.** Slides: [`lesson3/lesson3.pdf`](lesson3/lesson3.pdf).
 
@@ -45,7 +45,7 @@ Agentic_Economic_Research/
 ├── syllabus.tex        # One-page outline
 ├── assets/             # Figures used in the slides
 ├── demos/lesson1/      # Live material for Lesson 1
-├── demos/lesson2/      # Notes for the Lesson 2 demo
+├── demos/lesson2/      # Live material for Lesson 2
 ├── lesson1/            # Lesson 1 deck
 ├── lesson2/            # Lesson 2 deck and the synthetic vault
 └── lesson3/            # Lesson 3 deck
@@ -79,6 +79,17 @@ https://github.com/MarcoLeMoglie/Agentic_Economic_Research/tree/main/demos/lesso
 | `data/auto.dta` | Stata's `auto` dataset, the input to that do-file. |
 | `.agents/skills/regression-table/SKILL.md` | Skill the agent should load when asked for a regression table. |
 | `output/` | Where the agent writes the table. Empty in the repo. |
+
+### `demos/lesson2/`
+
+Live material for Lesson 2:
+
+https://github.com/MarcoLeMoglie/Agentic_Economic_Research/tree/main/demos/lesson2
+
+| Path | What it is |
+|------|------------|
+| `README.md` | What the synthetic project is, and the commands for class. |
+| `DEMO_GUIDE.md` | The order of the demo. |
 
 ## Local build
 
