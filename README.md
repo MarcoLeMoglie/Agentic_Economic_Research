@@ -8,12 +8,11 @@ I teach this to PhD students and faculty in economics. Three lessons of two hour
 
 A paper is still the same job: read, get the data in shape, estimate, write, answer the referee. An agent can take a piece of that job inside the project folder. It opens the files, runs Stata, and changes the line that failed. The course is how you point it at the right files, what you let it change, and how you check the result.
 
-**Lesson 1. Vocabulary.**  Slides: [`lesson1/lesson1.pdf`](lesson1/lesson1.pdf). Files for class: [`demos/lesson1`](demos/lesson1).
+**Lesson 1. Vocabulary.**  
 
-**Lesson 2. Second brain.**  Slides: [`lesson2/lesson2.pdf`](lesson2/lesson2.pdf). The vault in the repo is invented, a project on education and labour supply: [`lesson2/obsidian-vault`](lesson2/obsidian-vault). Files for class: [`demos/lesson2`](demos/lesson2).
+**Lesson 2. Second brain.** 
 
-**Lesson 3. Automations and control.** Slides: [`lesson3/lesson3.pdf`](lesson3/lesson3.pdf).
-
+**Lesson 3. Automations and control.** 
 
 ## Overleaf
 
