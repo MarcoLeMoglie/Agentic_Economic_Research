@@ -1,25 +1,24 @@
 % =============================================================
-% Opening: title, the four lessons, twelve words
+% Opening: title, the three lessons, twelve words
 % =============================================================
 
 % -------- Title --------
 \coverframe{assets/covers/01_vocabulary_background.png}{The vocabulary}{What are these things?}{1}
 
-% -------- The course in four lessons --------
-\begin{frame}{The course in four lessons}
-  \vspace{1.6em}
+% -------- The course in three lessons --------
+\begin{frame}{The course in three lessons}
+  \vspace{1.2em}
   \begin{center}
-  \begin{tikzpicture}[x=3.45cm]
-    \draw[hair,line width=0.6pt] (0,0) -- (3,0);
+  \begin{tikzpicture}[x=4.7cm]
+    \draw[hair,line width=0.6pt] (0,0) -- (2,0);
     \foreach \x/\name/\q/\c in {%
       0/Vocabulary/What are these things?/accent,%
       1/Second brain/How do agents remember?/faint,%
-      2/Automations/How do they run without me?/faint,%
-      3/Control/How do I check their work?/faint}{%
+      2/{Automations \& control}/{When does the job start, and how do I check it?}/faint}{%
       \fill[\c] (\x,0) circle (3.2pt);
       \node[anchor=south,font=\scriptsize,text=muted] at (\x,0.25) {Lesson \the\numexpr\x+1\relax};
-      \node[anchor=north,font=\large\bfseries,text=ink] at (\x,-0.25) {\name};
-      \node[anchor=north,font=\small,text=muted,text width=3.1cm,align=center] at (\x,-0.85) {\q};
+      \node[anchor=north,font=\large\bfseries,text=ink,text width=4.3cm,align=center] at (\x,-0.28) {\name};
+      \node[anchor=north,font=\small,text=muted,text width=4.3cm,align=center] at (\x,-1.55) {\q};
     }
   \end{tikzpicture}
   \end{center}
