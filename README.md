@@ -12,25 +12,23 @@ We start with the vocabulary, because the product names change and the pieces un
 
 Lesson 2 is how the agent keeps this project the next time you open it. We start from two clips. In the film, JARVIS already knows the workshop and designs the suit with Tony. In the second clip, someone builds that kind of assistant with an AI agent. What used to be science fiction is now a folder of files. A new chat does not have those files, and a long chat buries the decision you need. The lesson then walks through the real choices: paste everything into the prompt, search the documents when a question arrives (RAG), keep a wiki the agent updates, or a hybrid of project files plus search when the sources get large. We build the small version in Obsidian. Ordinary Markdown, four files that say where the project stands, links, a canvas, and Git so every change has a diff. I show the Brain I actually use, including the Sunday pass that checks it, and the rule that I read the diff before a change sticks. The slides are [`lesson2/lesson2.pdf`](lesson2/lesson2.pdf). The synthetic vault, a fake project on education and labour supply, is [`lesson2/obsidian-vault`](lesson2/obsidian-vault). The demo notes are in [`demos/lesson2`](demos/lesson2). In class the demo continues from Lesson 1: the short scripts, the Sportello Italia pull, then filing that project into the vault, and the same folder open in Overleaf, Dropbox, the phone and ChatGPT.
 
-Lesson 3 is automations: the same checks running when you are not in the session. A schedule ingests the notes, updates the project files, and leaves a log. The Sunday pass in Lesson 2 is the picture. The slides are not written yet. The cover is [`assets/covers/03_automation_background.png`](assets/covers/03_automation_background.png).
+Lesson 3 is automations and control in the same two hours. The first half is when a research job starts: a schedule, an event, or a condition. The second half is how you inspect the result. The slides are [`lesson3/lesson3.pdf`](lesson3/lesson3.pdf). The cover is [`assets/covers/03_automations_control_background.jpg`](assets/covers/03_automations_control_background.jpg).
 
 Lesson 4 is control: how you check the diff, the table and the log before you trust them. Lesson 1 already ends on a table that runs and still needs a reader. This session makes that check a habit. The slides are not written yet. The cover is [`assets/covers/04_control_background.png`](assets/covers/04_control_background.png).
 
 ## Overleaf
 
-Overleaf compiles **`main.tex`** at repo root. It inputs Lesson 1.
+Overleaf compiles **`main.tex`** at repo root. That file inputs one lesson. Switch the active lesson by commenting and uncommenting the `\input` line.
 
 **Recompile** → `main.pdf`
 
 | Method | Main document | PDF output |
 |--------|---------------|------------|
-| Default | `main.tex` | `main.pdf` |
-| Lesson 1 direct | `lesson1/lesson1.tex` | [`lesson1/lesson1.pdf`](lesson1/lesson1.pdf) |
-| Lesson 2 direct | `main_lesson2.tex` | [`lesson2/lesson2.pdf`](lesson2/lesson2.pdf) |
-| Lesson 3 cover | `main_lesson3.tex` | [`lesson3/lesson3.pdf`](lesson3/lesson3.pdf) |
-| Lesson 4 cover | `main_lesson4.tex` | [`lesson4/lesson4.pdf`](lesson4/lesson4.pdf) |
-
-`main.tex` is a thin Overleaf stub. It compiles Lesson 1. Lessons 3 and 4 are covers only.
+| Active lesson | `main.tex` | `main.pdf` |
+| Lesson 1 | uncomment `\input{lesson1/lesson1.tex}` | [`lesson1/lesson1.pdf`](lesson1/lesson1.pdf) |
+| Lesson 2 | uncomment `\input{lesson2/lesson2.tex}` | [`lesson2/lesson2.pdf`](lesson2/lesson2.pdf) |
+| Lesson 3 | uncomment `\input{lesson3/lesson3.tex}` | [`lesson3/lesson3.pdf`](lesson3/lesson3.pdf) |
+| Lesson 4 | uncomment `\input{lesson4/lesson4.tex}` | [`lesson4/lesson4.pdf`](lesson4/lesson4.pdf) |
 
 ## The four lessons
 
@@ -38,7 +36,7 @@ Overleaf compiles **`main.tex`** at repo root. It inputs Lesson 1.
 |--------|----------|-------------|
 | 1. Vocabulary | What are these things? | [`lesson1/`](lesson1/) |
 | 2. Second brain | How do agents remember? | [`lesson2/`](lesson2/) |
-| 3. Automations | How do they run without me? | cover only, [`lesson3/`](lesson3/) |
+| 3. Automations and control | How do they run, and how do I check the result? | [`lesson3/`](lesson3/) |
 | 4. Control | How do I check their work? | cover only, [`lesson4/`](lesson4/) |
 
 One-page outline: [`syllabus.tex`](syllabus.tex).
@@ -54,7 +52,7 @@ Agentic_Economic_Research/
 ├── demos/lesson2/      # Notes for the Lesson 2 demo
 ├── lesson1/            # Lesson 1 deck
 ├── lesson2/            # Lesson 2 deck and the synthetic vault
-├── lesson3/            # Lesson 3 cover only
+├── lesson3/            # Lesson 3 deck
 └── lesson4/            # Lesson 4 cover only
 ```
 
@@ -66,7 +64,7 @@ What each major file is.
 
 | Path | What it is |
 |------|------------|
-| `main.tex` | Overleaf stub. Inputs `lesson1/lesson1.tex`. |
+| `main.tex` | Overleaf entry. One uncommented `\input` selects the active lesson. |
 | `syllabus.tex` | One-page English syllabus: four sessions of two hours. |
 | `README.md` | This file. |
 | `.gitattributes` | Git LFS rules. |
@@ -109,12 +107,25 @@ Theme file is `lesson2/preamble.tex`. It loads the Lesson 1 theme, then the Less
 | `speaker-notes.md` | Notes for the lecture, in Italian. |
 | `REFERENCES.md` | Reading list behind the slides. |
 
+### `lesson3/` — Automations and control (hours 5–6)
+
+One file, `lesson3/lesson3.tex`. It uses the Lesson 2 preamble. `main.tex` currently inputs this lesson.
+
+| Path | What it is |
+|------|------------|
+| `lesson3.tex` | 30-slide deck. |
+| `lesson3.pdf` | Compiled Lesson 3. |
+| `assets/covers/03_automations_control_background.jpg` | Cover photograph. |
+| `assets/lesson3/tex/newsletter_assist.jpg` | ASSIST Weekly page, on the newsletter slide. |
+| `assets/lesson3/tex/purge_vision1940.png` | Province table from the PURGE editor. |
+| `assets/lesson3/tex/purge_row_check.png` | PDF column next to the extracted values. |
+
 ### `assets/`
 
 | Path | What it is |
 |------|------------|
 | `banner.png` | Header image at the top of this README. The Lesson 2 cover, with no text. |
-| `covers/` | Full-bleed covers for the four lessons. Lessons 3 and 4 are not taught yet. |
+| `covers/` | Full-bleed covers for the four lessons. Lesson 4 is still a cover. |
 | `lesson1/screens/` | Screenshots and vendor images used in Lesson 1. |
 | `lesson1/charts/data/` | CSV behind the pgfplots charts. |
 | `lesson1/traces/` | Real agent logs and the table the agent wrote. |
@@ -140,7 +151,7 @@ https://github.com/MarcoLeMoglie/Agentic_Economic_Research/tree/main/demos/lesso
 ## Local build
 
 ```bash
-# From the repo root. The output directory must exist.
+# From the repo root. Uncomment one \input in main.tex first.
 mkdir -p /tmp/lesson1
 tectonic -X compile main.tex --outdir /tmp/lesson1
 

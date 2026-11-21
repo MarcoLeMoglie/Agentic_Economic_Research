@@ -6,10 +6,11 @@ Compile from the repository root:
 
 ```bash
 mkdir -p /tmp/l2c
-tectonic -X compile main_lesson2.tex --outdir /tmp/l2c
-cp /tmp/l2c/main_lesson2.pdf lesson2/lesson2.pdf
+# In main.tex, leave only \input{lesson2/lesson2.tex} active.
+tectonic -X compile main.tex --outdir /tmp/l2c
+cp /tmp/l2c/main.pdf lesson2/lesson2.pdf
 ```
 
-`main.tex` is still Lesson 1.
+`main.tex` is the only Overleaf entry. Uncomment the lesson to compile.
 
 Speaker notes: `speaker-notes.md` (Italian, from the source pack). Sources: `REFERENCES.md`. Image provenance: `sources-and-image-credits.md`. Live demo: `demos/lesson2/` and `DEMO_GUIDE.md`. Do not run `scripts/setup_git.sh` inside this repository. Copy the demo folder out first.
