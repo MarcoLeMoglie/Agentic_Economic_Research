@@ -4,7 +4,7 @@
 
 **Instructor:** Marco Le Moglie, Catholic University of the Sacred Heart
 
-I teach this to PhD students and faculty in economics. Four sessions of two hours, eight hours in total, in English, on a video call.
+I teach this to PhD students and faculty in economics. Four lessons of two hours, eight hours in total, in English, on a video call.
 
 A paper is still the same job: read, get the data in shape, estimate, write, answer the referee. An agent can take a piece of that job inside the project folder. It opens the files, runs Stata, and changes the line that failed. The course is how you point it at the right files, what you let it change, and how you check the result.
 
@@ -14,7 +14,7 @@ A paper is still the same job: read, get the data in shape, estimate, write, ans
 
 **Lesson 3. Automations and control.** An automation is a job that starts when you are not in the session, on a schedule, an event, or a condition, and only within the changes you allowed. Control is the check before a result stays: the source next to the value, the diff, and a second pass. A methodological choice stays only when you can explain it.
 
-**Session 4. Your project.** You bring an agent you tried on your own paper. It need not be finished. Show what you built, what failed, and how you checked it. Each person has 10–15 minutes. There is no slide deck for this session. 
+**Lesson 4. Your project.** You bring an agent you tried on your own paper. It need not be finished. Show what you built, what failed, and how you checked it. Each person has 10–15 minutes. There is no slide deck for this lesson. 
 
 ## Slides
 
