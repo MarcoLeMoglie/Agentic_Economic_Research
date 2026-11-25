@@ -1,8 +1,10 @@
+![Agentic AI for Economic Research](assets/banner.png)
+
 # Agentic AI for Economic Research
 
 **Instructor:** Marco Le Moglie, Catholic University of the Sacred Heart
 
-I teach this to PhD students and faculty in economics. Three lessons of two hours, in English, on a video call.
+I teach this to PhD students and faculty in economics. Four sessions of two hours, eight hours in total, in English, on a video call.
 
 A paper is still the same job: read, get the data in shape, estimate, write, answer the referee. An agent can take a piece of that job inside the project folder. It opens the files, runs Stata, and changes the line that failed. The course is how you point it at the right files, what you let it change, and how you check the result.
 
@@ -12,6 +14,8 @@ A paper is still the same job: read, get the data in shape, estimate, write, ans
 
 **Lesson 3. Automations and control.** 
 
+**Session 4. Your project.** 
+
 ## Slides
 
 | Lesson | PDF |
@@ -19,6 +23,7 @@ A paper is still the same job: read, get the data in shape, estimate, write, ans
 | 1. Vocabulary | [`lesson1/lesson1.pdf`](lesson1/lesson1.pdf) |
 | 2. Second brain | [`lesson2/lesson2.pdf`](lesson2/lesson2.pdf) |
 | 3. Automations and control | [`lesson3/lesson3.pdf`](lesson3/lesson3.pdf) |
+| 4. Your project | No slides. You present the agent you tried on your own paper. |
 
 One-page outline: [`syllabus.pdf`](syllabus.pdf).
 
