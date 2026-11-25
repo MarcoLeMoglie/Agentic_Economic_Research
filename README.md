@@ -27,6 +27,8 @@ A paper is still the same job: read, get the data in shape, estimate, write, ans
 
 One-page outline: [`syllabus.pdf`](syllabus.pdf).
 
+The slides, the syllabus, and the demo files in this repository were built with AI agents.
+
 ## Class files
 
 ### `demos/lesson1/`
