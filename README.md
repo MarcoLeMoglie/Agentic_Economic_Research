@@ -1,5 +1,3 @@
-![Agentic AI for Economic Research](assets/banner.png)
-
 # Agentic AI for Economic Research
 
 **Instructor:** Marco Le Moglie, Catholic University of the Sacred Heart
@@ -14,55 +12,17 @@ A paper is still the same job: read, get the data in shape, estimate, write, ans
 
 **Lesson 3. Automations and control.** 
 
-## Overleaf
+## Slides
 
-Overleaf compiles **`main.tex`** at the repo root. That file inputs one lesson. Switch the active lesson by commenting and uncommenting the `\input` line.
+| Lesson | PDF |
+|--------|-----|
+| 1. Vocabulary | [`lesson1/lesson1.pdf`](lesson1/lesson1.pdf) |
+| 2. Second brain | [`lesson2/lesson2.pdf`](lesson2/lesson2.pdf) |
+| 3. Automations and control | [`lesson3/lesson3.pdf`](lesson3/lesson3.pdf) |
 
-**Recompile** → `main.pdf`
+One-page outline: [`syllabus.pdf`](syllabus.pdf).
 
-| Lesson | In `main.tex` | PDF |
-|--------|----------------|-----|
-| 1 | uncomment `\input{lesson1/lesson1.tex}` | [`lesson1/lesson1.pdf`](lesson1/lesson1.pdf) |
-| 2 | uncomment `\input{lesson2/lesson2.tex}` | [`lesson2/lesson2.pdf`](lesson2/lesson2.pdf) |
-| 3 | uncomment `\input{lesson3/lesson3.tex}` | [`lesson3/lesson3.pdf`](lesson3/lesson3.pdf) |
-
-## The three lessons
-
-| Lesson | Question | In the repo |
-|--------|----------|-------------|
-| 1. Vocabulary | What are these things? | [`lesson1/`](lesson1/) |
-| 2. Second brain | How does the project survive the next chat? | [`lesson2/`](lesson2/) |
-| 3. Automations and control | When does the job start, and how do I check it? | [`lesson3/`](lesson3/) |
-
-One-page outline: [`syllabus.tex`](syllabus.tex).
-
-## Repository layout
-
-```
-Agentic_Economic_Research/
-├── main.tex            # Overleaf entry. One active lesson.
-├── syllabus.tex        # One-page outline
-├── assets/             # Figures used in the slides
-├── demos/lesson1/      # Live material for Lesson 1
-├── demos/lesson2/      # Live material for Lesson 2
-├── lesson1/            # Lesson 1 deck
-├── lesson2/            # Lesson 2 deck and the synthetic vault
-└── lesson3/            # Lesson 3 deck
-```
-
-## File guide
-
-### `lesson1/` — Vocabulary (hours 1–2)
-
-`lesson1.tex` is the deck. `lesson1.pdf` is the compiled file. The theme is `preamble_v2.tex`. Where the figures and the numbers come from: [`assets/lesson1/SOURCES.md`](assets/lesson1/SOURCES.md).
-
-### `lesson2/` — Second brain (hours 3–4)
-
-`lesson2.tex` is the deck. `lesson2.pdf` is the compiled file. `preamble.tex` loads the Lesson 1 theme and adds the Lesson 2 boxes. `obsidian-vault/` is the invented project shown in class. `speaker-notes.md` is the lecture notes, in Italian. `REFERENCES.md` is the reading list.
-
-### `lesson3/` — Automations and control (hours 5–6)
-
-`lesson3.tex` is the whole deck in one file. It uses the Lesson 2 preamble. `lesson3.pdf` is the compiled file. `main.tex` currently inputs this lesson.
+## Class files
 
 ### `demos/lesson1/`
 
@@ -90,18 +50,6 @@ https://github.com/MarcoLeMoglie/Agentic_Economic_Research/tree/main/demos/lesso
 | `README.md` | What the synthetic project is, and the commands for class. |
 | `DEMO_GUIDE.md` | The order of the demo. |
 
-## Local build
-
-```bash
-# From the repo root. Uncomment one \input in main.tex first.
-mkdir -p /tmp/lesson
-tectonic -X compile main.tex --outdir /tmp/lesson
-```
-
-Docker: `texlive/texlive:latest` if the local TeX is too old.
-
 ## Licence
 
-Third-party screenshots are used under fair use for non-commercial teaching.
-Replace with institutional captures or live demos before public distribution if
-required by your institution.
+Third-party material in the slides is used under fair use for non-commercial teaching.

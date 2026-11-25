@@ -31,6 +31,21 @@ _minted-*
 *.upa
 *.upb
 
+# Sources stay in this folder for Overleaf. GitHub publishes the lesson PDFs,
+# syllabus.pdf, and demos/ only.
+*.tex
+*.bib
+*.sh
+assets/
+lesson1/**
+!lesson1/lesson1.pdf
+lesson2/**
+!lesson2/lesson2.pdf
+lesson3/**
+!lesson3/lesson3.pdf
+lesson3_archive_20261120/
+demos/lesson3/
+
 # Earlier four-hour course. Kept on disk for Overleaf. Not part of this repo.
 session1/
 session2/
