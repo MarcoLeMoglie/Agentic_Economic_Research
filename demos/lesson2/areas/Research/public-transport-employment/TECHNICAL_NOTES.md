@@ -1,11 +1,3 @@
----
-title: Public Transport and Employment — Technical Notes
-type: technical
-status: active
-project: public-transport-employment
-updated: 2026-11-21
----
-
 # Technical Notes
 
 Synthetic project: the "data" described here is hypothetical. The technical conventions are real and reusable.
@@ -75,7 +67,7 @@ Aggregation rules: counts sum within district–quarter; rates are recomputed fr
 
 - `bash .infra/scripts/validate.sh` → PASS on 2026-11-18 (41 checks) and 2026-11-21 (46 checks, after a second project was registered), 0 errors, 0 warnings.
 - Negative probe: adding an unindexed page under `wiki/` produced `wiki page not linked from project INDEX` and exit code 1; deleting the probe restored PASS. The check works, not just the happy path.
-- Link and frontmatter checks ignore fenced/inline code and `general/templates/`. Templates contain `{{placeholder}}` links by design and are excluded.
+- Link checks ignore fenced code and `general/templates/`. Templates contain `{{placeholder}}` links by design and are excluded. A YAML block at the top of a note fails the check. `SKILL.md` keeps its name and description.
 - Registration is bidirectional: a project missing from `MEMORY.md` fails, and a `MEMORY.md` entry pointing at a non-project fails.
 
 ## Constraints

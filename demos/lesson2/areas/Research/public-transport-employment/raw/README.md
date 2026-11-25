@@ -1,11 +1,3 @@
----
-title: Raw Sources — Intake Rules
-type: readme
-status: active
-project: public-transport-employment
-updated: 2026-11-18
----
-
 # raw/ — Original Sources
 
 Files here are **originals or faithful captures**. They are read-only for this project: never edit, reformat, or "clean" them. If a cleaned version is needed, create a derived file outside `raw/` and name the transformation.

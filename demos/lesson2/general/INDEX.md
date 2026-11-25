@@ -1,10 +1,3 @@
----
-title: Global Index
-type: index
-status: active
-updated: 2026-11-18
----
-
 # Global Index
 
 The map of the Brain. Read this after [AGENTS.md](../AGENTS.md), then read [MEMORY.md](MEMORY.md) to find the active project.
@@ -52,18 +45,6 @@ Full routing table: [MEMORY.md](MEMORY.md).
 ## Conventions
 
 **File names** — `SCREAMING_SNAKE_CASE.md` for the 11 core project files; `kebab-case.md` for wiki pages, raw notes, skills, and folders. Project folder = slug, lowercase kebab-case.
-
-**Frontmatter** — every note starts with:
-
-```yaml
----
-title: Human Readable Title
-type: index | memory | protocol | policy | decision-log | project-brief | state | actions | agent-memory | technical | sources | log | prompts | summaries | wiki | readme
-status: active | draft | paused | archived | deprecated
-updated: YYYY-MM-DD
-project: project-slug        # project files only
----
-```
 
 **Dates** — ISO 8601, never `11/18/26`. Use `YYYY-MM-DD` in headings, tables, and prose.
 

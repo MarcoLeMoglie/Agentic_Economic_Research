@@ -1,11 +1,3 @@
----
-title: Public Transport and Employment — Session Summaries
-type: summaries
-status: active
-project: public-transport-employment
-updated: 2026-11-21
----
-
 # Session Summaries
 
 One short entry per session, newest last. Each stands alone; detail is in [LOG.md](LOG.md).

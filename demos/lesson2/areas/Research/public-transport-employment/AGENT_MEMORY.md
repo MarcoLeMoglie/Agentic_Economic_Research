@@ -1,11 +1,3 @@
----
-title: Public Transport and Employment — Agent Memory
-type: agent-memory
-status: active
-project: public-transport-employment
-updated: 2026-11-21
----
-
 # Agent Memory
 
 **Last verified:** 2026-11-21. Briefing for an agent about to work here. If the other core files already say it, it should not be repeated at length.

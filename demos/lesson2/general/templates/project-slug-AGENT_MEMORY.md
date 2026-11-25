@@ -1,11 +1,3 @@
----
-title: "{{title}} — Agent Memory"
-type: agent-memory
-status: active
-project: "{{slug}}"
-updated: "{{date}}"
----
-
 # Agent Memory
 
 > Briefing for an agent who has read the core files and is about to work. Not a diary. If a competent newcomer would infer it from the other files, delete it here. Target: under 80 lines.

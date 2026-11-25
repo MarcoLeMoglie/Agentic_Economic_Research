@@ -1,11 +1,3 @@
----
-title: "{{title}} — Log"
-type: log
-status: active
-project: "{{slug}}"
-updated: "{{date}}"
----
-
 # Log
 
 Chronological, newest last. One entry per working session. Facts and decisions only; no transcripts, no hidden reasoning.

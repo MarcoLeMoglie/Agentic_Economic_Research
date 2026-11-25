@@ -1,10 +1,3 @@
----
-title: Teaching
-type: index
-status: active
-updated: 2026-11-18
----
-
 # Teaching
 
 Courses, lecture material, syllabi, grading notes, and supervision.

@@ -1,10 +1,3 @@
----
-title: Global Decisions
-type: decision-log
-status: active
-updated: 2026-11-18
----
-
 # Global Decisions
 
 Decisions that bind the whole Brain. Project decisions live in each project's `DECISIONS.md`. Append only: supersede an entry with a new dated entry and mark the old one `superseded by D-xxx`; never rewrite history to look cleaner.
@@ -25,7 +18,7 @@ Decisions that bind the whole Brain. Project decisions live in each project's `D
 ## D-001 — Markdown is canonical
 
 **Date:** 2026-11-18
-**Decision:** All durable knowledge is stored as plain Markdown with YAML frontmatter inside this vault.
+**Decision:** All durable knowledge is stored as plain Markdown inside this vault.
 **Rationale:** Portable across Obsidian, editors, Git, and any AI runtime; readable without tooling; diffable; survives product churn.
 **Consequences:** No database, embedding store, or sync service is required or authoritative. Any external memory tool is an optional mirror. Formatting must stay simple enough to read as text.
 

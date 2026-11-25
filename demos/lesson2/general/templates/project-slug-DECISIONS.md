@@ -1,11 +1,3 @@
----
-title: "{{title}} — Decisions"
-type: decision-log
-status: active
-project: "{{slug}}"
-updated: "{{date}}"
----
-
 # Decisions
 
 Append-only. A decision is a confirmed choice that constrains future work. Ideas and proposals belong in [PROJECT_BRIEF.md](PROJECT_BRIEF.md) or [NEXT_ACTIONS.md](NEXT_ACTIONS.md).

@@ -1,11 +1,3 @@
----
-title: Public Transport and Employment — Next Actions
-type: actions
-status: active
-project: public-transport-employment
-updated: 2026-11-21
----
-
 # Next Actions
 
 Synthetic project. Actions concern a design exercise, not real data collection.

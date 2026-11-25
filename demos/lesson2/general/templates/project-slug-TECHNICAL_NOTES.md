@@ -1,11 +1,3 @@
----
-title: "{{title}} — Technical Notes"
-type: technical
-status: active
-project: "{{slug}}"
-updated: "{{date}}"
----
-
 # Technical Notes
 
 Reproducible findings only: commands, environment, data formats, errors, fixes. One finding per subsection.

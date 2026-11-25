@@ -1,11 +1,3 @@
----
-title: Rivervale BRT and Employment — Concept Note (Synthetic)
-type: raw
-status: reference
-project: public-transport-employment
-updated: 2026-11-10
----
-
 > **PROVENANCE**
 > Type: internal concept memo (fictional)
 > Author: demonstration author

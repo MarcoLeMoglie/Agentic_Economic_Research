@@ -1,12 +1,3 @@
----
-title: Public Transport and Employment — Project Index
-type: index
-status: active
-project: public-transport-employment
-area: Research
-updated: 2026-11-18
----
-
 # Does Better Public Transport Increase Employment?
 
 > **SYNTHETIC DEMONSTRATION PROJECT.** Every place, institution, date, and number in this folder is fictional. There are no empirical results and no real citations. Do not reuse this as evidence.

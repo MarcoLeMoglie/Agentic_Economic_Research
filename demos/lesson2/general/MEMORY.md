@@ -1,10 +1,3 @@
----
-title: Global Memory Router
-type: memory
-status: active
-updated: 2026-11-18
----
-
 # Global Memory — Project Router
 
 **This is an index, not a knowledge dump.** Keep it under ~120 lines. Process knowledge belongs in the protocols, project knowledge in `areas/`, binding constraints in [GLOBAL_DECISIONS.md](GLOBAL_DECISIONS.md). Add a project row only when the project is created; update a row only when its status or focus changes.

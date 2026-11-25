@@ -1,11 +1,3 @@
----
-title: Public Transport and Employment — Decisions
-type: decision-log
-status: active
-project: public-transport-employment
-updated: 2026-11-18
----
-
 # Decisions
 
 Append-only. Confirmed choices only. Proposals stay in [PROJECT_BRIEF.md](PROJECT_BRIEF.md) or [NEXT_ACTIONS.md](NEXT_ACTIONS.md).

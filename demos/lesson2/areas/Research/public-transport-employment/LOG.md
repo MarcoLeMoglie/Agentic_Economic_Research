@@ -1,11 +1,3 @@
----
-title: Public Transport and Employment — Log
-type: log
-status: active
-project: public-transport-employment
-updated: 2026-11-21
----
-
 # Log
 
 Chronological, oldest first. One entry per session. Facts and decisions only; no transcripts or hidden reasoning.

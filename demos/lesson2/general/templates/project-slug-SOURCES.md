@@ -1,11 +1,3 @@
----
-title: "{{title}} — Sources"
-type: sources
-status: active
-project: "{{slug}}"
-updated: "{{date}}"
----
-
 # Sources and Provenance
 
 Register every source before using it. Originals live in `raw/` and are never edited. A source that has not been acquired is recorded as `unavailable` — never replaced by a plausible citation.

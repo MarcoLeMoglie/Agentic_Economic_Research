@@ -1,12 +1,3 @@
----
-title: Difference-in-Differences with Staggered Adoption
-type: wiki
-status: active
-project: public-transport-employment
-updated: 2026-11-18
-sources: []
----
-
 # Difference-in-Differences with Staggered Adoption
 
 **Scope:** a working reference for the design chosen in D-001. It covers the estimand, assumptions, why the naive two-way fixed-effects (TWFE) coefficient is not automatically a causal effect under staggered timing, and the diagnostics this project must report. It is not a literature review and cites no papers; the methodological source (S-002) has not been acquired.

@@ -1,11 +1,3 @@
----
-title: "{{title}} — Next Actions"
-type: actions
-status: active
-project: "{{slug}}"
-updated: "{{date}}"
----
-
 # Next Actions
 
 Keep 3–7 actions. Each one must be finishable by a person or agent in a bounded session, with a test for "done". No "continue working", no vague intentions.

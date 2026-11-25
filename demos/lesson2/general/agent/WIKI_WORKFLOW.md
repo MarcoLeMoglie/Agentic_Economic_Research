@@ -1,10 +1,3 @@
----
-title: LLM Wiki Workflow
-type: protocol
-status: active
-updated: 2026-11-18
----
-
 # WIKI_WORKFLOW — Ingest, Query, Lint, Promote
 
 A deliberately small wiki loop, in the spirit of Karpathy's "LLM wiki": sources come in, claims get distilled, links get checked, and only genuinely reusable knowledge is promoted. The wiki is **not** the default destination for new knowledge.
@@ -112,7 +105,7 @@ conversation insight
   -> skill                    (reusable procedure, executable)
 ```
 
-**Promote to a wiki page when:** the content is stable and long, and the core files would become bloated by keeping it inline. Create the page with frontmatter, link it from `INDEX.md`, and replace the inline detail with a one-line link.
+**Promote to a wiki page when:** the content is stable and long, and the core files would become bloated by keeping it inline. Create the page, link it from `INDEX.md`, and replace the inline detail with a one-line link.
 
 **Promote to global documentation when:** two unrelated projects rely on it. Move it, leave a redirect line in the old location, and log the move.
 
@@ -123,15 +116,6 @@ conversation insight
 ## Page template
 
 ```markdown
----
-title: Page Title
-type: wiki
-status: active
-project: project-slug
-updated: 2026-11-18
-sources: [S-001]
----
-
 # Page Title
 
 **Scope:** what this page covers and what it does not.

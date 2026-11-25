@@ -1,11 +1,3 @@
----
-title: Public Transport and Employment — Current State
-type: state
-status: active
-project: public-transport-employment
-updated: 2026-11-21
----
-
 # Current State
 
 **As of 2026-11-21.** Synthetic project; all items describe a fictional design exercise. History: [LOG.md](LOG.md).

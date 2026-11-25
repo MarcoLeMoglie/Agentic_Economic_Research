@@ -1,11 +1,3 @@
----
-title: "{{title}} — Session Summaries"
-type: summaries
-status: active
-project: "{{slug}}"
-updated: "{{date}}"
----
-
 # Session Summaries
 
 One short entry per session, newest last. Each must stand alone: goal, outcome, decisions, open threads, where to resume. Detail lives in [LOG.md](LOG.md).

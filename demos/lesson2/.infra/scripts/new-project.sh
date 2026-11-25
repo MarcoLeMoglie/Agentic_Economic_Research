@@ -64,14 +64,6 @@ TITLE="$TITLE" SLUG="$SLUG" AREA="$AREA" DATE="$DATE" \
   "$DEST"/*.md
 
 cat > "$DEST/raw/README.md" <<EOF
----
-title: Raw Sources — Intake Rules
-type: readme
-status: active
-project: $SLUG
-updated: $DATE
----
-
 # raw/ — Original Sources
 
 Original documents for **$TITLE**. Read-only: never edit, reformat, or "clean" a capture.

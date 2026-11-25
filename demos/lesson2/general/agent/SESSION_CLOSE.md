@@ -1,10 +1,3 @@
----
-title: Session Close Protocol
-type: protocol
-status: active
-updated: 2026-11-18
----
-
 # SESSION_CLOSE — Leaving the Brain Ready
 
 Run this before ending any session that produced durable knowledge, and always when the user says *close*, *wrap up*, *save memory*, or *hand off*. The test: could a different agent, with a different context window, resume correctly from the files alone?

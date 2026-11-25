@@ -1,10 +1,3 @@
----
-title: Research
-type: index
-status: active
-updated: 2026-11-18
----
-
 # Research
 
 Empirical work, grants, papers, replication packages, and methodological notes.

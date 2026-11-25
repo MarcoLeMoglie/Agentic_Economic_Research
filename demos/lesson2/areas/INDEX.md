@@ -1,10 +1,3 @@
----
-title: Areas
-type: index
-status: active
-updated: 2026-11-18
----
-
 # Areas
 
 Projects are grouped by area so that the router stays short and domains stay separable.
@@ -23,4 +16,4 @@ Global navigation: [general/INDEX.md](../general/INDEX.md) · Registry: [general
 2. One project, one memory. Do not mix two projects in one folder, and do not store project state in this index.
 3. Registration is deliberate: add the project to the area index **and** to [general/MEMORY.md](../general/MEMORY.md) (the validator checks both directions).
 4. Areas are not tags. If a project genuinely belongs to two areas, choose the primary one and link across; do not duplicate the folder.
-5. Archive, do not delete. Set `status: archived` in project frontmatter and in the registry; keep the history.
+5. Archive, do not delete. Mark the project archived in its index and in the registry; keep the history.

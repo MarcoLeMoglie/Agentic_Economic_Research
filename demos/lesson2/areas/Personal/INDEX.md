@@ -1,10 +1,3 @@
----
-title: Personal
-type: index
-status: active
-updated: 2026-11-18
----
-
 # Personal
 
 Personal projects and life administration, kept deliberately separate from research and teaching.

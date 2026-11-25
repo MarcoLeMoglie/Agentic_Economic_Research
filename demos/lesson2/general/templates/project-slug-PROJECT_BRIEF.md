@@ -1,11 +1,3 @@
----
-title: "{{title}} — Project Brief"
-type: project-brief
-status: active
-project: "{{slug}}"
-updated: "{{date}}"
----
-
 # Project Brief
 
 ## Question

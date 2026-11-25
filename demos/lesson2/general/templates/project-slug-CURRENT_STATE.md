@@ -1,11 +1,3 @@
----
-title: "{{title}} — Current State"
-type: state
-status: active
-project: "{{slug}}"
-updated: "{{date}}"
----
-
 # Current State
 
 **As of {{date}}.** This file describes *now*. History belongs in [LOG.md](LOG.md); replace stale statements instead of stacking new snapshots.

@@ -1,10 +1,3 @@
----
-title: Agent Contract
-type: protocol
-status: active
-updated: 2026-11-18
----
-
 # AGENTS.md — Contract for Any AI Agent
 
 This file is the entry point for every agent (Claude, Codex, Gemini, Cursor, local models, or a human with an editor). It is deliberately short. The operational detail lives in [general/agent/BOOTSTRAP.md](general/agent/BOOTSTRAP.md) and [general/agent/SESSION_CLOSE.md](general/agent/SESSION_CLOSE.md).

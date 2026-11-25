@@ -1,11 +1,3 @@
----
-title: Public Transport and Employment — Prompts
-type: prompts
-status: active
-project: public-transport-employment
-updated: 2026-11-18
----
-
 # Reusable Prompts
 
 Parameterised prompts that worked in this project. Keep them short; the protocol files carry the detail.

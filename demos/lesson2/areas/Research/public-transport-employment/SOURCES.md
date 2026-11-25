@@ -1,11 +1,3 @@
----
-title: Public Transport and Employment — Sources
-type: sources
-status: active
-project: public-transport-employment
-updated: 2026-11-18
----
-
 # Sources and Provenance
 
 All sources in this project are **synthetic or unavailable**. Nothing here is a real citation, and no real document is claimed to exist.

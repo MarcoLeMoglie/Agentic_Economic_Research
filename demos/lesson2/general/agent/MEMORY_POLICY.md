@@ -1,10 +1,3 @@
----
-title: Memory Policy
-type: policy
-status: active
-updated: 2026-11-18
----
-
 # MEMORY_POLICY — What Counts as Memory
 
 This policy decides what is authoritative, what may be written where, and how disagreement is handled. It applies to humans and agents equally.
@@ -102,15 +95,15 @@ A silent resolution is a memory bug.
 - `CURRENT_STATE.md`: review every session; it describes *now*.
 - `NEXT_ACTIONS.md`: review every session; anything older than 90 days without progress is either blocked (say on what) or dropped.
 - `AGENT_MEMORY.md`: re-verify when a core file changes materially.
-- `wiki/` pages: review quarterly; add `status: stale` and a review date rather than deleting.
+- `wiki/` pages: review quarterly; write that the page is stale and add a review date, rather than deleting.
 - `DECISIONS.md`: never stale, only superseded. Old decisions remain valid history.
-- Archived projects: move nothing; add `status: archived` to frontmatter and the registry, and stop loading them by default.
+- Archived projects: move nothing; mark the project archived in its index and in the registry, and stop loading them by default.
 
 ## 8. Corrections and deletion
 
 - Wrong fact: append a correction with date and evidence; link the superseded claim.
 - Wrong decision: add a new decision that supersedes it; never rewrite the old rationale.
-- Obsolete page: mark `status: deprecated`, keep it, remove inbound links except the historical one.
+- Obsolete page: mark it deprecated in the page, keep it, remove inbound links except the historical one.
 - Genuinely harmful content (secrets, private data): remove it and rewrite history if committed; log the removal without reproducing the content.
 
 ## 9. What "remembering" means here

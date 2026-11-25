@@ -1,12 +1,3 @@
----
-title: "{{title}} — Project Index"
-type: index
-status: active
-project: "{{slug}}"
-area: "{{area}}"
-updated: "{{date}}"
----
-
 # {{title}}
 
 > One sentence: what this project is trying to establish or produce.

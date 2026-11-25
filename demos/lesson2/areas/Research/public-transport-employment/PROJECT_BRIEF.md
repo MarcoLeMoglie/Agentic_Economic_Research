@@ -1,11 +1,3 @@
----
-title: Public Transport and Employment — Project Brief
-type: project-brief
-status: active
-project: public-transport-employment
-updated: 2026-11-18
----
-
 # Project Brief
 
 > **SYNTHETIC DEMONSTRATION.** Fictional setting and hypothetical data only. No result in this file is real.

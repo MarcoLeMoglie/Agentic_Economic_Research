@@ -1,11 +1,3 @@
----
-title: "{{title}} — Prompts"
-type: prompts
-status: active
-project: "{{slug}}"
-updated: "{{date}}"
----
-
 # Reusable Prompts
 
 Prompts that worked, parameterised with `<angle-bracket>` slots. Keep the reason each one exists, and the failure mode it avoids.

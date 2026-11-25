@@ -1,10 +1,3 @@
----
-title: Bootstrap Protocol
-type: protocol
-status: active
-updated: 2026-11-18
----
-
 # BOOTSTRAP — Starting a Session
 
 Run this at the start of every session, before answering substantive questions or editing files. The goal is to recover **just enough** state to work correctly, not to read the vault.

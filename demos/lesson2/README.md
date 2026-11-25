@@ -1,10 +1,3 @@
----
-title: Second Brain — Start Here
-type: readme
-status: active
-updated: 2026-11-18
----
-
 # Second Brain
 
 This folder is the Lesson 2 demo in the course repository. Open it as its own vault. The project inside is synthetic.
@@ -77,7 +70,7 @@ bash .infra/scripts/new-project.sh Research my-new-project "My New Project"
 
 ## Rules that make it portable
 
-1. Plain Markdown with YAML frontmatter, UTF-8, ISO dates (`YYYY-MM-DD`).
+1. Plain Markdown, UTF-8, ISO dates (`YYYY-MM-DD`). Do not open a note with a YAML property block.
 2. Relative Markdown links (`[text](../path/file.md)`), not Obsidian-only `[[wikilinks]]`, so the vault renders on GitHub and in any editor.
 3. No secrets, credentials, API keys, or full chat transcripts. See [MEMORY_POLICY.md](general/agent/MEMORY_POLICY.md).
 4. One project per session unless the user explicitly expands scope.

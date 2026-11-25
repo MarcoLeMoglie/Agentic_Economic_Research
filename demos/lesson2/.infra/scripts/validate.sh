@@ -213,28 +213,22 @@ $(find . -name '*.md' -not -path './.git/*' -not -path './general/templates/*' |
 EOF
 [ "$LINK_ERRORS" -eq 0 ] && ok "$LINK_COUNT relative links resolve"
 
-# ---------------------------------------------------------------- frontmatter
-section '7. Frontmatter sanity'
+# ---------------------------------------------------------------- property block
+section '7. No YAML property block'
 NO_FM=0
 while IFS= read -r f; do
+  case "$f" in
+    */skills/*) continue ;;
+  esac
   first="$(head -n 1 "$f")"
-  if [ "$first" != "---" ]; then
-    warn "missing YAML frontmatter: $f"
+  if [ "$first" = "---" ]; then
+    fail "YAML property block at top of $f"
     NO_FM=$((NO_FM + 1))
-  else
-    case "$f" in
-      */skills/*) key='^name:' ;;
-      *)          key='^title:' ;;
-    esac
-    if ! sed -n '1,12p' "$f" | grep -q "$key"; then
-      warn "frontmatter without title/name: $f"
-      NO_FM=$((NO_FM + 1))
-    fi
   fi
 done <<EOF
-$(find general areas -name '*.md' -not -path 'general/templates/*' 2>/dev/null | sort)
+$(find . -name '*.md' -not -path './.git/*' | sort)
 EOF
-[ "$NO_FM" -eq 0 ] && ok 'all vault notes have frontmatter with a title'
+[ "$NO_FM" -eq 0 ] && ok 'notes do not open with a YAML property block'
 
 # ---------------------------------------------------------------- secrets
 section '8. Secret scan'
