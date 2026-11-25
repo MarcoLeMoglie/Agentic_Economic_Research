@@ -36,6 +36,7 @@ _minted-*
 *.tex
 *.bib
 *.sh
+!demos/lesson2/**/*.sh
 assets/**
 !assets/banner.png
 lesson1/**

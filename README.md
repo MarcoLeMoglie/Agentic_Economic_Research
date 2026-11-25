@@ -48,14 +48,16 @@ https://github.com/MarcoLeMoglie/Agentic_Economic_Research/tree/main/demos/lesso
 
 ### `demos/lesson2/`
 
-Live material for Lesson 2:
+The vault from the end of Lesson 2. Open this folder on its own:
 
 https://github.com/MarcoLeMoglie/Agentic_Economic_Research/tree/main/demos/lesson2
 
 | Path | What it is |
 |------|------------|
-| `README.md` | What the synthetic project is, and the commands for class. |
-| `DEMO_GUIDE.md` | The order of the demo. |
+| `README.md` | How to open the vault, and the two commands. |
+| `AGENTS.md` | The contract the agent reads first. |
+| `general/` | Shared index, protocols, the eleven templates, and the skill. |
+| `areas/Research/public-transport-employment/` | The synthetic project a new session reopens. |
 
 ## Licence
 
