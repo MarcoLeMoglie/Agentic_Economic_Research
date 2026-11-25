@@ -8,13 +8,13 @@ I teach this to PhD students and faculty in economics. Four sessions of two hour
 
 A paper is still the same job: read, get the data in shape, estimate, write, answer the referee. An agent can take a piece of that job inside the project folder. It opens the files, runs Stata, and changes the line that failed. The course is how you point it at the right files, what you let it change, and how you check the result.
 
-**Lesson 1. Vocabulary.**  
+**Lesson 1. Vocabulary.** What the pieces are, and what you do with them. The model writes the next text. The harness runs the session, calls the tools, and stops for permission. You learn what a run costs, which data can leave the machine, and how you tell a bad output. You leave able to point an agent at the project folder and say what it may change.
 
-**Lesson 2. Second brain.** 
+**Lesson 2. Second brain.** A brain is this project written in files the next session can open: where the work stands, which decisions were taken, and why. You use it so the agent acts on that memory instead of starting from the chat. The lesson shows what belongs in it, what you ask it to do, and the brain behind this research.
 
-**Lesson 3. Automations and control.** 
+**Lesson 3. Automations and control.** An automation is a job that starts when you are not in the session, on a schedule, an event, or a condition, and only within the changes you allowed. Control is the check before a result stays: the source next to the value, the diff, and a second pass. A methodological choice stays only when you can explain it.
 
-**Session 4. Your project.** 
+**Session 4. Your project.** You bring an agent you tried on your own paper. It need not be finished. Show what you built, what failed, and how you checked it. Each person has 10–15 minutes. There is no slide deck for this session. 
 
 ## Slides
 
